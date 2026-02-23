@@ -31,7 +31,6 @@ from openworm_ai.utils.llms import get_llm_from_argv
 
 load_dotenv()
 
-
 STORE_DIR = "store"
 SOURCE_DOCUMENT = "source document"
 
