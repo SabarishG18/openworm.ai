@@ -37,21 +37,6 @@ SOURCE_DOCUMENT = "source document"
 Settings.chunk_size = 3000
 Settings.chunk_overlap = 50
 
-SOURCE_REGISTRY_PATH = Path("corpus/papers/source_registry.json")
-
-
-def load_source_registry(path: Path):
-    if not path.exists():
-        return {"papers": {}}
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-def make_chunk_id(
-    paper_ref: str, section_title: str, para_index: int, text: str
-) -> str:
-    base = f"{paper_ref}|{section_title}|{para_index}|{text[:80]}"
-    return hashlib.sha1(base.encode("utf-8")).hexdigest()[:16]
-
 
 def _has_openai_key() -> bool:
     key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENAI_KEY")
@@ -122,64 +107,8 @@ def _make_llamaindex_llm(model: str):
     return Ollama(model="llama3.2", request_timeout=60.0)
 
 
-def get_embedding_model(model: str):
-    """
-    Get embedding model. Priority: HuggingFace API > Ollama > OpenAI default
-    """
-    # Check for embedding model override in env
-    embed_model_env = os.getenv("NML_AI_EMBEDDING_MODEL") or os.getenv(
-        "OPENWORM_AI_EMBEDDING_MODEL"
-    )
-
-    if embed_model_env and embed_model_env.startswith("huggingface:"):
-        hf_model = strip_huggingface_prefix(embed_model_env)
-        print_(f"Using HuggingFace API embedding: {hf_model}")
-        from llama_index.embeddings.huggingface_api import (
-            HuggingFaceInferenceAPIEmbedding,
-        )
-
-        return HuggingFaceInferenceAPIEmbedding(
-            model_name=hf_model, token=get_hf_token()
-        )
-
-    if is_huggingface_model(model):
-        hf_embed_model = "BAAI/bge-small-en-v1.5"
-        print_(f"Using HuggingFace API embedding: {hf_embed_model}")
-        from llama_index.embeddings.huggingface_api import (
-            HuggingFaceInferenceAPIEmbedding,
-        )
-
-        return HuggingFaceInferenceAPIEmbedding(
-            model_name=hf_embed_model, token=get_hf_token()
-        )
-
-    if is_ollama_model(model):
-        ollama_model = normalize_ollama_model_name(model)
-        print_(f"Using Ollama embedding: {ollama_model}")
-        from llama_index.embeddings.ollama import OllamaEmbedding
-
-        return OllamaEmbedding(model_name=ollama_model)
-
-    print_("Using default embedding model")
-    return None
-
-
-def get_store_subfolder(model: str) -> str:
-    if is_huggingface_model(model):
-        hf_model = strip_huggingface_prefix(model)
-        return "/" + hf_model.replace("/", "_").replace(":", "_")
-    if is_ollama_model(model):
-        ollama_model = normalize_ollama_model_name(model)
-        return "/" + ollama_model.replace(":", "_")
-    return ""
-
-
 def create_store(model):
     json_inputs = glob.glob("processed/json/*/*.json")
-    print_(f"Found {len(json_inputs)} JSON files to process")
-
-    source_registry = load_source_registry(SOURCE_REGISTRY_PATH)
-    papers_meta = source_registry.get("papers", {})
 
     documents = []
     for json_file in json_inputs:
@@ -231,17 +160,7 @@ def create_store(model):
                     doc = Document(text=text, metadata={SOURCE_DOCUMENT: src_info})
                     documents.append(doc)
 
-                    meta = {
-                        "paper_ref": paper_ref,
-                        "citation_short": citation_short,
-                        "source_url": source_url,
-                        "doi": doi,
-                        "s2_paper_id": s2_paper_id,
-                        "source_type": src_type,
-                        "section_title": str(section_title),
-                        "para_index": para_index,
-                        "chunk_id": chunk_id,
-                    }
+    print_("Creating a vector store index for %s" % model)
 
     STORE_SUBFOLDER = "/" + _get_embedding_folder_name()
 
@@ -260,13 +179,13 @@ def load_index(model):
 
     storage_context = StorageContext.from_defaults(
         docstore=SimpleDocumentStore.from_persist_dir(
-            persist_dir=STORE_DIR + store_subfolder
+            persist_dir=STORE_DIR + STORE_SUBFOLDER
         ),
         vector_store=SimpleVectorStore.from_persist_dir(
-            persist_dir=STORE_DIR + store_subfolder
+            persist_dir=STORE_DIR + STORE_SUBFOLDER
         ),
         index_store=SimpleIndexStore.from_persist_dir(
-            persist_dir=STORE_DIR + store_subfolder
+            persist_dir=STORE_DIR + STORE_SUBFOLDER
         ),
     )
 
@@ -279,16 +198,20 @@ def get_query_engine(index_reloaded, model, similarity_top_k=4):
     print_("Creating query engine for %s" % model)
 
     text_qa_template_str = (
-        "Context information is below.\n---------------------\n{context_str}\n"
-        "---------------------\nUsing both the context information and your own knowledge, "
-        "answer the question: {query_str}\nIf the context isn't helpful, you can also answer on your own.\n"
+        "Context information is"
+        " below.\n---------------------\n{context_str}\n---------------------\nUsing"
+        " both the context information and also using your own knowledge, answer"
+        " the question: {query_str}\nIf the context isn't helpful, you can also"
+        " answer the question on your own.\n"
     )
     text_qa_template = PromptTemplate(text_qa_template_str)
 
     refine_template_str = (
-        "The original question is: {query_str}\nWe have an existing answer: {existing_answer}\n"
-        "We can refine it with more context below.\n------------\n{context_msg}\n------------\n"
-        "Using both the new context and your knowledge, update or repeat the existing answer.\n"
+        "The original question is as follows: {query_str}\nWe have provided an"
+        " existing answer: {existing_answer}\nWe have the opportunity to refine"
+        " the existing answer (only if needed) with some more context"
+        " below.\n------------\n{context_msg}\n------------\nUsing both the new"
+        " context and your own knowledge, update or repeat the existing answer.\n"
     )
     refine_template = PromptTemplate(refine_template_str)
 
@@ -319,13 +242,12 @@ def process_query(query, model, query_engine, verbose=False):
 
     cutoff = 0.2
     files_used = []
-
     for sn in response.source_nodes:
         if verbose:
             print_("===================================")
             print_(sn.metadata["source document"])
             print_("-------")
-            print_(f"Length of selection: {len(sn.text)}")
+            print_("Length of selection below: %i" % len(sn.text))
             print_(sn.text)
 
         sd = sn.metadata["source document"]
@@ -334,8 +256,7 @@ def process_query(query, model, query_engine, verbose=False):
                 files_used.append(f"{sd} (score: {sn.score})")
 
     file_info = ",\n   ".join(files_used)
-    print_(
-        f"""
+    print_(f"""
 ===============================================================================
 QUERY: {query}
 MODEL: {model}
@@ -344,8 +265,7 @@ RESPONSE: {response_text}
 SOURCES:
    {file_info}
 ===============================================================================
-"""
-    )
+""")
 
     return response_text, response.metadata
 
@@ -368,7 +288,7 @@ if __name__ == "__main__":
             "Tell me about the different locomotory gaits of C. elegans",
         ]
 
-        print_(f"Processing {len(queries)} queries")
+        print_("Processing %i queries" % len(queries))
 
         for query in queries:
             process_query(query, llm_ver, query_engine)
