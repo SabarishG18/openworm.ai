@@ -401,8 +401,8 @@ def convert_existing_raw_json(
     convert_to_json(paper_ref, paper_info, json_output_dir)
 
     pdf_key = Path(pdf_path).as_posix()
+    pdf_stat = Path(pdf_path).stat()
 
-    # 2) record what files we produced
     outputs = [
         Path(f"{json_output_dir}/{paper_ref}.json").as_posix(),
         Path(f"{markdown_output_dir}/{paper_ref}.md").as_posix(),
@@ -410,21 +410,14 @@ def convert_existing_raw_json(
         raw_json_path.as_posix(),
     ]
 
-    pdf_stat = Path(pdf_path).stat()
-
-    # 3) create/update the entry in the manifest
     manifest["entries"][pdf_key] = {
         "paper_ref": paper_ref,
         "source_url": source_url,
         "parsed_at": utc_now_iso(),
-        "pdf": {
-            "mtime": pdf_stat.st_mtime,
-            "size": pdf_stat.st_size,
-        },
+        "pdf": {"mtime": pdf_stat.st_mtime, "size": pdf_stat.st_size},
         "outputs": outputs,
     }
 
-    # 4) save to disk
     save_manifest(MANIFEST_PATH, manifest)
     print_(f"Manifest updated: {MANIFEST_PATH}")
 

@@ -6,7 +6,10 @@ ruff check openworm_ai/*.py openworm_ai/*/*.py openworm_ai/*/*/*.py
 
 pip install .[dev]
 
-if [ "$1" == "-quiz" ]; then
+if [ $1 == "-llamaparse" ]; then
+    python -m openworm_ai.parser.llamaparse_backend 
+
+elif [ $1 == "-quiz" ]; then
     python -m openworm_ai.quiz.QuizMaster 10
     python -m openworm_ai.quiz.QuizMaster -ask
     python -m openworm_ai.quiz.QuizMaster -ask -o-t
@@ -19,6 +22,7 @@ elif [ "$1" == "-qplot" ]; then
 elif [ "$1" == "-llm" ]; then
 
     python -m openworm_ai.utils.llms # default - ChatGPT via API
+    python -m openworm_ai.utils.llms  -hf-qwen # Qwen via HuggingFace API 
     python -m openworm_ai.utils.llms -co # Cohere via API - free
     python -m openworm_ai.utils.llms -g25 # gemini-2.5-flash via API - free tier
     python -m openworm_ai.utils.llms -o-l323b # Ollama:llama3.2:3b
