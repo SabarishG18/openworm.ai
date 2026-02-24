@@ -1,16 +1,12 @@
-import os
 import time
+import os
 
-from dotenv import load_dotenv
-from langchain.chat_models import init_chat_model
-from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
-
-load_dotenv()  # Load .env file (HF_TOKEN, etc.)
+from langchain_core.output_parsers import StrOutputParser
+from langchain.chat_models import init_chat_model
 
 LLM_CMD_LINE_ARGS = {}
 
-# OpenAI models
 LLM_GPT35 = "gpt-3.5-turbo-instruct"
 LLM_CMD_LINE_ARGS["-gpt35"] = LLM_GPT35
 LLM_GPT4 = "gpt-4"
@@ -19,7 +15,6 @@ LLM_GPT4o = "gpt-4o"
 LLM_LLAMA2 = "LLAMA2"
 LLM_CMD_LINE_ARGS["-l"] = LLM_LLAMA2
 
-# Gemini models
 LLM_GEMINI_2F = "gemini-2.0-flash"
 LLM_CMD_LINE_ARGS["-g"] = LLM_GEMINI_2F
 LLM_GEMINI_25F = "gemini-2.5-flash"
@@ -27,11 +22,9 @@ LLM_CMD_LINE_ARGS["-g25"] = LLM_GEMINI_25F
 
 LLMS_GEMINI = [LLM_GEMINI_2F, LLM_GEMINI_25F]
 
-# Anthropic models
 LLM_CLAUDE37 = "claude-3-7-sonnet-20250219"
 LLM_CMD_LINE_ARGS["-c"] = LLM_CLAUDE37
 
-# Cohere
 LLM_COHERE = "Cohere"
 LLM_CMD_LINE_ARGS["-co"] = LLM_COHERE
 
@@ -175,25 +168,6 @@ GENERAL_QUERY_LIMITED_PROMPT_TEMPLATE = """You are a neuroscientist who is answe
 
 
 def get_llm(llm_ver, temperature, limit_to_openwormai_llms=False):
-    # --- Hugging Face (matches NeuroML style: huggingface:MODEL[:cheapest]) ---
-    if is_huggingface_model(llm_ver):
-        hf_token = get_hf_token()
-        if not hf_token:
-            raise RuntimeError("HF_TOKEN (or HUGGINGFACEHUB_API_TOKEN) is not set")
-
-        model_name = strip_huggingface_prefix(llm_ver)
-
-        # Uses langchain-huggingface just like the NeuroML codebase does
-        from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
-
-        endpoint = HuggingFaceEndpoint(
-            repo_id=model_name,
-            huggingfacehub_api_token=hf_token,
-            temperature=temperature,
-        )
-        return ChatHuggingFace(llm=endpoint)
-
-    # --- Gemini ---
     if llm_ver in LLMS_GEMINI:
         from langchain_google_genai import ChatGoogleGenerativeAI
 
@@ -203,8 +177,7 @@ def get_llm(llm_ver, temperature, limit_to_openwormai_llms=False):
             temperature=temperature,
         )
 
-    # --- Cohere ---
-    if llm_ver == LLM_COHERE:
+    elif llm_ver == LLM_COHERE:
         from langchain_cohere import ChatCohere
 
         llm = ChatCohere()
@@ -216,7 +189,6 @@ def get_llm(llm_ver, temperature, limit_to_openwormai_llms=False):
             % llm_ver
         )
 
-    # --- Default LangChain init path (OpenAI/Ollama/Anthropic/etc) ---
     print(" ... Initializing chat model for LLM: %s using langchain" % llm_ver)
     llm = init_chat_model(llm_ver, temperature=temperature)
     return llm
@@ -232,7 +204,9 @@ def generate_response(input_text, llm_ver, temperature, only_celegans):
 
     try:
         llm = get_llm(llm_ver, temperature=temperature)
+
         llm_chain = prompt | llm | StrOutputParser()
+
         response = llm_chain.invoke(input_text)
     except Exception as e:
         return "Error when processing that request:\n\n%s" % (e)
@@ -249,7 +223,9 @@ def generate_panel_response(input_text, llm_panelists, llm_panel_chair, temperat
         )
 
         llm = get_llm(llm_ver, temperature=temperature)
+
         llm_chain = prompt | llm | StrOutputParser()
+
         responses[llm_ver] = llm_chain.invoke(input_text)
 
     panel_chair_prompt = """You are a neuroscientist chairing a panel discussion on the nematode C. elegans. A researcher has asked the following question:
@@ -276,7 +252,9 @@ Please generate a brief answer to the researcher's question based on their respo
     prompt = PromptTemplate(template=panel_chair_prompt, input_variables=["question"])
 
     llm = get_llm(llm_panel_chair, temperature=temperature)
+
     llm_chain = prompt | llm | StrOutputParser()
+
     response_chair = llm_chain.invoke(input_text)
 
     response = """**%s**: %s""" % (llm_panel_chair, response_chair)
@@ -299,30 +277,17 @@ _**%s**:_ _%s_
 
 
 def get_llm_from_argv(argv):
-    """
-    Determine which LLM to use based on command-line args and environment.
+    # Default remains GPT-4o
+    llm_ver = LLM_GPT4o
 
-    Priority order:
-    1. Environment variable: OPENWORM_AI_CHAT_MODEL or NML_AI_CHAT_MODEL
-    2. Command-line flags (e.g., -hf-mistral, -o-l32)
-    3. Explicit model names in argv
-    4. Default: HuggingFace (if HF_TOKEN set) -> Ollama (if available) -> GPT-4o
-    """
-    # 1) Environment variable override
-    env_model = os.getenv("OPENWORM_AI_CHAT_MODEL") or os.getenv("NML_AI_CHAT_MODEL")
-    if env_model and env_model.strip():
-        return env_model.strip()
-
-    # 2) Command-line flags
+    # Allow command-line flags to override
     for arg, model_name in LLM_CMD_LINE_ARGS.items():
         if arg in argv:
             return model_name
 
-    # 3) Explicit model names as positional args
+    # Allow explicit model names as positional args
     for a in argv[1:]:
-        if is_huggingface_model(a):
-            return a
-        if is_ollama_model(a):
+        if a.startswith("Ollama:"):
             return a
         if a in PREF_ORDER_LLMS:
             return a
@@ -376,6 +341,8 @@ def ask_question_get_response(
 if __name__ == "__main__":
     import sys
 
+    question = "What is the most common type of neuron in the brain?"
+    question = "Why is the worm C. elegans important to scientists?"
     question = "Tell me briefly about the neuronal control of C. elegans locomotion and the influence of monoamines."
 
     question = (
@@ -383,4 +350,5 @@ if __name__ == "__main__":
     )
 
     llm_ver = get_llm_from_argv(sys.argv)
+
     ask_question_get_response(question, llm_ver)
