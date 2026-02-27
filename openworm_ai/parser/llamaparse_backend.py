@@ -37,13 +37,13 @@ async def _parse_async(pdf_path: Path, json_output_path: Path) -> None:
 
     tier = os.environ.get("LLAMAPARSE_TIER", "cost_effective")
 
-    print_(f"[llamaparse] uploading: {pdf_path.name} (tier={tier})", flush=True)
+    print_(f"[llamaparse] uploading: {pdf_path.name} (tier={tier})")
 
     # Step 1: upload the file
     with open(pdf_path, "rb") as f:
         file_obj = await client.files.create(file=f, purpose="parse")
 
-    print_(f"[llamaparse] uploaded, file_id={file_obj.id}", flush=True)
+    print_(f"[llamaparse] uploaded, file_id={file_obj.id}")
 
     # Step 2: parse with our preferred options
     result = await client.parsing.parse(
@@ -73,7 +73,7 @@ async def _parse_async(pdf_path: Path, json_output_path: Path) -> None:
         expand=["text", "markdown", "items"],
     )
 
-    print("[llamaparse] parse complete, building output", flush=True)
+    print("[llamaparse] parse complete, building output")
 
     # Step 3: serialise into the raw JSON shape that convert_to_json expects.
     # The old item-level pipeline reads items[*]["md"] as individual paragraphs.
@@ -131,7 +131,7 @@ async def _parse_async(pdf_path: Path, json_output_path: Path) -> None:
         json.dumps(output, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"[llamaparse] saved to {json_output_path}", flush=True)
+    print(f"[llamaparse] saved to {json_output_path}")
 
 
 def generate_raw_json(pdf_path: str | Path, json_output_path: str | Path) -> None:
