@@ -24,7 +24,7 @@
         "corpus/papers/test/raw_json/BoyleBerriCohen2012.llamaparse_raw.json"
       ],
       "paper_ref": "BoyleBerriCohen2012",
-      "parsed_at": "2026-02-27T14:47:34.703764+00:00",
+      "parsed_at": "2026-02-27T17:16:38.499328+00:00",
       "pdf": {
         "mtime": 1771952078.6065297,
         "size": 9853425
@@ -99,7 +99,7 @@
         "corpus/papers/test/raw_json/SinhaEtAl2025.llamaparse_raw.json"
       ],
       "paper_ref": "SinhaEtAl2025",
-      "parsed_at": "2026-02-26T16:41:40.061422+00:00",
+      "parsed_at": "2026-02-27T17:13:41.863944+00:00",
       "pdf": {
         "mtime": 1771952078.957489,
         "size": 5238169

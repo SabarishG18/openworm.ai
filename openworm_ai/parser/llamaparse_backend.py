@@ -20,7 +20,9 @@ def get_llama_api_key() -> str:
     return key
 
 
-async def _parse_async(pdf_path: Path, json_output_path: Path) -> None:
+async def _parse_async(
+    pdf_path: Path, json_output_path: Path, tier: str = None
+) -> None:
     """
     Core async logic: upload PDF via SDK, parse it, save raw JSON output.
     Uses the llama_cloud>=1.0 SDK (AsyncLlamaCloud) instead of raw requests.
@@ -35,7 +37,7 @@ async def _parse_async(pdf_path: Path, json_output_path: Path) -> None:
 
     client = AsyncLlamaCloud(api_key=get_llama_api_key())
 
-    tier = os.environ.get("LLAMAPARSE_TIER", "cost_effective")
+    tier = tier or os.environ.get("LLAMAPARSE_TIER", "cost_effective")
 
     print_(f"[llamaparse] uploading: {pdf_path.name} (tier={tier})")
 
@@ -73,7 +75,7 @@ async def _parse_async(pdf_path: Path, json_output_path: Path) -> None:
         expand=["text", "markdown", "items"],
     )
 
-    print("[llamaparse] parse complete, building output")
+    print_("[llamaparse] parse complete, building output")
 
     # Step 3: serialise into the raw JSON shape that convert_to_json expects.
     # The old item-level pipeline reads items[*]["md"] as individual paragraphs.
@@ -131,12 +133,14 @@ async def _parse_async(pdf_path: Path, json_output_path: Path) -> None:
         json.dumps(output, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"[llamaparse] saved to {json_output_path}")
+    print_(f"[llamaparse] saved to {json_output_path}")
 
 
-def generate_raw_json(pdf_path: str | Path, json_output_path: str | Path) -> None:
+def generate_raw_json(
+    pdf_path: str | Path, json_output_path: str | Path, tier: str = None
+) -> None:
     """
     Public entry point (synchronous) — matches the signature expected by
     the rest of the pipeline (parse_pdfs.py).
     """
-    asyncio.run(_parse_async(Path(pdf_path), Path(json_output_path)))
+    asyncio.run(_parse_async(Path(pdf_path), Path(json_output_path), tier=tier))
