@@ -47,6 +47,13 @@ def parse_args():
         help=f"Match the given glob pattern for pdf name (default: all PDFs in {PDF_FOLDER})",
     )
 
+    parser.add_argument(
+        "--tier",
+        type=str,
+        default="cost_effective",
+        help="LlamaParse tier (default: cost_effective; other options: fast, agentic, agentic_plus)",
+    )
+
     return parser.parse_args()
 
 
@@ -366,7 +373,7 @@ def convert_pdf_via_api(
     raw_json_path = RAW_JSON_DIR / f"{paper_ref}.llamaparse_raw.json"
 
     print_(f"Generating raw JSON via API: {pdf_loc} -> {raw_json_path}")
-    generate_raw_json(pdf_loc, raw_json_path)
+    generate_raw_json(pdf_loc, raw_json_path, tier=args.tier)
 
     check_llamaparse_success(raw_json_path)
 
@@ -450,7 +457,6 @@ if __name__ == "__main__":
                 print_(f"Parsing (matched --match={args.match}): {pdf_loc}")
                 convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
                 continue
-                
 
             reason = should_parse_pdf(pdf_loc, manifest, max_age_days=args.max_age_days)
 
