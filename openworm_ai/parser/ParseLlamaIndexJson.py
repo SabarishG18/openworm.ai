@@ -40,6 +40,13 @@ def parse_args():
         help="Refresh PDFs that haven't been parsed for more than N days (default 30).",
     )
 
+    parser.add_argument(
+        "--match",
+        type=str,
+        default=str(PDF_FOLDER),
+        help=f"Match the given glob pattern for pdf name (default: all PDFs in {PDF_FOLDER})",
+    )
+
     return parser.parse_args()
 
 
@@ -438,6 +445,12 @@ if __name__ == "__main__":
                 print_(f"Parsing (forced): {pdf_loc}")
                 convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
                 continue
+
+            if args.match and args.match in pdf_loc.name:
+                print_(f"Parsing (matched --match={args.match}): {pdf_loc}")
+                convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
+                continue
+                
 
             reason = should_parse_pdf(pdf_loc, manifest, max_age_days=args.max_age_days)
 
