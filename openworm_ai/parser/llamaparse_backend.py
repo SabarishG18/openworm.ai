@@ -1,4 +1,4 @@
-from __future__ import annotations
+from openworm_ai import print_
 
 import asyncio
 import json
@@ -37,13 +37,13 @@ async def _parse_async(pdf_path: Path, json_output_path: Path) -> None:
 
     tier = os.environ.get("LLAMAPARSE_TIER", "cost_effective")
 
-    print(f"[llamaparse] uploading: {pdf_path.name} (tier={tier})", flush=True)
+    print_(f"[llamaparse] uploading: {pdf_path.name} (tier={tier})", flush=True)
 
     # Step 1: upload the file
     with open(pdf_path, "rb") as f:
         file_obj = await client.files.create(file=f, purpose="parse")
 
-    print(f"[llamaparse] uploaded, file_id={file_obj.id}", flush=True)
+    print_(f"[llamaparse] uploaded, file_id={file_obj.id}", flush=True)
 
     # Step 2: parse with our preferred options
     result = await client.parsing.parse(
