@@ -40,6 +40,20 @@ def parse_args():
         help="Refresh PDFs that haven't been parsed for more than N days (default 30).",
     )
 
+    parser.add_argument(
+        "--match",
+        type=str,
+        default=str(PDF_FOLDER),
+        help=f"Match the given glob pattern for pdf name (default: all PDFs in {PDF_FOLDER})",
+    )
+
+    parser.add_argument(
+        "--tier",
+        type=str,
+        default="cost_effective",
+        help="LlamaParse tier (default: cost_effective; other options: fast, agentic, agentic_plus)",
+    )
+
     return parser.parse_args()
 
 
@@ -359,7 +373,7 @@ def convert_pdf_via_api(
     raw_json_path = RAW_JSON_DIR / f"{paper_ref}.llamaparse_raw.json"
 
     print_(f"Generating raw JSON via API: {pdf_loc} -> {raw_json_path}")
-    generate_raw_json(pdf_loc, raw_json_path)
+    generate_raw_json(pdf_loc, raw_json_path, tier=args.tier)
 
     check_llamaparse_success(raw_json_path)
 
@@ -415,35 +429,42 @@ if __name__ == "__main__":
         papers_api[paper_ref] = [str(pdf_path), source_url]
 
     if not papers_api:
-        print(f"WARNING: No PDFs found in {PDF_FOLDER.resolve()}")
+        print_(f"WARNING: No PDFs found in {PDF_FOLDER.resolve()}")
 
     manifest = load_manifest(MANIFEST_PATH)
 
     for paper_ref, (pdf_path, source_url) in papers_api.items():
         pdf_loc = Path(pdf_path)
 
+        print_(f"\n----  Processing: {paper_ref} (at: {pdf_loc})")
+
         if args.skip:
             raw_json_path = RAW_JSON_DIR / f"{paper_ref}.llamaparse_raw.json"
             if raw_json_path.exists():
-                print(f"Converting existing (--skip): {raw_json_path}")
+                print_(f"Converting existing (--skip): {raw_json_path}")
                 convert_existing_raw_json(paper_ref, raw_json_path, source_url)
             else:
-                print(f"Skipping (no raw JSON): {pdf_loc}")
+                print_(f"Skipping (no raw JSON): {pdf_loc}")
             continue
 
         try:
             if args.reparse_all:
-                print(f"Parsing (forced): {pdf_loc}")
+                print_(f"Parsing (forced): {pdf_loc}")
+                convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
+                continue
+
+            if args.match and args.match in pdf_loc.name:
+                print_(f"Parsing (matched --match={args.match}): {pdf_loc}")
                 convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
                 continue
 
             reason = should_parse_pdf(pdf_loc, manifest, max_age_days=args.max_age_days)
 
             if reason is None:
-                print(f"Skipping (fresh + unchanged): {pdf_loc}")
+                print_(f"Skipping (fresh + unchanged): {pdf_loc}")
                 continue
 
-            print(f"Parsing ({reason}): {pdf_loc}")
+            print_(f"Parsing ({reason}): {pdf_loc}")
             convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
 
         except Exception as e:
@@ -453,5 +474,5 @@ if __name__ == "__main__":
             traceback.print_exc()
             continue
 
-    print(f"PDF_FOLDER resolved: {PDF_FOLDER.resolve()}")
-    print(f"PDF count: {len(list(PDF_FOLDER.glob('*.pdf')))}")
+    print_(f"PDF_FOLDER resolved: {PDF_FOLDER.resolve()}")
+    print_(f"PDF count: {len(list(PDF_FOLDER.glob('*.pdf')))}")
