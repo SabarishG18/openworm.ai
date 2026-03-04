@@ -1,0 +1,144 @@
+{
+    "Title": "Performance of LLMs on Corpus-Based C. elegans Quiz WITH RAG (retrieval-augmented answering)",
+    "Quiz Type": "Corpus-Based with RAG (retrieval-augmented answering)",
+    "RAG Configuration": {
+        "Top-K Retrieval": 3,
+        "Corpus": "processed/json/papers/*.json"
+    },
+    "Date of Testing": "24-02-2026 14:39:18",
+    "Source Quiz": "openworm_ai/quiz/samples/huggingface_Qwen_Qwen2.5-72B-Instruct_100questions_celegans_corpus.json",
+    "Results": [
+        {
+            "LLM": "gpt-4o",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Correct with RAG": 0,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 0.0,
+            "Accuracy with RAG (%)": 0.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 0.001
+        },
+        {
+            "LLM": "claude-3-7-sonnet-20250219",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Correct with RAG": 0,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 0.0,
+            "Accuracy with RAG (%)": 0.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 0.0
+        },
+        {
+            "LLM": "gpt-3.5-turbo-instruct",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Correct with RAG": 0,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 0.0,
+            "Accuracy with RAG (%)": 0.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 0.0
+        },
+        {
+            "LLM": "huggingface:meta-llama/Llama-3.2-1B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 47,
+            "Correct with RAG": 47,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 47.0,
+            "Accuracy with RAG (%)": 47.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 0.766
+        },
+        {
+            "LLM": "huggingface:mistralai/Mistral-7B-Instruct-v0.2",
+            "Total Questions": 100,
+            "Correct Answers": 86,
+            "Correct with RAG": 86,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 86.0,
+            "Accuracy with RAG (%)": 86.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 0.819
+        },
+        {
+            "LLM": "huggingface:google/gemma-2-9b-it",
+            "Total Questions": 100,
+            "Correct Answers": 87,
+            "Correct with RAG": 87,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 87.0,
+            "Accuracy with RAG (%)": 87.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 1.765
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-14B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 87,
+            "Correct with RAG": 87,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 87.0,
+            "Accuracy with RAG (%)": 87.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 5.14
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-32B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 92,
+            "Correct with RAG": 92,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 92.0,
+            "Accuracy with RAG (%)": 92.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 2.456
+        },
+        {
+            "LLM": "huggingface:meta-llama/Llama-3.1-8B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 83,
+            "Correct with RAG": 83,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 83.0,
+            "Accuracy with RAG (%)": 83.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 0.97
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-72B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 90,
+            "Correct with RAG": 90,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 90.0,
+            "Accuracy with RAG (%)": 90.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 1.423
+        },
+        {
+            "LLM": "huggingface:CohereLabs/aya-expanse-32b",
+            "Total Questions": 100,
+            "Correct Answers": 89,
+            "Correct with RAG": 89,
+            "Correct without RAG": 0,
+            "Questions with Context": 100,
+            "Accuracy (%)": 89.0,
+            "Accuracy with RAG (%)": 89.0,
+            "Accuracy without RAG (%)": 0.0,
+            "Avg Response Time (s)": 0.584
+        }
+    ]
+}

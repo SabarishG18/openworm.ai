@@ -1,0 +1,90 @@
+{
+    "Title": "Performance of LLMs in a specific 100 MCQ General Knowledge Quiz",
+    "Date of Testing": "23-02-2026 13:54:57",
+    "Results": [
+        {
+            "LLM": "gpt-4o",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.0
+        },
+        {
+            "LLM": "claude-3-7-sonnet-20250219",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.0
+        },
+        {
+            "LLM": "gpt-3.5-turbo-instruct",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.0
+        },
+        {
+            "LLM": "huggingface:meta-llama/Llama-3.2-1B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 46,
+            "Accuracy (%)": 46.0,
+            "Avg Response Time (s)": 0.795
+        },
+        {
+            "LLM": "huggingface:mistralai/Mixtral-8x7B-Instruct-v0.1",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.102
+        },
+        {
+            "LLM": "huggingface:google/gemma-2-9b-it",
+            "Total Questions": 100,
+            "Correct Answers": 92,
+            "Accuracy (%)": 92.0,
+            "Avg Response Time (s)": 2.418
+        },
+        {
+            "LLM": "huggingface:microsoft/phi-4",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.002
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-14B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 96,
+            "Accuracy (%)": 96.0,
+            "Avg Response Time (s)": 19.428
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-32B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 95,
+            "Accuracy (%)": 95.0,
+            "Avg Response Time (s)": 1.153
+        },
+        {
+            "LLM": "huggingface:meta-llama/Llama-3.1-8B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 90,
+            "Accuracy (%)": 90.0,
+            "Avg Response Time (s)": 0.761
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-72B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 96,
+            "Accuracy (%)": 96.0,
+            "Avg Response Time (s)": 0.949
+        },
+        {
+            "LLM": "huggingface:CohereForAI/c4ai-command-r-plus",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.003
+        }
+    ]
+}

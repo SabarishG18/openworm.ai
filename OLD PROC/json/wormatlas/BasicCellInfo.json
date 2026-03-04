@@ -1,0 +1,1956 @@
+{
+    "BasicCellInfo": {
+        "title": "Basic information on C. elegans neurons from WormAtlas",
+        "source": "https://wormatlas.org/neurons/Individual%20Neurons/Neuronframeset.html",
+        "sections": {
+            "Summary information": {
+                "paragraphs": [
+                    {
+                        "contents": "ADAL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Process from Deirid Commissure A Left. ADAL is a Ring interneuron. The cell lineage of ADAL is AB plapaaaapp."
+                    },
+                    {
+                        "contents": "ADAR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Process from Deirid Commissure A Right. ADAR is a Ring interneuron. The cell lineage of ADAR is AB prapaaaapp."
+                    },
+                    {
+                        "contents": "ADEL is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Anterior DEirid Neuron Left. ADEL is a Anterior deirid, sensory neuron. The cell lineage of ADEL is AB plapaaaapa."
+                    },
+                    {
+                        "contents": "ADER is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Anterior DEirid Neuron Right. ADER is a Anterior deirid, sensory neuron. The cell lineage of ADER is AB prapaaaapa."
+                    },
+                    {
+                        "contents": "ADFL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Dual Ciliated Ending F Left. ADFL is a Amphid neuron. The cell lineage of ADFL is AB alpppppaa."
+                    },
+                    {
+                        "contents": "ADFR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Dual Ciliated Ending F Right. ADFR is a Amphid neuron. The cell lineage of ADFR is AB praaappaa."
+                    },
+                    {
+                        "contents": "ADLL is a neuron in the worm C. elegans, of type Amphid, nociceptive. The name stands for Amphid Dual Ciliated Ending L Left. ADLL is a Amphid neuron. The cell lineage of ADLL is AB alppppaad."
+                    },
+                    {
+                        "contents": "ADLR is a neuron in the worm C. elegans, of type Amphid, nociceptive. The name stands for Amphid Dual Ciliated Ending L Right. ADLR is a Amphid neuron. The cell lineage of ADLR is AB praaapaad."
+                    },
+                    {
+                        "contents": "AFDL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Finger-like Endings D Left. AFDL is a Amphid finger cell. The cell lineage of AFDL is AB alpppapav."
+                    },
+                    {
+                        "contents": "AFDR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Finger-like Endings D Right. AFDR is a Amphid finger cell. The cell lineage of AFDR is AB praaaapav."
+                    },
+                    {
+                        "contents": "AIAL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Interneuron A Left. AIAL is a Amphid interneuron. The cell lineage of AIAL is AB plppaappa."
+                    },
+                    {
+                        "contents": "AIAR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Interneuron A Right. AIAR is a Amphid interneuron. The cell lineage of AIAR is AB prppaappa."
+                    },
+                    {
+                        "contents": "AIBL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Interneuron B Left. AIBL is a Amphid interneuron. The cell lineage of AIBL is AB plaapappa."
+                    },
+                    {
+                        "contents": "AIBR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Interneuron B Right. AIBR is a Amphid interneuron. The cell lineage of AIBR is AB praapappa."
+                    },
+                    {
+                        "contents": "AIML is a neuron in the worm C. elegans, of type Category 4 interneuron. The name stands for Anterior Interneuron M Left. AIML is a Ring interneuron. The cell lineage of AIML is AB plpaapppa."
+                    },
+                    {
+                        "contents": "AIMR is a neuron in the worm C. elegans, of type Category 4 interneuron. The name stands for Anterior Interneuron M Right. AIMR is a Ring interneuron. The cell lineage of AIMR is AB prpaapppa."
+                    },
+                    {
+                        "contents": "AINL is a neuron in the worm C. elegans, of type Category 4 interneuron. The name stands for Anterior Interneuron N Left. AINL is a Ring interneuron. The cell lineage of AINL is AB alaaaalal."
+                    },
+                    {
+                        "contents": "AINR is a neuron in the worm C. elegans, of type Category 4 interneuron. The name stands for Anterior Interneuron N Right. AINR is a Ring interneuron. The cell lineage of AINR is AB alaapaaar."
+                    },
+                    {
+                        "contents": "AIYL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Interneuron Y Left. AIYL is a Amphid interneuron. The cell lineage of AIYL is AB plpapaaap."
+                    },
+                    {
+                        "contents": "AIYR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Interneuron Y Right. AIYR is a Amphid interneuron. The cell lineage of AIYR is AB prpapaaap."
+                    },
+                    {
+                        "contents": "AIZL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Interneuron Z Left. AIZL is a Amphid interneuron. The cell lineage of AIZL is AB plapaaapav."
+                    },
+                    {
+                        "contents": "AIZR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Interneuron Z Right. AIZR is a Amphid interneuron. The cell lineage of AIZR is AB prapaaapav."
+                    },
+                    {
+                        "contents": "ALA is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Lateral Neuron A. ALA is a Neuron, sends processes laterally and along dorsal cord. The cell lineage of ALA is AB alapppaaa."
+                    },
+                    {
+                        "contents": "ALML is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Anterior Lateral Microtubule Neuron Left. ALML is a Anterior lateral microtubule cell. The cell lineage of ALML is AB arppaappa."
+                    },
+                    {
+                        "contents": "ALMR is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Anterior Lateral Microtubule Neuron Right. ALMR is a Anterior lateral microtubule cell. The cell lineage of ALMR is AB arpppappa."
+                    },
+                    {
+                        "contents": "ALNL is a neuron in the worm C. elegans, of type Touch. The name stands for Anterior Lateral Neuron N Left. ALNL is a Neuron associated with ALM. The cell lineage of ALNL is AB plapappppap."
+                    },
+                    {
+                        "contents": "ALNR is a neuron in the worm C. elegans, of type Touch. The name stands for Anterior Lateral Neuron N Right. ALNR is a Neuron associated with ALM. The cell lineage of ALNR is AB prapappppap."
+                    },
+                    {
+                        "contents": "AQR is a neuron in the worm C. elegans, of type Touch. The name stands for Anterior, Q-cell Derived Receptor. AQR is a Neuron, basal body. Not part of a sensillum, projects into ring. The cell lineage of AQR is QR.ap."
+                    },
+                    {
+                        "contents": "AS1 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 1. AS1 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS1 is P1.apa."
+                    },
+                    {
+                        "contents": "AS10 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 10. AS10 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS10 is P10.apa."
+                    },
+                    {
+                        "contents": "AS11 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 11. AS11 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS11 is P11.apa."
+                    },
+                    {
+                        "contents": "AS2 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 2. AS2 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS2 is P2.apa."
+                    },
+                    {
+                        "contents": "AS3 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 3. AS3 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS3 is P3.apa."
+                    },
+                    {
+                        "contents": "AS4 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 4. AS4 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS4 is P4.apa."
+                    },
+                    {
+                        "contents": "AS5 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 5. AS5 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS5 is P5.apa."
+                    },
+                    {
+                        "contents": "AS6 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 6. AS6 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS6 is P6.apa."
+                    },
+                    {
+                        "contents": "AS7 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 7. AS7 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS7 is P7.apa."
+                    },
+                    {
+                        "contents": "AS8 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 8. AS8 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS8 is P8.apa."
+                    },
+                    {
+                        "contents": "AS9 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for A-type Short Motor Neuron 9. AS9 is a Ventral cord motor neuron, innervates dorsal muscles, no ventral counterpart. The cell lineage of AS9 is P9.apa."
+                    },
+                    {
+                        "contents": "ASEL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium E Left. ASEL is a Amphid neurons, single ciliated endings. The cell lineage of ASEL is AB alppppppaa."
+                    },
+                    {
+                        "contents": "ASER is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium E Right. ASER is a Amphid neurons, single ciliated endings. The cell lineage of ASER is AB praaapppaa."
+                    },
+                    {
+                        "contents": "ASGL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium G Left. ASGL is a Amphid neurons, single ciliated endings. The cell lineage of ASGL is AB plaapapap."
+                    },
+                    {
+                        "contents": "ASGR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium G Right. ASGR is a Amphid neurons, single ciliated endings. The cell lineage of ASGR is AB praapapap."
+                    },
+                    {
+                        "contents": "ASHL is a neuron in the worm C. elegans, of type Amphid, nociceptive. The name stands for Amphid Single Cilium H Left. ASHL is a Amphid neurons, single ciliated endings. The cell lineage of ASHL is AB plpaappaa."
+                    },
+                    {
+                        "contents": "ASHR is a neuron in the worm C. elegans, of type Amphid, nociceptive. The name stands for Amphid Single Cilium H Right. ASHR is a Amphid neurons, single ciliated endings. The cell lineage of ASHR is AB prpaappaa."
+                    },
+                    {
+                        "contents": "ASIL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium I Left. ASIL is a Amphid neurons, single ciliated endings. The cell lineage of ASIL is AB plaapapppa."
+                    },
+                    {
+                        "contents": "ASIR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium I Right. ASIR is a Amphid neurons, single ciliated endings. The cell lineage of ASIR is AB praapapppa."
+                    },
+                    {
+                        "contents": "ASJL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium J Left. ASJL is a Amphid neurons, single ciliated endings. The cell lineage of ASJL is AB alpppppppa."
+                    },
+                    {
+                        "contents": "ASJR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium J Right. ASJR is a Amphid neurons, single ciliated endings. The cell lineage of ASJR is AB praaappppa."
+                    },
+                    {
+                        "contents": "ASKL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium K Left. ASKL is a Amphid neurons, single ciliated endings. The cell lineage of ASKL is AB alpppapppa."
+                    },
+                    {
+                        "contents": "ASKR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Single Cilium K Right. ASKR is a Amphid neurons, single ciliated endings. The cell lineage of ASKR is AB praaaapppa."
+                    },
+                    {
+                        "contents": "AUAL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Amphid-associated Unknown Receptor A Left. AUAL is a Neuron, process runs with amphid processes but lacks ciliated ending. The cell lineage of AUAL is AB alpppppppp."
+                    },
+                    {
+                        "contents": "AUAR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Amphid-associated Unknown Receptor A Right. AUAR is a Neuron, process runs with amphid processes but lacks ciliated ending. The cell lineage of AUAR is AB praaappppp."
+                    },
+                    {
+                        "contents": "AVAL is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Anterior Ventral Process A Left. AVAL is a Ventral cord interneuron. The cell lineage of AVAL is AB alppaaapa."
+                    },
+                    {
+                        "contents": "AVAR is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Anterior Ventral Process A Right. AVAR is a Ventral cord interneuron. The cell lineage of AVAR is AB alaappapa."
+                    },
+                    {
+                        "contents": "AVBL is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Anterior Ventral Process B Left. AVBL is a Ventral cord interneuron. The cell lineage of AVBL is AB plpaapaap."
+                    },
+                    {
+                        "contents": "AVBR is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Anterior Ventral Process B Right. AVBR is a Ventral cord interneuron. The cell lineage of AVBR is AB prpaapaap."
+                    },
+                    {
+                        "contents": "AVDL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Ventral Process D Left. AVDL is a Ventral cord interneuron. The cell lineage of AVDL is AB alaaapalr."
+                    },
+                    {
+                        "contents": "AVDR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Ventral Process D Right. AVDR is a Ventral cord interneuron. The cell lineage of AVDR is AB alaaapprl."
+                    },
+                    {
+                        "contents": "AVEL is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Anterior Ventral Process E Left. AVEL is a Ventral cord interneuron, like AVD but outputs restricted to anterior cord. The cell lineage of AVEL is AB alpppaaaa."
+                    },
+                    {
+                        "contents": "AVER is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Anterior Ventral Process E Right. AVER is a Ventral cord interneuron, like AVD but outputs restricted to anterior cord. The cell lineage of AVER is AB praaaaaaa."
+                    },
+                    {
+                        "contents": "AVFL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Ventral Process F Left. AVFL is a Interneuron. The cell lineage of AVFL is P1.aaaa/ W.aaa."
+                    },
+                    {
+                        "contents": "AVFR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Ventral Process F Right. AVFR is a Interneuron. The cell lineage of AVFR is P1.aaaa/ W.aaa."
+                    },
+                    {
+                        "contents": "AVG is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Ventral Process G. AVG is a Ventral cord interneuron. The cell lineage of AVG is AB prpapppap."
+                    },
+                    {
+                        "contents": "AVHL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Ventral Process H Left. AVHL is a Neuron, mainly postsynaptic in ventral cord and presynaptic in the ring. The cell lineage of AVHL is AB alapaaaaa."
+                    },
+                    {
+                        "contents": "AVHR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Anterior Ventral Process H Right. AVHR is a Neuron, mainly postsynaptic in ventral cord and presynaptic in the ring. The cell lineage of AVHR is AB alappapaa."
+                    },
+                    {
+                        "contents": "AVJL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Ventral Process J Left. AVJL is a Neuron, synapses like AVHL/R. The cell lineage of AVJL is AB alapapppa."
+                    },
+                    {
+                        "contents": "AVJR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Ventral Process J Right. AVJR is a Neuron, synapses like AVHL/R. The cell lineage of AVJR is AB alapppppa."
+                    },
+                    {
+                        "contents": "AVKL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Ventral Process K Left. AVKL is a Ring and ventral cord interneuron. The cell lineage of AVKL is AB plpapapap."
+                    },
+                    {
+                        "contents": "AVKR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Ventral Process K Right. AVKR is a Ring and ventral cord interneuron. The cell lineage of AVKR is AB prpapapap."
+                    },
+                    {
+                        "contents": "AVL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Anterior Ventral Process L. AVL is a Ring and ventral cord interneuron and an excitatory GABAergic motor neuron for rectal muscles. Few synapses. The cell lineage of AVL is AB prpappaap."
+                    },
+                    {
+                        "contents": "AVM is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Anterior Ventral Microtubule Neuron. AVM is a Anterior ventral microtubule cell, touch receptor. The cell lineage of AVM is QR.paa."
+                    },
+                    {
+                        "contents": "AWAL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Wing Neuron A Left. AWAL is a Amphid wing cells, neurons having ciliated sheet-like sensory endings closely associated with amphid sheath. The cell lineage of AWAL is AB plaapapaa."
+                    },
+                    {
+                        "contents": "AWAR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Wing Neuron A Right. AWAR is a Amphid wing cells, neurons having ciliated sheet-like sensory endings closely associated with amphid sheath. The cell lineage of AWAR is AB praapapaa."
+                    },
+                    {
+                        "contents": "AWBL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Wing Neuron B Left. AWBL is a Amphid wing cells, neurons having ciliated sheet-like sensory endings closely associated with amphid sheath. The cell lineage of AWBL is AB alpppppap."
+                    },
+                    {
+                        "contents": "AWBR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Wing Neuron B Right. AWBR is a Amphid wing cells, neurons having ciliated sheet-like sensory endings closely associated with amphid sheath. The cell lineage of AWBR is AB praaappap."
+                    },
+                    {
+                        "contents": "AWCL is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Wing Neuron C Left. AWCL is a Amphid wing cells, neurons having ciliated sheet-like sensory endings closely associated with amphid sheath. The cell lineage of AWCL is AB plpaaaaap."
+                    },
+                    {
+                        "contents": "AWCR is a neuron in the worm C. elegans, of type Amphid. The name stands for Amphid Wing Neuron C Right. AWCR is a Amphid wing cells, neurons having ciliated sheet-like sensory endings closely associated with amphid sheath. The cell lineage of AWCR is AB prpaaaaap."
+                    },
+                    {
+                        "contents": "BAGL is a neuron in the worm C. elegans, of type O2, CO2, social signals, touch. The name stands for BAG-like Dendritic Ending Left. BAGL is a Neuron, ciliated ending in head, no supporting cells, associated with ILso. The cell lineage of BAGL is AB alppappap."
+                    },
+                    {
+                        "contents": "BAGR is a neuron in the worm C. elegans, of type O2, CO2, social signals, touch. The name stands for BAG-like Dendritic Ending Right. BAGR is a Neuron, ciliated ending in head, no supporting cells, associated with ILso. The cell lineage of BAGR is AB arappppap."
+                    },
+                    {
+                        "contents": "BDUL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Black Vesicles, Deirid Locale, Unknown Function Left. BDUL is a Neuron, process runs along excretory canal and into ring, unique darkly staining synaptic vesicles. The cell lineage of BDUL is AB arppaappp."
+                    },
+                    {
+                        "contents": "BDUR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Black Vesicles, Deirid Locale, Unknown Function Right. BDUR is a Neuron, process runs along excretory canal and into ring, unique darkly staining synaptic vesicles. The cell lineage of BDUR is AB arpppappp."
+                    },
+                    {
+                        "contents": "CANL is a neuron in the worm C. elegans, of type Canal neuron. The name stands for Excretory CANal-associated Neuron Left. CANL is a Process runs along excretory canal, no synapses, essential for survival. The cell lineage of CANL is AB alapaaapa."
+                    },
+                    {
+                        "contents": "CANR is a neuron in the worm C. elegans, of type Canal neuron. The name stands for Excretory CANal-associated Neuron Right. CANR is a Process runs along excretory canal, no synapses, essential for survival. The cell lineage of CANR is AB alappappa."
+                    },
+                    {
+                        "contents": "CEPDL is a neuron in the worm C. elegans, of type Cephalic. The name stands for CEPhalic Sensory Neuron Dorsal Left. CEPDL is a Cephalic neurons, contain dopamine. The cell lineage of CEPDL is AB plaaaaappa."
+                    },
+                    {
+                        "contents": "CEPDR is a neuron in the worm C. elegans, of type Cephalic. The name stands for CEPhalic Sensory Neuron Dorsal Right. CEPDR is a Cephalic neurons, contain dopamine. The cell lineage of CEPDR is AB arpapaappa."
+                    },
+                    {
+                        "contents": "CEPVL is a neuron in the worm C. elegans, of type Cephalic. The name stands for CEPhalic Sensory Neuron Ventral Left. CEPVL is a Cephalic neurons, contain dopamine. The cell lineage of CEPVL is AB plpaappppa."
+                    },
+                    {
+                        "contents": "CEPVR is a neuron in the worm C. elegans, of type Cephalic. The name stands for CEPhalic Sensory Neuron Ventral Right. CEPVR is a Cephalic neurons, contain dopamine. The cell lineage of CEPVR is AB prpaappppa."
+                    },
+                    {
+                        "contents": "DA1 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 1. DA1 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA1 is AB prppapaap."
+                    },
+                    {
+                        "contents": "DA2 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 2. DA2 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA2 is AB plppapapa."
+                    },
+                    {
+                        "contents": "DA3 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 3. DA3 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA3 is AB prppapapa."
+                    },
+                    {
+                        "contents": "DA4 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 4. DA4 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA4 is AB plppapapp."
+                    },
+                    {
+                        "contents": "DA5 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 5. DA5 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA5 is AB prppapapp."
+                    },
+                    {
+                        "contents": "DA6 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 6. DA6 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA6 is AB plpppaaap."
+                    },
+                    {
+                        "contents": "DA7 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 7. DA7 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA7 is AB prpppaaap."
+                    },
+                    {
+                        "contents": "DA8 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 8. DA8 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA8 is AB prpapappp."
+                    },
+                    {
+                        "contents": "DA9 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal A-type Motor Neuron 9. DA9 is a Ventral cord motor neurons, innervate dorsal muscles. The cell lineage of DA9 is AB plpppaaaa."
+                    },
+                    {
+                        "contents": "DB1 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal B-type Motor Neuron 1. DB1 is a Ventral cord motor neurons, innervate dorsal muscles, reciprocal inhibitor (aka DB1/3). The cell lineage of DB1 is AB plpaaaapp."
+                    },
+                    {
+                        "contents": "DB2 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal B-type Motor Neuron 2. DB2 is a Ventral cord motor neurons, innervate dorsal muscles, reciprocal inhibitor (aka DB3/1). The cell lineage of DB2 is AB arappappa."
+                    },
+                    {
+                        "contents": "DB3 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal B-type Motor Neuron 3/1. DB3 is a Ventral cord motor neurons, innervate dorsal muscles, reciprocal inhibitor. The cell lineage of DB3 is AB prpaaaapp."
+                    },
+                    {
+                        "contents": "DB4 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal B-type Motor Neuron 4. DB4 is a Ventral cord motor neurons, innervate dorsal muscles, reciprocal inhibitor. The cell lineage of DB4 is AB prpappapp."
+                    },
+                    {
+                        "contents": "DB5 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal B-type Motor Neuron 5. DB5 is a Ventral cord motor neurons, innervate dorsal muscles, reciprocal inhibitor. The cell lineage of DB5 is AB plpapappp."
+                    },
+                    {
+                        "contents": "DB6 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal B-type Motor Neuron 6. DB6 is a Ventral cord motor neurons, innervate dorsal muscles, reciprocal inhibitor. The cell lineage of DB6 is AB plppaappp."
+                    },
+                    {
+                        "contents": "DB7 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal B-type Motor Neuron 7. DB7 is a Ventral cord motor neurons, innervate dorsal muscles, reciprocal inhibitor. The cell lineage of DB7 is AB prppaappp."
+                    },
+                    {
+                        "contents": "DD1 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal D-type Motor Neuron 1. DD1 is a Ventral cord motor neurons, reciprocal inhibitors, change synaptic pattern during L1. The cell lineage of DD1 is AB plppappap."
+                    },
+                    {
+                        "contents": "DD2 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal D-type Motor Neuron 2. DD2 is a Ventral cord motor neurons, reciprocal inhibitors, change synaptic pattern during L1. The cell lineage of DD2 is AB prppappap."
+                    },
+                    {
+                        "contents": "DD3 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal D-type Motor Neuron 3. DD3 is a Ventral cord motor neurons, reciprocal inhibitors, change synaptic pattern during L1. The cell lineage of DD3 is AB plppapppa."
+                    },
+                    {
+                        "contents": "DD4 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal D-type Motor Neuron 4. DD4 is a Ventral cord motor neurons, reciprocal inhibitors, change synaptic pattern during L1. The cell lineage of DD4 is AB prppapppa."
+                    },
+                    {
+                        "contents": "DD5 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal D-type Motor Neuron 5. DD5 is a Ventral cord motor neurons, reciprocal inhibitors, change synaptic pattern during L1. The cell lineage of DD5 is AB plppapppp."
+                    },
+                    {
+                        "contents": "DD6 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Dorsal D-type Motor Neuron 6. DD6 is a Ventral cord motor neurons, reciprocal inhibitors, change synaptic pattern during L1. The cell lineage of DD6 is AB prppapppp."
+                    },
+                    {
+                        "contents": "DVA is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Dorsorectal Ganglion Ventral Process A. DVA is a Ring interneurons, cell bodies in dorsorectal ganglion. The cell lineage of DVA is AB prppppapp."
+                    },
+                    {
+                        "contents": "DVB is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Dorsorectal Ganglion Ventral Process B. DVB is a An excitatory GABAergic motor neuron/interneuron located in dorso-rectal ganglion. Innervates rectal muscles. The cell lineage of DVB is K.p."
+                    },
+                    {
+                        "contents": "DVC is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Dorsorectal Ganglion Ventral Process C. DVC is a Ring interneurons, cell bodies in dorsorectal ganglion. The cell lineage of DVC is C aapaa."
+                    },
+                    {
+                        "contents": "FLPL is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for FLaP-like Dendritic Ending Left. FLPL is a Neuron, ciliated ending in head, no supporting cells, associated with ILso. The cell lineage of FLPL is AB plapaaapad."
+                    },
+                    {
+                        "contents": "FLPR is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for FLaP-like Dendritic Ending Right. FLPR is a Neuron, ciliated ending in head, no supporting cells, associated with ILso. The cell lineage of FLPR is AB prapaaapad."
+                    },
+                    {
+                        "contents": "HSNL is a neuron in the worm C. elegans, of type Hermaphrodite specific motor neuron. The name stands for Hermaphrodite-Specific Neuron Left. HSNL is a Hermaphrodite specific motor neurons (die in male embryo), innervate vulval muscles, serotonergic. The cell lineage of HSNL is AB plapppappa."
+                    },
+                    {
+                        "contents": "HSNR is a neuron in the worm C. elegans, of type Hermaphrodite specific motor neuron. The name stands for Hermaphrodite-Specific Neuron Right. HSNR is a Hermaphrodite specific motor neurons (die in male embryo), innervate vulval muscles, serotonergic. The cell lineage of HSNR is AB prapppappa."
+                    },
+                    {
+                        "contents": "I1L is a neuron in the worm C. elegans, of type Pharyngeal interneuron. The name stands for Interneuron 1 (pharynx) Left. I1L is a Pharyngeal interneurons: ant sensory, input from RIP. The cell lineage of I1L is AB alpapppaa."
+                    },
+                    {
+                        "contents": "I1R is a neuron in the worm C. elegans, of type Pharyngeal interneuron. The name stands for Interneuron 1 (pharynx) Right. I1R is a Pharyngeal interneurons: ant sensory, input from RIP. The cell lineage of I1R is AB arapappaa."
+                    },
+                    {
+                        "contents": "I2L is a neuron in the worm C. elegans, of type Pharyngeal interneuron. The name stands for Interneuron 2 (pharynx) Left. I2L is a Pharyngeal interneurons, ant sensory. The cell lineage of I2L is AB alpappaapa."
+                    },
+                    {
+                        "contents": "I2R is a neuron in the worm C. elegans, of type Pharyngeal interneuron. The name stands for Interneuron 2 (pharynx) Right. I2R is a Pharyngeal interneurons, ant sensory. The cell lineage of I2R is AB arapapaapa."
+                    },
+                    {
+                        "contents": "I3 is a neuron in the worm C. elegans, of type Pharyngeal interneuron. The name stands for Interneuron 3 (pharynx). I3 is a Pharyngeal interneuron, ant sensory. The cell lineage of I3 is MS aaaaapaa."
+                    },
+                    {
+                        "contents": "I4 is a neuron in the worm C. elegans, of type Pharyngeal interneuron. The name stands for Interneuron 4 (pharynx). I4 is a Pharyngeal interneuron. The cell lineage of I4 is MS aaaapaa."
+                    },
+                    {
+                        "contents": "I5 is a neuron in the worm C. elegans, of type Pharyngeal interneuron. The name stands for Interneuron 5 (pharynx). I5 is a Pharyngeal interneuron, post sensory. The cell lineage of I5 is AB arapapapp."
+                    },
+                    {
+                        "contents": "I6 is a neuron in the worm C. elegans, of type Pharyngeal interneuron. The name stands for Interneuron 6 (pharynx). I6 is a Pharyngeal interneuron, post sensory. The cell lineage of I6 is MS paaapaa."
+                    },
+                    {
+                        "contents": "IL1DL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 1 Dorsal Left. IL1DL is a Inner labial neuron. The cell lineage of IL1DL is AB alapappaaa."
+                    },
+                    {
+                        "contents": "IL1DR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 1 Dorsal Right. IL1DR is a Inner labial neuron. The cell lineage of IL1DR is AB alappppaaa."
+                    },
+                    {
+                        "contents": "IL1L is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 1 Left. IL1L is a Inner labial neuron. The cell lineage of IL1L is AB alapaappaa."
+                    },
+                    {
+                        "contents": "IL1R is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 1 Right. IL1R is a Inner labial neuron. The cell lineage of IL1R is AB alaappppaa."
+                    },
+                    {
+                        "contents": "IL1VL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 1 Ventral Left. IL1VL is a Inner labial neuron. The cell lineage of IL1VL is AB alppapppaa."
+                    },
+                    {
+                        "contents": "IL1VR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 1 Ventral Right. IL1VR is a Inner labial neuron. The cell lineage of IL1VR is AB arapppppaa."
+                    },
+                    {
+                        "contents": "IL2DL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 2 Dorsal Left. IL2DL is a Inner labial neuron. The cell lineage of IL2DL is AB alapappap."
+                    },
+                    {
+                        "contents": "IL2DR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 2 Dorsal Right. IL2DR is a Inner labial neuron. The cell lineage of IL2DR is AB alappppap."
+                    },
+                    {
+                        "contents": "IL2L is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 2 Left. IL2L is a Inner labial neuron. The cell lineage of IL2L is AB alapaappp."
+                    },
+                    {
+                        "contents": "IL2R is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 2 Right. IL2R is a Inner labial neuron. The cell lineage of IL2R is AB alaappppp."
+                    },
+                    {
+                        "contents": "IL2VL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 2 Ventral Left. IL2VL is a Inner labial neuron. The cell lineage of IL2VL is AB alppapppp."
+                    },
+                    {
+                        "contents": "IL2VR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Inner Labial 2 Ventral Right. IL2VR is a Inner labial neuron. The cell lineage of IL2VR is AB arapppppp."
+                    },
+                    {
+                        "contents": "LUAL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for LUmbar Ganglion A Left. LUAL is a Interneuron, short process in post ventral cord. The cell lineage of LUAL is AB plpppaapap."
+                    },
+                    {
+                        "contents": "LUAR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for LUmbar Ganglion A Right. LUAR is a Interneuron, short process in post ventral cord. The cell lineage of LUAR is AB prpppaapap."
+                    },
+                    {
+                        "contents": "M1 is a neuron in the worm C. elegans, of type Pharyngeal motor neuron. The name stands for Motor Neuron 1 (pharynx). M1 is a Pharyngeal motorneuron. The cell lineage of M1 is MS paapaaa."
+                    },
+                    {
+                        "contents": "M2L is a neuron in the worm C. elegans, of type Pharyngeal motor neuron. The name stands for Motor Neuron 2 (pharynx) Left. M2L is a Pharyngeal motorneurons. The cell lineage of M2L is AB araapappa."
+                    },
+                    {
+                        "contents": "M2R is a neuron in the worm C. elegans, of type Pharyngeal motor neuron. The name stands for Motor Neuron 2 (pharynx) Right. M2R is a Pharyngeal motorneurons. The cell lineage of M2R is AB araappppa."
+                    },
+                    {
+                        "contents": "M3L is a neuron in the worm C. elegans, of type Pharyngeal motor neuron. The name stands for Motor Neuron 3 (pharynx) Left. M3L is a Pharyngeal sensory-motorneurons. The cell lineage of M3L is AB araapappp."
+                    },
+                    {
+                        "contents": "M3R is a neuron in the worm C. elegans, of type Pharyngeal motor neuron. The name stands for Motor Neuron 3 (pharynx) Right. M3R is a Pharyngeal sensory-motorneurons. The cell lineage of M3R is AB araappppp."
+                    },
+                    {
+                        "contents": "M4 is a neuron in the worm C. elegans, of type Pharyngeal motor neuron. The name stands for Motor Neuron 4 (pharynx). M4 is a Pharyngeal motorneuron. The cell lineage of M4 is MS paaaaaa."
+                    },
+                    {
+                        "contents": "M5 is a neuron in the worm C. elegans, of type Pharyngeal motor neuron. The name stands for Motor Neuron 5 (pharynx). M5 is a Pharyngeal motorneuron. The cell lineage of M5 is MS paaapap."
+                    },
+                    {
+                        "contents": "MCL is a neuron in the worm C. elegans, of type Pharyngeal polymodal neuron. The name stands for Marginal Cell Neuron (pharynx) Left. MCL is a Pharyngeal neurons that synapse onto marginal cells. The cell lineage of MCL is AB alpaaappp."
+                    },
+                    {
+                        "contents": "MCR is a neuron in the worm C. elegans, of type Pharyngeal polymodal neuron. The name stands for Marginal Cell Neuron (pharynx) Right. MCR is a Pharyngeal neurons that synapse onto marginal cells. The cell lineage of MCR is AB arapaappp."
+                    },
+                    {
+                        "contents": "MI is a neuron in the worm C. elegans, of type Pharyngeal polymodal neuron. The name stands for Motor/Interneuron (pharynx). MI is a Pharyngeal motor neuron/interneuron. The cell lineage of MI is AB araappaaa."
+                    },
+                    {
+                        "contents": "NSML is a neuron in the worm C. elegans, of type Pharyngeal polymodal neuron. The name stands for NeuroSecretory Motor Neuron (pharynx) Left. NSML is a Pharyngeal neurosecretory motorneuron, contain serotonin. The cell lineage of NSML is AB araapapaav."
+                    },
+                    {
+                        "contents": "NSMR is a neuron in the worm C. elegans, of type Pharyngeal polymodal neuron. The name stands for NeuroSecretory Motor Neuron (pharynx) Right. NSMR is a Pharyngeal neurosecretory motorneuron, contain serotonin. The cell lineage of NSMR is AB araapppaav."
+                    },
+                    {
+                        "contents": "OLLL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Outer Labial Lateral Dendrite Left. OLLL is a Lateral outer labial neurons. The cell lineage of OLLL is AB alppppapaa."
+                    },
+                    {
+                        "contents": "OLLR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Outer Labial Lateral Dendrite Right. OLLR is a Lateral outer labial neurons. The cell lineage of OLLR is AB praaapapaa."
+                    },
+                    {
+                        "contents": "OLQDL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Outer Labial Quadrant Dendrite Dorsal Left. OLQDL is a Quadrant outer labial neuron. The cell lineage of OLQDL is AB alapapapaa."
+                    },
+                    {
+                        "contents": "OLQDR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Outer Labial Quadrant Dendrite Dorsal Right. OLQDR is a Quadrant outer labial neuron. The cell lineage of OLQDR is AB alapppapaa."
+                    },
+                    {
+                        "contents": "OLQVL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Outer Labial Quadrant Dendrite Ventral Left. OLQVL is a Quadrant outer labial neuron. The cell lineage of OLQVL is AB plpaaappaa."
+                    },
+                    {
+                        "contents": "OLQVR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Outer Labial Quadrant Dendrite Ventral Right. OLQVR is a Quadrant outer labial neuron. The cell lineage of OLQVR is AB prpaaappaa."
+                    },
+                    {
+                        "contents": "PDA is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Preanal Cell Body Dorsal Axon A. PDA is a Motor neuron, process in dorsal cord, same as Y cell in hermaphrodite, Y.a in male. The cell lineage of PDA is AB prpppaaaa."
+                    },
+                    {
+                        "contents": "PDB is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Preanal Cell Body Dorsal Axon B. PDB is a Motor neuron, process in dorsal cord, cell body in pre-anal ganglion. The cell lineage of PDB is P12.apa."
+                    },
+                    {
+                        "contents": "PDEL is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Posterior DEirid Left. PDEL is a Neuron, dopaminergic of postderid sensillum. The cell lineage of PDEL is V5L.paaa."
+                    },
+                    {
+                        "contents": "PDER is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Posterior DEirid Right. PDER is a Neuron, dopaminergic of postderid sensillum. The cell lineage of PDER is V5R.paaa."
+                    },
+                    {
+                        "contents": "PHAL is a neuron in the worm C. elegans, of type Phasmid. The name stands for PHasmid Neuron A Left. PHAL is a Phasmid neurons, chemosensory. The cell lineage of PHAL is AB plpppaapp."
+                    },
+                    {
+                        "contents": "PHAR is a neuron in the worm C. elegans, of type Phasmid. The name stands for PHasmid Neuron A Right. PHAR is a Phasmid neurons, chemosensory. The cell lineage of PHAR is AB prpppaapp."
+                    },
+                    {
+                        "contents": "PHBL is a neuron in the worm C. elegans, of type Phasmid. The name stands for PHasmid Neuron B Left. PHBL is a Phasmid neurons, chemosensory. The cell lineage of PHBL is AB plapppappp."
+                    },
+                    {
+                        "contents": "PHBR is a neuron in the worm C. elegans, of type Phasmid. The name stands for PHasmid Neuron B Right. PHBR is a Phasmid neurons, chemosensory. The cell lineage of PHBR is AB prapppappp."
+                    },
+                    {
+                        "contents": "PHCL is a neuron in the worm C. elegans, of type Phasmid. The name stands for PHasmid Neuron C Left. PHCL is a Neuron, striated rootlet in male, possibly sensory in tail spike. The cell lineage of PHCL is TL.pppaa."
+                    },
+                    {
+                        "contents": "PHCR is a neuron in the worm C. elegans, of type Phasmid. The name stands for PHasmid Neuron C Right. PHCR is a Neuron, striated rootlet in male, possibly sensory in tail spike. The cell lineage of PHCR is TR.pppaa."
+                    },
+                    {
+                        "contents": "PLML is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Posterior Lateral Microtubule Neuron Left. PLML is a Posterior lateral microtubule cells, touch receptor neurons. The cell lineage of PLML is AB plapappppaa."
+                    },
+                    {
+                        "contents": "PLMR is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Posterior Lateral Microtubule Neuron Right. PLMR is a Posterior lateral microtubule cells, touch receptor neurons. The cell lineage of PLMR is AB prapappppaa."
+                    },
+                    {
+                        "contents": "PLNL is a neuron in the worm C. elegans, of type Touch. The name stands for Posterior Lateral N Left. PLNL is a Interneuron, associated with PLM. The cell lineage of PLNL is TL.pppap."
+                    },
+                    {
+                        "contents": "PLNR is a neuron in the worm C. elegans, of type Touch. The name stands for Posterior Lateral N Right. PLNR is a Interneuron, associated with PLM. The cell lineage of PLNR is TR.pppap."
+                    },
+                    {
+                        "contents": "PQR is a neuron in the worm C. elegans, of type Touch. The name stands for Posterior Q-cell Derived Receptor. PQR is a Neuron, basal body, not part of a sensillum, projects into preanal ganglion. The cell lineage of PQR is QL.ap."
+                    },
+                    {
+                        "contents": "PVCL is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Posterior Ventral Process C Left. PVCL is a Ventral cord interneuron, cell body in lumbar ganglion, synapses onto VB and DB motor neurons, formerly called delta. The cell lineage of PVCL is AB plpppaapaa."
+                    },
+                    {
+                        "contents": "PVCR is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Posterior Ventral Process C Right. PVCR is a Ventral cord interneuron, cell body in lumbar ganglion, synapses onto VB and DB motor neurons, formerly called delta. The cell lineage of PVCR is AB prpppaapaa."
+                    },
+                    {
+                        "contents": "PVDL is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Posterior Ventral Process D Left. PVDL is a Neuron, lateral process adjacent to excretory canal. The cell lineage of PVDL is V5L.paapa."
+                    },
+                    {
+                        "contents": "PVDR is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Posterior Ventral Process D Right. PVDR is a Neuron, lateral process adjacent to excretory canal. The cell lineage of PVDR is V5R.paapa."
+                    },
+                    {
+                        "contents": "PVM is a neuron in the worm C. elegans, of type Mechanosensory. The name stands for Posterior Ventral Microtubule Neuron. PVM is a Posterior ventral microtubule cell, touch receptor. The cell lineage of PVM is QL.paa."
+                    },
+                    {
+                        "contents": "PVNL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Posterior Ventral Process N Left. PVNL is a Interneuron/motor neuron, post. vent. cord, few synapses. The cell lineage of PVNL is TL.appp."
+                    },
+                    {
+                        "contents": "PVNR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Posterior Ventral Process N Right. PVNR is a Interneuron/motor neuron, post. vent. cord, few synapses. The cell lineage of PVNR is TR.appp."
+                    },
+                    {
+                        "contents": "PVPL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Posterior Ventral Process P Left. PVPL is a Interneuron, cell body in preanal ganglion, projects along ventral cord to nerve ring. The cell lineage of PVPL is AB plppppaaa."
+                    },
+                    {
+                        "contents": "PVPR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Posterior Ventral Process P Right. PVPR is a Interneuron, cell body in preanal ganglion, projects along ventral cord to nerve ring. The cell lineage of PVPR is AB prppppaaa."
+                    },
+                    {
+                        "contents": "PVQL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Posterior Ventral Process Q Left. PVQL is a Interneuron, projects along ventral cord to ring. The cell lineage of PVQL is AB plapppaaa."
+                    },
+                    {
+                        "contents": "PVQR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Posterior Ventral Process Q Right. PVQR is a Interneuron, projects along ventral cord to ring. The cell lineage of PVQR is AB prapppaaa."
+                    },
+                    {
+                        "contents": "PVR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Posterior Ventral Process R. PVR is a Interneuron, projects along ventral cord to ring. The cell lineage of PVR is C aappa."
+                    },
+                    {
+                        "contents": "PVT is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Posterior Ventral Process T. PVT is a Interneuron, projects along ventral cord to ring. The cell lineage of PVT is AB plpappppa."
+                    },
+                    {
+                        "contents": "PVWL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Posterior Ventral Process W Left. PVWL is a Interneuron, posterior ventral cord, few synapses. The cell lineage of PVWL is TL.ppa."
+                    },
+                    {
+                        "contents": "PVWR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Posterior Ventral Process W Right. PVWR is a Interneuron, posterior ventral cord, few synapses. The cell lineage of PVWR is TR.ppa."
+                    },
+                    {
+                        "contents": "RIAL is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Ring Interneuron A Left. RIAL is a Ring interneuron, many synapses. The cell lineage of RIAL is AB alapaapaa."
+                    },
+                    {
+                        "contents": "RIAR is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Ring Interneuron A Right. RIAR is a Ring interneuron, many synapses. The cell lineage of RIAR is AB alaapppaa."
+                    },
+                    {
+                        "contents": "RIBL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Interneuron B Left. RIBL is a Ring interneuron. The cell lineage of RIBL is AB plpaappap."
+                    },
+                    {
+                        "contents": "RIBR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Interneuron B Right. RIBR is a Ring interneuron. The cell lineage of RIBR is AB prpaappap."
+                    },
+                    {
+                        "contents": "RICL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Interneuron C Left. RICL is a Ring interneuron. The cell lineage of RICL is AB plppaaaapp."
+                    },
+                    {
+                        "contents": "RICR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Interneuron C Right. RICR is a Ring interneuron. The cell lineage of RICR is AB prppaaaapp."
+                    },
+                    {
+                        "contents": "RID is a neuron in the worm C. elegans, of type Layer 1 interneuron. The name stands for Ring Interneuron D. RID is a Ring interneuron, projects along dorsal cord. The cell lineage of RID is AB alappaapa."
+                    },
+                    {
+                        "contents": "RIFL is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Ring Interneuron F Left. RIFL is a Ring interneuron. The cell lineage of RIFL is AB plppapaaap."
+                    },
+                    {
+                        "contents": "RIFR is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Ring Interneuron F Right. RIFR is a Ring interneuron. The cell lineage of RIFR is AB prppapaaap."
+                    },
+                    {
+                        "contents": "RIGL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Interneuron G Left. RIGL is a Ring interneuron. The cell lineage of RIGL is AB plppappaa."
+                    },
+                    {
+                        "contents": "RIGR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Interneuron G Right. RIGR is a Ring interneuron. The cell lineage of RIGR is AB prppappaa."
+                    },
+                    {
+                        "contents": "RIH is a neuron in the worm C. elegans, of type Category 4 interneuron. The name stands for Ring Interneuron H. RIH is a Ring interneuron. The cell lineage of RIH is AB prpappaaa."
+                    },
+                    {
+                        "contents": "RIML is a neuron in the worm C. elegans, of type Layer 1 interneuron; motorneuron in White et al., 1986. The name stands for Ring Interneuron M Left. RIML is a Ring motor neuron. The cell lineage of RIML is AB plppaapap."
+                    },
+                    {
+                        "contents": "RIMR is a neuron in the worm C. elegans, of type Layer 1 interneuron; motorneuron in White et al., 1986. The name stands for Ring Interneuron M Right. RIMR is a Ring motor neuron. The cell lineage of RIMR is AB prppaapap."
+                    },
+                    {
+                        "contents": "RIPL is a neuron in the worm C. elegans, of type Linker to pharynx. The name stands for Ring Interneuron P Left. RIPL is a Ring/pharynx interneuron, only direct connection between pharynx and ring. The cell lineage of RIPL is AB alpapaaaa."
+                    },
+                    {
+                        "contents": "RIPR is a neuron in the worm C. elegans, of type Linker to pharynx. The name stands for Ring Interneuron P Right. RIPR is a Ring/pharynx interneuron, only direct connection between pharynx and ring. The cell lineage of RIPR is AB arappaaaa."
+                    },
+                    {
+                        "contents": "RIR is a neuron in the worm C. elegans, of type Category 4 interneuron. The name stands for Ring Interneuron R. RIR is a Ring interneuron. The cell lineage of RIR is AB prpapppaa."
+                    },
+                    {
+                        "contents": "RIS is a neuron in the worm C. elegans, of type Layer 3 interneuron. The name stands for Ring Interneuron S. RIS is a Ring interneuron. The cell lineage of RIS is AB prpappapa."
+                    },
+                    {
+                        "contents": "RIVL is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Interneuron V Left. RIVL is a Ring interneuron. The cell lineage of RIVL is AB plpaapaaa."
+                    },
+                    {
+                        "contents": "RIVR is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Interneuron V Right. RIVR is a Ring interneuron. The cell lineage of RIVR is AB prpaapaaa."
+                    },
+                    {
+                        "contents": "RMDDL is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron D Dorsal Left. RMDDL is a Ring motor neuron/interneuron, many synapses. The cell lineage of RMDDL is AB alpapapaa."
+                    },
+                    {
+                        "contents": "RMDDR is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron D Dorsal Right. RMDDR is a Ring motor neuron/interneuron, many synapses. The cell lineage of RMDDR is AB arappapaa."
+                    },
+                    {
+                        "contents": "RMDL is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron D Left. RMDL is a Ring motor neuron/interneuron, many synapses. The cell lineage of RMDL is AB alpppapad."
+                    },
+                    {
+                        "contents": "RMDR is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron D Right. RMDR is a Ring motor neuron/interneuron, many synapses. The cell lineage of RMDR is AB praaaapad."
+                    },
+                    {
+                        "contents": "RMDVL is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron D Ventral Left. RMDVL is a Ring motor neuron/interneuron, many synapses. The cell lineage of RMDVL is AB alppapaaa."
+                    },
+                    {
+                        "contents": "RMDVR is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron D Ventral Right. RMDVR is a Ring motor neuron/interneuron, many synapses. The cell lineage of RMDVR is AB arapppaaa."
+                    },
+                    {
+                        "contents": "RMED is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron E Dorsal. RMED is a Ring motor neuron. The cell lineage of RMED is AB alapppaap."
+                    },
+                    {
+                        "contents": "RMEL is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron E Left. RMEL is a Ring motor neuron. The cell lineage of RMEL is AB alaaaarlp."
+                    },
+                    {
+                        "contents": "RMER is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron E Right. RMER is a Ring motor neuron. The cell lineage of RMER is AB alaaaarrp."
+                    },
+                    {
+                        "contents": "RMEV is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron E Ventral. RMEV is a Ring motor neuron. The cell lineage of RMEV is AB plpappaaa."
+                    },
+                    {
+                        "contents": "RMFL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Motor Neuron F Left. RMFL is a Ring motor neuron/interneuron. The cell lineage of RMFL is G2.al."
+                    },
+                    {
+                        "contents": "RMFR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Motor Neuron F Right. RMFR is a Ring motor neuron/interneuron. The cell lineage of RMFR is G2.ar."
+                    },
+                    {
+                        "contents": "RMGL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Motor Neuron G Left. RMGL is a Ring interneuron. The cell lineage of RMGL is AB plapaaapp."
+                    },
+                    {
+                        "contents": "RMGR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Ring Motor Neuron G Right. RMGR is a Ring interneuron. The cell lineage of RMGR is AB prapaaapp."
+                    },
+                    {
+                        "contents": "RMHL is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron H Left. RMHL is a Ring motor neuron/interneuron. The cell lineage of RMHL is G1.l."
+                    },
+                    {
+                        "contents": "RMHR is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Ring Motor Neuron H Right. RMHR is a Ring motor neuron/interneuron. The cell lineage of RMHR is G1.r."
+                    },
+                    {
+                        "contents": "SAADL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Sublateral Anterior A Dorsal Left. SAADL is a Ring interneuron, anteriorly projecting process that runs sublaterally. The cell lineage of SAADL is AB alppapapa."
+                    },
+                    {
+                        "contents": "SAADR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Sublateral Anterior A Dorsal Right. SAADR is a Ring interneuron, anteriorly projecting process that runs sublaterally. The cell lineage of SAADR is AB arapppapa."
+                    },
+                    {
+                        "contents": "SAAVL is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Sublateral Anterior A Ventral Left. SAAVL is a Ring interneuron, anteriorly projecting process that runs sublaterally. The cell lineage of SAAVL is AB plpaaaaaa."
+                    },
+                    {
+                        "contents": "SAAVR is a neuron in the worm C. elegans, of type Layer 2 interneuron. The name stands for Sublateral Anterior A Ventral Right. SAAVR is a Ring interneuron, anteriorly projecting process that runs sublaterally. The cell lineage of SAAVR is AB prpaaaaaa."
+                    },
+                    {
+                        "contents": "SABD is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Anterior B Dorsal. SABD is a Ring interneuron, anteriorly projecting process that runs sublaterally, synapses to anterior body muscles in L1. The cell lineage of SABD is AB plppapaap."
+                    },
+                    {
+                        "contents": "SABVL is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Anterior B Ventral Left. SABVL is a Ring interneuron, anteriorly projecting process that runs sublaterally, synapses to anterior body muscles in L1. The cell lineage of SABVL is AB plppapaaaa."
+                    },
+                    {
+                        "contents": "SABVR is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Anterior B Ventral Right. SABVR is a Ring interneuron, anteriorly projecting process that runs sublaterally, synapses to anterior body muscles in L1. The cell lineage of SABVR is AB prppapaaaa."
+                    },
+                    {
+                        "contents": "SDQL is a neuron in the worm C. elegans, of type Touch. The name stands for Sublateral Dorsal Q-cell Derived Left. SDQL is a Post. lateral interneuron, process projects into ring. The cell lineage of SDQL is QL.pap."
+                    },
+                    {
+                        "contents": "SDQR is a neuron in the worm C. elegans, of type Touch. The name stands for Sublateral Dorsal Q-cell Derived Right. SDQR is a Ant. lateral interneuron, process projects into ring. The cell lineage of SDQR is QR.pap."
+                    },
+                    {
+                        "contents": "SIADL is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Interneuron A Dorsal Left. SIADL is a Receive a few synapses in the ring, have posteriorly directed processes that run sublaterally. The cell lineage of SIADL is AB plpapaapa."
+                    },
+                    {
+                        "contents": "SIADR is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Interneuron A Dorsal Right. SIADR is a Receive a few synapses in the ring, have posteriorly directed processes that run sublaterally. The cell lineage of SIADR is AB prpapaapa."
+                    },
+                    {
+                        "contents": "SIAVL is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Interneuron A Ventral Left. SIAVL is a Receive a few synapses in the ring, have posteriorly directed processes that run sublaterally. The cell lineage of SIAVL is AB plpapappa."
+                    },
+                    {
+                        "contents": "SIAVR is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Interneuron A Ventral Right. SIAVR is a Receive a few synapses in the ring, have posteriorly directed processes that run sublaterally. The cell lineage of SIAVR is AB prpapappa."
+                    },
+                    {
+                        "contents": "SIBDL is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Interneuron B Dorsal Left. SIBDL is a Similar to SIA. The cell lineage of SIBDL is AB plppaaaaa."
+                    },
+                    {
+                        "contents": "SIBDR is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Interneuron B Dorsal Right. SIBDR is a Similar to SIA. The cell lineage of SIBDR is AB prppaaaaa."
+                    },
+                    {
+                        "contents": "SIBVL is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Interneuron B Ventral Left. SIBVL is a Similar to SIA. The cell lineage of SIBVL is AB plpapaapp."
+                    },
+                    {
+                        "contents": "SIBVR is a neuron in the worm C. elegans, of type Sublateral motor neuron; interneuron in White et al., 1986. The name stands for Sublateral Interneuron B Ventral Right. SIBVR is a Similar to SIA. The cell lineage of SIBVR is AB prpapaapp."
+                    },
+                    {
+                        "contents": "SMBDL is a neuron in the worm C. elegans, of type Sublateral motor neuron. The name stands for Sublateral Motor Neuron B Dorsal Left. SMBDL is a Ring motor neuron/interneuron, has a posteriorly directed process that runs sublaterally. The cell lineage of SMBDL is AB alpapapapp."
+                    },
+                    {
+                        "contents": "SMBDR is a neuron in the worm C. elegans, of type Sublateral motor neuron. The name stands for Sublateral Motor Neuron B Dorsal Right. SMBDR is a Ring motor neuron/interneuron, has a posteriorly directed process that runs sublaterally. The cell lineage of SMBDR is AB arappapapp."
+                    },
+                    {
+                        "contents": "SMBVL is a neuron in the worm C. elegans, of type Sublateral motor neuron. The name stands for Sublateral Motor Neuron B Ventral Left. SMBVL is a Ring motor neuron/interneuron, has a posteriorly directed process that runs sublaterally. The cell lineage of SMBVL is AB alpapappp."
+                    },
+                    {
+                        "contents": "SMBVR is a neuron in the worm C. elegans, of type Sublateral motor neuron. The name stands for Sublateral Motor Neuron B Ventral Right. SMBVR is a Ring motor neuron/interneuron, has a posteriorly directed process that runs sublaterally. The cell lineage of SMBVR is AB arappappp."
+                    },
+                    {
+                        "contents": "SMDDL is a neuron in the worm C. elegans, of type Sublateral motor neuron. The name stands for Sublateral Motor Neuron D Dorsal Left. SMDDL is a Ring motor neuron/interneuron, has a posteriorly directed process that runs sublaterally. The cell lineage of SMDDL is AB plpapaaaa."
+                    },
+                    {
+                        "contents": "SMDDR is a neuron in the worm C. elegans, of type Sublateral motor neuron. The name stands for Sublateral Motor Neuron D Dorsal Right. SMDDR is a Ring motor neuron/interneuron, has a posteriorly directed process that runs sublaterally. The cell lineage of SMDDR is AB prpapaaaa."
+                    },
+                    {
+                        "contents": "SMDVL is a neuron in the worm C. elegans, of type Sublateral motor neuron. The name stands for Sublateral Motor Neuron D Ventral Left. SMDVL is a Ring motor neuron/interneuron, has a posteriorly directed process that runs sublaterally. The cell lineage of SMDVL is AB alppappaa."
+                    },
+                    {
+                        "contents": "SMDVR is a neuron in the worm C. elegans, of type Sublateral motor neuron. The name stands for Sublateral Motor Neuron D Ventral Right. SMDVR is a Ring motor neuron/interneuron, has a posteriorly directed process that runs sublaterally. The cell lineage of SMDVR is AB arappppaa."
+                    },
+                    {
+                        "contents": "URADL is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Unknown Receptor, not Ciliated A Dorsal Left. URADL is a Ring motor neuron. The cell lineage of URADL is AB plaaaaaaa."
+                    },
+                    {
+                        "contents": "URADR is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Unknown Receptor, not Ciliated A Dorsal Right. URADR is a Ring motor neuron. The cell lineage of URADR is AB arpapaaaa."
+                    },
+                    {
+                        "contents": "URAVL is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Unknown Receptor, not Ciliated A Ventral Left. URAVL is a Ring motor neuron. The cell lineage of URAVL is AB plpaaapaa."
+                    },
+                    {
+                        "contents": "URAVR is a neuron in the worm C. elegans, of type Head motor neuron. The name stands for Unknown Receptor, not Ciliated A Ventral Right. URAVR is a Ring motor neuron. The cell lineage of URAVR is AB prpaaapaa."
+                    },
+                    {
+                        "contents": "URBL is a neuron in the worm C. elegans, of type Category 4 interneuron. The name stands for Unknown Receptor, not Ciliated B Left. URBL is a Neuron, presynaptic in ring, ending in head. The cell lineage of URBL is AB plaapaapa."
+                    },
+                    {
+                        "contents": "URBR is a neuron in the worm C. elegans, of type Category 4 interneuron. The name stands for Unknown Receptor, not Ciliated B Right. URBR is a Neuron, presynaptic in ring, ending in head. The cell lineage of URBR is AB praapaapa."
+                    },
+                    {
+                        "contents": "URXL is a neuron in the worm C. elegans, of type O2, CO2, social signals, touch. The name stands for Unknown Receptor, not Ciliated X Left. URXL is a Ring interneuron. The cell lineage of URXL is AB plaaaaappp."
+                    },
+                    {
+                        "contents": "URXR is a neuron in the worm C. elegans, of type O2, CO2, social signals, touch. The name stands for Unknown Receptor, not Ciliated X Right. URXR is a Ring interneuron. The cell lineage of URXR is AB arpapaappp."
+                    },
+                    {
+                        "contents": "URYDL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Unknown Receptor, not Ciliated Y Dorsal Left. URYDL is a Neuron, presynaptic in ring, ending in head. The cell lineage of URYDL is AB alapapapp."
+                    },
+                    {
+                        "contents": "URYDR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Unknown Receptor, not Ciliated Y Dorsal Right. URYDR is a Neuron, presynaptic in ring, ending in head. The cell lineage of URYDR is AB alapppapp."
+                    },
+                    {
+                        "contents": "URYVL is a neuron in the worm C. elegans, of type Cephalic. The name stands for Unknown Receptor, not Ciliated Y Ventral Left. URYVL is a Neuron, presynaptic in ring, ending in head. The cell lineage of URYVL is AB plpaaappp."
+                    },
+                    {
+                        "contents": "URYVR is a neuron in the worm C. elegans, of type Cephalic. The name stands for Unknown Receptor, not Ciliated Y Ventral Right. URYVR is a Neuron, presynaptic in ring, ending in head. The cell lineage of URYVR is AB prpaaappp."
+                    },
+                    {
+                        "contents": "VA1 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 1. VA1 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA1 is W.pa."
+                    },
+                    {
+                        "contents": "VA10 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 10. VA10 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA10 is P10.aaaa."
+                    },
+                    {
+                        "contents": "VA11 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 11. VA11 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA11 is P11.aaaa."
+                    },
+                    {
+                        "contents": "VA12 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 12. VA12 is a Ventral cord motor neuron, innervates vent. body muscles, but also interneuron in preanal ganglion. The cell lineage of VA12 is P12.aaaa."
+                    },
+                    {
+                        "contents": "VA2 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 2. VA2 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA2 is P2.aaaa."
+                    },
+                    {
+                        "contents": "VA3 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 3. VA3 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA3 is P3.aaaa."
+                    },
+                    {
+                        "contents": "VA4 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 4. VA4 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA4 is P4.aaaa."
+                    },
+                    {
+                        "contents": "VA5 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 5. VA5 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA5 is P5.aaaa."
+                    },
+                    {
+                        "contents": "VA6 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 6. VA6 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA6 is P6.aaaa."
+                    },
+                    {
+                        "contents": "VA7 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 7. VA7 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA7 is P7.aaaa."
+                    },
+                    {
+                        "contents": "VA8 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 8. VA8 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA8 is P8.aaaa."
+                    },
+                    {
+                        "contents": "VA9 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral A-type Motor Neuron 9. VA9 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VA9 is P9.aaaa."
+                    },
+                    {
+                        "contents": "VB1 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 1. VB1 is a Ventral cord motor neuron, innervates vent. body muscles, also interneuron in ring. The cell lineage of VB1 is P1.aaap."
+                    },
+                    {
+                        "contents": "VB10 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 10. VB10 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB10 is P9.aaap."
+                    },
+                    {
+                        "contents": "VB11 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 11. VB11 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB11 is P10.aaap."
+                    },
+                    {
+                        "contents": "VB2 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 2. VB2 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB2 is W.aap."
+                    },
+                    {
+                        "contents": "VB3 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 3. VB3 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB3 is P2.aaap."
+                    },
+                    {
+                        "contents": "VB4 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 4. VB4 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB4 is P3.aaap."
+                    },
+                    {
+                        "contents": "VB5 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 5. VB5 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB5 is P4.aaap."
+                    },
+                    {
+                        "contents": "VB6 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 6. VB6 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB6 is P5.aaap."
+                    },
+                    {
+                        "contents": "VB7 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 7. VB7 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB7 is P6.aaap."
+                    },
+                    {
+                        "contents": "VB8 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 8. VB8 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB8 is P7.aaap."
+                    },
+                    {
+                        "contents": "VB9 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral B-type Motor Neuron 9. VB9 is a Ventral cord motor neuron, innervates vent. body muscles. The cell lineage of VB9 is P8.aaap."
+                    },
+                    {
+                        "contents": "VC1 is a neuron in the worm C. elegans, of type Hermaphrodite specific motor neuron. The name stands for Ventral C-type Motor Neuron 1. VC1 is a Hermaphrodite specific ventral cord motor neuron innervates vulval muscles and ventral body muscles. The cell lineage of VC1 is P3.aap."
+                    },
+                    {
+                        "contents": "VC2 is a neuron in the worm C. elegans, of type Hermaphrodite specific motor neuron. The name stands for Ventral C-type Motor Neuron 2. VC2 is a Hermaphrodite specific ventral cord motor neuron innervates vulval muscles and ventral body muscles. The cell lineage of VC2 is P4.aap."
+                    },
+                    {
+                        "contents": "VC3 is a neuron in the worm C. elegans, of type Hermaphrodite specific motor neuron. The name stands for Ventral C-type Motor Neuron 3. VC3 is a Hermaphrodite specific ventral cord motor neuron innervates vulval muscles and ventral body muscles. The cell lineage of VC3 is P5.aap."
+                    },
+                    {
+                        "contents": "VC4 is a neuron in the worm C. elegans, of type Hermaphrodite specific motor neuron. The name stands for Ventral C-type Motor Neuron 4. VC4 is a Hermaphrodite specific ventral cord motor neuron innervates vulval muscles and ventral body muscles. The cell lineage of VC4 is P6.aap."
+                    },
+                    {
+                        "contents": "VC5 is a neuron in the worm C. elegans, of type Hermaphrodite specific motor neuron. The name stands for Ventral C-type Motor Neuron 5. VC5 is a Hermaphrodite specific ventral cord motor neuron innervates vulval muscles and ventral body muscles. The cell lineage of VC5 is P7.aap."
+                    },
+                    {
+                        "contents": "VC6 is a neuron in the worm C. elegans, of type Hermaphrodite specific motor neuron. The name stands for Ventral C-type Motor Neuron 6. VC6 is a Hermaphrodite specific ventral cord motor neuron innervates vulval muscles and ventral body muscles. The cell lineage of VC6 is P8.aap."
+                    },
+                    {
+                        "contents": "VD1 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 1. VD1 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD1 is W.pp."
+                    },
+                    {
+                        "contents": "VD10 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 10. VD10 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD10 is P9.app."
+                    },
+                    {
+                        "contents": "VD11 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 11. VD11 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD11 is P10.app."
+                    },
+                    {
+                        "contents": "VD12 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 12. VD12 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD12 is P11.app."
+                    },
+                    {
+                        "contents": "VD13 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 13. VD13 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD13 is P12.app."
+                    },
+                    {
+                        "contents": "VD2 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 2. VD2 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD2 is P1.app."
+                    },
+                    {
+                        "contents": "VD3 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 3. VD3 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD3 is P2.app."
+                    },
+                    {
+                        "contents": "VD4 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 4. VD4 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD4 is P3.app."
+                    },
+                    {
+                        "contents": "VD5 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 5. VD5 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD5 is P4.app."
+                    },
+                    {
+                        "contents": "VD6 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 6. VD6 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD6 is P5.app."
+                    },
+                    {
+                        "contents": "VD7 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 7. VD7 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD7 is P6.app."
+                    },
+                    {
+                        "contents": "VD8 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 8. VD8 is a Ventralcord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD8 is P7.app."
+                    },
+                    {
+                        "contents": "VD9 is a neuron in the worm C. elegans, of type Ventral cord motor neuron. The name stands for Ventral D-type Motor Neuron 9. VD9 is a Ventral cord motor neuron, innervates vent body muscles, reciprocal inhibitor. The cell lineage of VD9 is P8.app."
+                    },
+                    {
+                        "contents": "MCML is a neuron in the worm C. elegans, of type Male head interneuron. The name stands for Mystery Cell of the Male Left. MCML is a Male specific interneuron. The cell lineage of MCML is AmsoL."
+                    },
+                    {
+                        "contents": "MCMR is a neuron in the worm C. elegans, of type Male head interneuron. The name stands for Mystery Cell of the Male Right. MCMR is a Male specific interneuron. The cell lineage of MCMR is AmsoR."
+                    },
+                    {
+                        "contents": "PVV is a neuron in the worm C. elegans, of type Male interneuron. The name stands for Posterior Ventral Process V. PVV is a Male specific motor neuron, pre-anal ganglion. The cell lineage of PVV is P11.paaa."
+                    },
+                    {
+                        "contents": "PVX is a neuron in the worm C. elegans, of type Male interneuron. The name stands for Posterior Ventral Process X. PVX is a Male specific interneuron, cell body in pre-anal ganglion, postsynaptic in ring and ventral cord. The cell lineage of PVX is P12.aap."
+                    },
+                    {
+                        "contents": "PVY is a neuron in the worm C. elegans, of type Male interneuron. The name stands for Posterior Ventral Process Y. PVY is a Male specific interneuron, cell body in pre-anal ganglion. The cell lineage of PVY is P11.paap."
+                    },
+                    {
+                        "contents": "PVZ is a neuron in the worm C. elegans, of type Male interneuron. The name stands for Posterior Ventral Process Z. PVZ is a Male specific motor neuron, cell body in pre-anal ganglion. The cell lineage of PVZ is P10.ppppa."
+                    },
+                    {
+                        "contents": "DVE is a neuron in the worm C. elegans, of type Male interneuron. The name stands for Dorsorectal Ventral Process E. DVE is a Male specific interneuron, cell body in dorsorectal ganglion. The cell lineage of DVE is B.ppap."
+                    },
+                    {
+                        "contents": "DVF is a neuron in the worm C. elegans, of type Male interneuron. The name stands for Dorsorectal Ventral Process F. DVF is a Male specific interneuron, cell body in dorsorectal ganglion. The cell lineage of DVF is B.ppppa."
+                    },
+                    {
+                        "contents": "DX1 is a neuron in the worm C. elegans, of type Male interneuron. The cell lineage of DX1 is Male interneuron."
+                    },
+                    {
+                        "contents": "DX2 is a neuron in the worm C. elegans, of type Male interneuron. The cell lineage of DX2 is Male interneuron."
+                    },
+                    {
+                        "contents": "DX3 is a neuron in the worm C. elegans, of type Male interneuron. The cell lineage of DX3 is Male interneuron."
+                    },
+                    {
+                        "contents": "EF1 is a neuron in the worm C. elegans, of type Male interneuron. The cell lineage of EF1 is Male interneuron."
+                    },
+                    {
+                        "contents": "EF2 is a neuron in the worm C. elegans, of type Male interneuron. The cell lineage of EF2 is Male interneuron."
+                    },
+                    {
+                        "contents": "EF3 is a neuron in the worm C. elegans, of type Male interneuron. The cell lineage of EF3 is Male interneuron."
+                    },
+                    {
+                        "contents": "PDC is a neuron in the worm C. elegans, of type Male interneuron. The name stands for Preanal Cell with Dorsal Process C. PDC is a Male specific interneuron, pre-anal ganglion. The cell lineage of PDC is P11.papa."
+                    },
+                    {
+                        "contents": "PGA is a neuron in the worm C. elegans, of type Male interneuron. The name stands for Preanal Ganglion Cell A. PGA is a Male specific interneuron, pre-anal ganglion. The cell lineage of PGA is P11.papp."
+                    },
+                    {
+                        "contents": "CA01 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 1. CA01 is a Male specific cells, ventral cord, not constructed. The cell lineage of CA01 is P3.aapa."
+                    },
+                    {
+                        "contents": "CA02 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 2. CA02 is a Male specific cells, ventral cord, not constructed. The cell lineage of CA02 is P4.aapa."
+                    },
+                    {
+                        "contents": "CA03 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 3. CA03 is a Male specific cells, ventral cord, not constructed. The cell lineage of CA03 is P5.aapa."
+                    },
+                    {
+                        "contents": "CA04 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 4. CA04 is a Male specific neuron, ventral cord, innervates dorsal muscles. The cell lineage of CA04 is P6.aapa."
+                    },
+                    {
+                        "contents": "CA05 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 5. CA05 is a Male specific neuron, ventral cord, innervates dorsal muscles. The cell lineage of CA05 is P7.aapa."
+                    },
+                    {
+                        "contents": "CA06 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 6. CA06 is a Male specific neuron, ventral cord, innervates dorsal muscles. The cell lineage of CA06 is P8.aapa."
+                    },
+                    {
+                        "contents": "CA07 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 7. CA07 is a Male specific neuron, ventral cord, innervates dorsal muscles. The cell lineage of CA07 is P9.aapa."
+                    },
+                    {
+                        "contents": "CA08 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 8. CA08 is a Male specific cell, ventral cord, neuron-like but lacks synapses. The cell lineage of CA08 is P10.aapa."
+                    },
+                    {
+                        "contents": "CA09 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Anterior Daughter after Division 9. CA09 is a Male specific cell, ventral cord, neuron-like but lacks synapses. The cell lineage of CA09 is P11.aapa."
+                    },
+                    {
+                        "contents": "CP01 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 1. CP01 is a Male specific neuron in ventral cord. The cell lineage of CP01 is P3.aapp."
+                    },
+                    {
+                        "contents": "CP02 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 2. CP02 is a Male specific neuron in ventral cord. The cell lineage of CP02 is P4.aapp."
+                    },
+                    {
+                        "contents": "CP03 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 3. CP03 is a Male specific neuron in ventral cord. The cell lineage of CP03 is P5.aapp."
+                    },
+                    {
+                        "contents": "CP04 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 4. CP04 is a Male specific motor neuron in ventral cord. The cell lineage of CP04 is P6.aapp."
+                    },
+                    {
+                        "contents": "CP05 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 5. CP05 is a Male specific motor neuron in ventral cord. The cell lineage of CP05 is P7.aapp."
+                    },
+                    {
+                        "contents": "CP06 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 6. CP06 is a Male specific motor neuron in ventral cord. The cell lineage of CP06 is P8.aapp."
+                    },
+                    {
+                        "contents": "CP07 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 7. CP07 is a Male specific motor neuron in ventral cord. The cell lineage of CP07 is P9.aapp."
+                    },
+                    {
+                        "contents": "CP08 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 8. CP08 is a Male specific interneuron, projects into preanal ganglion. The cell lineage of CP08 is P10.aapp."
+                    },
+                    {
+                        "contents": "CP09 is a neuron in the worm C. elegans, of type Male interneuron. The name stands for C-type Neuron, Posterior Daughter after Division 9. CP09 is a Male specific interneuron, projects into preanal ganglion. The cell lineage of CP09 is P11.aapp."
+                    },
+                    {
+                        "contents": "CEMDL is a neuron in the worm C. elegans, of type Male head sensory neuron. The name stands for CEphalic Male Sensory Neuron Dorsal Left. CEMDL is a Male specific cephalic neurons (programmed cell death in hermaphrodite embryo) open to outside, possible function in male chemotaxis toward hermaphrodite. The cell lineage of CEMDL is AB plaaaaaap."
+                    },
+                    {
+                        "contents": "CEMDR is a neuron in the worm C. elegans, of type Male head sensory neuron. The name stands for CEphalic Male Sensory Neuron Dorsal Right. CEMDR is a Male specific cephalic neurons (programmed cell death in hermaphrodite embryo) open to outside, possible function in male chemotaxis toward hermaphrodite. The cell lineage of CEMDR is AB arpapaaap."
+                    },
+                    {
+                        "contents": "CEMVL is a neuron in the worm C. elegans, of type Male head sensory neuron. The name stands for CEphalic Male Sensory Neuron Ventral Left. CEMVL is a Male specific cephalic neurons (programmed cell death in hermaphrodite embryo) open to outside, possible function in male chemotaxis toward hermaphrodite. The cell lineage of CEMVL is AB plpaapapp."
+                    },
+                    {
+                        "contents": "CEMVR is a neuron in the worm C. elegans, of type Male head sensory neuron. The name stands for CEphalic Male Sensory Neuron Ventral Right. CEMVR is a Male specific cephalic neurons (programmed cell death in hermaphrodite embryo) open to outside, possible function in male chemotaxis toward hermaphrodite. The cell lineage of CEMVR is AB prpaapapp."
+                    },
+                    {
+                        "contents": "R1AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 1 Neuron A Left. R1AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R1AL is V5L.pppppaaa, (R1.aaaL)."
+                    },
+                    {
+                        "contents": "R1AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 1 Neuron A Right. R1AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R1AR is V5R.pppppaaa, (R1.aaaR)."
+                    },
+                    {
+                        "contents": "R1BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 1 Neuron B Left. R1BL is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in left lumbar ganglion. The cell lineage of R1BL is V5L.pppppapa, (R1.apaL)."
+                    },
+                    {
+                        "contents": "R1BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 1 Neuron B Right. R1BR is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in right lumbar ganglion. The cell lineage of R1BR is V5R.pppppapa, (R1.apaR)."
+                    },
+                    {
+                        "contents": "R2AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 2 Neuron A Left. R2AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R2AL is V6L.papapaaa, (R2.aaaL)."
+                    },
+                    {
+                        "contents": "R2AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 2 Neuron A Right. R2AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R2AR is V6R.papapaaa, (R2.aaaR)."
+                    },
+                    {
+                        "contents": "R2BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 2 Neuron B Left. R2BL is a Male sensory rays, neuron, darkly staining tip, open to outside,cell body in left lumbar ganglion. The cell lineage of R2BL is V6L.papapapa, (R2.apaL)."
+                    },
+                    {
+                        "contents": "R2BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 2 Neuron B Right. R2BR is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in right lumbar ganglion. The cell lineage of R2BR is V6R.papapapa, (R2.apaL)."
+                    },
+                    {
+                        "contents": "R3AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 3 Neuron A Left. R3AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R3AL is V6L.papppaaa, (R3.aaaL)."
+                    },
+                    {
+                        "contents": "R3AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 3 Neuron A Right. R3AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R3AR is V6R.papppaaa, (R3.aaaL)."
+                    },
+                    {
+                        "contents": "R3BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 3 Neuron B Left. R3BL is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in left lumbar ganglion. The cell lineage of R3BL is V6L.papppapa, (R3.apaL)."
+                    },
+                    {
+                        "contents": "R3BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 3 Neuron B Right. R3BR is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in right lumbar ganglion. The cell lineage of R3BR is V6R.papppapa, (R3.apaR)."
+                    },
+                    {
+                        "contents": "R4AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 4 Neuron A Left. R4AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R4AL is V6L.pppapaaa, (R4.aaaL)."
+                    },
+                    {
+                        "contents": "R4AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 4 Neuron A Right. R4AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R4AR is V6R.pppapaaa, (R4.aaaR)."
+                    },
+                    {
+                        "contents": "R4BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 4 Neuron B Left. R4BL is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in left lumbar ganglion. The cell lineage of R4BL is V6L.pppapapa, (R4.apaL)."
+                    },
+                    {
+                        "contents": "R4BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 4 Neuron B Right. R4BR is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in right lumbar ganglion. The cell lineage of R4BR is V6R.pppapapa, (R4.apaR)."
+                    },
+                    {
+                        "contents": "R5AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 5 Neuron A Left. R5AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R5AL is V6L.pppppaaa, (R5.aaaL)."
+                    },
+                    {
+                        "contents": "R5AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 5 Neuron A Right. R5AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R5AR is V6R.pppppaaa, (R5.aaaR)."
+                    },
+                    {
+                        "contents": "R5BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 5 Neuron B Left. R5BL is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in left lumbar ganglion. The cell lineage of R5BL is V6L.pppppapa, (R5.apaL)."
+                    },
+                    {
+                        "contents": "R5BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 5 Neuron B Right. R5BR is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in right lumbar ganglion. The cell lineage of R5BR is V6R.pppppapa, (R5.apaR)."
+                    },
+                    {
+                        "contents": "R6AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 6 Neuron A Left. R6AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R6AL is V6L.ppppaaaa, (R6.aaaL)."
+                    },
+                    {
+                        "contents": "R6AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 6 Neuron A Right. R6AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R6AR is V6R.ppppaaaa, (R6.aaaR)."
+                    },
+                    {
+                        "contents": "R6BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 6 Neuron B Left. R6BL is a Male sensory rays, neuron, not darkly staining nor open to outside, cell body in left lumbar ganglion. The cell lineage of R6BL is V6L.ppppaapa, (R6.apaL)."
+                    },
+                    {
+                        "contents": "R6BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 6 Neuron B Right. R6BR is a Male sensory rays, neuron, not darkly staining nor open to outside, cell body in right lumbar ganglion. The cell lineage of R6BR is V6R.ppppaapa, (R6.apaR)."
+                    },
+                    {
+                        "contents": "R7AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 7 Neuron A Left. R7AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R7AL is TL.apappaaa, (R7.aaaL)."
+                    },
+                    {
+                        "contents": "R7AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 7 Neuron A Right. R7AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R7AR is TR.apappaaa, (R7.aaaR)."
+                    },
+                    {
+                        "contents": "R7BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 7 Neuron B Left. R7BL is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in left lumbar ganglion. The cell lineage of R7BL is TL.apappapa, (R7.apaL)."
+                    },
+                    {
+                        "contents": "R7BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 7 Neuron B Right. R7BR is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in right lumbar ganglion. The cell lineage of R7BR is TR.apappapa, (R7.apaR)."
+                    },
+                    {
+                        "contents": "R8AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 8 Neuron A Left. R8AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R8AL is TL.appaaaaa, (R8.aaaL)."
+                    },
+                    {
+                        "contents": "R8AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 8 Neuron A Right. R8AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R8AR is TR.appaaaaa, (R8.aaaR)."
+                    },
+                    {
+                        "contents": "R8BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 8 Neuron B Left. R8BL is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in left lumbar ganglion. The cell lineage of R8BL is TL.appaaapa, (R8.apaL)."
+                    },
+                    {
+                        "contents": "R8BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 8 Neuron B Right. R8BR is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in right lumbar ganglion. The cell lineage of R8BR is TR.appaaapa, (R8.apaR)."
+                    },
+                    {
+                        "contents": "R9AL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 9 Neuron A Left. R9AL is a Male sensory rays, neuron, striated rootlet, cell body in left lumbar ganglion. The cell lineage of R9AL is TL.appapaaa, (R9.aaaL)."
+                    },
+                    {
+                        "contents": "R9AR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 9 Neuron A Right. R9AR is a Male sensory rays, neuron, striated rootlet, cell body in right lumbar ganglion. The cell lineage of R9AR is TR.appapaaa, (R9.aaaR)."
+                    },
+                    {
+                        "contents": "R9BL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 9 Neuron B Left. R9BL is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in left lumbar ganglion. The cell lineage of R9BL is TL.appapapa, (R9.apaL)."
+                    },
+                    {
+                        "contents": "R9BR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for Ray 9 Neuron B Right. R9BR is a Male sensory rays, neuron, darkly staining tip, open to outside, cell body in right lumbar ganglion. The cell lineage of R9BR is TR.appapapa, (R9.apaR)."
+                    },
+                    {
+                        "contents": "PHDL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for PHasmid Neuron D Left. PHDL is a Male specific sensory neuron. The cell lineage of PHDL is TL.paa (PHsoL)."
+                    },
+                    {
+                        "contents": "PHDR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for PHasmid Neuron D Right. PHDR is a Male specific sensory neuron. The cell lineage of PHDR is TR.paa (PHsoR)."
+                    },
+                    {
+                        "contents": "HOA is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for HOok Neuron A. HOA is a Male specific neuron, sensory ending in male hook sensillum, cell body in pre-anal ganglion. The cell lineage of HOA is P10.pppa."
+                    },
+                    {
+                        "contents": "HOB is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for HOok Neuron B. HOB is a Male specific neuron, sensory ending in male hook sensillum, cell body in pre-anal ganglion. The cell lineage of HOB is P10.ppap."
+                    },
+                    {
+                        "contents": "PCAL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for PostCloacal Sensilla Neuron A Left. PCAL is a Male specific sensory-motor neuron, sensory ending in male postcloacal sensilla, cell body in left cloacal ganglion. The cell lineage of PCAL is Y.plppd."
+                    },
+                    {
+                        "contents": "PCAR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for PostCloacal Sensilla Neuron A Right. PCAR is a Male specific sensory-motor neuron, sensory ending in male postcloacal sensilla, cell body in right cloacal ganglion. The cell lineage of PCAR is Y.prppd."
+                    },
+                    {
+                        "contents": "PCBL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for PostCloacal Sensilla Neuron B Left. PCBL is a Male specific sensory-motor neuron, sensory ending in male postcloacal sensilla, cell body in left cloacal ganglion. The cell lineage of PCBL is Y.plpa."
+                    },
+                    {
+                        "contents": "PCBR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for PostCloacal Sensilla Neuron B Right. PCBR is a Male specific sensory-motor neuron, sensory ending in male postcloacal sensilla, cell body in right cloacal ganglion. The cell lineage of PCBR is Y.prpa."
+                    },
+                    {
+                        "contents": "PCCL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for PostCloacal Sensilla Neuron C Left. PCCL is a Male specific sensory-motor neuron, sensory ending in male postcloacal sensilla, cell body in left cloacal ganglion. The cell lineage of PCCL is B.arpaaa."
+                    },
+                    {
+                        "contents": "PCCR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for PostCloacal Sensilla Neuron C Right. PCCR is a Male specific sensory-motor neuron, sensory ending in male postcloacal sensilla, cell body in right cloacal ganglion. The cell lineage of PCCR is B.alpaaa."
+                    },
+                    {
+                        "contents": "SPCL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for SPicule Neuron C Left. SPCL is a Male specific sensory/motor neuron, innervates spicule protractor muscle, cell body in left cloacal ganglion. The cell lineage of SPCL is B.alpaap."
+                    },
+                    {
+                        "contents": "SPCR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for SPicule Neuron C Right. SPCR is a Male specific sensory/motor neuron, innervates spicule protractor muscle, cell body in right cloacal ganglion. The cell lineage of SPCR is B.arpaap."
+                    },
+                    {
+                        "contents": "SPDL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for SPicule Neuron D Left. SPDL is a Male specific sensory neuron of male copulatory spicules, ciliated, open to outside at tip of spicule, cell body in left cloacal ganglion. The cell lineage of SPDL is B.alpapaa."
+                    },
+                    {
+                        "contents": "SPDR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for SPicule Neuron D Right. SPDR is a Male specific sensory neuron of male copulatory spicules, ciliated, open to outside at tip of spicule, cell body in right cloacal ganglion. The cell lineage of SPDR is B.arpapaa."
+                    },
+                    {
+                        "contents": "SPVL is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for SPicule Neuron V Left. SPVL is a Male specific sensory neuron of male copulatory spicules, ciliated, open to outside at tip of spicule, cell body in left cloacal ganglion. The cell lineage of SPVL is B.al/raalda."
+                    },
+                    {
+                        "contents": "SPVR is a neuron in the worm C. elegans, of type Male sensory neuron. The name stands for SPicule Neuron V Right. SPVR is a Male specific sensory neuron of male copulatory spicules, ciliated, open to outside at tip of spicule, cell body in right cloacal ganglion. The cell lineage of SPVR is B.al/raarda."
+                    },
+                    {
+                        "contents": "MDL01 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDL02 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDL03 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDL04 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDL05 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDL06 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDL07 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDL08 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL09 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL10 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL11 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL12 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL13 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL14 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL15 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL16 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL17 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL18 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL19 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL20 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL21 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL22 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL23 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDL24 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR01 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDR02 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDR03 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDR04 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDR05 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDR06 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDR07 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MDR08 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR09 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR10 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR11 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR12 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR13 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR14 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR15 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR16 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR17 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR18 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR19 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR20 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR21 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR22 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR23 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MDR24 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL01 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVL02 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVL03 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVL04 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVL05 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVL06 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVL07 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVL08 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL09 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL10 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL11 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL12 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL13 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL14 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL15 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL16 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL17 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL18 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL19 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL20 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL21 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL22 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVL23 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR01 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVR02 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVR03 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVR04 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVR05 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVR06 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVR07 is a neuron in the worm C. elegans, of type Head muscle."
+                    },
+                    {
+                        "contents": "MVR08 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR09 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR10 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR11 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR12 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR13 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR14 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR15 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR16 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR17 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR18 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR19 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR20 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR21 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR22 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR23 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "MVR24 is a neuron in the worm C. elegans, of type Main body muscle."
+                    },
+                    {
+                        "contents": "pm1 is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm3D is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm3VL is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm3VR is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm5D is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm5VR is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm5VL is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm7D is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm7VL is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm7VR is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm2D is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm2VL is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm2VR is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm4D is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm4VR is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm4VL is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm4_UNSPECIFIED is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm6D is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm6VR is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm6VL is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "pm8 is a neuron in the worm C. elegans, of type Pharyngeal muscle."
+                    },
+                    {
+                        "contents": "MVULVA is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "vm1AL is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "vm1PL is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "vm1PR is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "vm1AR is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "vm2AL is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "vm2AR is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "vm2PL is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "vm2PR is a neuron in the worm C. elegans, of type Vulval muscle."
+                    },
+                    {
+                        "contents": "um2AL is a neuron in the worm C. elegans, of type Uterine muscle."
+                    },
+                    {
+                        "contents": "um2AR is a neuron in the worm C. elegans, of type Uterine muscle."
+                    },
+                    {
+                        "contents": "um1AL is a neuron in the worm C. elegans, of type Uterine muscle."
+                    },
+                    {
+                        "contents": "um1AR is a neuron in the worm C. elegans, of type Uterine muscle."
+                    },
+                    {
+                        "contents": "um1PL is a neuron in the worm C. elegans, of type Uterine muscle."
+                    },
+                    {
+                        "contents": "um1PR is a neuron in the worm C. elegans, of type Uterine muscle."
+                    },
+                    {
+                        "contents": "um2PL is a neuron in the worm C. elegans, of type Uterine muscle."
+                    },
+                    {
+                        "contents": "um2PR is a neuron in the worm C. elegans, of type Uterine muscle."
+                    },
+                    {
+                        "contents": "MANAL is a neuron in the worm C. elegans, of type Anal/sphincter muscle."
+                    },
+                    {
+                        "contents": "mu_sph is a neuron in the worm C. elegans, of type Anal/sphincter muscle."
+                    },
+                    {
+                        "contents": "mu_anal is a neuron in the worm C. elegans, of type Anal/sphincter muscle."
+                    },
+                    {
+                        "contents": "dglL1 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglL2 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglL3 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglL4 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglL5 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglL6 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglL7 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglR1 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglR2 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglR3 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglR4 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglR5 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglR6 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglR7 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dglR8 is a neuron in the worm C. elegans, of type Diagonal muscle (male specific)."
+                    },
+                    {
+                        "contents": "aobL is a neuron in the worm C. elegans, of type Anterior oblique (male specific). The cell lineage of aobL is Anterior oblique (male specific)."
+                    },
+                    {
+                        "contents": "aobR is a neuron in the worm C. elegans, of type Anterior oblique (male specific). The cell lineage of aobR is Anterior oblique (male specific)."
+                    },
+                    {
+                        "contents": "pobL is a neuron in the worm C. elegans, of type Posterior oblique (male specific). The cell lineage of pobL is Posterior oblique (male specific)."
+                    },
+                    {
+                        "contents": "pobR is a neuron in the worm C. elegans, of type Posterior oblique (male specific). The cell lineage of pobR is Posterior oblique (male specific)."
+                    },
+                    {
+                        "contents": "gecL is a neuron in the worm C. elegans, of type Gubernacular erector (male specific). The cell lineage of gecL is Gubernacular erector (male specific)."
+                    },
+                    {
+                        "contents": "gecR is a neuron in the worm C. elegans, of type Gubernacular erector (male specific). The cell lineage of gecR is Gubernacular erector (male specific)."
+                    },
+                    {
+                        "contents": "grtL is a neuron in the worm C. elegans, of type Gubernacular retractor (male specific). The cell lineage of grtL is Gubernacular retractor (male specific)."
+                    },
+                    {
+                        "contents": "grtR is a neuron in the worm C. elegans, of type Gubernacular retractor (male specific). The cell lineage of grtR is Gubernacular retractor (male specific)."
+                    },
+                    {
+                        "contents": "cdlL is a neuron in the worm C. elegans, of type Caudal longitudinal muscle (male specific)."
+                    },
+                    {
+                        "contents": "cdlR is a neuron in the worm C. elegans, of type Caudal longitudinal muscle (male specific)."
+                    },
+                    {
+                        "contents": "ailL is a neuron in the worm C. elegans, of type Anterior inner longitudinal muscle (male specific)."
+                    },
+                    {
+                        "contents": "ailR is a neuron in the worm C. elegans, of type Anterior inner longitudinal muscle (male specific)."
+                    },
+                    {
+                        "contents": "pilL is a neuron in the worm C. elegans, of type Posterior inner longitudinal muscle (male specific)."
+                    },
+                    {
+                        "contents": "pilR is a neuron in the worm C. elegans, of type Posterior inner longitudinal muscle (male specific)."
+                    },
+                    {
+                        "contents": "polL is a neuron in the worm C. elegans, of type Posterior outer longitudinal muscle (male specific)."
+                    },
+                    {
+                        "contents": "polR is a neuron in the worm C. elegans, of type Posterior outer longitudinal muscle (male specific)."
+                    },
+                    {
+                        "contents": "dspL is a neuron in the worm C. elegans, of type Dorsal spicule protractor (male specific). The cell lineage of dspL is Dorsal spicule protractor (male specific)."
+                    },
+                    {
+                        "contents": "dspR is a neuron in the worm C. elegans, of type Dorsal spicule protractor (male specific). The cell lineage of dspR is Dorsal spicule protractor (male specific)."
+                    },
+                    {
+                        "contents": "vspL is a neuron in the worm C. elegans, of type Ventral spicule protractor (male specific). The cell lineage of vspL is Ventral spicule protractor (male specific)."
+                    },
+                    {
+                        "contents": "vspR is a neuron in the worm C. elegans, of type Ventral spicule protractor (male specific). The cell lineage of vspR is Ventral spicule protractor (male specific)."
+                    },
+                    {
+                        "contents": "dsrL is a neuron in the worm C. elegans, of type Dorsal spicule retractor (male specific). The cell lineage of dsrL is Dorsal spicule retractor (male specific)."
+                    },
+                    {
+                        "contents": "dsrR is a neuron in the worm C. elegans, of type Dorsal spicule retractor (male specific). The cell lineage of dsrR is Dorsal spicule retractor (male specific)."
+                    },
+                    {
+                        "contents": "vsrL is a neuron in the worm C. elegans, of type Ventral spicule retractor (male specific). The cell lineage of vsrL is Ventral spicule retractor (male specific)."
+                    },
+                    {
+                        "contents": "vsrR is a neuron in the worm C. elegans, of type Ventral spicule retractor (male specific). The cell lineage of vsrR is Ventral spicule retractor (male specific)."
+                    },
+                    {
+                        "contents": "mu_intL is a neuron in the worm C. elegans, of type Intestinal muscles."
+                    },
+                    {
+                        "contents": "mu_intR is a neuron in the worm C. elegans, of type Intestinal muscles."
+                    },
+                    {
+                        "contents": "BWM is a neuron in the worm C. elegans, of type Unspecified body wall muscle."
+                    },
+                    {
+                        "contents": "GLRDL is a neuron in the worm C. elegans, of type GLR cell. The cell lineage of GLRDL is GLR cell."
+                    },
+                    {
+                        "contents": "GLRDR is a neuron in the worm C. elegans, of type GLR cell. The cell lineage of GLRDR is GLR cell."
+                    },
+                    {
+                        "contents": "GLRL is a neuron in the worm C. elegans, of type GLR cell. The cell lineage of GLRL is GLR cell."
+                    },
+                    {
+                        "contents": "GLRR is a neuron in the worm C. elegans, of type GLR cell. The cell lineage of GLRR is GLR cell."
+                    },
+                    {
+                        "contents": "GLRVL is a neuron in the worm C. elegans, of type GLR cell. The cell lineage of GLRVL is GLR cell."
+                    },
+                    {
+                        "contents": "GLRVR is a neuron in the worm C. elegans, of type GLR cell. The cell lineage of GLRVR is GLR cell."
+                    },
+                    {
+                        "contents": "CEPshDL is a neuron in the worm C. elegans, of type Sheath cell other than amphid sheath and phasmid. The cell lineage of CEPshDL is Sheath cell other than amphid sheath and phasmid."
+                    },
+                    {
+                        "contents": "CEPshDR is a neuron in the worm C. elegans, of type Sheath cell other than amphid sheath and phasmid. The cell lineage of CEPshDR is Sheath cell other than amphid sheath and phasmid."
+                    },
+                    {
+                        "contents": "CEPshVL is a neuron in the worm C. elegans, of type Sheath cell other than amphid sheath and phasmid. The cell lineage of CEPshVL is Sheath cell other than amphid sheath and phasmid."
+                    },
+                    {
+                        "contents": "CEPshVR is a neuron in the worm C. elegans, of type Sheath cell other than amphid sheath and phasmid. The cell lineage of CEPshVR is Sheath cell other than amphid sheath and phasmid."
+                    },
+                    {
+                        "contents": "mc1DL is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc1DL is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "mc1DR is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc1DR is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "mc1V is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc1V is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "mc2DL is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc2DL is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "mc2DR is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc2DR is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "mc2V is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc2V is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "mc3DL is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc3DL is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "mc3DR is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc3DR is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "mc3V is a neuron in the worm C. elegans, of type Marginal cell of the pharynx. The cell lineage of mc3V is Marginal cell of the pharynx."
+                    },
+                    {
+                        "contents": "e2DL is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e2DL is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "e2DR is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e2DR is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "e2D is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e2D is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "e2V is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e2V is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "e2VL is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e2VL is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "e2VR is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e2VR is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "e3D is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e3D is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "e3VL is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e3VL is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "e3VR is a neuron in the worm C. elegans, of type Pharyngeal epithelium. The cell lineage of e3VR is Pharyngeal epithelium."
+                    },
+                    {
+                        "contents": "g1AL is a neuron in the worm C. elegans, of type Pharyngeal glial cell. The cell lineage of g1AL is Pharyngeal glial cell."
+                    },
+                    {
+                        "contents": "g1AR is a neuron in the worm C. elegans, of type Pharyngeal glial cell. The cell lineage of g1AR is Pharyngeal glial cell."
+                    },
+                    {
+                        "contents": "g1p is a neuron in the worm C. elegans, of type Pharyngeal glial cell. The cell lineage of g1p is Pharyngeal glial cell."
+                    },
+                    {
+                        "contents": "g1P is a neuron in the worm C. elegans, of type Pharyngeal glial cell. The cell lineage of g1P is Pharyngeal glial cell."
+                    },
+                    {
+                        "contents": "g2L is a neuron in the worm C. elegans, of type Pharyngeal glial cell. The cell lineage of g2L is Pharyngeal glial cell."
+                    },
+                    {
+                        "contents": "g2R is a neuron in the worm C. elegans, of type Pharyngeal glial cell. The cell lineage of g2R is Pharyngeal glial cell."
+                    },
+                    {
+                        "contents": "bm is a neuron in the worm C. elegans, of type Pharyngeal basement membrane. The cell lineage of bm is Pharyngeal basement membrane."
+                    },
+                    {
+                        "contents": "exc_cell is a neuron in the worm C. elegans, of type Excretory cell. The cell lineage of exc_cell is Excretory cell."
+                    },
+                    {
+                        "contents": "exc_gl is a neuron in the worm C. elegans, of type Excretory gland. The cell lineage of exc_gl is Excretory gland."
+                    },
+                    {
+                        "contents": "hmc is a neuron in the worm C. elegans, of type Head mesodermal cell. The cell lineage of hmc is Head mesodermal cell."
+                    },
+                    {
+                        "contents": "hyp is a neuron in the worm C. elegans, of type Hypodermis. The cell lineage of hyp is Hypodermis."
+                    },
+                    {
+                        "contents": "int is a neuron in the worm C. elegans, of type Intestine. The cell lineage of int is Intestine."
+                    },
+                    {
+                        "contents": "R1stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R1stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R1stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R1stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R2stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R2stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R2stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R2stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R3stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R3stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R3stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R3stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R4stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R4stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R4stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R4stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R5stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R5stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R5stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R5stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R6stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R6stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R6stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R6stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R7stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R7stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R7stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R7stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R8stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R8stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R8stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R8stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R9stL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R9stL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R9stR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R9stR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R1shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R1shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R1shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R1shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R2shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R2shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R2shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R2shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R3shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R3shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R3shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R3shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R4shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R4shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R4shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R4shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R5shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R5shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R5shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R5shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R6shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R6shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R6shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R6shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R7shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R7shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R7shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R7shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R8shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R8shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R8shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R8shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R9shL is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R9shL is Male ray structural cell."
+                    },
+                    {
+                        "contents": "R9shR is a neuron in the worm C. elegans, of type Male ray structural cell. The cell lineage of R9shR is Male ray structural cell."
+                    },
+                    {
+                        "contents": "proctodeum is a neuron in the worm C. elegans, of type Proctodeum (male specific). The cell lineage of proctodeum is Proctodeum (male specific)."
+                    },
+                    {
+                        "contents": "gonad is a neuron in the worm C. elegans, of type Gonad (male specific). The cell lineage of gonad is Gonad (male specific)."
+                    }
+                ]
+            }
+        }
+    }
+}
