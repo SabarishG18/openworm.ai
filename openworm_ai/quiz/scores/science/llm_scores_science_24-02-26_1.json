@@ -1,0 +1,83 @@
+{
+    "Title": "Performance of LLMs in a specific 100 MCQ Science Knowledge Quiz",
+    "Date of Testing": "24-02-2026 13:53:28",
+    "Results": [
+        {
+            "LLM": "gpt-4o",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.003
+        },
+        {
+            "LLM": "claude-3-7-sonnet-20250219",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.0
+        },
+        {
+            "LLM": "gpt-3.5-turbo-instruct",
+            "Total Questions": 100,
+            "Correct Answers": 0,
+            "Accuracy (%)": 0.0,
+            "Avg Response Time (s)": 0.0
+        },
+        {
+            "LLM": "huggingface:meta-llama/Llama-3.2-1B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 58,
+            "Accuracy (%)": 58.0,
+            "Avg Response Time (s)": 0.704
+        },
+        {
+            "LLM": "huggingface:mistralai/Mistral-7B-Instruct-v0.2",
+            "Total Questions": 100,
+            "Correct Answers": 99,
+            "Accuracy (%)": 99.0,
+            "Avg Response Time (s)": 0.516
+        },
+        {
+            "LLM": "huggingface:google/gemma-2-9b-it",
+            "Total Questions": 100,
+            "Correct Answers": 100,
+            "Accuracy (%)": 100.0,
+            "Avg Response Time (s)": 1.2
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-14B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 100,
+            "Accuracy (%)": 100.0,
+            "Avg Response Time (s)": 4.357
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-32B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 100,
+            "Accuracy (%)": 100.0,
+            "Avg Response Time (s)": 1.296
+        },
+        {
+            "LLM": "huggingface:meta-llama/Llama-3.1-8B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 96,
+            "Accuracy (%)": 96.0,
+            "Avg Response Time (s)": 0.942
+        },
+        {
+            "LLM": "huggingface:Qwen/Qwen2.5-72B-Instruct",
+            "Total Questions": 100,
+            "Correct Answers": 100,
+            "Accuracy (%)": 100.0,
+            "Avg Response Time (s)": 0.918
+        },
+        {
+            "LLM": "huggingface:CohereLabs/aya-expanse-32b",
+            "Total Questions": 100,
+            "Correct Answers": 99,
+            "Accuracy (%)": 99.0,
+            "Avg Response Time (s)": 0.274
+        }
+    ]
+}
