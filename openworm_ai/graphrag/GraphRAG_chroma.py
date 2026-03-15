@@ -1,24 +1,35 @@
 # Based on https://docs.llamaindex.ai/en/stable/examples/cookbooks/GraphRAG_v1/
 # Modified to use Chroma vector store instead of LlamaIndex SimpleVectorStore
 
-import glob
-import json
-import os
-import sys
-from pathlib import Path
-
+# CHANGED: Chroma imports instead of LlamaIndex storage
 import chromadb
-from dotenv import load_dotenv
 from langchain_chroma import Chroma
 from langchain_core.documents import Document as LangChainDocument
-from langchain_huggingface import HuggingFaceEmbeddings
+
+# Keep LlamaIndex for LLM and prompts (not storage)
 from llama_index.core import Settings
-from llama_index.llms.huggingface_api import HuggingFaceInferenceAPI
+
+# FIXED: Use LlamaIndex HuggingFaceEmbedding (local) not LangChain API version
+from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+
+# LLMs
 from llama_index.llms.ollama import Ollama
 from llama_index.llms.openai import OpenAI
+from llama_index.llms.huggingface_api import HuggingFaceInferenceAPI
+
+
+import glob
+import sys
+import json
+import os
+from pathlib import Path
+
 
 from openworm_ai import print_
 from openworm_ai.utils.llms import get_llm_from_argv
+
+
+from dotenv import load_dotenv
 
 load_dotenv()  # Load .env file
 
@@ -37,45 +48,40 @@ def _has_openai_key() -> bool:
 
 def _select_embed_model():
     """
-    Prefer OpenAI embeddings if a key is present, otherwise fall back to HF BGE small.
+    Prefer OpenAI embeddings if a key is present, otherwise fall back to HF BGE large (local).
 
-    CHANGED: Returns LangChain-compatible embeddings for Chroma
+    FIXED: Now uses LlamaIndex HuggingFaceEmbedding (local download) for consistency
+    with test version, not LangChain's API-based version.
     """
     if _has_openai_key():
         try:
-            from langchain_openai import OpenAIEmbeddings
-
+            _ = Settings.embed_model
             print_("Embedding model: OpenAI (default)")
-            return OpenAIEmbeddings()
+            return Settings.embed_model
         except Exception as e:
             print_(
-                f"! OpenAI embeddings unavailable ({type(e).__name__}: {e}) -> falling back to HF BGE-small."
+                f"! OpenAI embeddings unavailable ({type(e).__name__}: {e}) -> falling back to HF BGE-large."
             )
 
-    # Fallback: HF BGE small (fast + good) - LangChain version for Chroma
-    hf = HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
-    print_("Embedding model: HuggingFace BAAI/bge-small-en-v1.5")
+    # FIXED: Use local HF embeddings (same as test version)
+    hf = HuggingFaceEmbedding(model_name="BAAI/bge-large-en-v1.5")
+    print_("Embedding model: HuggingFace BAAI/bge-large-en-v1.5")
     return hf
 
 
 # Choose once, then use consistently for create + query + reload
 EMBED_MODEL = _select_embed_model()
-# Don't set Settings.embed_model since we're using LangChain embeddings
 
 
 def _get_embedding_folder_name():
     """
     Returns a stable folder name based on the embedding model being used.
 
-    CHANGED: Works with LangChain embedding models
+    FIXED: Works with LlamaIndex embedding models (matches test version)
     """
-    if "openai" in EMBED_MODEL.__class__.__name__.lower():
-        return "embed_openai"
-
-    if hasattr(EMBED_MODEL, "model_name"):
-        name = EMBED_MODEL.model_name
+    name = getattr(EMBED_MODEL, "model_name", None)
+    if name:
         return "embed_" + name.replace("/", "_").replace(":", "_")
-
     return "embed_" + EMBED_MODEL.__class__.__name__.lower()
 
 
@@ -108,6 +114,33 @@ def _make_llamaindex_llm(model: str):
 
     print_(f"No OpenAI/HF keys, using Ollama llama3.2 instead of {model}")
     return Ollama(model="llama3.2", request_timeout=60.0)
+
+
+# IMPORTANT: Wrapper to convert LlamaIndex embeddings to LangChain format for Chroma
+class LlamaIndexEmbeddingWrapper:
+    """
+    Wraps a LlamaIndex embedding model to work with LangChain's Chroma.
+
+    This allows us to use the same local HuggingFaceEmbedding model for both
+    LlamaIndex (test version) and LangChain (Chroma version).
+    """
+
+    def __init__(self, llama_embed_model):
+        self.llama_embed_model = llama_embed_model
+        # Expose model_name for folder naming
+        self.model_name = getattr(llama_embed_model, "model_name", None)
+
+    def embed_documents(self, texts):
+        """Embed a list of documents (LangChain interface)"""
+        return [self.llama_embed_model.get_text_embedding(text) for text in texts]
+
+    def embed_query(self, text):
+        """Embed a single query (LangChain interface)"""
+        return self.llama_embed_model.get_query_embedding(text)
+
+
+# Wrap the LlamaIndex embedding for use with Chroma
+EMBED_MODEL_FOR_CHROMA = LlamaIndexEmbeddingWrapper(EMBED_MODEL)
 
 
 def create_store(model):
@@ -185,9 +218,10 @@ def create_store(model):
         anonymized_telemetry=False,
     )
 
+    # FIXED: Use wrapped LlamaIndex embedding
     vectorstore = Chroma(
         collection_name="openworm-corpus",
-        embedding_function=EMBED_MODEL,
+        embedding_function=EMBED_MODEL_FOR_CHROMA,
         client_settings=chroma_settings,
     )
 
@@ -218,9 +252,10 @@ def load_index(model):
         anonymized_telemetry=False,
     )
 
+    # FIXED: Use wrapped LlamaIndex embedding
     vectorstore = Chroma(
         collection_name="openworm-corpus",
-        embedding_function=EMBED_MODEL,
+        embedding_function=EMBED_MODEL_FOR_CHROMA,
         client_settings=chroma_settings,
     )
 
@@ -332,12 +367,66 @@ SOURCES:
     return response_text
 
 
+def generate_vector_store_config(output_path: str = "vector-stores.json"):
+    """
+    Generate a vector store configuration JSON for the neuroml.ai RAG package.
+
+    This creates a config pointing to the Chroma store built by this script,
+    with the correct embedding model and domain structure.
+    """
+    STORE_SUBFOLDER = "/" + _get_embedding_folder_name()
+    chroma_dir = Path(STORE_DIR + STORE_SUBFOLDER)
+
+    # Get the embedding model name for the config
+    # IMPORTANT: neuroml.ai expects format "provider:model:inference_provider"
+    # The folder name doesn't include :auto, but the JSON config does
+    if hasattr(EMBED_MODEL, "model_name"):
+        embedding_model_name = f"huggingface:{EMBED_MODEL.model_name}:auto"
+    elif "openai" in EMBED_MODEL.__class__.__name__.lower():
+        embedding_model_name = "openai:text-embedding-ada-002:auto"
+    else:
+        embedding_model_name = "huggingface:BAAI/bge-large-en-v1.5:auto"
+
+    config = {
+        "embedding_model": "huggingface:BAAI/bge-large-en-v1.5",
+        "domains": {
+            "corpus_and_wormatlas": {
+                # CRITICAL: This description determines when RAG is triggered
+                # Make it VERY BROAD to catch all C. elegans questions
+                "description": """Questions about C. elegans (Caenorhabditis elegans) biology, including:
+    - Anatomy, morphology, and cellular structure
+    - Nervous system, neurons, synapses, and neural circuits
+    - Neurotransmitters, neuroscience, and behavior
+    - Genetics, development, and molecular biology
+    - Locomotion, movement, gaits, and biomechanics
+    - Pharynx, muscles, intestine, and other organs
+    - Research methods, experimental techniques, and tools
+    - NeuroML, computational models, and simulations
+    - WormAtlas anatomical information
+    - Any biological, scientific, or research question mentioning C. elegans, worms, nematodes, or related terms
+
+    This domain covers ALL questions related to C. elegans research and biology.""",
+                "vector_stores": [
+                    {"name": "openworm-corpus", "path": str(chroma_dir.absolute())}
+                ],
+            }
+        },
+    }
+
+    output_file = Path(output_path)
+    output_file.write_text(json.dumps(config, indent=4), encoding="utf-8")
+    print_(f"Vector store config written to: {output_file.absolute()}")
+    print_(f"Set GEN_RAG_VS_CONFIG={output_file.absolute()} to use with neuroml.ai RAG")
+
+
 if __name__ == "__main__":
     llm_ver = get_llm_from_argv(sys.argv)
 
     if "-test" not in sys.argv:
         if "-q" not in sys.argv:
             create_store(llm_ver)
+            # Generate config after building the store
+            generate_vector_store_config()
 
         vectorstore = load_index(llm_ver)
 

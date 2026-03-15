@@ -5,6 +5,16 @@ import datetime
 
 # ruff: noqa: F401
 from openworm_ai.utils.llms import (
+    LLM_HF_QWEN25_72B,
+    LLM_HF_QWEN25_14B,
+    LLM_HF_QWEN25_32B,
+    LLM_HF_LLAMA31_8B,
+    LLM_HF_GEMMA_2_9B,
+    LLM_HF_MISTRAL_7B,
+    LLM_HF_PHI3_MINI,
+    LLM_HF_PHI3_MED,
+    LLM_HF_COHERE_AYA_32B,
+    LLM_HF_LLAMA32_1b,
     LLM_OLLAMA_LLAMA32_1B,
     LLM_OLLAMA_LLAMA32_3B,
     LLM_GPT4o,
@@ -24,13 +34,17 @@ from openworm_ai.quiz.Templates import (
     ASK_Q,
 )  # Ensure this matches the correct import path
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 field = "celegans"  # general/science/celegans
 iteration_per_day = 1
 current_date = datetime.datetime.now().strftime("%d-%m-%y")
-SOURCE_QUESTIONS_FILE = "openworm_ai/quiz/samples/GPT4o_100questions_celegans.json"
+SOURCE_QUESTIONS_FILE = "openworm_ai/quiz/samples/huggingface_Qwen_Qwen2.5-72B-Instruct_100questions_celegans_v2.json"
 OUTPUT_FILENAME = f"llm_scores_{field}_{current_date}_{iteration_per_day}.json"
 SAVE_DIRECTORY = f"openworm_ai/quiz/scores/{field}"
-TITLE = "Performance of LLMs in specific C. elegans knowledge Quiz"
+TITLE = "Performance of LLMs in a specific 100 MCQ C. elegans knowledge Quiz"
 
 
 indexing = ["A", "B", "C", "D"]  # Answer labels
@@ -43,9 +57,9 @@ def load_llms():
         # LLM_OLLAMA_LLAMA32_3B,
         LLM_GPT4o,
         #####LLM_GEMINI,
-        ####LLM_CLAUDE37,
+        LLM_CLAUDE37,
         LLM_GPT35,
-        ##LLM_OLLAMA_PHI4,
+        # LLM_OLLAMA_PHI4, - cant run local ones on my laptop
         # LLM_OLLAMA_GEMMA2,
         # LLM_OLLAMA_DEEPSEEK - unable to answer A-D(too few params?),
         # LLM_OLLAMA_GEMMA,
@@ -53,7 +67,22 @@ def load_llms():
         # LLM_OLLAMA_TINYLLAMA,
         # LLM_OLLAMA_FALCON2 - 'only an assistant with no acess to external resources',
         # LLM_OLLAMA_CODELLAMA - understands only a fraction of questions, doesnt understand prompts
-    ]  # Defined constants
+        # Small models (1-7B)
+        LLM_HF_LLAMA32_1b,  # 1B - baseline
+        LLM_HF_MISTRAL_7B,  # 14B - good small model
+        # Mid-small (7-10B)
+        LLM_HF_GEMMA_2_9B,  # 9B
+        # Mid-range (10-30B) - ADD THESE:
+        LLM_HF_QWEN25_14B,  # 14B - Qwen family comparison
+        LLM_HF_QWEN25_32B,  # 32B - Best price/performance
+        # or
+        LLM_HF_LLAMA31_8B,  # 8B - Meta's latest
+        # Large (70B+)
+        LLM_HF_QWEN25_72B,  # 72B - Your quiz generator
+        LLM_HF_COHERE_AYA_32B,  # 32B - Cohere model
+    ]
+    # Defined constants
+
     return llms
 
 
