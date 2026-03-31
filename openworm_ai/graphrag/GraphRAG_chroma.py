@@ -1,35 +1,26 @@
 # Based on https://docs.llamaindex.ai/en/stable/examples/cookbooks/GraphRAG_v1/
 # Modified to use Chroma vector store instead of LlamaIndex SimpleVectorStore
 
-# CHANGED: Chroma imports instead of LlamaIndex storage
-import chromadb
-from langchain_chroma import Chroma
-from langchain_core.documents import Document as LangChainDocument
-
-# Keep LlamaIndex for LLM and prompts (not storage)
-from llama_index.core import Settings
-
-# FIXED: Use LlamaIndex HuggingFaceEmbedding (local) not LangChain API version
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-
-# LLMs
-from llama_index.llms.ollama import Ollama
-from llama_index.llms.openai import OpenAI
-from llama_index.llms.huggingface_api import HuggingFaceInferenceAPI
-
-
 import glob
-import sys
 import json
 import os
+import sys
 from pathlib import Path
 
+import chromadb
+from dotenv import load_dotenv
+from langchain_chroma import Chroma
+from langchain_core.documents import Document as LangChainDocument
+from langchain_huggingface import HuggingFaceEmbeddings
+
+# LlamaIndex LLMs (used only for standalone test queries)
+from llama_index.core import Settings
+from llama_index.llms.huggingface_api import HuggingFaceInferenceAPI
+from llama_index.llms.ollama import Ollama
+from llama_index.llms.openai import OpenAI
 
 from openworm_ai import print_
 from openworm_ai.utils.llms import get_llm_from_argv
-
-
-from dotenv import load_dotenv
 
 load_dotenv()  # Load .env file
 
@@ -50,21 +41,20 @@ def _select_embed_model():
     """
     Prefer OpenAI embeddings if a key is present, otherwise fall back to HF BGE large (local).
 
-    FIXED: Now uses LlamaIndex HuggingFaceEmbedding (local download) for consistency
-    with test version, not LangChain's API-based version.
+    Uses native LangChain embeddings for direct Chroma compatibility.
     """
     if _has_openai_key():
         try:
-            _ = Settings.embed_model
+            from langchain_openai import OpenAIEmbeddings
+
             print_("Embedding model: OpenAI (default)")
-            return Settings.embed_model
+            return OpenAIEmbeddings()
         except Exception as e:
             print_(
                 f"! OpenAI embeddings unavailable ({type(e).__name__}: {e}) -> falling back to HF BGE-large."
             )
 
-    # FIXED: Use local HF embeddings (same as test version)
-    hf = HuggingFaceEmbedding(model_name="BAAI/bge-large-en-v1.5")
+    hf = HuggingFaceEmbeddings(model_name="BAAI/bge-large-en-v1.5")
     print_("Embedding model: HuggingFace BAAI/bge-large-en-v1.5")
     return hf
 
@@ -76,9 +66,10 @@ EMBED_MODEL = _select_embed_model()
 def _get_embedding_folder_name():
     """
     Returns a stable folder name based on the embedding model being used.
-
-    FIXED: Works with LlamaIndex embedding models (matches test version)
     """
+    if "openai" in EMBED_MODEL.__class__.__name__.lower():
+        return "embed_openai"
+
     name = getattr(EMBED_MODEL, "model_name", None)
     if name:
         return "embed_" + name.replace("/", "_").replace(":", "_")
@@ -115,32 +106,6 @@ def _make_llamaindex_llm(model: str):
     print_(f"No OpenAI/HF keys, using Ollama llama3.2 instead of {model}")
     return Ollama(model="llama3.2", request_timeout=60.0)
 
-
-# IMPORTANT: Wrapper to convert LlamaIndex embeddings to LangChain format for Chroma
-class LlamaIndexEmbeddingWrapper:
-    """
-    Wraps a LlamaIndex embedding model to work with LangChain's Chroma.
-
-    This allows us to use the same local HuggingFaceEmbedding model for both
-    LlamaIndex (test version) and LangChain (Chroma version).
-    """
-
-    def __init__(self, llama_embed_model):
-        self.llama_embed_model = llama_embed_model
-        # Expose model_name for folder naming
-        self.model_name = getattr(llama_embed_model, "model_name", None)
-
-    def embed_documents(self, texts):
-        """Embed a list of documents (LangChain interface)"""
-        return [self.llama_embed_model.get_text_embedding(text) for text in texts]
-
-    def embed_query(self, text):
-        """Embed a single query (LangChain interface)"""
-        return self.llama_embed_model.get_query_embedding(text)
-
-
-# Wrap the LlamaIndex embedding for use with Chroma
-EMBED_MODEL_FOR_CHROMA = LlamaIndexEmbeddingWrapper(EMBED_MODEL)
 
 
 def create_store(model):
@@ -218,10 +183,10 @@ def create_store(model):
         anonymized_telemetry=False,
     )
 
-    # FIXED: Use wrapped LlamaIndex embedding
+    # Use LangChain-compatible embedding model
     vectorstore = Chroma(
         collection_name="openworm-corpus",
-        embedding_function=EMBED_MODEL_FOR_CHROMA,
+        embedding_function=EMBED_MODEL,
         client_settings=chroma_settings,
     )
 
@@ -252,10 +217,10 @@ def load_index(model):
         anonymized_telemetry=False,
     )
 
-    # FIXED: Use wrapped LlamaIndex embedding
+    # Use LangChain-compatible embedding model
     vectorstore = Chroma(
         collection_name="openworm-corpus",
-        embedding_function=EMBED_MODEL_FOR_CHROMA,
+        embedding_function=EMBED_MODEL,
         client_settings=chroma_settings,
     )
 
