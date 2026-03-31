@@ -18,12 +18,9 @@ from llama_index.core.storage.index_store import SimpleIndexStore
 from llama_index.core.storage.storage_context import StorageContext
 from llama_index.core.vector_stores import SimpleVectorStore
 
-# HF embeddings fallback
-
-
-# LLMs - Native LlamaIndex (no LangChain dependency)
-from llama_index.llms.huggingface_api import HuggingFaceInferenceAPI
+# LlamaIndex LLMs and embeddings (pure LlamaIndex, no LangChain dependency)
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.llms.huggingface_api import HuggingFaceInferenceAPI
 from llama_index.llms.ollama import Ollama
 from llama_index.llms.openai import OpenAI
 
