@@ -45,8 +45,8 @@ else
      #Do not call LlamaParse; use existing parsed outputs
     if [ "$1" == "-free" ]; then
         python -m openworm_ai.parser.ParseLlamaIndexJson --skip
-        python -m openworm_ai.graphrag.GraphRAG_test -test
         python -m openworm_ai.graphrag.GraphRAG_chroma -test
+        python -m openworm_ai.graphrag.GraphRAG_test -test
         python -m corpus.papers.enrich_source_registry
 
     #Force full rebuild of raw/processed outputs
@@ -59,8 +59,8 @@ else
     #Default: incremental parse + monthly refresh (30 days)
     else
         python -m openworm_ai.parser.ParseLlamaIndexJson --skip 
-        python -m openworm_ai.graphrag.GraphRAG_test $@
         python -m openworm_ai.graphrag.GraphRAG_chroma $@
+        python -m openworm_ai.graphrag.GraphRAG_test $@
         python -m corpus.papers.enrich_source_registry
 
     fi
