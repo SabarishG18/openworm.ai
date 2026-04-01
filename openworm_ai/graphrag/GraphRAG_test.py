@@ -6,6 +6,7 @@ import os
 import sys
 
 from dotenv import load_dotenv
+
 from llama_index.core import (
     Document,
     PromptTemplate,
@@ -26,6 +27,8 @@ from llama_index.llms.openai import OpenAI
 
 from openworm_ai import print_
 from openworm_ai.utils.llms import get_llm_from_argv
+
+print_("Loading environment variables from .env file (if present)")
 
 load_dotenv()
 
@@ -172,19 +175,15 @@ def load_index(model):
 
     STORE_SUBFOLDER = "/" + _get_embedding_folder_name()
 
+    persist_dir = STORE_DIR + STORE_SUBFOLDER
+
     storage_context = StorageContext.from_defaults(
-        docstore=SimpleDocumentStore.from_persist_dir(
-            persist_dir=STORE_DIR + STORE_SUBFOLDER
-        ),
-        vector_store=SimpleVectorStore.from_persist_dir(
-            persist_dir=STORE_DIR + STORE_SUBFOLDER
-        ),
-        index_store=SimpleIndexStore.from_persist_dir(
-            persist_dir=STORE_DIR + STORE_SUBFOLDER
-        ),
+        docstore=SimpleDocumentStore.from_persist_dir(persist_dir=persist_dir),
+        vector_store=SimpleVectorStore.from_persist_dir(persist_dir=persist_dir),
+        index_store=SimpleIndexStore.from_persist_dir(persist_dir=persist_dir),
     )
 
-    print_("Reloading index for %s" % model)
+    print_("Reloading index for %s from %s" % (model, persist_dir))
     index_reloaded = load_index_from_storage(storage_context)
     return index_reloaded
 
