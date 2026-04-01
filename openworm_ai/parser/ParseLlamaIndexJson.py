@@ -4,6 +4,7 @@ from openworm_ai.parser.llamaparse_backend import generate_raw_json
 
 import argparse
 import json
+import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -37,6 +38,20 @@ def parse_args():
         type=int,
         default=30,
         help="Refresh PDFs that haven't been parsed for more than N days (default 30).",
+    )
+
+    parser.add_argument(
+        "--match",
+        type=str,
+        default=str(PDF_FOLDER),
+        help=f"Match the given glob pattern for pdf name (default: all PDFs in {PDF_FOLDER})",
+    )
+
+    parser.add_argument(
+        "--tier",
+        type=str,
+        default="cost_effective",
+        help="LlamaParse tier (default: cost_effective; other options: fast, agentic, agentic_plus)",
     )
 
     return parser.parse_args()
@@ -136,19 +151,84 @@ def should_parse_pdf(
     return None
 
 
+def _clean_markdown(text: str) -> str:
+    """
+    Sanitize LaTeX artifacts from markdown output while preserving content.
+    Strips wrappers (e.g. $...$, \\text{}) but keeps the text inside so
+    chemical/ionic notation like Ca^{2+} remains searchable in RAG.
+    """
+    # Remove display math delimiters, keep inner content
+    text = re.sub(r"\$\$(.+?)\$\$", r"\1", text, flags=re.DOTALL)
+    # Remove inline math delimiters, keep inner content
+    text = re.sub(r"\$(.+?)\$", r"\1", text)
+
+    # Strip common LaTeX text/formatting wrappers, keep content
+    text = re.sub(r"\\text\{(.+?)\}", r"\1", text)
+    text = re.sub(r"\\mathrm\{(.+?)\}", r"\1", text)
+    text = re.sub(r"\\mathbf\{(.+?)\}", r"\1", text)
+    text = re.sub(r"\\boldsymbol\{(.+?)\}", r"\1", text)
+
+    # Remove bracket/paren sizing commands (purely visual, no content)
+    text = re.sub(r"\\left[\[\(]|\\right[\]\)]", "", text)
+
+    # Simplify brace-wrapped super/subscripts to readable form
+    # e.g. ^{2+} -> ^2+,  _{i} -> _i
+    text = re.sub(r"\^\{(.+?)\}", r"^\1", text)
+    text = re.sub(r"_\{(.+?)\}", r"_\1", text)
+
+    # Remove stray backslashes before punctuation characters
+    text = re.sub(r"\\([,;:!%])", r"\1", text)
+
+    # Convert HTML superscripts to plain readable form e.g. <sup>2+</sup> -> ^2+
+    text = re.sub(r"<sup>(.*?)</sup>", r"^\1", text)
+    # Strip any other residual HTML tags
+    text = re.sub(r"<[^>]+>", "", text)
+
+    # Strip mermaid diagram blocks — not useful for RAG
+    text = re.sub(r"```mermaid.*?```", "", text, flags=re.DOTALL)
+
+    # Collapse runs of 3+ blank lines introduced by the removals above
+    text = re.sub(r"\n{3,}", "\n\n", text)
+
+    return text.strip()
+
+
+def _is_noise_paragraph(text: str) -> bool:
+    s = text.strip()
+    if not s:
+        return True
+
+    if re.match(r"^\d+\s+of\s+\d+$", s):
+        return True
+
+    if re.match(r"^[\w\s,\.]+eLife\s+\d{4}.*DOI:\s*$", s):
+        return True
+
+    if re.match(r"^\((?:PG|RAS|[A-Z]{1,4})\);?\\?$", s):
+        return True
+
+    # CHANGED: require sentence-ending punctuation at the END of the string,
+    # not just anywhere — "Boyle et al." has a dot but isn't a sentence
+    if (
+        len(s) <= 60
+        and not s.startswith("#")
+        and not s.startswith("|")
+        and not s.startswith(">")
+        and not re.search(r"[.?!:,]\s*$", s)  # must END with punctuation
+    ):
+        return True
+
+    return False
+
+
 def _extract_pages(payload: Dict[str, Any]) -> list:
     """
-    Extract page data from LlamaParse output.
+    Extract page data from LlamaParse output, preferring item-level granularity.
 
-    The SDK/API returns v2 format:
-    {
-        "text": {"pages": [{"page_number": 1, "text": "raw OCR..."}, ...]},
-        "markdown": {"pages": [{"page_number": 1, "markdown": "# Clean..."}, ...]},
-        "items": [...]
-    }
-
-    We PRIORITIZE markdown.pages[].markdown (clean) over text.pages[].text (raw OCR).
-    This is critical for RAG - clean text produces better embeddings.
+    Priority order:
+      1. items — individual text blocks per page (best RAG chunk granularity)
+      2. markdown — full page blob, sanitized (fallback when no items)
+      3. text — raw OCR (last resort)
     """
     # Handle list wrapper
     if isinstance(payload, list) and len(payload) > 0:
@@ -159,34 +239,54 @@ def _extract_pages(payload: Dict[str, Any]) -> list:
 
     pages = []
 
-    # Get markdown pages (clean, well-formatted) - PREFERRED for RAG
+    # Build lookup dicts keyed by page_number
     markdown_pages = {}
     if isinstance(payload.get("markdown"), dict):
         for p in payload["markdown"].get("pages", []):
             if isinstance(p, dict):
-                page_num = p.get("page_number")
-                markdown_pages[page_num] = p.get("markdown", "")
+                markdown_pages[p.get("page_number")] = p.get("markdown", "")
 
-    # Get text pages (raw OCR with layout artifacts) - FALLBACK only
     text_pages = {}
     if isinstance(payload.get("text"), dict):
         for p in payload["text"].get("pages", []):
             if isinstance(p, dict):
-                page_num = p.get("page_number")
-                text_pages[page_num] = p.get("text", "")
+                text_pages[p.get("page_number")] = p.get("text", "")
 
-    # Merge: prefer markdown, fall back to text
-    all_page_nums = set(markdown_pages.keys()) | set(text_pages.keys())
+    # items give per-paragraph granularity — one chunk per text block
+    # rather than one chunk per page, much better for RAG retrieval
+    items_pages = {}
+    if isinstance(payload.get("items"), dict):
+        for p in payload["items"].get("pages", []):
+            if isinstance(p, dict):
+                items_pages[p.get("page_number")] = p.get("items", [])
+
+    all_page_nums = (
+        set(markdown_pages.keys()) | set(text_pages.keys()) | set(items_pages.keys())
+    )
 
     for page_num in sorted(all_page_nums):
-        # Prioritize markdown (clean) over text (raw OCR)
-        content = markdown_pages.get(page_num) or text_pages.get(page_num) or ""
-        pages.append(
-            {
-                "page": page_num,
-                "md": content,  # Store in 'md' field for consistency
-            }
-        )
+        items = items_pages.get(page_num, [])
+
+        if items:
+            # Item-level path — one entry per text block, cleaned individually
+            page_items = []
+            for item in items:
+                if not isinstance(item, dict):
+                    continue
+                text = item.get("md") or item.get("text") or ""
+                text = _clean_markdown(text.strip())
+                if text and "CURRENT_PAGE_RAW_OCR_TEXT" not in text:
+                    page_items.append(text)
+            if page_items:
+                pages.append({"page": page_num, "items": page_items})
+                continue
+
+        # Fallback to page-level markdown blob when items are absent
+        md_content = markdown_pages.get(page_num, "")
+        txt_content = text_pages.get(page_num, "")
+        content = _clean_markdown(md_content) if md_content else txt_content
+        if content:
+            pages.append({"page": page_num, "md": content})
 
     # Fallback: old CLI format with top-level pages array
     if not pages and isinstance(payload.get("pages"), list):
@@ -195,7 +295,7 @@ def _extract_pages(payload: Dict[str, Any]) -> list:
                 pages.append(
                     {
                         "page": p.get("page"),
-                        "md": p.get("md") or p.get("text") or "",
+                        "md": _clean_markdown(p.get("md") or p.get("text") or ""),
                     }
                 )
 
@@ -206,7 +306,11 @@ def convert_to_json(paper_ref, paper_info, output_dir):
     """
     Convert raw LlamaParse JSON to our internal Document model.
 
-    Uses clean markdown for RAG-friendly output.
+    Uses item-level content when available (one Paragraph per text block),
+    falling back to full page markdown blob when items are absent.
+    Each Paragraph carries lightweight provenance metadata (section_id,
+    paragraph_index, page_number) for RAG chunk referencing. doc_id and
+    source are omitted from Paragraph as they are already on the Document.
     """
     loc = Path(paper_info[0])
     print_(f"Converting: {loc}")
@@ -233,13 +337,29 @@ def convert_to_json(paper_ref, paper_info, output_dir):
         section_title = f"Page {page_number}" if page_number is not None else "Page"
         current_section = Section(section_title)
 
-        # Get the markdown content (already prioritized in _extract_pages)
-        page_content = (page.get("md") or "").strip()
+        if "items" in page:
+            # Item-level path: one Paragraph per text block
+            for para_idx, item_text in enumerate(page["items"]):
+                if not _is_noise_paragraph(item_text):
+                    current_section.paragraphs.append(
+                        Paragraph(
+                            contents=item_text,
+                            paragraph_index=para_idx,
+                            page_number=page_number,
+                        )
+                    )
+        else:
+            # Page-level fallback: single Paragraph for the whole page blob
+            page_content = (page.get("md") or "").strip()
+            if page_content and not _is_noise_paragraph(page_content):
+                current_section.paragraphs.append(
+                    Paragraph(
+                        contents=page_content,
+                        paragraph_index=0,
+                        page_number=page_number,
+                    )
+                )
 
-        if page_content:
-            current_section.paragraphs.append(Paragraph(page_content))
-
-        # Only add sections with content
         if current_section.paragraphs:
             doc_model.sections.append(current_section)
 
@@ -253,7 +373,7 @@ def convert_pdf_via_api(
     raw_json_path = RAW_JSON_DIR / f"{paper_ref}.llamaparse_raw.json"
 
     print_(f"Generating raw JSON via API: {pdf_loc} -> {raw_json_path}")
-    generate_raw_json(pdf_loc, raw_json_path)
+    generate_raw_json(pdf_loc, raw_json_path, tier=args.tier)
 
     check_llamaparse_success(raw_json_path)
 
@@ -309,36 +429,42 @@ if __name__ == "__main__":
         papers_api[paper_ref] = [str(pdf_path), source_url]
 
     if not papers_api:
-        print(f"WARNING: No PDFs found in {PDF_FOLDER.resolve()}")
+        print_(f"WARNING: No PDFs found in {PDF_FOLDER.resolve()}")
 
     manifest = load_manifest(MANIFEST_PATH)
 
     for paper_ref, (pdf_path, source_url) in papers_api.items():
         pdf_loc = Path(pdf_path)
 
+        print_(f"\n----  Processing: {paper_ref} (at: {pdf_loc})")
+
         if args.skip:
-            # Skip parsing but still convert existing raw JSON
             raw_json_path = RAW_JSON_DIR / f"{paper_ref}.llamaparse_raw.json"
             if raw_json_path.exists():
-                print(f"Converting existing (--skip): {raw_json_path}")
+                print_(f"Converting existing (--skip): {raw_json_path}")
                 convert_existing_raw_json(paper_ref, raw_json_path, source_url)
             else:
-                print(f"Skipping (no raw JSON): {pdf_loc}")
+                print_(f"Skipping (no raw JSON): {pdf_loc}")
             continue
 
         try:
             if args.reparse_all:
-                print(f"Parsing (forced): {pdf_loc}")
+                print_(f"Parsing (forced): {pdf_loc}")
+                convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
+                continue
+
+            if args.match and args.match in pdf_loc.name:
+                print_(f"Parsing (matched --match={args.match}): {pdf_loc}")
                 convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
                 continue
 
             reason = should_parse_pdf(pdf_loc, manifest, max_age_days=args.max_age_days)
 
             if reason is None:
-                print(f"Skipping (fresh + unchanged): {pdf_loc}")
+                print_(f"Skipping (fresh + unchanged): {pdf_loc}")
                 continue
 
-            print(f"Parsing ({reason}): {pdf_loc}")
+            print_(f"Parsing ({reason}): {pdf_loc}")
             convert_pdf_via_api(paper_ref, pdf_path, source_url, manifest)
 
         except Exception as e:
@@ -348,5 +474,5 @@ if __name__ == "__main__":
             traceback.print_exc()
             continue
 
-    print(f"PDF_FOLDER resolved: {PDF_FOLDER.resolve()}")
-    print(f"PDF count: {len(list(PDF_FOLDER.glob('*.pdf')))}")
+    print_(f"PDF_FOLDER resolved: {PDF_FOLDER.resolve()}")
+    print_(f"PDF count: {len(list(PDF_FOLDER.glob('*.pdf')))}")
