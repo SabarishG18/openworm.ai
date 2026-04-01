@@ -56,7 +56,7 @@ else
          
     #Default: incremental parse + monthly refresh (30 days)
     else
-        python -m openworm_ai.parser.ParseLlamaIndexJson --max-age-days 30
+        python -m openworm_ai.parser.ParseLlamaIndexJson --skip 
         python -m openworm_ai.graphrag.GraphRAG_test $@
         python -m corpus.papers.enrich_source_registry
 
