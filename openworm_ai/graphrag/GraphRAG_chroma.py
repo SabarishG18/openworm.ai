@@ -107,7 +107,6 @@ def _make_llamaindex_llm(model: str):
     return Ollama(model="llama3.2", request_timeout=60.0)
 
 
-
 def create_store(model):
     """
     Create Chroma vector store from processed JSON files.
@@ -351,6 +350,8 @@ def generate_vector_store_config(output_path: str = "vector-stores.json"):
         embedding_model_name = "openai:text-embedding-ada-002:auto"
     else:
         embedding_model_name = "huggingface:BAAI/bge-large-en-v1.5:auto"
+
+    print(embedding_model_name)
 
     config = {
         "embedding_model": "huggingface:BAAI/bge-large-en-v1.5",
