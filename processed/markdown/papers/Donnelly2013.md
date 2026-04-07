@@ -4,13 +4,15 @@ _Generated from: https://journals.plos.org/plosbiology/article?id=10.1371/journa
 
 ## Page 1
 
-# Monoaminergic Orchestration of Motor Programs in a Complex C. elegans Behavior
+# Monoaminergic Orchestration of Motor Programs in a Complex *C. elegans* Behavior
 
-Jamie L. Donnelly^1, Christopher M. Clark^1, Andrew M. Leifer^2, Jennifer K. Pirri^1, Marian Haburcak^1, Michael M. Francis^1, Aravinthan D. T. Samuel^2, Mark J. Alkema^1\*
+**Jamie L. Donnelly**^1, **Christopher M. Clark**^1, **Andrew M. Leifer**^2, **Jennifer K. Pirri**^1, **Marian Haburcak**^1, **Michael M. Francis**^1, **Aravinthan D. T. Samuel**^2, **Mark J. Alkema**^1\*
 
-^1Department of Neurobiology, University of Massachusetts Medical School, Worcester, Massachusetts, United States of America, ^2Department of Physics & Center for Brain Science, Harvard University, Cambridge, Massachusetts, United States of America
+1 Department of Neurobiology, University of Massachusetts Medical School, Worcester, Massachusetts, United States of America, 2 Department of Physics  of Physics & Center for Brain Science, Harvard University, Cambridge, Massachusetts, United States of America
 
-Monoamines provide chemical codes of behavioral states. However, the neural mechanisms of monoaminergic orchestration of behavior are poorly understood. Touch elicits an escape response in *Caenorhabditis elegans* where the animal moves backward and turns to change its direction of locomotion. We show that the tyramine receptor SER-2 acts through a Gαo pathway to inhibit neurotransmitter release from GABAergic motor neurons that synapse onto ventral body wall muscles. Extrasynaptic activation of SER-2 facilitates ventral body wall muscle contraction, contributing to the tight ventral turn that allows the animal to navigate away from a threatening stimulus. Tyramine temporally coordinates the different phases of the escape response through the synaptic activation of the fast-acting ionotropic receptor, LGC-55, and extrasynaptic activation of the slow-acting metabotropic receptor, SER-2. Our studies show, at the level of single cells, how a sensory input recruits the action of a monoamine to change neural circuit properties and orchestrate a compound motor sequence.
+## Abstract
+
+Monoamines provide chemical codes of behavioral states. However, the neural mechanisms of monoaminergic orchestration of behavior are poorly understood. Touch elicits an escape response in *Caenorhabditis elegans* where the animal moves backward and turns to change its direction of locomotion. We show that the tyramine receptor SER-2 acts through a G\alpha\_o pathway to inhibit neurotransmitter release from GABAergic motor neurons that synapse onto ventral body wall muscles. Extrasynaptic activation of SER-2 facilitates ventral body wall muscle contraction, contributing to the tight ventral turn that allows the animal to navigate away from a threatening stimulus. Tyramine temporally coordinates the different phases of the escape response through the synaptic activation of the fast-acting ionotropic receptor, LGC-55, and extrasynaptic activation of the slow-acting metabotropic receptor, SER-2. Our studies show, at the level of single cells, how a sensory input recruits the action of a monoamine to change neural circuit properties and orchestrate a compound motor sequence.
 
 **Citation:** Donnelly JL, Clark CM, Leifer AM, Pirri JK, Haburcak M, et al. (2013) Monoaminergic Orchestration of Motor Programs in a Complex *C. elegans* Behavior. PLoS Biol 11(4): e1001529. doi:10.1371/journal.pbio.1001529
 
@@ -24,11 +26,13 @@ Monoamines provide chemical codes of behavioral states. However, the neural mech
 
 **Competing Interests:** The authors have declared that no competing interests exist.
 
-**Abbreviations:** ACh, acetylcholine; cAMP, cyclic adenosine monophosphate; ChR2, Channelrhodopsin-2; CoLBeRT, Control of Locomotion and Behavior in Real Time; DAGθ, diacylglycerol kinase theta; Gα, G protein-alpha subunit; GABA, gamma-aminobutyric acid; GPCR, G-protein coupled receptor; ICF, intracellular fluid; IPSC, inhibitory post-synaptic current; NGM, nematode growth media; NMJ, neuromuscular junction; NpHR, Halorhodopsin; RGS, regulator of G-protein signaling; t50, time to immobilize 50% of the animals; wt, wild type.
+**Abbreviations:** ACh, acetylcholine; cAMP, cyclic adenosine monophosphate; ChR2, Channelrhodopsin-2; CoLBeRT, Control of Locomotion and Behavior in Real Time; DAG\theta, diacylglycerol kinase theta; G\alpha, G protein-alpha subunit; GABA, gamma-aminobutyric acid; GPCR, G-protein coupled receptor; ICF, intracellular fluid; IPSC, inhibitory post-synaptic current; NGM, nematode growth media; NMJ, neuromuscular junction; NpHR, Halorhodopsin; RGS, regulator of G-protein signaling; t\_50, time to immobilize 50% of the animals; wt, wild type.
 
-* E-mail: 
-* These authors contributed equally to this work.
-* Current address: Institute for Integrative Genomics, Princeton University, Princeton, New Jersey, United States of America.
+\* E-mail:
+
+These authors contributed equally to this work.
+
+Current address: Institute for Integrative Genomics, Princeton University, Princeton, New Jersey, United States of America.
 
 ## Introduction
 
@@ -48,17 +52,19 @@ How the nervous system controls complex behaviors has intrigued neurobiologists 
 
 response is usually followed by a deep ventral head bend, allowing the animal to make a sharp (omega) turn and change its direction of locomotion. The completion of the entire escape response takes approximately 10 s and requires sensory processing, decision-making, and sequential inhibition and activation of distinct motor programs. Therefore, the anterior touch response is a highly orchestrated motor sequence with complexity far beyond that of a simple reflex.
 
-The neural wiring diagram in combination with genetic and laser ablation experiments has provided a framework for the neural circuit that controls the initial phase of the escape response \[19–21]. *C. elegans* has a single pair of tyraminergic motor neurons that are essential in coordinating the backing response with suppression of head movements \[13]. Synaptic activation of the tyramine-gated chloride channel, LGC-55, inhibits forward locomotion and induces the relaxation of neck muscle \[22]. The coordination of these motor programs increases the animals' chances of escaping from predacious fungi that use constricting rings to catch nematodes, illustrating the vital importance of monoaminergic motor control \[23,24]. How this initial phase of the escape response is temporally linked to later stages in which the animal makes a sharp turn to navigate away from the stimulus is unknown. To elucidate how monoamines may orchestrate the activity of specific neural circuits in complex behaviors, we analyzed the role of tyramine in *C. elegans* locomotion during the escape response. We show that the extrasynaptic activation of a G-protein coupled tyramine receptor generates asymmetry in a locomotion program, thus allowing the animal to execute a deep ventral turn and navigate away from the stimulus.
+The neural wiring diagram in combination with genetic and laser ablation experiments has provided a framework for the neural circuit that controls the initial phase of the escape response \[19–21]. *C. elegans* has a single pair of tyraminergic motor neurons that are essential in coordinating the backing response with suppression of head movements \[13]. Synaptic activation of the tyramine-gated chloride channel, LGC-55, inhibits forward locomotion and induces the relaxation of neck muscle \[22]. The coordination of these motor programs increases the animals’ chances of escaping from predacious fungi that use constricting rings to catch nematodes, illustrating the vital importance of monoaminergic motor control \[23,24]. How this initial phase of the escape response is temporally linked to later stages in which the animal makes a sharp turn to navigate away from the stimulus is unknown. To elucidate how monoamines may orchestrate the activity of specific neural circuits in complex behaviors, we analyzed the role of tyramine in *C. elegans* locomotion during the escape response. We show that the extrasynaptic activation of a G-protein coupled tyramine receptor generates asymmetry in a locomotion program, thus allowing the animal to execute a deep ventral turn and navigate away from the stimulus.
 
 ## Results
 
 ### ser-2 Mutants Are Resistant to Exogenous Tyramine
 
-*C. elegans* become immobilized on plates containing exogenous tyramine in a dose-dependent manner (Figure 1A and Figure S1) \[22]. Three GPCRs have been shown to bind tyramine with high affinity: TYRA-2, TYRA-3, and SER-2 \[25–28]. To determine whether the effects of tyramine are mediated by these GPCRs, we examined the locomotion of *ser-2(pk1357* and *ok2103)*, *tyra-2(tm1815)*, and *tyra-3(ok325)* deletion mutants on agar plates containing exogenous tyramine. Wild-type, *tyra-2*, and *tyra-3* mutant animals become immobilized on 30 mM tyramine within 5 min (Figure S2). However, *ser-2* mutant animals sustained movement on plates containing exogenous tyramine (Figure 1A–C and Figure S1). Sensitivity to exogenous tyramine is restored back to wild-type levels in *ser-2* mutants containing a *ser-2* genomic transgene (Figure 1B,C and Figure S2). This indicates that exogenous tyramine mediates its paralytic effects through the hyperactivation of endogenous tyramine signaling pathways that are at least in part dependent on SER-2.
+*C. elegans* become immobilized on plates containing exogenous tyramine in a dose-dependent manner (Figure 1A and Figure S1) \[22]. Three GPCRs have been shown to bind tyramine with high affinity: TYRA-2, TYRA-3, and SER-2 \[25–28]. To determine whether the effects of tyramine are mediated by these GPCRs, we examined the locomotion of *ser-2(pk1357* and *ok2103)*, *tyra-*
+
+2(*tm1815)*, and *tyra-3(ok325)* deletion mutants on agar plates containing exogenous tyramine. Wild-type, *tyra-2*, and *tyra-3* mutant animals become immobilized on 30 mM tyramine within 5 min (Figure S2). However, *ser-2* mutant animals sustained movement on plates containing exogenous tyramine (Figure 1A–C and Figure S1). Sensitivity to exogenous tyramine is restored back to wild-type levels in *ser-2* mutants containing a *ser-2* genomic transgene (Figure 1B,C and Figure S2). This indicates that exogenous tyramine mediates its paralytic effects through the hyperactivation of endogenous tyramine signaling pathways that are at least in part dependent on SER-2.
 
 We have previously shown that activation of the tyramine-gated chloride channel, LGC-55, inhibits head movements and forward locomotion \[22]. Exogenous tyramine initially induced backward locomotion and the inhibition of head movements in both the wild-type and *ser-2* mutants. However, unlike the wild type, *ser-2* mutants recovered and resumed forward locomotion and head movements within minutes. Body movements of *lgc-55* mutants are inhibited, similar to the wild-type, but head movements are sustained on exogenous tyramine (Figure 1C,D). *lgc-55; ser-2* double mutants largely persisted both head and body movements on exogenous tyramine, however locomotion remained slightly uncoordinated. This indicates that while the activation of the ionotropic LGC-55 and metabotropic SER-2 receptor are required for paralysis, exogenous tyramine may affect locomotion through the activation of other receptors.
 
-Head movements and body movements are controlled by distinct groups of muscles and motor neurons \[13,20]. In wild-type animals the inhibition of head movements occurred rapidly (half time to immobilization, ti50 = 77 ± 2 s) and was followed by the slower inhibition of body movement (ti50 = 149 ± 3 s). This suggests that signaling pathways with distinct kinetics contribute to tyramine’s effects. The sustained body movements of *ser-2* mutants on exogenous tyramine make it difficult to dissect the effects of exogenous tyramine on head movements. Therefore, we analyzed the effect of tyramine on head movements in an *unc-3(e151)* mutant background. *unc-3* mutants display few body movements, but have normal head movements \[29]. Head movements of *ser-2 unc-3* double mutants were inhibited on exogenous tyramine, like those in the wild-type and *unc-3* mutants (Figure 1D). Consistent with our previous observation \[22], head movements were sustained in *lgc-55; unc-3* double mutants. The kinetics and distinct inhibition of head and body movements of *lgc-55* and *ser-2* mutants indicates that exogenous tyramine induces the fast immobilization of head movements mainly through the hyperactivation of the ionotropic tyramine receptor LGC-55 followed by the immobilization of body movements through hyperactivation of the metabotropic tyramine receptor SER-2.
+Head movements and body movements are controlled by distinct groups of muscles and motor neurons \[13,20]. In wild-type animals the inhibition of head movements occurred rapidly (half time to immobilization, ti50 = 77 ± 2 s) and was followed by the slower inhibition of body movement (ti50 = 149 ± 3 s). This suggests that signaling pathways with distinct kinetics contribute to tyramine’s effects. The sustained body movements of *ser-2* mutants on exogenous tyramine make it difficult to dissect the effects of exogenous tyramine on head movements. Therefore, we analyzed the effect of tyramine on head movements in an *unc-3(e151)* mutant background. *unc-3* mutants display few body movements, but have normal head movements \[29]. Head movements of *ser-2 unc-3* double mutants were inhibited on exogenous tyramine, like those in the wild-type and *unc-3* mutants (Figure 1D). Consistent with our previous observation \[22], head movements were sustained in *lgc-55: unc-3* double mutants. The kinetics and distinct inhibition of head and body movements of *lgc-55* and *ser-2* mutants indicates that exogenous tyramine induces the fast immobilization of head movements mainly through the hyperactivation of the ionotropic tyramine receptor LGC-55 followed by the immobilization of body movements through hyperactivation of the metabotropic tyramine receptor SER-2.
 
 ### Gαo Signaling Pathway Mutants Are Resistant to Exogenous Tyramine
 
@@ -66,19 +72,56 @@ To identify genes involved in tyramine signaling, we performed a genetic screen 
 
 ## Page 3
 
-# Monoaminergic Orchestration of a Complex Behavior
+|tyramine concentration (mM)|wild type|ser-2(pk1357)|
+|-|-|-|
+|0|0|0|
+|10|\~25|\~2|
+|20|\~75|\~18|
+|30|100|\~42|
+|40|100|\~62|
+|50|100|\~82|
+|60|100|\~92|
 
-Figure 1. *ser-2* mutants are partially resistant to the paralytic effects of exogenous tyramine. (A) Tyramine induces immobilization in a dose-dependent manner. Shown is the percentage of animals immobilized after 10 min on agar plates supplemented with tyramine. Wild-type animals become fully immobilized at concentrations above 30 mM tyramine, while *ser-2* mutants continue sustained movement. Each data point represents the mean ± the standard error of the mean (SEM) for at least three trials, totaling a minimum of 30 animals. (B) G-protein signaling mutants are resistant to the paralytic of effects of exogenous tyramine. Shown is the percentage of animals that become immobilized after 10 min on 30 mM tyramine. Each bar represents the mean ± SEM for at least four trials totaling a minimum of 40 animals. (Inset) Schematic representation of the Gαo and Gαq signaling pathways that modulate locomotion in *C. elegans*. The genetic data suggest that SER-2 acts in the Gαo pathway. The names of the human orthologs are shown. Rescue denotes the transgenic line P*ser-2*::SER-2; *ser-2(pk1357)*. (C, D) Tyramine affects locomotion and head movements through different mechanisms. Shown is the percentage of animals with sustained body (C) or head (D) movements on 30 mM tyramine. *ser-2* mutants are partially resistant to the effects of tyramine on body movements, but not head movements. *lgc-55* mutants continue to move their heads through the duration of the assay. Each data point represents the mean percentage of animals that become immobilized by tyramine each minute for 20 min ± SEM for at least six trials, totaling a minimum of 60 animals. Head movements were analyzed in an *unc-3* mutant background. *unc-3* mutants make few body movements but display normal head movements, and are wild-type for the *ser-2* and *lgc-55* loci. Statistical significance to wild-type: \*\*\*p<0.0001, two-tailed Student's t test. See also Figures S1 and S2. doi:10.1371/journal.pbio.1001529.g001
+|Genotype|% Immobilized Body|
+|-|-|
+|wild type|100|
+|ser-2(ok2103)|\~38|
+|ser-2(pk1357)|\~42|
+|ser-2 rescue|\~90|
+|goa-1|\~28|
+|dgk-1|\~52|
+|eat-16|\~35|
+|egl-30(gf)|\~5|
 
-*dgk-1* mutants have a reduced ability to deplete DAG generated by the *egl-30*/Gαq pathway \[33,34]. Previously characterized null mutants for *goa-1* and *dgk-1* were also resistant to the paralytic effect of tyramine on both head and body movements (Figure 1B). We found that *egl-30*/Gαq gain-of-function mutants and mutants for *eat-16*, which encodes a Regulator of G-protein Signaling (RGS) protein that inhibits EGL-30 \[35], are resistant to exogenous tyramine (Figure 1B). Unlike *goa-1* and *dgk-1* mutants, which exhibit hyperactive locomotion and egg-laying behavior, *ser-2* mutants did not have obvious behavioral defects \[36]. Therefore, mutations that reduce GOA-1/Gαo signaling or increase EGL-30/Gαq signaling confer resistance to exogenous tyramine. The resistance of *goa-1* and *ser-2* mutants to exogenous tyramine suggests that SER-2 signals through GOA-1/Gαo to modulate locomotion.
+*Inset Schematic:* SER-2, GOA-1 (G\alpha\_o), EGL-30 (G\alpha\_q), DGK-1, EAT-16, DAG\theta, RGS, locomotion.
 
-## SER-2 Acts in GABAergic Neurons
+|time (min)|wild type|ser-2(ok2103)|ser-2(pk1357)|lgc-55|lgc-55; ser-2(pk1357)|ser-2 rescue|
+|-|-|-|-|-|-|-|
+|0|0|0|0|0|0|0|
+|5|\~95|\~95|\~95|\~95|\~95|\~95|
+|10|100|100|100|100|100|100|
+|15|100|100|100|100|100|100|
+|20|100|100|100|100|100|100|
 
-Where does SER-2 act to confer resistance to exogenous tyramine? A *ser-2* genomic rescuing transgene restored sensitivity of *ser-2* mutants to exogenous tyramine, indicating that the transgene is expressed in the cells that confer sensitivity to exogenous tyramine (Figure 1B and Figure S2). The *ser-2* genomic locus is large and complex and encodes several splice variants \[25,36]. To analyze the *ser-2* expression pattern we expressed mCherry under the control of an 11.8 kb *ser-2* promoter sequence that included the four alternative first exons. We found that our *Pser-2*::mCherry reporter was expressed in head muscles, as well as several neurons in the head and ventral cord. The *ser-2* reporter was expressed in the first and second row of muscle cells, which are distinct from neck muscles (third and fourth row of muscle cells)
+*Note: Data for wild type and mutants is visually overlapping at the top for most of the duration.*
+
+|time (min)|wild type|unc-3|unc-3 ser-2(pk1357)|lgc-55; unc-3|lgc-55; unc-3 ser-2(pk1357)|
+|-|-|-|-|-|-|
+|0|0|0|0|0|0|
+|5|\~95|\~95|\~90|\~20|\~15|
+|10|\~98|\~98|\~65|\~25|\~20|
+|15|\~98|\~98|\~65|\~35|\~30|
+|20|\~98|\~98|\~70|\~40|\~35|
+
+**Figure 1.** *ser-2* mutants are partially resistant to the paralytic effects of exogenous tyramine. (A) Tyramine induces immobilization in a dose-dependent manner. Shown is the percentage of animals immobilized after 10 min on agar plates supplemented with tyramine. Wild-type animals become fully immobilized at concentrations above 30 mM tyramine, while *ser-2* mutants continue sustained movement. Each data point represents the mean \pm the standard error of the mean (SEM) for at least three trials, totaling a minimum of 30 animals. (B) G-protein signaling mutants are resistant to the paralytic of effects of exogenous tyramine. Shown is the percentage of animals that become immobilized after 10 min on 30 mM tyramine. Each bar represents the mean \pm SEM for at least four trials totaling a minimum of 40 animals. (Inset) Schematic representation of the G\alpha\_o and G\alpha\_q signaling pathways that modulate locomotion in *C. elegans*. The genetic data suggest that SER-2 acts in the G\alpha\_o pathway. The names of the human orthologs are shown. Rescue denotes the transgenic line *Pser-2::SER-2; ser-2(pk1357)*. (C, D) Tyramine affects locomotion and head movements through different mechanisms. Shown is the percentage of animals with sustained body (C) or head (D) movements on 30 mM tyramine. *ser-2* mutants are partially resistant to the effects of tyramine on body movements, but not head movements. *lgc-55* mutants continue to move their heads through the duration of the assay. Each data point represents the mean percentage of animals that become immobilized by tyramine each minute for 20 min \pm SEM for at least six trials, totaling a minimum of 60 animals. Head movements were analyzed in an *unc-3* mutant background. *unc-3* mutants make few body movements but display normal head movements, and are wild-type for the *ser-2* and *lgc-55* loci. Statistical significance to wild-type: \*\*\*p<0.0001, two-tailed Student’s t test. See also Figures S1 and S2. doi:10.1371/journal.pbio.1001529.g001
+
+*dgk-1* mutants have a reduced ability to deplete DAG generated by the *egl-30/G\alpha\_q* pathway \[33,34]. Previously characterized null mutants for *goa-1* and *dgk-1* were also resistant to the paralytic effect of tyramine on both head and body movements (Figure 1B). We found that *egl-30/G\alpha\_q* gain-of-function mutants and mutants for *eat-16*, which encodes a Regulator of G-protein Signaling (RGS) protein that inhibits EGL-30 \[35], are resistant to exogenous tyramine (Figure 1B). Unlike *goa-1* and *dgk-1* mutants, which exhibit hyperactive locomotion and egg-laying behavior, *ser-2* mutants did not have obvious behavioral defects \[36]. Therefore, mutations that reduce GOA-1/G\alpha\_o signaling or increase EGL-30/G\alpha\_q signaling confer resistance to exogenous tyramine. The resistance of *goa-1* and *ser-2* mutants to exogenous tyramine suggests that SER-2 signals through GOA-1/G\alpha\_o to modulate locomotion.
+
+### SER-2 Acts in GABAergic Neurons
+
+Where does SER-2 act to confer resistance to exogenous tyramine? A *ser-2* genomic rescuing transgene restored sensitivity of *ser-2* mutants to exogenous tyramine, indicating that the transgene is expressed in the cells that confer sensitivity to exogenous tyramine (Figure 1B and Figure S2). The *ser-2* genomic locus is large and complex and encodes several splice variants \[25,36]. To analyze the *ser-2* expression pattern we expressed mCherry under the control of an 11.8 kb *ser-2* promoter sequence that included the four alternative first exons. We found that our *Pser-2::mCherry* reporter was expressed in head muscles, as well as several neurons in the head and ventral cord. The *ser-2* reporter was expressed in the first and second row of muscle cells, which are distinct from neck muscles (third and fourth row of muscle cells)
 
 ## Page 4
-
-# Monoaminergic Orchestration of a Complex Behavior
 
 that express the tyramine-gated chloride channel LGC-55 (Figure S3). *lgc-55* mutants fail to suppress head movements in response to touch, but head movements were suppressed normally in *ser-2* mutants, indicating that only LGC-55 is required for tyramine-induced head relaxation. The *ser-2* reporter was not expressed in interneurons that control locomotion, as expression did not overlap with *Pglr-1::GFP* and *Plgc-55::GFP* reporters that are expressed in the locomotion command neurons (unpublished data). *ser-2* reporter expression was also observed in 13 cells in the ventral cord (Figure 2A) that send commissures to the dorsal cord. The ventral cord is composed of excitatory cholinergic and inhibitory GABAergic motor neurons that innervate body wall muscles and control locomotion. Coexpression analysis with GFP reporters that specifically label cholinergic or GABAergic neurons showed that *Pser-2::mCherry* was highly expressed in a subset of GABAergic motor neurons (Figure 2B–D). The same set of GABAergic motor neurons were labeled in transgenic line (*Pser-2a::GFP*) that expressed a reporter for the SER-2A isoform (unpublished data) \[36]. GABAergic ventral nerve cord neurons are subdivided into 13 VD motor neurons that synapse onto the ventral body wall muscles, and 6 DD motor neurons that synapse onto the dorsal body wall muscles. The cells that highly express the *ser-2* reporter do not co-label with a *Pflp-13::GFP* reporter, which is expressed in the DD motor neurons (unpublished data) \[37]. This indicates SER-2 is specifically expressed in the GABAergic VD motor neurons.
 
@@ -86,229 +129,238 @@ Since GABAergic motor neurons are required for normal locomotion, we tested if S
 
 To determine if GABA signaling affects tyramine sensitivity, we tested GABA-deficient mutants for sensitivity to exogenous tyramine. We found that *unc-25* mutants, which lack glutamate decarboxylase required for GABA synthesis \[38], were slightly hypersensitive to the immobilizing effects of exogenous tyramine (Figure 2E, Figure S4). This suggests that reduced GABA signaling increases the sensitivity to exogenous tyramine, likely through the hyperactivation of other tyramine receptors, such as LGC-55 and TYRA-2. GABA deficiency suppressed the resistance phenotype of *ser-2* mutants, since *unc-25; ser-2* double mutants were nearly as sensitive to tyramine as *unc-25* single mutants (Figure 2E). These epistasis experiments indicate that SER-2 acts upstream or in parallel to GABAergic signaling and are consistent with the hypothesis that SER-2 acts in the VD neurons to inhibit GABA signaling and control locomotion.
 
-We performed cell-specific rescue experiments to determine whether G-protein signaling components are required in the GABAergic neurons to mediate sensitivity to the exogenous tyramine. Expression of *goa-1* or *eat-16* in the GABAergic neurons (*Punc-47::GOA-1/Gαo* and *Punc-47::EAT-16/RGS*) of *goa-1* and *eat-16* mutants, respectively, did not rescue the hyperactive locomotion phenotype. However, *goa-1* expression in GABAergic neurons of *goa-1* mutants largely restored sensitivity to exogenous tyramine (Figure 2E, Figure S4). Similarly, rescue expression of *eat-16* in GABAergic neurons partly restores sensitivity to exogenous tyramine. The activation of the Gαq pathway in other cells may contribute to tyramine resistance phenotype in G-protein signaling mutants since the sensitivity to tyramine is not completely restored to wild-type levels. Nonetheless, the increased sensitivity of GABA-neuron-specific rescue of G-protein signaling mutants suggest that exogenous tyramine induces body immobilization through the activation of SER-2A and a Gαo pathway in GABAergic neurons.
+We performed cell-specific rescue experiments to determine whether G-protein signaling components are required in the GABAergic neurons to mediate sensitivity to the exogenous tyramine. Expression of *goa-1* or *eat-16* in the GABAergic neurons (*Punc-47::GOA-1/G\alpha\_o* and *Punc-47::EAT-16/RGS*) of *goa-1* and *eat-16* mutants, respectively, did not rescue the hyperactive locomotion phenotype. However, *goa-1* expression in GABAergic neurons of *goa-1* mutants largely restored sensitivity to exogenous tyramine (Figure 2E, Figure S4). Similarly, rescue expression of *eat-16* in GABAergic neurons partly restores sensitivity to exogenous tyramine. The activation of the G\alpha\_q pathway in other cells may contribute to tyramine resistance phenotype in G-protein signaling mutants since the sensitivity to tyramine is not completely restored to wild-type levels. Nonetheless, the increased sensitivity of GABA-neuron-specific rescue of G-protein signaling mutants suggest that exogenous tyramine induces body immobilization through the activation of SER-2A and a G\alpha\_o pathway in GABAergic neurons.
 
-## SER-2 Inhibits Neurotransmitter Release
+### SER-2 Inhibits Neurotransmitter Release
 
-To test the hypothesis that SER-2 modulates neurotransmitter release from ventral cord motor neurons, we analyzed mutants for their sensitivity to the acetylcholinesterase inhibitor aldicarb. Aldicarb increases acetylcholine (ACh) concentration at the neuromuscular junction (NMJ), causing muscle contraction and eventual paralysis. Mutants with impaired ACh release are resistant to aldicarb-induced paralysis \[39]. *egl-30/Gαq* mutants are resistant to aldicarb, whereas *goa-1* mutants are hypersensitive to aldicarb-induced paralysis, indicating that EGL-30/Gαq stimulates and GOA-1/Gαo inhibits ACh release from motor neurons \[31–33]. Since body wall muscles also receive inhibitory GABA inputs, hypersensitivity to aldicarb can also be caused by decrease in GABA release at the NMJ \[40–42]. The time course of paralysis of *ser-2* mutants induced by aldicarb was similar to the wild-type (Figure 3A). This may be due to the restricted expression of *ser-2* in a subset of GABAergic neurons or insufficient endogenous tyramine signaling to modulate GABA release under regular assay conditions. We therefore generated transgenic lines that overexpressed *ser-2* in all cholinergic motor neurons (*Pacr-2::SER-2*) or GABAergic (*Punc-47::SER-2*) motor neurons and analyzed the rate of aldicarb-induced paralysis. In the absence of exogenous tyramine, the time course of paralysis of transgenic animals that express SER-2 in cholinergic or GABAergic ventral nerve cord motor neurons was similar to the wild-type (Figure 3A). However, on plates that contained both aldicarb and tyramine, animals that overexpressed *ser-2* in cholinergic neurons (*Pacr-2::SER-2*) were more resistant to the paralytic effects of aldicarb than the wild-type. Conversely, animals that overexpressed *ser-2* in all GABAergic neurons (*Punc-47::SER-2*) were hypersensitive to paralysis on plates containing aldicarb and tyramine (Figure 3B). These data are consistent with the hypothesis that SER-2 couples to the GOA-1/Gαio pathway to inhibit neurotransmitter release.
+To test the hypothesis that SER-2 modulates neurotransmitter release from ventral cord motor neurons, we analyzed mutants for their sensitivity to the acetylcholinesterase inhibitor aldicarb. Aldicarb increases acetylcholine (ACh) concentration at the neuromuscular junction (NMJ), causing muscle contraction and eventual paralysis. Mutants with impaired ACh release are resistant to aldicarb-induced paralysis \[39]. *egl-30/G\alpha\_q* mutants are resistant to aldicarb, whereas *goa-1* mutants are hypersensitive to aldicarb-induced paralysis, indicating that EGL-30/G\alpha\_q stimulates and GOA-1/G\alpha\_o inhibits ACh release from motor neurons \[31–33]. Since body wall muscles also receive inhibitory GABA inputs, hypersensitivity to aldicarb can also be caused by decrease in GABA release at the NMJ \[40–42]. The time course of paralysis of *ser-2* mutants induced by aldicarb was similar to the wild-type (Figure 3A). This may be due to the restricted expression of *ser-2* in a subset of GABAergic neurons or insufficient endogenous tyramine signaling to modulate GABA release under regular assay conditions. We therefore generated transgenic lines that overexpressed *ser-2* in all cholinergic motor neurons (*Pacr-2::SER-2*) or GABAergic (*Punc-47::SER-2*) motor neurons and analyzed the rate of aldicarb-induced paralysis. In the absence of exogenous tyramine, the time course of paralysis of transgenic animals that express SER-2 in cholinergic or GABAergic ventral nerve cord motor neurons was similar to the wild-type (Figure 3A). However, on plates that contained both aldicarb and tyramine, animals that overexpressed *ser-2* in cholinergic neurons (*Pacr-2::SER-2*) were more resistant to the paralytic effects of aldicarb than the wild-type. Conversely, animals that overexpressed *ser-2* in all GABAergic neurons (*Punc-47::SER-2*) were hypersensitive to paralysis on plates containing aldicarb and tyramine (Figure 3B). These data are consistent with the hypothesis that SER-2 couples to the GOA-1/G\alpha\_io pathway to inhibit neurotransmitter release.
 
-## Tyramine-Mediated Reduction in GABA Synaptic Release Requires SER-2
+### Tyramine-Mediated Reduction in GABA Synaptic Release Requires SER-2
 
 The GABAergic VD motor neurons that express *ser-2* make synaptic contacts onto the ventral musculature (Figure 4A). Therefore, to directly evaluate whether tyramine modulates synaptic release of GABA from motor neurons, we measured the frequency of endogenous inhibitory post-synaptic currents (IPSCs) in whole-cell recordings from ventral body wall muscle cells (Figure 3C–H). To isolate GABA currents, recordings were made from *unc-29; acr-16* double mutants (+/+) that lack excitatory neurotransmission at the NMJ \[43,44]. In *unc-29; acr-16* double mutants, the only remaining currents are mediated through chloride permeation of the GABAA-like receptor UNC-49 \[43,45]. In these animals, we observed high levels of endogenous IPSC activity (\~13 events/s) that gradually declined over the time course of the recording period (\~10 min). This basal level of inhibitory activity is consistent with previous reports that have used other, nongenetic approaches to isolate IPSCs. After recording an initial 60 s period of basal activity, we switched to a bath solution containing tyramine. Within 30 s of tyramine exposure we noted a clear decrease in IPSC frequency (Figure 3E,G). The magnitude of this decrease was significantly greater than the slight decrease in IPSC frequency we observed
 
 ## Page 5
 
-# Figure 2. *ser-2* is expressed in a subset of GABAergic motor neurons.
-
-(A) A composite DIC image with fluorescent overlay showing that the *Pser-2::mCherry* transcriptional reporter is expressed in head muscles, head neurons, and neurons in the ventral nerve cord. (B–D) Transgenic animal showing coexpression of *Pser-2::mCherry* (B) and *Punc-47::GFP*, which labels all GABAergic motor neurons (C). *Pser-2::mCherry* is strongly expressed in the GABAergic VD neurons but not the DD neurons (D). Anterior is to the left. Scale bar is 20 µm. (E) Exogenous tyramine induces immobilization though the activation of SER-2 and Gαo signaling pathway in the GABAergic neurons. Shown is the percentage of animals that become immobilized after 10 min on 30 mM tyramine. Loss-of-function of *unc-25* (glutamic acid decarboxylase) suppresses the tyramine resistance of *ser-2* mutant animals. *unc-25* (GABA deficient) mutants and *unc-25; ser-2(pk1357)* double mutants are not resistant to the paralytic effects of exogenous tyramine. Expression of SER-2 in all GABAergic neurons (*Punc-47::SER-2*) restores sensitivity of *ser-2* mutants to exogenous tyramine. Expression of GOA-1/Gαo or EAT-16/RGS in all GABAergic neurons (*Punc-47::GOA-1* or *Punc-47::EAT-16*) partially restores sensitivity to exogenous tyramine in the respective *goa-1* and *eat-16* mutants. Each bar represents the mean ± SEM for at least three trials, totaling a minimum of 30 animals.
-
-|Label|% immobilized body|
-|-|-|
-|wild type|100|
-|unc-25|100|
-|unc-25; ser-2|100|
-|ser-2|45|
-|Punc-47::SER-2; ser-2|100|
-|goa-1|25|
-|Punc-47::GOA-1; goa-1|70|
-|eat-16|27|
-|Punc-47::EAT-16; eat-16|58|
+**Figure 2.** *ser-2* is expressed in a subset of GABAergic motor neurons. (A) A composite DIC image with fluorescent overlay showing that the *Pser-2::mCherry* transcriptional reporter is expressed in head muscles, head neurons, and neurons in the ventral nerve cord. (B–D) Transgenic animal showing coexpression of *Pser-2::mCherry* (B) and *Punc-47::GFP*, which labels all GABAergic motor neurons (C). *Pser-2::mCherry* is strongly expressed in the GABAergic VD neurons but not the DD neurons (D). Anterior is to the left. Scale bar is 20 µm. (E) Exogenous tyramine induces immobilization though the activation of SER-2 and G\alpha\_o signaling pathway in the GABAergic neurons. Shown is the percentage of animals that become immobilized after 10 min on 30 mM tyramine. Loss-of-function of *unc-25* (glutamic acid decarboxylase) suppresses the tyramine resistance of *ser-2* mutant animals. *unc-25* (GABA deficient) mutants and *unc-25; ser-2(pk1357)* double mutants are not resistant to the paralytic effects of exogenous tyramine. Expression of SER-2 in all GABAergic neurons (*Punc-47::SER-2*) restores sensitivity of *ser-2* mutants to exogenous tyramine. Expression of GOA-1/G\alpha\_o or EAT-16/RGS in all GABAergic neurons (*Punc-47::GOA-1* or *Punc-47::EAT-16*) partially restores sensitivity to exogenous tyramine in the respective *goa-1* and *eat-16* mutants. Each bar represents the mean \pm SEM for at least three trials, totaling a minimum of 30 animals. doi:10.1371/journal.pbio.1001529.g002
 
 ## Page 6
 
-# Figure 3. Tyramine-mediated reduction in GABA synaptic release requires SER-2.
+A
+100
+80
+60
+40
+20
+0
+0 30 60 90 120 150 180 210
+time (min)
+Aldicarb
+wild type
+ser-2(ok2103)
+Punc-47::SER-2; ser-2
+Pacr-2::SER-2; ser-2
 
-(A, B) SER-2 expression in cholinergic (Pacr-2::SER-2) or GABAergic (Punc-47::SER-2) motor neurons alters the rate of paralysis of ser-2 mutants on aldicarb drug plates. All genotypes paralyze at a similar rate on drug plates containing only 0.5 mM aldicarb (A), yet drug plates containing both 30 mM tyramine and 0.5 mM aldicarb causes paralytic resistance.
+B
+100
+80
+60
+40
+20
+0
+0 30 60 90 120 150 180 210
+time (min)
+Aldicarb \&Tyramine
+wild type
+ser-2(ok2103)
+Punc-47::SER-2; ser-2
+Pacr-2::SER-2; ser-2
 
-|# A|||||||
-|-|-|-|-|-|-|-|
-|||wild type|ser-2(ok2103)|Punc-47::SER-2; ser-2|Pacr-2::SER-2; ser-2||
-||---|---|---|---|---||
-||0|0|0|0|0||
-||30|0|0|0|0||
-||60|0|0|0|0||
-||90|10|15|15|20||
-||120|40|50|55|60||
-||150|80|85|85|90||
-||180|95|95|95|95||
-||210|100|100|100|100||
-|# B|||||||
-|||wild type|ser-2(ok2103)|Punc-47::SER-2; ser-2|Pacr-2::SER-2; ser-2||
-||---|---|---|---|---||
-||0|0|0|0|0||
-||30|0|0|0|0||
-||60|0|0|0|0||
-||90|10|15|15|20||
-||120|40|50|55|60||
-||150|80|85|85|90||
-||180|95|95|95|95||
-||210|100|100|100|100||
+F
+Frequency (Hz)
+Time (s)
+ser-2
+20
+15
+10
+5
+0
+0 25 50 75 100 125
 
-(C, D) Representative traces of electrophysiological recordings from wild-type (+/+) and ser-2 mutant animals, showing the effect of tyramine on GABAergic transmission. The traces show spontaneous inhibitory postsynaptic currents (sIPSCs) in the presence and absence of tyramine.
+G
+Relative Frequency after Tyramine (%)
++/+
+ser-2
+\*
+100
+80
+60
+40
+20
+0
 
-(E, F) Time course of frequency of sIPSCs in wild-type (+/+) and ser-2 mutant animals. The frequency of sIPSCs is plotted over time (seconds) after the application of tyramine. The arrow indicates the time of tyramine application.
+H
+Relative Amplitude after Tyramine (%)
++/+
+ser-2
+100
+80
+60
+40
+20
+0
 
-|# E||||
-|-|-|-|-|
-||Time (s)|Frequency (Hz)||
-||---|---||
-||0|15||
-||25|16||
-||50|18||
-||75|14||
-||100|12||
-||125|10||
-|# F||||
-||Time (s)|Frequency (Hz)||
-||---|---||
-||0|16||
-||25|17||
-||50|14||
-||75|15||
-||100|13||
-||125|11||
-
-(G, H) Bar graphs showing the relative frequency and amplitude of sIPSCs after tyramine application in wild-type (+/+) and ser-2 mutant animals. The data are presented as mean ± SEM.
-
-|# G||||
-|-|-|-|-|
-||Genotype|Relative Frequency (%)||
-||---|---||
-||+/+|75||
-||ser-2|95||
-|# H||||
-||Genotype|Relative Amplitude (%)||
-||---|---||
-||+/+|90||
-||ser-2|95||
+Figure 3. Tyramine-mediated reduction in GABA synaptic release requires SER-2. (A, B) SER-2 expression in cholinergic (*Pacr-2::SER-2*) or GABAergic (*Punc-47::SER-2*) motor neurons alters the rate of paralysis of *ser-2* mutants on aldicarb drug plates. All genotypes paralyze at a similar rate on drug plates containing only 0.5 mM aldicarb (A), yet drug plates containing both 30 mM tyramine and 0.5 mM aldicarb causes paralytic resistance
 
 ## Page 7
 
-(Pacr-2::SER-2) or hypersensitivity (Punc-47::SER-2) (B). Aldicarb experiments were conducted on nematode growth media (NGM) plates. 30 mM tyramine dissolved in NGM agar does not inhibit locomotion. SER-2 was expressed in ser-2(pk1357) mutant animals. Each data point represents the mean percentage of animals immobilized by aldicarb scored every 30 min ± SEM for at least four trials, totaling a minimum of 60 animals. (C, D) Representative endogenous inhibitory postsynaptic currents (IPSCs) recorded from ventral body wall muscles. +/+, unc-29; acr-16 double mutants that lack excitatory neurotransmission at the NMJ are wild-type for the ser-2 locus. ser-2, unc-29; acr-16; ser-2(pk1357) triple mutants. (E, F) Tyramine application decreased the rate of IPSCs in +/+ (n = 6), but not ser-2 mutants (n = 5). Arrow depicts tyramine application time point. Each point represents the IPSC frequency calculated over a 5-s time window as indicated. The red points correspond to the displayed samples in (C) and (D), respectively. Dashed lines show average frequency before tyramine application and during the stabilized tyramine response period. (G) Average IPSC frequency after tyramine application plotted relative to IPSC frequency prior to tyramine exposure. Values were normalized to average frequency observed in control recordings in the absence of tyramine. (H) Average amplitude of IPSCs after tyramine application plotted relative to average amplitude prior to tyramine exposure. Error bars depict SEM. Statistical differences calculated from +/+: \*p<0.05, two-tailed Student's t test. doi:10.1371/journal.pbio.1001529.g003
+(Pacr-2::SER-2) or hypersensitivity (Punc-47::SER-2) (B). Aldicarb experiments were conducted on nematode growth media (NGM) plates. 30 mM tyramine dissolved in NGM agar does not inhibit locomotion. SER-2 was expressed in *ser-2(pk1357)* mutant animals. Each data point represents the mean percentage of animals immobilized by aldicarb scored every 30 min ± SEM for at least four trials, totaling a minimum of 60 animals. (C, D) Representative endogenous inhibitory postsynaptic currents (IPSCs) recorded from ventral body wall muscles. +/+, *unc-29; acr-16* double mutants that lack excitatory neurotransmission at the NMJ are wild-type for the *ser-2* locus. *ser-2, unc-29; acr-16; ser-2(pk1357)* triple mutants. (E, F) Tyramine application decreased the rate of IPSCs in +/+ (*n*=6), but not *ser-2* mutants (*n*=5). Arrow depicts tyramine application time point. Each point represents the IPSC frequency calculated over a 5-s time window as indicated. The red points correspond to the displayed samples in (C) and (D), respectively. Dashed lines show average frequency before tyramine application and during the stabilized tyramine response period. (G) Average IPSC frequency after tyramine application plotted relative to IPSC frequency prior to tyramine exposure. Values were normalized to average frequency observed in control recordings in the absence of tyramine. (H) Average amplitude of IPSCs after tyramine application plotted relative to average amplitude prior to tyramine exposure. Error bars depict SEM. Statistical differences calculated from +/+: \*p<0.05, two-tailed Student’s t test. doi:10.1371/journal.pbio.1001529.g003
 
-over the same time course in control experiments without tyramine (+ tyramine, 34% ± 4% decrease; no tyramine, 13% ± 6% decrease). These results indicate that tyramine can inhibit GABA-mediated transmission at the NMJ. The tyramine-induced reduction was not reversible within the time course of our recordings, which may suggest that tyramine is acting through a high affinity receptor. To test whether the reduction in IPSC frequency involved SER-2, we examined the effects of tyramine
+over the same time course in control experiments without tyramine (+ tyramine, 34%±4% decrease; no tyramine, 13%±6% decrease). These results indicate that tyramine can inhibit GABA-mediated transmission at the NMJ. The tyramine-induced reduction was not reversible within the time course of our recordings, which may suggest that tyramine is acting through a high affinity receptor. To test whether the reduction in IPSC frequency involved SER-2, we examined the effects of tyramine
 
-Figure 4. Ablation of VD or DD motor neurons induces a navigational bias. (A) Schematic of D-motor neuron wiring. VD motor neurons receive inputs from cholinergic DB motor neurons, and release GABA on ventral body wall muscles. DD motor neurons receive input from cholinergic VB motor neurons and release GABA on dorsal body wall muscles. Figure adapted from wormatlas.org. (B, C) Killing subsets of GABAergic motor neurons by laser ablation-induced navigational biases. (B) Turning rate (°/sec ± SEM) is affected in animals where VD or DD neurons are ablated. DD-ablated animals navigate with a dorsal bias. VD-ablated animals navigate with a ventral bias. Mock-ablated animals, GABA-deficient mutants (unc-25), and ser-2 mutants did not show a change in turning rate. Turning angle was calculated by worm tracking software; n is indicated. (C) Representative locomotory path of a DD-ablated (left panel) and VD-ablated animal (right panel). DD-ablated animals locomote in dorsally directed circles (Movie S1). VD-ablated animals locomote in ventrally directed circles (Movie S2). The direction of locomotion (°) was determined from orientation of the animal's trajectory on the plate (inset). Red line traces the path of locomotion from the origin (black dot); yellow arrow designates the ventral side of the animal. Instantaneous turning angle is plotted for the duration of the locomotion path. Statistical differences calculated from mock ablations: \*p<0.05, \*\*\*p<0.001, two-tailed Student's t test. doi:10.1371/journal.pbio.1001529.g004
-
-|strain|direction (°/sec)|(n)|
+|strain|direction (^\circ/sec)|(n)|
 |-|-|-|
-|VD ablated|4° ± 1 \*|8|
-|DD ablated|-14° ± 2 \*\*\*|13|
-|mock ablated|-1° ± 1|46|
-|wild type|-1° ± 1|43|
-|unc-25(e156)|2° ± 1|57|
-|ser-2 (pk1357)|-1° ± 1|32|
-|ser-2 (ok2103)|-1° ± 1|21|
+|VD ablated|4^\circ \pm 1 \* \*|8|
+|DD ablated lated|-14^\circ \pm 2 \*\*\* \*\*\*|13|
+|mock ablated|-1^\circ \pm 1 $|46|
+|wild type|-1^\circ \pm 1 1$|43|
+|\*unc-25(e156)\*|2^\circ \pm 1 1$|57|
+|\*ser-2 (pk1357)\*|-1^\circ \pm 1|32|
+|\*ser-2 (ok2103)\*|-1^\circ \pm 1|21|
+
+angle ^\circ
+360
+180
+0
+time (s)
+0 50 100 150 200 250
+angle ^\circ
+360
+180
+0
+time (s)
+0 50 100 150 200 250
+
+**Figure 4. Ablation of VD or DD motor neurons induces a navigational bias.** (A) Schematic of D-motor neuron wiring. VD motor neurons receive inputs from cholinergic DB motor neurons, and release GABA on ventral body wall muscles. DD motor neurons receive input from cholinergic VB motor neurons and release GABA on dorsal body wall muscles. Figure adapted from wormatlas.org. (B, C) Killing subsets of GABAergic motor neurons by laser ablation-induced navigational biases. (B) Turning rate (^\circ/sec ± SEM) is affected in animals where VD or DD neurons are ablated. DD-ablated animals navigate with a dorsal bias. VD-ablated animals navigate with a ventral bias. Mock-ablated animals, GABA-deficient mutants (*unc-25*), and *ser-2* mutants did not show a change in turning rate. Turning angle was calculated by worm tracking software; *n* is indicated. (C) Representative locomotory path of a DD-ablated (left panel) and VD-ablated animal (right panel). DD-ablated animals locomote in dorsally directed circles (Movie S1). VD-ablated animals locomote in ventrally directed circles (Movie S2). The direction of locomotion (^\circ) was determined from orientation of the animal's trajectory on the plate (inset). Red line traces the path of locomotion from the origin (black dot); yellow arrow designates the ventral side of the animal. Instantaneous turning angle is plotted for the duration of the locomotion path. Statistical differences calculated from mock ablations: \*p<0.05, \*\*\*p<0.001, two-tailed Student's t test. doi:10.1371/journal.pbio.1001529.g004
 
 ## Page 8
 
-# Monoaminergic Orchestration of a Complex Behavior
+exposure in recordings from *unc-29*; *acr-16*; *ser-2* triple mutants (Figure 3F,G). The amplitude of endogenous GABA IPSCs was not significantly different between +/+ animals and *ser-2* mutants (+/+, 29.5±1.4 pA; *ser-2*, 31.9±3.9 pA) and was not significantly affected by tyramine exposure for either strain (+/+, 26.9±1.2 pA; *ser-2*, 30.7±4.4 pA), indicating that clustering and function of postsynaptic GABA receptors are normal in *ser-2* mutants, and not affected by tyramine (Figure 3H). The basal IPSC frequency prior to tyramine exposure was also not changed significantly in *ser-2* mutants (+/+, 13.2±1.2 Hz; *ser-2*, 12.5±2 Hz). However, the tyramine-mediated reduction in IPSC frequency we observed in +/+ animals was significantly attenuated in *ser-2* mutant animals (*ser-2*, 17%±4% reduction; +/+, 35%±4% reduction) such that it was indistinguishable from that observed in our control recordings without tyramine (control (no tyramine), 13%±6% reduction). After normalization, tyramine application reduced IPSC frequency by 25%±5% in +/+ compared to 5%±5% reduction in *ser-2* mutants (Figure 3G). Taken together, our data show that tyramine inhibits GABA release onto ventral body wall muscles in a SER-2-dependent manner.
 
-exposure in recordings from *unc-29; acr-16; ser-2* triple mutants (Figure 3F,G). The amplitude of endogenous GABA IPSCs was not significantly different between +/+ animals and *ser-2* mutants (+/+, 29.5±1.4 pA; *ser-2*, 31.9±3.9 pA) and was not significantly affected by tyramine exposure for either strain (+/+, 26.9±1.2 pA; *ser-2*, 30.7±4.4 pA), indicating that clustering and function of postsynaptic GABA receptors are normal in *ser-2* mutants, and not affected by tyramine (Figure 3H). The basal IPSC frequency prior to tyramine exposure was also not changed significantly in *ser-2* mutants (+/+, 13.2±1.2 Hz; *ser-2*, 12.5±2 Hz). However, the tyramine-mediated reduction in IPSC frequency we observed in +/+ animals was significantly attenuated in *ser-2* mutant animals (*ser-2*, 17%±4% reduction; +/+, 35%±4% reduction) such that it was indistinguishable from that observed in our control recordings without tyramine (control (no tyramine), 13%±6% reduction). After normalization, tyramine application reduced IPSC frequency by 25%±5% in +/+ compared to 5%±5% reduction in *ser-2* mutants (Figure 3G). Taken together, our data show that tyramine inhibits GABA release onto ventral body wall muscles in a SER-2-dependent manner.
+### Ablation of Subsets of GABAergic Motor Neurons Induces a Navigational Bias
 
-## Ablation of Subsets of GABAergic Motor Neurons Induces a Navigational Bias
+*C. elegans* moves on its side by propagating a sinusoidal wave of ventral-dorsal flexures along the length of its body. GABAergic VD motor neurons synapse onto ventral muscles and receive synaptic inputs from DA/DB cholinergic motor neurons that synapse onto dorsal body wall muscles (Figure 4A) \[46]. Conversely, GABAergic DD motor neurons synapse onto dorsal muscles and receive synaptic inputs from VA/VB cholinergic motor neurons that synapse onto ventral body wall muscles. This arrangement suggests that a body bend is generated by Ach-mediated muscle contraction on one side and GABA-mediated relaxation on the contralateral side. This hypothesis is supported by the observation that animals in which the VD and DD neurons are killed by laser ablation move with a reduced wave amplitude \[46]. The *Pser-2::GFP* and *Pflp-13::GFP* fluorescent markers, which specifically label the 13 VD and 6 DD neurons, respectively, allowed us to further test the role of the VD and DD neurons in laser ablation experiments. Animals in which only the VD neurons were ablated still propagated a sinusoidal wave along the anterior–posterior axis, but displayed deeper ventral than dorsal flexures (Movies S1 and S2). As a consequence VD ablated animals moved in ventrally directed circles (radius 2.20±0.29 body lengths, n = 5, Figure 4B,C). Conversely, animals in which the DD neurons were ablated exhibited deeper dorsal than ventral flexures and moved in dorsally directed circles (radius 0.61±0.11 body lengths, n = 10). GABA-deficient *unc-25* mutants made shallow body bends, but showed no directional bias in their locomotion pattern. Thus, the specific ablation of the VD or DD GABAergic neurons indicate that asymmetric relaxation of either the ventral or dorsal body wall muscles results in a directional bias in locomotion.
 
-*C. elegans* moves on its side by propagating a sinusoidal wave of ventral-dorsal flexures along the length of its body. GABAergic VD motor neurons synapse onto ventral muscles and receive synaptic inputs from DA/DB cholinergic motor neurons that synapse onto dorsal body wall muscles (Figure 4A) \[46]. Conversely, GABAergic DD motor neurons synapse onto dorsal muscles and receive synaptic inputs from VA/VB cholinergic motor neurons that synapse onto ventral body wall muscles. This arrangement suggests that a body bend is generated by Ach-mediated muscle contraction on one side and GABA-mediated relaxation on the contralateral side. This hypothesis is supported by the observation that animals in which the VD and DD neurons are killed by laser ablation move with a reduced wave amplitude \[46]. The *Pser-2::GFP* and *Pflp-13::GFP* fluorescent markers, which specifically label the 13 VD and 6 DD neurons, respectively, allowed us to further test the role of the VD and DD neurons in laser ablation experiments. Animals in which only the VD neurons were ablated still propagated a sinusoidal wave along the anterior–posterior axis, but displayed deeper ventral than dorsal flexures (Movies S1 and S2). As a consequence VD ablated animals moved in ventrally directed circles (radius 2.20±0.29 body lengths, *n* = 5, Figure 4B,C). Conversely, animals in which the DD neurons were ablated exhibited deeper dorsal than ventral flexures and moved in dorsally directed circles (radius 0.61±0.11 body lengths, *n* = 10). GABA-deficient *unc-25* mutants made shallow body bends, but showed no directional bias in their locomotion pattern. Thus, the specific ablation of the VD or DD GABAergic neurons indicate that asymmetric relaxation of either the ventral or dorsal body wall muscles results in a directional bias in locomotion.
+### Induction of Turning Behavior Through Optogenetic Control of GABAergic Motor Neurons
 
-## Induction of Turning Behavior Through Optogenetic Control of GABAergic Motor Neurons
+Our data suggest that the modulation of the activity of either the VD or DD motor neurons allows the animal to bend and steer in either a ventral or dorsal direction. To determine if acute activation or inhibition of a specific subclass of GABAergic neurons could induce turning behavior, we used optogenetic stimulation and inhibition. The complexity of the *ser-2* promoter, which contains coding sequences and alternative start sites, did not allow us to highly express light-activated channels in the VD neurons. To test whether the differential activity of the VD and DD motor neurons can induce bending, we generated transgenic animals that co-expressed the light-activated cation channel Channelrhodopsin-2 (ChR2) \[47] and light-activated chloride pump Halorhodopsin (NpHR) \[48] in the six GABAergic DD motor neurons that synapse onto the dorsal muscles (*Pflp-13::ChR2*; *Pflp-13::NpHR*). ChR2 is activated by blue light and depolarizes neurons, while NpHR is activated by green light and hyperpolarizes neurons. We found that blue light activation induced a deep ventral turn (Figure 5 and Movie S3). In contrast, green light inhibition induced a deep dorsal turn. This turning behavior was not observed in nontransgenic animals or in transgenic animals raised on plates without all-*trans*-retinal, the chromophore of ChR2 and NpHR. To quantify turning behavior we calculated a bending index as the fraction of animals that turned ventrally or dorsally in response to light exposure (Figure 5A). A bending index of zero indicates no directional bias, whereas a negative or positive fraction indicates a ventral or dorsal bias, respectively. The bending index of *Pflp-13::ChR2/NpHR* transgenic animals was −0.45±0.04 with exposure to blue light and 0.41±0.06 for animals with exposure to green light. The *flp-13* promoter also drives expression in a small set of head neurons in addition to the DD neurons. To determine if the activation or inhibition of the DD neurons was sufficient to induce bending, we used an optogenetic illumination system capable of tracking and stimulating individual regions of a freely moving animal \[49]. Targeted illumination of the animal’s ventral nerve cord that harbors the DD neuronal cell bodies induced a tight ventral bend in response to blue light activation and a tight dorsal bend in response to green light inhibition (Figure 5B and Movie S3). Switching between blue and green light exposure enabled the remote control of ventral and dorsal turning behavior in freely moving *Pflp-13::ChR2/NpHR* transgenic animals. Thus, the acute stimulation of GABA release on the dorsal side induced relaxation of the dorsal muscles resulting in a ventral turn. Conversely, the acute inhibition of GABA release onto the dorsal muscles resulted in hypercontraction of dorsal muscles and a dorsal bend. Our data indicate that modulating the activity of subsets of GABAergic neurons synapsing onto either the dorsal (DD) or ventral side (VD) of the animal can induce navigational bias.
 
-Our data suggest that the modulation of the activity of either the VD or DD motor neurons allows the animal to bend and steer in either a ventral or dorsal direction. To determine if acute activation or inhibition of a specific subclass of GABAergic neurons could induce turning behavior, we used optogenetic stimulation and inhibition. The complexity of the *ser-2* promoter, which contains coding sequences and alternative start sites, did not allow us to highly express light-activated channels in the VD neurons. To test whether the differential activity of the VD and DD motor neurons can induce bending, we generated transgenic animals that co-expressed the light-activated cation channel Channelrhodopsin-2 (ChR2) \[47] and light-activated chloride pump Halorhodopsin (NpHR) \[48] in the six GABAergic DD motor neurons that synapse onto the dorsal muscles (*Pflp-13::ChR2; Pflp-13::NpHR*). ChR2 is activated by blue light and depolarizes neurons, while NpHR is activated by green light and hyperpolarizes neurons. We found that blue light activation induced a deep ventral turn (Figure 5 and Movie S3). In contrast, green light inhibition induced a deep dorsal turn. This turning behavior was not observed in nontransgenic animals or in transgenic animals raised on plates without all-trans-retinal, the chromophore of ChR2 and NpHR. To quantify turning behavior we calculated a bending index as the fraction of animals that turned ventrally or dorsally in response to light exposure (Figure 5A). A bending index of zero indicates no directional bias, whereas a negative or positive fraction indicates a ventral or dorsal bias, respectively. The bending index of *Pflp-13::ChR2/NpHR* transgenic animals was −0.45±0.04 with exposure to blue light and 0.41±0.06 for animals with exposure to green light. The *flp-13* promoter also drives expression in a small set of head neurons in addition to the DD neurons. To determine if the activation or inhibition of the DD neurons was sufficient to induce bending, we used an optogenetic illumination system capable of tracking and stimulating individual regions of a freely moving animal \[49]. Targeted illumination of the animal’s ventral nerve cord that harbors the DD neuronal cell bodies induced a tight ventral bend in response to blue light activation and a tight dorsal bend in response to green light inhibition (Figure 5B and Movie S3). Switching between blue and green light exposure enabled the remote control of ventral and dorsal turning behavior in freely moving *Pflp-13::ChR2/NpHR* transgenic animals. Thus, the acute stimulation of GABA release on the dorsal side induced relaxation of the dorsal muscles resulting in a ventral turn. Conversely, the acute inhibition of GABA release onto the dorsal muscles resulted in hypercontraction of dorsal muscles and a dorsal bend. Our data indicate that modulating the activity of subsets of GABAergic neurons synapsing onto either the dorsal (DD) or ventral side (VD) of the animal can induce navigational bias.
-
-## *ser-2* Facilitates the Execution of Omega Turns in the Escape Response
+### ser-2 Facilitates the Execution of Omega Turns in the Escape Response
 
 The expression of *ser-2* in the GABAergic VD neurons suggested a possible role in *C. elegans* navigation. However, *ser-2* mutants moved normally and did not display a ventral or dorsal directional bias (Figure 4B) possibly through a lack of basal tyramine to activate SER-2 during regular locomotion. We have previously shown that tyramine coordinates the timing of backing locomotion and the suppression of head movements in the escape response \[13]. Gentle anterior touch triggers tyramine release from the RIM neurons and the synaptic activation of the tyramine-gated chloride channel, LGC-55 \[22]. Is SER-2 also required in the execution of the escape response? Touch-induced reversals are often coupled to a sharp omega turn, which allows the animal to change locomotion in a direction opposite to its original course (Figures 6E and 7A) \[18]. The omega turn is initiated by a steep ventral bend of the head when the animal reinitiates forward locomotion. While the sharp bend is propagated posteriorly along the body, the head usually slides along the ventral side of the body. We analyzed turning behavior in response to gentle anterior touch. We found that the likelihood of engaging in an omega turn (>90° turn initiated by the first forward head
 
 ## Page 9
 
-# Figure 5. Optogenetic control of navigation. (A, B) Acute modulation of the activity of DD GABA neurons in transgenic animals expressing channelrhodopsin (ChR2) and halorhodopsin (NpHR) in DD motor neurons (*Pflp-13::ChR2::GFP; Pflp-13::NpHR::CFP*) induces turning behavior. Blue light activation of GABAergic DD motor neurons that synapse onto dorsal muscles induces ventral turning. Green light inhibition of GABAergic DD motor neurons induces dorsal turning. (A) Quantification of bending behavior with green and blue light exposure. Bending bias was calculated as the fraction of dorsal turns – fraction of ventral turns after blue (DD activation, blue bars) or green (DD inhibition, green bars) light exposure. Each bar represents the mean bending bias for a minimum of 45 animals per genotype. Statistical significance as indicated: \*\*p<0.001 and \*\*\*p<0.0001, two-tailed Student's t test. (B) Locomotion traces signify the time course of blue and green light exposure during forward movement (red). Open circles denote 1-s time marks. The compass indicates anterior (A), posterior (P), ventral (V), and dorsal (D) directions. Kymographs display sinusoidal bending wave amplitude before, during, and after light exposure. Normalized curvature is plotted at each point along the worm’s centerline in units of inverse worm lengths. Color indicates curvature in either the ventral (red) or dorsal (blue) direction. The colored bands widen and brighten during deep turns induced by light exposure: white horizontal dotted lines indicate duration of light exposure, Ventral indicates a deep ventral bend, and Dorsal indicates a deep dorsal bend. Still images were taken at \* location on worm track (Movie S3). Yellow triangle indicates the position of the vulva.
-
-|A|||||||||
-|-|-|-|-|-|-|-|-|-|
-|retinal|-|+|-|+|-|+|-|+|
-|DD-ChR2/NpHR|-|-|+|+|-|-|+|+|
-|bending index|Dorsal|0.6|0.4|0.2|0.0|-0.2|-0.4|-0.6|
-|bending index|Ventral|-0.6|-0.4|-0.2|0.0|0.2|0.4|0.6|
-
-|B||||||
-|-|-|-|-|-|-|
-|time (s)|-1|0|1|2|3|
-|normalized curvature|+10|+5|0|-5|-10|
-
-|B||||||
-|-|-|-|-|-|-|
-|time (s)|-1|0|1|2|3|
-|normalized curvature|+10|+5|0|-5|-10|
+**Figure 5. Optogenetic control of navigation.** (A, B) Acute modulation of the activity of DD GABA neurons in transgenic animals expressing channelrhodopsin (ChR2) and halorhodopsin (NpHR) in DD motor neurons (*Pflp-13::ChR2::GFP*; *Pflp-13::NpHR::CFP*) induces turning behavior. Blue light activation of GABAergic DD motor neurons that synapse onto dorsal muscles induces ventral turning. Green light inhibition of GABAergic DD motor neurons induces dorsal turning. (A) Quantification of bending behavior with green and blue light exposure. Bending bias was calculated as the fraction of dorsal turns – fraction of ventral turns after blue (DD activation, blue bars) or green (DD inhibition, green bars) light exposure. Each bar represents the mean bending bias for a minimum of 45 animals per genotype. Statistical significance as indicated: \*\*p<0.001 and \*\*\*p<0.0001, two-tailed Student’s t test. (B) Locomotion traces signify the time course of blue and green light exposure during forward movement (red). Open circles denote 1-s time marks. The compass indicates anterior (A), posterior (P), ventral (V), and dorsal (D) directions. Kymographs display sinusoidal bending wave amplitude before, during, and after light exposure. Normalized curvature is plotted at each point along the worm’s centerline in units of inverse worm lengths. Color indicates curvature in either the ventral (red) or dorsal (blue) direction. The colored bands widen and brighten during deep turns induced by light exposure: white horizontal dotted lines indicate duration of light exposure, Ventral indicates a deep ventral bend, and Dorsal indicates a deep dorsal bend. Still images were taken at \* location on worm track (Movie S3). Yellow triangle indicates the position of the vulva. doi:10.1371/journal.pbio.1001529.g005
 
 ## Page 10
 
-# Figure 6. ser-2 mutants make shallow omega bends.
+**A**
+% omega turns after reversal
+100
+80
+60
+40
+20
+0
+wild type
+ser-2
+number of backward body bends
+1 2 3 4 5 6+ 1 2 3 4 5 6+
 
-(A) Distribution of touch-induced reversals ending in an omega turn. Omega turns are more likely to occur after longer reversals (>3 body bends). Wild-type and ser-2 mutant animals initiate omega turns at the same rate (n≥150 per genotype).
+**C**
+% omega turns with nose to tail touch
+100
+80
+60
+40
+20
+0
+touch
+Pmec-4::ChR2
+wild type
+ser-2(ok2103)
+ser-2(pk1357)
+ser-2 rescue 2
+ser-2 rescue 3
+tdc-1
+tbh-1
+wild type
+ser-2(ok2103)
+ser-2(pk1357)
 
-(B) Schematic representation of the omega angle. The omega angle was measured as the angle from the deepest point in the ventral bend to the closest points anterior and posterior of the animal. Images were adapted from movies of animals in the most ventrally contracted state of the escape response.
+**D**
+omega angle °
+30
+20
+10
+0
+touch
+Pmec-4::ChR2
+wild type
+ser-2(ok2103)
+ser-2(pk1357)
+ser-2 rescue 2
+ser-2 rescue 3
+tdc-1
+tbh-1
+wild type
+ser-2(ok2103)
+ser-2(pk1357)
 
-(C) Percent of omega turns where the animal's nose touches the tail during the execution of the turn (closed omega turn). ser-2 mutants \[ser-2(ok2103), n = 52; ser-2(pk1357), n = 62] touch nose to tail less frequently than wild-type (n = 51) in omega turns induced by both touch (Movies S4 and S5) and blue light in a Pmec-4::ChR2 background \[Pmec-4::ChR2, n = 38; ser-2(ok2103); Pmec-4::ChR2, n = 43; ser-2(pk1357); Pmec-4::ChR2, n = 28]. Tyramine/octopamine-deficient tdc-1 mutants touch nose to tail less frequently than wild-type \[tdc-1(n3420), n = 144], while
+**F**
+angle of escape (degrees)
+270
+240
+210
+180
+150
+120
+90
+0
+wild type
+ser-2(ok2103)
+ser-2(pk1357)
+ser-2 rescue 2
+ser-2 rescue 3
+tdc-1
+tbh-1
+179°±5°
+157°±5°
+150°±5°
+173°±7°
+168°±5°
+143°±6°
+177°±11°
 
-(D) Omega angle in degrees for the same conditions as in (C). The omega angle is significantly smaller in ser-2 mutants compared to wild-type, indicating shallower omega turns.
-
-(E) Schematic diagram showing the escape angle. The angle of escape is measured from the dorsal side of the animal to the direction of movement during the escape response.
-
-(F) Scatter plot showing the angle of escape in degrees for various genotypes. The data points represent individual animals, with the mean indicated by a horizontal line. The angles of escape are significantly different between wild-type and ser-2 mutants, with ser-2 mutants showing a more dorsal orientation of escape.
-
-|genotype|% omega turns with nose to tail touch|omega angle (degrees)|angle of escape (degrees)|
-|-|-|-|-|
-|wild type|85.0|4.0|179.0|
-|ser-2(ok2103)|35.0|25.0|157.0|
-|ser-2(pk1357)|30.0|24.0|150.0|
-|ser-2 rescue 2|65.0|17.0|173.0|
-|ser-2 rescue 3|55.0|16.0|168.0|
-|tdc-1|20.0|10.0|143.0|
-|tbn-1|70.0|20.0|177.0|
+Figure 6. **ser-2 mutants make shallow omega bends.** (A) Distribution of touch-induced reversals ending in an omega turn. Omega turns are more likely to occur after longer reversals (>3 body bends). Wild-type and *ser-2* mutant animals initiate omega turns at the same rate (n \ge 150 per genotype). (B) Schematic representation of the omega angle. The omega angle was measured as the angle from the deepest point in the ventral bend to the closest points anterior and posterior of the animal. Images were adapted from movies of animals in the most ventrally contracted state of the escape response. (C) Percent of omega turns where the animal's nose touches the tail during the execution of the turn (closed omega turn). *ser-2* mutants \[*ser-2(ok2103)*, n = 52; *ser-2(pk1357)*, n = 62] touch nose to tail less frequently than wild-type (n = 51) in omega turns induced by both touch (Movies S4 and S5) and blue light in a *Pmec-4::ChR2* background \[*Pmec-4::ChR2*, n = 38; *ser-2(ok2103); Pmec-4::ChR2*, n = 43; *ser-2(pk1357); Pmec-4::ChR2*, n = 28]. Tyramine/octopamine-deficient *tdc-1* mutants touch nose to tail less frequently than wild-type \[*tdc-1(n3420)*, n = 144], while
 
 ## Page 11
 
-octopamine-deficient tbh-1 mutants close omega turns like the wild-type \[tbh-1(n3247), n=153]. Genomic rescue lines partially restore this omega turning defect (ser-2 rescue line 2, n=20; ser-2 rescue line 3, n=21). (D) Average omega angle measured after touch or exposure to blue light in a Pmec-4::ChR2 background \[Pmec-4::ChR2, n=38; Pmec-4::ChR2; ser-2(ok2103), n=43; Pmec-4::ChR2; ser-2(pk2103), n=28]. ser-2 mutants \[ser-2(ok2103), n=52; ser-2(pk1357), n=62] and tyramine/octopamine-deficient mutants \[tdc-1(n3420), n=35] make a wider omega turn than wild-type (n=51). Octopamine-deficient tbh-1 mutants do not make wider omega turns \[tbh-1(n3247), n=16]. Genomic rescue lines partially restore the omega angle defect of the mutants (ser-2 rescue line 2, n=20; ser-2 rescue line 3, n=21). (E) Escape angles were measured from the direction of the reversal (induced by gentle anterior touch) to the direction of reinitiated forward locomotion. (F) Distribution of escape angles. Dashed grey line indicates average. Wild-type animals and tbh-1 mutants escape in the opposite direction from the touch stimulus \[wt, 179^\circ \pm 5^\circ, n=42; tbh-1(n3427), 177^\circ \pm 11^\circ, n=16]. ser-2 mutants and tdc-1 mutants make a shallower escape angle \[ser-2(ok2103), 157.5^\circ \pm 5^\circ, n=53; ser-2(pk1357), 150^\circ \pm 5^\circ, n=46; tdc-1(n3420), 143.3^\circ \pm 6^\circ, n=35]. Genomic rescue lines restore the escape angle to wild-type levels (ser-2 rescue line 2, 173^\circ \pm 7^\circ, n=12; ser-2 rescue line 3, 168.5^\circ \pm 5^\circ, n=20). Rescue denotes the transgenic line Pser-2::SER-2; ser-2(pk1357)). Error bars depict SEM. Statistical differences calculated from wild-type unless otherwise indicated: \*p<0.05, \*\*p<0.01, \*\*\*p<0.001, two-tailed Student's t test. doi:10.1371/journal.pbio.1001529.g006
+octopamine-deficient *tbh-1* mutants close omega turns like the wild-type \[*tbh-1(n3247)*, n = 153]. Genomic rescue lines partially restore this omega turning defect (*ser-2* rescue line 2, n = 20; *ser-2* rescue line 3, n = 21). (D) Average omega angle measured after touch or exposure to blue light in a *Pmec-4::ChR2* background \[*Pmec-4::ChR2*, n = 38; *Pmec-4::ChR2*; *ser-2(ok2103)*, n = 43; *Pmec-4::ChR2*; *ser-2(pk2103)*, n = 28]. *ser-2* mutants \[*ser-2(ok2103)*, n = 52; *ser-2(pk1357)*, n = 62] and tyramine/octopamine-deficient mutants \[*tdc-1(n3420)*, n = 35] make a wider omega turn than wild-type (n = 51). Octopamine-deficient *tbh-1* mutants do not make wider omega turns \[*tbh-1(n3247)*, n = 16]. Genomic rescue lines partially restore the omega angle defect of the mutants (*ser-2* rescue line 2, n = 20; *ser-2* rescue line 3, n = 21). (E) Escape angles were measured from the direction of the reversal (induced by gentle anterior touch) to the direction of reinitiated forward locomotion. (F) Distribution of escape angles. Dashed grey line indicates average. Wild-type animals and *tbh-1* mutants escape in the opposite direction from the touch stimulus \[wt, 179^\circ \pm 5^\circ, n = 42; *tbh-1(n3427)*, 177^\circ \pm 11^\circ, n = 16]. *ser-2* mutants and *tdc-1* mutants make a shallower escape angle \[*ser-2 (ok2103)*, 157.5^\circ \pm 5^\circ, n = 53; *ser-2(pk1357)*, 150^\circ \pm 5^\circ, n = 46; *tdc-1(n3420)*, 143.3^\circ \pm 6^\circ, n = 35]. Genomic rescue lines restore the escape angle to wild-type levels (*ser-2* rescue line 2, 173^\circ \pm 7^\circ, n = 12; *ser-2* rescue line 3, 168.5^\circ \pm 5^\circ, n = 20). Rescue denotes the transgenic line *Pser-2::SER-2*; *ser-2(pk1357)*. Error bars depict SEM. Statistical differences calculated from wild-type unless otherwise indicated: \*p<0.05, \*\*p<0.01, \*\*\*p<0.001, two-tailed Student’s t test.
+doi:10.1371/journal.pbio.1001529.g006
 
 swing) was correlated with the length of the reversal (Figure 6A). Short reversals most often resulted in shallow head bends and modest deflections from the original trajectory. In contrast, escape responses that included reversals of four or more body bends most often ended in an omega turn. These results are consistent with previous studies of reversals where omega turns tend to occur after a long reversal \[50–52].
 
-Omega turns that occurred in response to anterior touch were exclusively made on the ventral side of the animal (n \geq 250). In response to touch, animals in which the GABAergic DD neurons
+Omega turns that occurred in response to anterior touch were exclusively made on the ventral side of the animal (n≥250). In response to touch, animals in which the GABAergic DD neurons
 
-**Figure 7. Model: Tyramine orchestrates the C. elegans escape response through the activation of ionotropic and metabotropic receptors.** (A) Silhouettes of the four phases of the C. elegans anterior touch escape response. Images were adapted from a movie of an animal executing an escape response. See text for details. (B) Schematic representation of the neural circuit that controls the C. elegans escape response. Synaptic connections (triangles) and gap junctions (bars) are as described by White et al. (1986) \[20]. Green plus signs represent excitatory connections, and red minus signs indicate inhibitory connections. Sensory neurons are shown as triangles, command neurons required for locomotion are hexagons, and motor neurons are depicted as circles. The compass indicates anterior (A), posterior (P), ventral (V), and dorsal (D) directions. C. elegans sinusoidal locomotion is propagated by alternatively contracting and relaxing opposing ventral and dorsal body wall muscles of the animal using cholinergic (DB and VB for forward and DA and VA for backward locomotion) and GABAergic (VD and DD) motor neurons. Anterior touch induces the activation of the tyramine release from the RIM motor neurons (blue cells). Solid lines represent synaptic activation of LGC-55 in neurons and muscles (purple cells) that result in the inhibition of forward locomotion and suppression of head movement in the initial phase of the escape response. Dashed lines represent extrasynaptic activation of SER-2 in the GABAergic VD motor neurons (green cells). The activation of SER-2 causes a decrease in GABA release on the ventral side animal. This allows the hypercontraction of muscles on the ventral side of the animal, thus facilitating the execution of a ventral omega turn. doi:10.1371/journal.pbio.1001529.g007
-
-|A|B||
-|-|-|-|
-|---\|---|||
-|touch|touch||
-|ALM|sensory input||
-|AVM|sensory neuron||
-|PVC|forward||
-|AVD|backward||
-|interneuron|||
-|AVB|||
-|AVA|||
-|LGC-55|||
-|RMD|head motor neuron||
-|RIM|head movements||
-|SMD|||
-|neck muscles|||
-|SER-2|||
-|DB|motor neuron||
-|VD|||
-|DA|||
-|VB|||
-|DD|||
-|VA|||
-|Tyraminergic neuron|gap junction||
-|LGC-55 expressing cells|chemical synapse||
-|SER-2 expressing cells|||
+**Figure 7. Model: Tyramine orchestrates the *C. elegans* escape response through the activation of ionotropic and metabotropic receptors.** (A) Silhouettes of the four phases of the *C. elegans* anterior touch escape response. Images were adapted from a movie of an animal executing an escape response. See text for details. (B) Schematic representation of the neural circuit that controls the *C. elegans* escape response. Synaptic connections (triangles) and gap junctions (bars) are as described by White et al. (1986) \[20]. Green plus signs represent excitatory connections, and red minus signs indicate inhibitory connections. Sensory neurons are shown as triangles, command neurons required for locomotion are hexagons, and motor neurons are depicted as circles. The compass indicates anterior (A), posterior (P), ventral (V), and dorsal (D) directions. *C. elegans* sinusoidal locomotion is propagated by alternatively contracting and relaxing opposing ventral and dorsal body wall muscles of the animal using cholinergic (DB and VB for forward and DA and VA for backward locomotion) and GABAergic (VD and DD) motor neurons. Anterior touch induces the activation of the tyramine release from the RIM motor neurons (blue cells). Solid lines represent synaptic activation of LGC-55 in neurons and muscles (purple cells) that result in the inhibition of forward locomotion and suppression of head movement in the initial phase of the escape response. Dashed lines represent extrasynaptic activation of SER-2 in the GABAergic VD motor neurons (green cells). The activation of SER-2 causes a decrease in GABA release on the ventral side animal. This allows the hypercontraction of muscles on the ventral side of the animal, thus facilitating the execution of a ventral omega turn.
+doi:10.1371/journal.pbio.1001529.g007
 
 ## Page 12
 
-# Monoaminergic Orchestration of a Complex Behavior
-
 were ablated initiated omega turns with a deep ventral head bend, but often their head failed to touch the ventral side of the body to close the omega turn (Figure S5). Animals with ablated GABAergic VD neurons did not have a defect in the execution of closed omega turns. The initiation of the omega turn may be triggered by the RIV head motorneurons that innervate ventral neck muscles \[51]. The failure of DD ablated animals to fully close their omega turns indicates that the propagation of a sharp bend along the body requires the hypercontraction of ventral muscles and relaxation of dorsal muscles.
 
-Tyramine-deficient *tdc-1* mutants or RIM ablated fail to suppress head movements, make short reversals, and less frequently engage in the execution of omega turns \[13,51]. In contrast, in response to anterior touch, *ser-2* mutants suppressed head movements and reversed similar to wild-type animals (Figure S6). Furthermore, *ser-2* mutants initiated an omega turn with a steep ventral head bend at the same frequency as the wild-type (Figure 6A). However, once *ser-2* mutants initiated the omega turn, the ventral turn was less deep than the wild-type. Whereas most wild-type animals’ heads touched the ventral side of the body (86% ± 3.6%, *n* = 51) during an omega turn, *ser-2* mutant animals failed to fully close the omega turn (27% ± 7.8%, *n* = 62) (Figure 6B,C and Movies S4 and S5). Like the *ser-2* mutants, *tdc-1* mutants that are unable to synthesize tyramine and octopamine \[13] failed to fully close the omega turn during the escape response (*tdc-1* 32% ± 5.5%, *n* = 144). In contrast, *tbh-1* mutants, which only lack octopamine, executed closed omega turns (*tbh-1* 72% ± 7.9%, *n* = 153), comparable to the wild-type. We measured the angle of the omega turn (omega angle) from the deepest most contracted region of the body to the closest or touching points in the head and tail (Figure 6B,D). Wild-type animals typically fully closed their omega bend, while *ser-2* mutants often failed to close omega bends, averaging an omega angle of 24° ± 2.3° (*n* = 62). Animals lacking tyramine and octopamine (*tdc-1*) averaged an omega angle of 25° ± 3.6°, while animals lacking octopamine (*tbh-1*) alone closed their omega turn. Since touch stimuli in these assays have some inherent variability, we also induced reversals by optogenetic activation of the touch sensory neurons. Light induces an escape response in *Pmec-4::ChR2* transgenic animals that express the ChR2 in the touch sensory neurons \[47,49,53]. We analyzed omega turns of *Pmec-4::ChR2* transgenic animals in response to blue light in both wild-type and *ser-2* mutant backgrounds. The light-induced escape response of *ser-2* mutants showed a similar defect in omega turns as with reversals induced by touch and had a lower frequency of closed omega turns than the wild-type (Figure 6C,D). The turning defects of *ser-2* mutants caused an alteration in the direction of reinitiated forward movement, or escape angle. In response to touch, wild-type animals and *tbh-1* mutants completely reversed their direction of locomotion with an escape angle of 179° ± 5° (*n* = 42) and 177° ± 11° (*n* = 16), respectively. In contrast, in response to touch, *ser-2* mutants and *tdc-1* mutants made a more shallow escape angle, changing their direction from the point of stimulus by 150° ± 5° (*n* = 46) and 143° ± 6° (*n* = 35) (Figure 6E,F). Genomic rescue lines partially restore the omega angle defect of the mutants and restored the escape angle to wild-type levels. Our data indicate that tyraminergic activation of SER-2 facilitates the execution of a tight ventral bend in the escape.
+Tyramine-deficient *tdc-1* mutants or RIM ablated fail to suppress head movements, make short reversals, and less frequently engage in the execution of omega turns \[13,51]. In contrast, in response to anterior touch, *ser-2* mutants suppressed head movements and reversed similar to wild-type animals (Figure S6). Furthermore, *ser-2* mutants initiated an omega turn with a steep ventral head bend at the same frequency as the wild-type (Figure 6A). However, once *ser-2* mutants initiated the omega turn, the ventral turn was less deep than the wild-type. Whereas most wild-type animals’ heads touched the ventral side of the body (86% \pm 3.6%, n = 51) during an omega turn, *ser-2* mutant animals failed to fully close the omega turn (27% \pm 7.8%, n = 62) (Figure 6B,C and Movies S4 and S5). Like the *ser-2* mutants, *tdc-1* mutants that are unable to synthesize tyramine and octopamine \[13] failed to fully close the omega turn during the escape response (*tdc-1* 32% \pm 5.5%, n = 144). In contrast, *tbh-1* mutants, which only lack octopamine, executed closed omega turns (*tbh-1* 72% \pm 7.9%, n = 153), comparable to the wild-type. We measured the angle of the omega turn (omega angle) from the deepest most contracted region of the body to the closest or touching points in the head and tail (Figure 6B,D). Wild-type animals typically fully closed their omega bend, while *ser-2* mutants often failed to close omega bends, averaging an omega angle of 24^\circ \pm 2.3^\circ (n = 62). Animals lacking tyramine and octopamine (*tdc-1*) averaged an omega angle of 25^\circ \pm 3.6^\circ, while animals lacking octopamine (*tbh-1*) alone closed their omega turn. Since touch stimuli in these assays have some inherent variability, we also induced reversals by optogenetic activation of the touch sensory neurons. Light induces an escape response in *Pmec-4::ChR2* transgenic animals that express the ChR2 in the touch sensory neurons \[47,49,53]. We analyzed omega turns of *Pmec-4::ChR2* transgenic animals in response to blue light in both wild-type and *ser-2* mutant backgrounds. The light-induced escape response of *ser-2* mutants showed a similar defect in omega turns as with reversals induced by touch and had a lower frequency of closed omega turns than the wild-type (Figure 6C,D). The turning defects of *ser-2* mutants caused an alteration in the direction of reinitiated forward movement, or escape angle. In response to touch, wild-type animals and *tbh-1* mutants completely reversed their direction of locomotion with an escape angle of 179^\circ \pm 5^\circ (n = 42) and 177^\circ \pm 11^\circ (n = 16), respectively. In contrast, in response to touch, *ser-2* mutants and *tdc-1* mutants made a more shallow escape angle, changing their direction from the point of stimulus by 150^\circ \pm 5^\circ (n = 46) and 143^\circ \pm 6^\circ (n = 35) (Figure 6E,F). Genomic rescue lines partially restore the omega angle defect of the mutants and restored the escape angle to wild-type levels. Our data indicate that tyraminergic activation of SER-2 facilitates the execution of a tight ventral bend in the escape.
 
 ## Discussion
 
@@ -316,15 +368,13 @@ The concept of monoaminergic coding of behaviors originated from work in crustac
 
 ### Tyramine Inhibits GABA Release
 
-Our genetic data suggest that the tyramine receptor SER-2 acts in a Gαo (GOA-1) pathway. The Gαo/GOA-1 is expressed in all *C. elegans* neurons where it antagonizes Gαq/EGL-30 function in many behaviors including locomotion, egg laying, and pharyngeal pumping \[54,55]. Dopaminergic and serotonergic G-protein coupled receptors are expressed in *C. elegans* ventral cord neurons and their hyperactivation with exogenous dopamine or serotonin can induce paralysis within minutes \[56–59]. However, *ser-2* and other individual biogenic amine receptor mutants have no obvious locomotion defects. This indicates that Gαo/GOA-1 and Gαq/EGL-30 integrate monaminergic signals to modulate neurotransmitter release from the motor neurons to control locomotion (Figure 1B). Dopamine, serotonin, and tyramine may allow the animal to refine locomotory patterns during different behavioral states. Gαo/GOA-1 activity is thought to reduce the abundance of the synaptic priming protein UNC-13 at the synapse in *C. elegans* ventral cord neurons \[33]. Our data indicate that tyramine reduces GABA release from VD motor neurons in a SER-2-dependent manner to augment the reorientation component of the escape response. In this regard, SER-2 shares similarities with mammalian alpha(2)-adrenergic receptors that inhibit neurotransmitter release and cause vasoconstriction during a fight-or-flight response \[4].
+Our genetic data suggest that the tyramine receptor SER-2 acts in a G\alpha\_o (GOA-1) pathway. The G\alpha\_o/GOA-1 is expressed in all *C. elegans* neurons where it antagonizes G\alpha\_q/EGL-30 function in many behaviors including locomotion, egg laying, and pharyngeal pumping \[54,55]. Dopaminergic and serotonergic G-protein coupled receptors are expressed in *C. elegans* ventral cord neurons and their hyperactivation with exogenous dopamine or serotonin can induce paralysis within minutes \[56–59]. However, *ser-2* and other individual biogenic amine receptor mutants have no obvious locomotion defects. This indicates that G\alpha\_o/GOA-1 and G\alpha\_q/EGL-30 integrate monaminergic signals to modulate neurotransmitter release from the motor neurons to control locomotion (Figure 1B). Dopamine, serotonin, and tyramine may allow the animal to refine locomotory patterns during different behavioral states. G\alpha\_o/GOA-1 activity is thought to reduce the abundance of the synaptic priming protein UNC-13 at the synapse in *C. elegans* ventral cord neurons \[33]. Our data indicate that tyramine reduces GABA release from VD motor neurons in a SER-2-dependent manner to augment the reorientation component of the escape response. In this regard, SER-2 shares similarities with mammalian alpha(2)-adrenergic receptors that inhibit neurotransmitter release and cause vasoconstriction during a fight-or-flight response \[4].
 
 ### Tyramine Acts Through Synaptic Activation of Ionotropic Receptors and Extrasynaptic Activation of Metabotropic Receptors
 
-Tyramine can act as a classical neurotransmitter in *C. elegans* through the synaptic activation of the tyramine-gated chloride channel, LGC-55 \[22,60]. While LGC-55 is predominantly expressed in cells that are directly synaptic to tyraminergic RIM neurons, SER-2-expressing cells do not receive direct RIM innervation, indicating that SER-2 activation occurs extrasynaptically \[28,36]. In addition, ionotropic and metabotropic receptors have distinct ligand affinity and signaling kinetics. Ligand-gated ion channels like LGC-55 have a relatively low affinity for their ligand (Kd 0.1 to 1 mM) and affect postsynaptic potentials within milliseconds. This allows for fast localized signaling between neurons and their postsynaptic partners. In contrast, G-protein coupled receptors have a high affinity for their ligand (Kd 0.1–1 μM) and operate on timescales from seconds to minutes \[61]. Synaptic spillover from the synaptic cleft and diffusion can activate these high affinity receptors that are distant from the release site. As tyramine is released from a single pair of head neurons that extend processes into the nerve ring, the activation of SER-2 in the GABAergic VD neurons depends upon the diffusion of tyramine through the pseudocoelomic space to reach the VD processes along the length of the body. *C. elegans* has two other G-protein coupled receptors, TYRA-2 and TYRA-3, in addition to SER-2 that bind tyramine with high affinity \[26,27]. *tyra-2* and *tyra-3* are
+Tyramine can act as a classical neurotransmitter in *C. elegans* through the synaptic activation of the tyramine-gated chloride channel, LGC-55 \[22,60]. While LGC-55 is predominantly expressed in cells that are directly synaptic to tyraminergic RIM neurons, SER-2-expressing cells do not receive direct RIM innervation, indicating that SER-2 activation occurs extrasynaptically \[28,36]. In addition, ionotropic and metabotropic receptors have distinct ligand affinity and signaling kinetics. Ligand-gated ion channels like LGC-55 have a relatively low affinity for their ligand (Kd 0.1 to 1 mM) and affect postsynaptic potentials within milliseconds. This allows for fast localized signaling between neurons and their postsynaptic partners. In contrast, G-protein coupled receptors have a high affinity for their ligand (Kd 0.1–1 \muM) and operate on timescales from seconds to minutes \[61]. Synaptic spillover from the synaptic cleft and diffusion can activate these high affinity receptors that are distant from the release site. As tyramine is released from a single pair of head neurons that extend processes into the nerve ring, the activation of SER-2 in the GABAergic VD neurons depends upon the diffusion of tyramine through the pseudocoelomic space to reach the VD processes along the length of the body. *C. elegans* has two other G-protein coupled receptors, TYRA-2 and TYRA-3, in addition to SER-2 that bind tyramine with high affinity \[26,27]. *tyra-2* and *tyra-3* are
 
 ## Page 13
-
-# Monoaminergic Orchestration of a Complex Behavior
 
 not expressed in cells that receive direct synaptic inputs from the tyraminergic RIM neurons \[62]. Furthermore, no tyramine or octopamine reuptake transporter has been identified in either *C. elegans* or *Drosophila*, which suggests that tyramine diffusion from the synaptic cleft is part of its mechanism of action. Serotonin, dopamine, and octopamine receptors are also expressed in many *C. elegans* cells that are not directly postsynaptic to the small number of monoaminergic neurons that release them \[36,58]. Similarly, in humans the monoaminergic cells are grouped in relative small nuclei that can affect large areas of the CNS or the periphery that do not receive direct synaptic inputs. Thus, monoamines are not confined to the anatomical connectome and can reconfigure outputs to large neuronal ensembles \[63].
 
@@ -346,191 +396,67 @@ All *C. elegans* strains were grown at room temperature (22°C) on nematode grow
 
 ## Page 14
 
-# Monoaminergic Orchestration of a Complex Behavior
+Punc-47::SER-2, lin-15(+); ser-2(pk1357) lin-15(n765ts), QW897: \[Punc-47::GOA-1::SL2::mCherry, unc-122::GFP] (zfEx347); goa-1(sa734), QW895: \[Punc-47::EAT-16::SL2::mCherry, unc-122::GFP] (zfEx346); eat-16(sa609), and QW194: Pacr-2::SER-2, lin-15(+); ser-2(pk1357) lin-15(n765ts). The strains used for cell identification were EG1285: Punc-47::GFP(oxIs12), CX2835: Pglr-1::GFP(kyIs29), LX929: Punc-17::GFP(vsIs48), NY2037: Pflp-13::GFP(ynIs37), OH2246: Pser-2::GFP(otIs107), QW192: Pser-2::mCherry(zfIs8), QW122: Plgc-55::GFP(zfIs6), and QW84: Plgc-55::mCherry(zfIs4). The strains used for electrophysiological analysis were IZ33: unc-29(x29); acr-16(ok789) and IZ598: unc-29(x29); acr-16(ok789); ser-2(pk1357). The strains used for optogenetic assays were QW410: Pmec-4::ChR2::YFP, lin-15(+); ser-2(pk1357), QW409: Pmec-4::ChR2::YFP, lin-15(+); ser-2(ok2103), and QW429: \[Pflp-13::ChR2::GFP; Pflp-13::NpHR::CFP, lin-15(+)] (zfIs32); lite-1(ce314).
 
-Punc-47::SER-2, lin-15(+); ser-2(pk1357) lin-15(n765ts), QW897: \[Punc-47::GOA-1::SL2::mCherry, unc-122::GFP] (zfEx347); goa-1(sa734), QW895: \[Punc-47::EAT-16::SL2::mCherry, unc-122::GFP] (zfEx346); eat-16(sa609), and QW194: Pacr-2::SER-2, lin-15(+); ser-2(pk1357) lin-15(n765ts). The strains used for cell identification were EG1285: Punc-47::GFP(oxIs12), CX2835: Pglr-1::GFP(kyIs29), LX929: Punc-17::GFP(vsIs48), NY2037: Pflp-13::GFP(ynIs37), OH2246: Pser-2::GFP(otIs107), QW192: Pser-2::mCherry(zfIs8), QW122: Plgc-55::GFP(zfIs6), and QW84: Plgc-55::mCherry(zfIs4). The strains used for electrophysiological analysis were IZ33: unc-29(x29); acr-16(ok789) and IZ598: unc-29(x29); acr-16(ok789); ser-2(pk1357). The strains used for optogenetic assays were QW410: Pmec-4::ChR2::YFP, lin-15(+); ser-2(pk1357), QW409: Pmec-4::ChR2::YFP, lin-15(+); ser-2(ok2103), and QW429: Pflp-13::ChR2::GFP; Pflp-13::NpHR::CFP, lin-15(+); lite-1(ce314).
+Transgenic strains were generated by microinjection of plasmid DNA into the germ line of *lin-15(n765ts)* mutants with the pL15EK rescuing plasmid. Extrachromosomal arrays were integrated by X-ray irradiation (120 kV) and resulting transgenic strains were outcrossed at least four times to N2. A *Pser-2::SER-2::GFP* rescue construct was made by cloning 10.2 kb of genomic sequence including 2.2 kb upstream of the first translational start site into the pPD95.70 vector. The genomic rescue constructs used for exogenous tyramine and omega turn assays were injected between 10 and 20 ng/µl. A *Pser-2::mCherry* mini-gene reporter was constructed by cloning an 11.8 kb sequence that included the three start sites, first intron, and part of exon 2 into the pDM1247 vector. The GABAergic and cholinergic cell-specific rescue lines were cloned using *ser-2a* cDNA behind the *unc-47* (1.2 kb) \[72] and *acr-2* (3.4 kb) promoters, respectively \[73].
 
-Transgenic strains were generated by microinjection of plasmid DNA into the germ line of lin-15(n765ts) mutants with the pL15EK rescuing plasmid. Extrachromosomal arrays were integrated by X-ray irradiation (120 kV) and resulting transgenic strains were outcrossed at least four times to N2. A Pser-2::SER-2::GFP rescue construct was made by cloning 10.2 kb of genomic sequence including 2.2 kb upstream of the first translational start site into the pPD95.70 vector. The genomic rescue constructs used for exogenous tyramine and omega turn assays were injected between 10 and 20 ng/µl. A Pser-2::mCherry mini-gene reporter was constructed by cloning an 11.8 kb sequence that included the three start sites, first intron, and part of exon 2 into the pDM1247 vector. The GABAergic and cholinergic cell-specific rescue lines were cloned using ser-2a cDNA behind the unc-47 (1.2 kb) \[72] and acr-2 (3.4 kb) promoters, respectively \[73].
+A *Pmec-4::ChR2::YFP* plasmid \[47] was injected at 80 ng/µl. The integrated strain was crossed into two *ser-2* mutant allele backgrounds. *Pflp-13::ChR2::GFP*; *Pflp-13::NpHR::CFP* was cloned by inserting a 2 kb promoter from *Pflp-13::GFP* \[37] into ChR2 and NpHR vectors \[47,48]. The integrated strains carrying ChR2 or NpHR transgenes were cultured on NGM agar plates containing OP50 *E. coli* supplemented with 1.3 mM all-trans-retinal for one generation. Larval L4 animals were transferred to retinal plates 24 h before behavioral assays.
 
-A Pmec-4::ChR2::YFP plasmid \[47] was injected at 80 ng/µl. The integrated strain was crossed into two ser-2 mutant allele backgrounds. Pflp-13::ChR2::GFP; Pflp-13::NpHR::CFP was cloned by inserting a 2 kb promoter from Pflp-13::GFP \[37] into ChR2 and NpHR vectors \[47,48]. The integrated strains carrying ChR2 or NpHR transgenes were cultured on NGM agar plates containing OP50 E. coli supplemented with 1.3 mM all-trans-retinal for one generation. Larval L4 animals were transferred to retinal plates 24 h before behavioral assays.
+Ventral nerve cord expression analysis was performed using *Pser-2::mCherry*, *Punc-47::GFP*, and *Punc-17::GFP* transgenic animals. Head muscle analysis was done using *Pser-2::GFP* and *Plgc-55::mCherry*. Images were taken using confocal microscopy (Zeiss and Pascal imaging software) and formatted using ImageJ software.
 
-Ventral nerve cord expression analysis was performed using Pser-2::mCherry, Punc-47::GFP, and Punc-17::GFP transgenic animals. Head muscle analysis was done using Pser-2::GFP and Plgc-55::mCherry. Images were taken using confocal microscopy (Zeiss and Pascal imaging software) and formatted using ImageJ software.
-
-## Behavioral Assays
+### Behavioral Assays
 
 Behavioral assays were performed at room temperature. Drug assays were conducted on young adult animals aged 24 h post-L4 larval stage. Locomotion assays were performed on agar plates containing 2 mM acetic acid with or without tyramine hydrochloride (Sigma-Aldrich). Approximately 10 animals were transferred to assay plates and scored for locomotion every minute over a 20-minute period. Animals were scored as immobilized if there was no sustained forward or backward locomotion in a 5-s interval. Aldicarb drug assays were performed using NGM agar plates supplemented with 0.5 mM aldicarb (Sigma-Aldrich) with or without 30 mM tyramine. Locomotion is not obviously affected on plates with 30 mM tyramine dissolved in NGM agar instead of the agar used in exogenous tyramine paralysis assays. Animals were scored as paralyzed when they did not move when prodded with a platinum wire.
 
-Optogenetic blue and green light-induced bending assays were performed with Pflp-13::ChR2::GFP; Pflp-13::NpHR::CFP; lite-1(ce314) transgenic animals. Bending behavior movies, worm tracking traces, and kymographs were generated using the CoLBeRT worm tracking system as previously described \[49]. Animals were placed in between two glass slides in 200 µl of NGM containing 30% dextran. The space between the slides was approximately 0.127 mm and limited locomotion to two dimensions. The ventral nerve cord was illuminated with blue or green light using the micromirror control of the CoLBeRT system, and the behavior was analyzed using custom tracking software written in MATLAB. For assays used to calculate a bending index, young adult animals were transferred to NGM plates without food for 45 min. Food deprivation stimulated long forward runs, which facilitated the analysis of light-induced bending. Animals were exposed to blue or green light, using GFP (525 nm) and Rhodamine (550 nm) filters for 3 s. A dorsal or ventral bend were scored if the bend was larger than 45°. The bending index was calculated as the fraction of dorsally bending worms minus the fraction of ventrally bending worms. A positive fraction indicates a dorsal bias, a negative fraction indicates a ventral bias, and a zero value represents no directional bias or no response to light exposures.
+Optogenetic blue and green light-induced bending assays were performed with *Pflp-13::ChR2::GFP*; *Pflp-13::NpHR::CFP*; *lite-1(ce314)* transgenic animals. Bending behavior movies, worm tracking traces, and kymographs were generated using the CoLBeRT worm tracking system as previously described \[49]. Animals were placed in between two glass slides in 200 µl of NGM containing 30% dextran. The space between the slides was approximately 0.127 mm and limited locomotion to two dimensions. The ventral nerve cord was illuminated with blue or green light using the micromirror control of the CoLBeRT system, and the behavior was analyzed using custom tracking software written in MATLAB. For assays used to calculate a bending index, young adult animals were transferred to NGM plates without food for 45 min. Food deprivation stimulated long forward runs, which facilitated the analysis of light-induced bending. Animals were exposed to blue or green light, using GFP (525 nm) and Rhodamine (550 nm) filters for 3 s. A dorsal or ventral bend were scored if the bend was larger than 45°. The bending index was calculated as the fraction of dorsally bending worms minus the fraction of ventrally bending worms. A positive fraction indicates a dorsal bias, a negative fraction indicates a ventral bias, and a zero value represents no directional bias or no response to light exposures.
 
-Omega turns were analyzed on NGM agar plates 2 d postpouring to control for assay plate humidity. Assay plates (60 mm diameter) were seeded with 40 µl OP50 E. coli and grown overnight at 37°C to produce a thin bacterial lawn. Young adult worms were transferred to an omega assay plate and allowed to acclimate for at least 10 min. Omega turns were induced by gentle anterior touch with fine eyebrow hair while recording using a FireWire camera and Astro IIDC software. For Pmec-4::ChR2::YFP-induced omega turns, animals were exposed to blue light for 5 s to induce a reversal. Bending angles and locomotion trajectories were calculated using Image J software analysis of movie stills. An omega turn was classified as a sharp turn larger than 90° from the initial trajectory, following a reversal of three or more body bends. The omega angle was measured using the deepest part of the bend as the apex with vectors extending to the closest points along the body. Angles larger than 60° were not scored. The escape angle was measured as the angle between the reversal trajectory and the trajectory of reinitiation of forward locomotion after the omega turn.
+Omega turns were analyzed on NGM agar plates 2 d postpouring to control for assay plate humidity. Assay plates (60 mm diameter) were seeded with 40 µl OP50 *E. coli* and grown overnight at 37°C to produce a thin bacterial lawn. Young adult worms were transferred to an omega assay plate and allowed to acclimate for at least 10 min. Omega turns were induced by gentle anterior touch with fine eyebrow hair while recording using a FireWire camera and Astro IIDC software. For *Pmec-4::ChR2::YFP*-induced omega turns, animals were exposed to blue light for 5 s to induce a reversal. Bending angles and locomotion trajectories were calculated using Image J software analysis of movie stills. An omega turn was classified as a sharp turn larger than 90° from the initial trajectory, following a reversal of three or more body bends. The omega angle was measured using the deepest part of the bend as the apex with vectors extending to the closest points along the body. Angles larger than 60° were not scored. The escape angle was measured as the angle between the reversal trajectory and the trajectory of reinitiation of forward locomotion after the omega turn.
 
-## Laser Ablations
+### Laser Ablations
 
-Animals were mounted on agar pads and anesthetized with 20 mM sodium azide. Laser ablations were done using standard methods \[74]. DD and VD motor neurons were identified in Pflp-13::GFP animals in the L2 larval stage and Pser-2::GFP animals in the L3–L4 larval stage, respectively. Following a recovery period of 1 to 3 d postablation, locomotion and omega turn assays were conducted on young adult animals. Locomotion patterns of animals that exhibited coordinated long runs were recorded at 7.5 fps. Movie analysis was done using MATLAB and the MATLAB Image Acquisition Toolbox \[75]. To determine directionality for each locomotion trace, the slope of instantaneous direction over time was measured for individual 360 degree turning events. Laser ablation of motor neurons was confirmed by lack of GFP expression in the cell body positions in adult animals following behavioral experiments.
+Animals were mounted on agar pads and anesthetized with 20 mM sodium azide. Laser ablations were done using standard methods \[74]. DD and VD motor neurons were identified in *Pflp-13::GFP* animals in the L2 larval stage and *Pser-2::GFP* animals in the L3–L4 larval stage, respectively. Following a recovery period of 1 to 3 d postablation, locomotion and omega turn assays were conducted on young adult animals. Locomotion patterns of animals that exhibited coordinated long runs were recorded at 7.5 fps. Movie analysis was done using MATLAB and the MATLAB Image Acquisition Toolbox \[75]. To determine directionality for each locomotion trace, the slope of instantaneous direction over time was measured for individual 360 degree turning events. Laser ablation of motor neurons was confirmed by lack of GFP expression in the cell body positions in adult animals following behavioral experiments.
 
-## Electrophysiology
+### Electrophysiology
 
 Endogenous postsynaptic currents were recorded from body wall muscles as previously described \[43]. All electrophysiology experiments were carried out at room temperature. Adult animals
 
 ## Page 15
 
-held at drop of bath solution were glued down to the sylgard
-coated glass coverslip with cyanoacrylate tissue adhesive (Skin-
-stitch Corp.) applied along the dorsal side of the body. A
-longitudinal incision was made by sharp glass electrode tip in the
-dorsolateral area, the intestine and gonad were removed, and the
-cuticle flap along the incision was glued down in order to expose
-the ventral medial body wall muscles along the ventral nerve cord.
-The preparation was then washed briefly for \~20 s with a solution
-of collagenase type IV from Clostridium hystolyticum (Sigma-
-Aldrich) in extracellular bath solution (at a concentration of 1 mg/
-ml) in order to remove the basement membrane overlying the
-muscles.
+held at drop of bath solution were glued down to the sylgard coated glass coverslip with cyanoacrylate tissue adhesive (Skin-stitch Corp.) applied along the dorsal side of the body. A longitudinal incision was made by sharp glass electrode tip in the dorsolateral area, the intestine and gonad were removed, and the cuticle flap along the incision was glued down in order to expose the ventral medial body wall muscles along the ventral nerve cord. The preparation was then washed briefly for \~20 s with a solution of collagenase type IV from *Clostridium hystolyticum* (Sigma-Aldrich) in extracellular bath solution (at a concentration of 1 mg/ml) in order to remove the basement membrane overlying the muscles.
 
-The extracellular solution consisted of 150 mM NaCl, 5 mM
-KCl, 4 mM MgCl2, 1 mM CaCl2, 15 mM HEPES, and 10 mM
-glucose (pH 7.4, osmolarity adjusted with 20 mM sucrose). The
-intracellular fluid (ICF) consisted of 25 mM K-gluconate, 115 mM
-KCl, 0.1 mM CaCl2, 50 mM HEPES, 5 mM Mg-ATP, 0.5 mM
-Na-GTP, 0.5 mM cGMP, 0.5 mM cAMP, and 1 mM BAPTA
-(pH 7.4, osmolarity adjusted with 10 mM sucrose). Whole-cell
-voltage clamp recordings from *C. elegans* body wall muscle cells
-(group of ventral medial muscles 9, 11, 13) from +/+ and *ser-2*
-mutant strains were performed as previously described \[43] using
-an EPC-10 amplifier (HEKA). Data acquisition and voltage
-protocols were controlled by HEKA Patchmaster software. Patch-
-clamp electrodes were pulled from borosilicate glass with filament
-(Sutter Instrument), fire-polished to a resistance of 4–6 MΩ, and
-filled with an internal solution. 1 M KCl electrode with agarose
-bridge served as reference electrode. Leak currents and liquid
-junction potentials were not compensated, though pipette offset
-was zeroed immediately before getting a gigaohm seal. The
-membrane potential was clamped at –60 mV. Data were
-digitized at 6.67 kHz and low pass filtered at 3.3 kHz. Membrane
-capacitance and the series resistance (at least 20%, up to 60%)
-were compensated, and only recordings in which the series
-resistance was stable throughout the course of the recording were
-included. Endogenous synaptic activity data were collected in
-continuous mode (saved as 30-s recording sweeps). Typically, 60–
-90 s of control endogenous activity was recorded followed by a 90-
-s bath tyramine application (100 µM), and subsequent tyramine
-wash-out (occasional). The muscle preparation was continuously
-perfused by extracellular solution with or without tyramine by
-gravity-flow at a perfusion rate of 2 ml/min. Cells were excluded
-from analysis if a leak current >300 pA was observed. Only
-recordings with series resistance Rs<15 MΩ were included in the
-analysis. Data analysis and graphing were performed using Excel
-(Microsoft), Igor Pro (WaveMetrics Inc.), and GraphPrism
-(GraphPad Software). Mini Analysis software (Synaptosoft Inc.)
-was used to detect and analyze the endogenous events off-line.
-Parameters for detection of events were set as follows: amplitude
-threshold 12 pA, period to search local minimum 80 ms, time
-before a peak for baseline 20 ms, period to search a decay time
-30 ms, fraction of peak to find a decay time 0.37, period to
-average a baseline 10 ms, area threshold 10, and number of points
-to average for peak 3. In addition, following automatic detection of
-endogenous postsynaptic currents, traces were visually inspected,
-and all events were manually verified and accepted/rejected or
-recalculated, if necessary. Sixty seconds of continuous data were
-used in analysis. Segments of 60-s recording prior to tyramine
-application served as a control. The tyramine effect was evaluated
-in the last 60 s of a 90-s perfusion—that is, initial 30 s of recording
-with tyramine in bath solution were eliminated from analysis in
-order to allow enough time for adequate tyramine perfusion and
-stabilization effect. Data from each group were averaged, and
-statistical significance between the strains was determined by two-
-tailed unpaired Student’s *t* test. All chemicals were purchased from
-Sigma-Aldrich.
+The extracellular solution consisted of 150 mM NaCl, 5 mM KCl, 4 mM MgCl2, 1 mM CaCl2, 15 mM HEPES, and 10 mM glucose (pH 7.4, osmolarity adjusted with 20 mM sucrose). The intracellular fluid (ICF) consisted of 25 mM K-gluconate, 115 mM KCl, 0.1 mM CaCl2, 50 mM HEPES, 5 mM Mg-ATP, 0.5 mM Na-GTP, 0.5 mM cGMP, 0.5 mM cAMP, and 1 mM BAPTA (pH 7.4, osmolarity adjusted with 10 mM sucrose). Whole-cell voltage clamp recordings from *C. elegans* body wall muscle cells (group of ventral medial muscles 9, 11, 13) from +/+ and *ser-2* mutant strains were performed as previously described \[43] using an EPC-10 amplifier (HEKA). Data acquisition and voltage protocols were controlled by HEKA Patchmaster software. Patch-clamp electrodes were pulled from borosilicate glass with filament (Sutter Instrument), fire-polished to a resistance of 4–6 MΩ, and filled with an internal solution. 1 M KCl electrode with agarose bridge served as reference electrode. Leak currents and liquid junction potentials were not compensated, though pipette offset was zeroed immediately before getting a gigaohm seal. The membrane potential was clamped at -60 mV. Data were digitized at 6.67 kHz and low pass filtered at 3.3 kHz. Membrane capacitance and the series resistance (at least 20%, up to 60%) were compensated, and only recordings in which the series resistance was stable throughout the course of the recording were included. Endogenous synaptic activity data were collected in continuous mode (saved as 30-s recording sweeps). Typically, 60–90 s of control endogenous activity was recorded followed by a 90-s bath tyramine application (100 µM), and subsequent tyramine wash-out (occasional). The muscle preparation was continuously perfused by extracellular solution with or without tyramine by gravity-flow at a perfusion rate of 2 ml/min. Cells were excluded from analysis if a leak current >300 pA was observed. Only recordings with series resistance Rs<15 MΩ were included in the analysis. Data analysis and graphing were performed using Excel (Microsoft), Igor Pro (WaveMetrics Inc.), and GraphPrism (GraphPad Software). Mini Analysis software (Synaptosoft Inc.) was used to detect and analyze the endogenous events off-line. Parameters for detection of events were set as follows: amplitude threshold 12 pA, period to search local minimum 80 ms, time before a peak for baseline 20 ms, period to search a decay time 30 ms, fraction of peak to find a decay time 0.37, period to average a baseline 10 ms, area threshold 10, and number of points to average for peak 3. In addition, following automatic detection of endogenous postsynaptic currents, traces were visually inspected, and all events were manually verified and accepted/rejected or recalculated, if necessary. Sixty seconds of continuous data were used in analysis. Segments of 60-s recording prior to tyramine application served as a control. The tyramine effect was evaluated in the last 60 s of a 90-s perfusion—that is, initial 30 s of recording with tyramine in bath solution were eliminated from analysis in order to allow enough time for adequate tyramine perfusion and stabilization effect. Data from each group were averaged, and statistical significance between the strains was determined by two-tailed unpaired Student’s t test. All chemicals were purchased from Sigma-Aldrich.
 
 ## Supporting Information
 
-**Figure S1** *C. elegans* become immobilized on exogenous tyramine
-in a dose-dependent manner. (A) Wild-type animals become
-immobilized within 5 min on 30 mM tyramine (also see Pirri et
-al., 2009 \[22]). (B) *ser-2* mutants are resistant to body immobiliza-
-tion compared to wild-type, but become immobilized by 60 mM
-tyramine. Each data point represents the mean ± SEM for at least
-four trials totaling a minimum of 40 animals.
-(TIF)
+**Figure S1** *C. elegans* become immobilized on exogenous tyramine in a dose-dependent manner. (A) Wild-type animals become immobilized within 5 min on 30 mM tyramine (also see Pirri et al., 2009 \[22]). (B) *ser-2* mutants are resistant to body immobilization compared to wild-type, but become immobilized by 60 mM tyramine. Each data point represents the mean ± SEM for at least four trials totaling a minimum of 40 animals. (TIF)
 
-**Figure S2** *tyra-2* and *tyra-3* mutant animals paralyze on
-exogenous tyramine. (A) *tyra-2* and *tyra-3* mutants become
-immobilized on plates containing 30 mM exogenous tyramine
-similar to wild-type. (B) Two additional SER-2 rescue strains
-(10 ng/µl injection) also rescue the immobilization resistance
-phenotype of *ser-2* mutants. Rescue denotes the transgenic line
-*Pser-2::SER-2; ser-2(pk1357)*. Each data point represents the mean
-± SEM for at least five trials totaling a minimum of 50 animals.
-(TIF)
+**Figure S2** *tyra-2* and *tyra-3* mutant animals paralyze on exogenous tyramine. (A) *tyra-2* and *tyra-3* mutants become immobilized on plates containing 30 mM exogenous tyramine similar to wild-type. (B) Two additional SER-2 rescue strains (10 ng/µl injection) also rescue the immobilization resistance phenotype of *ser-2* mutants. Rescue denotes the transgenic line *Pser-2::SER-2; ser-2(pk1357)*. Each data point represents the mean ± SEM for at least five trials totaling a minimum of 50 animals. (TIF)
 
-**Figure S3** *Pser-2::GFP* and *Plgc-55::mCherry* are expressed in
-different cells. (A–C) Transgenic adult animal co-expressing (A)
-*Pser-2::GFP* and (B) *Plgc-55::mCherry*. (C) Merge. Head muscle
-expression of *Pser-2::GFP* does not overlap with neck muscle
-expression of *Plgc-55::mCherry*. Unlike *lgc-55* mutants, *ser-2*
-mutants do suppress head movements in response to touch. *ser-2*
-mutants occasionally reinitiate head movements before the
-reinitiation of forward locomotion (unpublished observation),
-which may suggest a role for *ser-2* in head muscles.
-(TIF)
+**Figure S3** *Pser-2::GFP* and *Plgc-55::mCherry* are expressed in different cells. (A–C) Transgenic adult animal co-expressing (A) *Pser-2::GFP* and (B) *Plgc-55::mCherry*. (C) Merge. Head muscle expression of *Pser-2::GFP* does not overlap with neck muscle expression of *Plgc-55::mCherry*. Unlike *lgc-55* mutants, *ser-2* mutants do suppress head movements in response to touch. *ser-2* mutants occasionally reinitiate head movements before the reinitiation of forward locomotion (unpublished observation), which may suggest a role for *ser-2* in head muscles. (TIF)
 
-**Figure S4** SER-2 acts in a Gαo pathway in GABAergic neurons.
-(A) Shown is the percentage of animals that display sustained
-locomotion on 30 mM exogenous tyramine (see also Figure 2E).
-*unc-25* (GABA deficient) mutants and *unc-25; ser-2(pk1357)* double
-mutants are not resistant to the paralytic effects of exogenous
-tyramine. Expression of SER-2 in all GABAergic neurons (*Punc-
-47::SER-2*) restores sensitivity of *ser-2* mutants to exogenous
-tyramine. (B) Expression of GOA-1/Gαo or EAT-16/RGS in all
-GABAergic neurons (*Punc-47::GOA-1* or *Punc-47::EAT-16*) partial-
-ly restores sensitivity to exogenous tyramine in the respective *goa-1*
-and *eat-16* mutants. Each data point represents the mean percentage
-of animals immobilized by tyramine each minute for 20 min ±
-SEM for at least three trials, totaling a minimum of 30 animals.
-(TIF)
+**Figure S4** SER-2 acts in a Gαo pathway in GABAergic neurons. (A) Shown is the percentage of animals that display sustained locomotion on 30 mM exogenous tyramine (see also Figure 2E). *unc-25* (GABA deficient) mutants and *unc-25; ser-2(pk1357)* double mutants are not resistant to the paralytic effects of exogenous tyramine. Expression of SER-2 in all GABAergic neurons (*Punc-47::SER-2*) restores sensitivity of *ser-2* mutants to exogenous tyramine. (B) Expression of GOA-1/Gαo or EAT-16/RGS in all GABAergic neurons (*Punc-47::GOA-1* or *Punc-47::EAT-16*) partially restores sensitivity to exogenous tyramine in the respective *goa-1* and *eat-16* mutants. Each data point represents the mean percentage of animals immobilized by tyramine each minute for 20 min ± SEM for at least three trials, totaling a minimum of 30 animals. (TIF)
 
-**Figure S5** Ablation of GABAergic DD neurons impair ventral
-omega turns. Average number of closed omega turns made by
-animals with either VD (*n* = 7) or DD (*n* = 12) neurons ablated or
-mock ablated animals (*n* = 13). Error bars represent SEM,
-\*\**p*<0.001, two-tailed Student’s *t* test.
-(TIF)
+**Figure S5** Ablation of GABAergic DD neurons impair ventral omega turns. Average number of closed omega turns made by animals with either VD (*n* = 7) or DD (*n* = 12) neurons ablated or mock ablated animals (*n* = 13). Error bars represent SEM, ***p*<0.001**, two-tailed Student’s t test. (TIF)
 
-**Figure S6** Reversal length after gentle anterior touch. Distribu-
-tion of the number of backward body bends in response to anterior
-touch of wild-type and *ser-2* mutants. *n*≥250 animals per
-genotype.
-(TIF)
+**Figure S6** Reversal length after gentle anterior touch. Distribution of the number of backward body bends in response to anterior touch of wild-type and *ser-2* mutants. *n*≥250 animals per genotype. (TIF)
 
-**Movie S1** Laser ablation of the DD GABAergic motor neurons
-results in a dorsal bias during forward locomotion. The operated
-animal locomotes in a circular pattern with its ventral side
-(location of the vulva) facing the outside of the circles.
-(MOV)
+**Movie S1** Laser ablation of the DD GABAergic motor neurons results in a dorsal bias during forward locomotion. The operated animal locomotes in a circular pattern with its ventral side (location of the vulva) facing the outside of the circles. (MOV)
 
 ## Page 16
 
 # Monoaminergic Orchestration of a Complex Behavior
 
-## Movie S2
+**Movie S2** Laser ablation of the VD GABAerigic motor neurons results in a ventral bias during forward locomotion. The operated animal locomotes in a circular pattern with its ventral side (location of the vulva) facing the inside of the circles. (MOV)
 
-Laser ablation of the VD GABAergic motor neurons results in a ventral bias during forward locomotion. The operated animal locomotes in a circular pattern with its ventral side (location of the vulva) facing the inside of the circles. (MOV)
+**Movie S3** Tracking of a \[Pflp-13::ChR2; Pflp-13::NpHR] single worm’s locomotion and spatial illumination of the ventral nerve cord using the CoLBeRT system \[49]. Inhibition of the DD motor neurons with green light activation of NpHR causes a dorsal bend. Activation of the DD motor neurons with blue light activation of ChR2 causes a ventral bend. (MOV)
 
-## Movie S3
+**Movie S4** A wild-type animal executing a complete omega turn in response to an anterior touch. Following a long reversal, the animal makes a deep ventral turn where the head of the animal touches and slides along the ventral side of the body and resumes forward locomotion in the direction opposite its original trajectory. (MOV)
 
-Tracking of a \[Pflp-13::ChR2; Pflp-13::NpHR] single worm’s locomotion and spatial illumination of the ventral nerve cord using the CoLBeRT system \[49]. Inhibition of the DD motor neurons with green light activation of NpHR causes a dorsal bend. Activation of the DD motor neurons with blue light activation of ChR2 causes a ventral bend. (MOV)
-
-## Movie S4
-
-A wild-type animal executing a complete omega turn in response to an anterior touch. Following a long reversal, the animal makes a deep ventral turn where the head of the animal touches and slides along the ventral side of the body and resumes forward locomotion in the direction opposite its original trajectory. (MOV)
-
-## Movie S5
-
-A *ser-2* mutant animal does not execute a complete omega turn in response to an anterior touch. Following a long reversal, the animal’s head fails to touch the ventral side of the body. (MOV)
+**Movie S5** A *ser-2* mutant animal does not execute a complete omega turn in response to an anterior touch. Following a long reversal, the animal’s head fails to touch the ventral side of the body. (MOV)
 
 ## Acknowledgments
 
-We thank the *Caenorhabditis* Genetics Center (CGC) for nematode strains; Andrew Fire, Chris Li, Michael Koelle, Alexander Gottschalk, and Yuji Kohara for reagents; and Claire Bénard and Scott Waddell for comments and helpful discussions.
+We thank the *Caenorhabdits* Genetics Center (CGC) for nematode strains; Andrew Fire, Chris Li, Michael Koelle, Alexander Gottschalk, and Yuji Kohara for reagents; and Claire Bénard and Scott Waddell for comments and helpful discussions.
 
 ## Author Contributions
 
@@ -577,77 +503,44 @@ The author(s) have made the following declarations about their contributions: Co
 37. Kim K, Li C (2004) Expression and regulation of an FMRFamide-related neuropeptide gene family in *Caenorhabditis elegans*. J Comp Neurol 475: 540–550.
 38. Jin Y, Jorgensen E, Hartwieg E, Horvitz HR (1999) The *Caenorhabditis elegans* gene *unc-25* encodes glutamic acid decarboxylase and is required for synaptic transmission but not synaptic development. J Neurosci 19: 539–548.
 39. Nonet ML, Grundahl K, Meyer BJ, Rand JB (1993) Synaptic function is impaired but not eliminated in *C. elegans* mutants lacking synaptotagmin. Cell 73: 1291–1305.
-40. Jiang G, Zhuang L, Miyauchi S, Miyake K, Fei YJ, Ganapathy V (2005) A Na+/Cl−-coupled GABA transporter, GAT-1, from *Caenorhabditis elegans*: structural and functional features, specific expression in GABA-ergic neurons, and involvement in muscle function. J Biol Chem 280: 2065–2077.
+40. Jiang G, Zhuang L, Miyauchi S, Miyake K, Fei YJ, Ganapathy V (2005) A Na+/Cl^--coupled GABA transporter, GAT-1, from *Caenorhabditis elegans*: structural and functional features, specific expression in GABA-ergic neurons, and involvement in muscle function. J Biol Chem 280: 2065–2077.
 41. Loria PM, Duke A, Rand JB, Hobert O (2003) Two neuronal, nuclear-localized RNA binding proteins involved in synaptic transmission. Curr Biol 13: 1317–1323.
 
 ## Page 17
 
 # Monoaminergic Orchestration of a Complex Behavior
 
-* 42. Vashlishan AB, Madison JM, Dybbs M, Bai J, Sieburth D, Ch’ng Q, Tavazoie M, Kaplan JM (2008) An RNAi screen identifies genes that regulate GABA synapses. Neuron 58: 346–361.
-
-* 43. Francis MM, Evans SP, Jensen M, Madsen DM, Mancuso J, Norman KR, Maricq AV (2005) The Ror receptor tyrosine kinase CAM-1 is required for ACR-16-mediated synaptic transmission at the *C. elegans* neuromuscular junction. Neuron 46: 581–594.
-
-* 44. Touroutine D, Fox RM, Von Stetina SE, Burdina A, Miller DM III, Richmond JE (2005) *acr-16* encodes an essential subunit of the levamisole-resistant nicotinic receptor at the *Caenorhabditis elegans* neuromuscular junction. J Biol Chem 280: 27013–27021.
-
-* 45. Richmond JE, Jorgensen EM (1999) One GABA and two acetylcholine receptors function at the *C. elegans* neuromuscular junction. Nat Neurosci 2: 791–797.
-
-* 46. McIntire SL, Jorgensen E, Kaplan J, Horvitz HR (1993) The GABAergic nervous system of *Caenorhabditis elegans*. Nature 364: 337–341.
-
-* 47. Nagel G, Brauner M, Liewald JF, Adeishvili N, Bamberg E, Gottschalk A (2005) Light activation of channelrhodopsin-2 in excitable cells of *Caenorhabditis elegans* triggers rapid behavioral responses. Curr Biol 15: 2279–2284.
-
-* 48. Zhang F, Wang LP, Brauner M, Liewald JF, Kay K, Watzke N, Wood PG, Bamberg E, Nagel G, Gottschalk A, Deisseroth K (2007) Multimodal fast optical interrogation of neural circuitry. Nature 446: 633–639.
-
-* 49. Leifer AM, Fang-Yen C, Gershow M, Alkema MJ, Samuel AD (2011) Optogenetic manipulation of neural activity in freely moving *Caenorhabditis elegans*. Nat Methods 8: 147–152.
-
-* 50. Zhao B, Khare P, Feldman L, Dent JA (2003) Reversal frequency in *Caenorhabditis elegans* represents an integrated response to the state of the animal and its environment. J Neurosci 23: 5319–5328.
-
-* 51. Gray JM, Hill JJ, Bargmann CI (2005) A circuit for navigation in *Caenorhabditis elegans*. Proc Natl Acad Sci U S A 102: 3184–3191.
-
-* 52. Huang KM, Cosman P, Schafer WR (2006) Machine vision based detection of omega bends and reversals in *C. elegans*. J Neurosci Methods 158: 323–336.
-
-* 53. Stirman JN, Crane MM, Husson SJ, Wabnig S, Schultheis C, Gottschalk A, Lu H (2011) Real-time multimodal optical control of neurons and muscles in freely behaving *Caenorhabditis elegans*. Nat Methods 8: 153–158.
-
-* 54. Mendel JE, Korswagen HC, Liu KS, Hajdu-Cronin YM, Simon MI, Plasterk RH, Sternberg PW (1995) Participation of the protein Go in multiple aspects of behavior in *C. elegans*. Science 267: 1652–1655.
-
-* 55. Segalat L, Elkes DA, Kaplan JM (1995) Modulation of serotonin-controlled behaviors by Go in *Caenorhabditis elegans*. Science 267: 1648–1651.
-
-* 56. Horvitz HR, Chalfie M, Trent C, Sulston JE, Evans PD (1982) Serotonin and octopamine in the nematode *Caenorhabditis elegans*. Science 216: 1012–1014.
-
-* 57. Schafer WR, Kenyon CJ (1995) A calcium-channel homologue required for adaptation to dopamine and serotonin in *Caenorhabditis elegans*. Nature 375: 73–78.
-
-* 58. Chase DL, Pepper JS, Koelle MR (2004) Mechanism of extrasynaptic dopamine signaling in *Caenorhabditis elegans*. Nat Neurosci 7: 1096–1103.
-
-* 59. Harris GP, Hapiak VM, Wragg RT, Miller SB, Hughes LJ, Hobson RJ, Steven R, Bamber B, Komuniecki RW (2009) Three distinct amine receptors operating at different levels within the locomotory circuit are each essential for the serotonergic modulation of chemosensation in *Caenorhabditis elegans*. J Neurosci 29: 1446–1456.
-
-* 60. Ringstad N, Abe N, Horvitz HR (2009) Ligand-gated chloride channels are receptors for biogenic amines in *C. elegans*. Science 325: 96–100.
-
-* 61. Hille B (1992) G protein-coupled mechanisms and nervous signaling. Neuron 9: 187–195.
-
-* 62. Bendesky A, Tsunozaki M, Rockman MV, Kruglyak L, Bargmann CI (2011) Catecholamine receptor polymorphisms affect decision-making in *C. elegans*. Nature 472: 313–318.
-
-* 63. Bargmann CI (2012) Beyond the connectome: How neuromodulators shape neural circuits. Bioessays 34(6): 458–465.
-
-* 64. Guo ZV, Hart AC, Ramanathan S (2009) Optical interrogation of neural circuits in *Caenorhabditis elegans*. Nat Methods 6: 891–896.
-
-* 65. Kawano T, Po MD, Gao S, Leung G, Ryu WS, Zhen M (2011) An imbalancing act: gap junctions reduce the backward motor circuit activity to bias *C. elegans* for forward locomotion. Neuron 72: 572–586.
-
-* 66. Schoe̊ne H (1984) Spatial orientation: the spatial control of behavior in animals and man. Princeton, NJ: Princeton University Press. xviii, 347 p.
-
-* 67. Lockery SR (2011) The computational worm: spatial orientation and its neuronal basis in *C. elegans*. Curr Opin Neurobiol 21: 782–790.
-
-* 68. Lima SQ, Miesenbock G (2005) Remote control of behavior through genetically targeted photostimulation of neurons. Cell 121: 141–152.
-
-* 69. Douglass AD, Kraves S, Deisseroth K, Schier AF, Engert F (2008) Escape behavior elicited by single, channelrhodopsin-2-evoked spikes in zebrafish somatosensory neurons. Curr Biol 18: 1133–1137.
-
-* 70. Kravitz AV, Freeze BS, Parker PR, Kay K, Thwin MT, Deisseroth K, Kreitzer AC (2010) Regulation of parkinsonian motor behaviours by optogenetic control of basal ganglia circuitry. Nature 466: 622–626.
-
-* 71. Brenner S (1974) The Genetics of *Caenorhabditis elegans*. Genetics 77: 71–94.
-
-* 72. Eastman C, Horvitz HR, Jin Y (1999) Coordinated transcriptional regulation of the *unc-25* glutamic acid decarboxylase and the *unc-47* GABA vesicular transporter by the *Caenorhabditis elegans* UNC-30 homeodomain protein. J Neurosci 19: 6225–6234.
-
-* 73. Hallam S, Singer E, Waring D, Jin Y (2000) The *C. elegans* NeuroD homolog *cnd-1* functions in multiple aspects of motor neuron fate specification. Development 127: 4239–4252.
-
-* 74. Bargmann CI, Avery L (1995) Laser killing of cells in *Caenorhabditis elegans*. Methods Cell Biol 48: 225–250.
-
-* 75. Ramot D, Johnson BE, Berry TLJ, Carnell L, Goodman MB (2008) The Parallel Worm Tracker: a platform for measuring average speed and drug-induced paralysis in nematodes. PLoS One 3: e2208. doi: 10.1371/journal.pone.0002208
+42. Vashlishan AB, Madison JM, Dybbs M, Bai J, Sieburth D, Ch’ng Q, Tavazoie M, Kaplan JM (2008) An RNAi screen identifies genes that regulate GABA synapses. Neuron 58: 346–361.
+43. Francis MM, Evans SP, Jensen M, Madsen DM, Mancuso J, Norman KR, Maricq AV (2005) The Ror receptor tyrosine kinase CAM-1 is required for ACR-16-mediated synaptic transmission at the *C. elegans* neuromuscular junction. Neuron 46: 581–594.
+44. Touroutine D, Fox RM, Von Stetina SE, Burdina A, Miller DM III, Richmond JE (2005) *acr-16* encodes an essential subunit of the levamisole-resistant nicotinic receptor at the *Caenorhabditis elegans* neuromuscular junction. J Biol Chem 280: 27013–27021.
+45. Richmond JE, Jorgensen EM (1999) One GABA and two acetylcholine receptors function at the *C. elegans* neuromuscular junction. Nat Neurosci 2: 791–797.
+46. McIntire SL, Jorgensen E, Kaplan J, Horvitz HR (1993) The GABAergic nervous system of *Caenorhabditis elegans*. Nature 364: 337–341.
+47. Nagel G, Brauner M, Liewald JF, Adeishvili N, Bamberg E, Gottschalk A (2005) Light activation of channelrhodopsin-2 in excitable cells of *Caenorhabditis elegans* triggers rapid behavioral responses. Curr Biol 15: 2279–2284.
+48. Zhang F, Wang LP, Brauner M, Liewald JF, Kay K, Watzke N, Wood PG, Bamberg E, Nagel G, Gottschalk A, Deisseroth K (2007) Multimodal fast optical interrogation of neural circuitry. Nature 446: 633–639.
+49. Leifer AM, Fang-Yen C, Gershow M, Alkema MJ, Samuel AD (2011) Optogenetic manipulation of neural activity in freely moving *Caenorhabditis elegans*. Nat Methods 8: 147–152.
+50. Zhao B, Khare P, Feldman L, Dent JA (2003) Reversal frequency in *Caenorhabditis elegans* represents an integrated response to the state of the animal and its environment. J Neurosci 23: 5319–5328.
+51. Gray JM, Hill JJ, Bargmann CI (2005) A circuit for navigation in *Caenorhabditis elegans*. Proc Natl Acad Sci U S A 102: 3184–3191.
+52. Huang KM, Cosman P, Schafer WR (2006) Machine vision based detection of omega bends and reversals in *C. elegans*. J Neurosci Methods 158: 323–336.
+53. Stirman JN, Crane MM, Husson SJ, Wabnig S, Schultheis C, Gottschalk A, Lu H (2011) Real-time multimodal optical control of neurons and muscles in freely behaving *Caenorhabditis elegans*. Nat Methods 8: 153–158.
+54. Mendel JE, Korswagen HC, Liu KS, Hajdu-Cronin YM, Simon MI, Plasterk RH, Sternberg PW (1995) Participation of the protein Go in multiple aspects of behavior in *C. elegans*. Science 267: 1652–1655.
+55. Segalat L, Elkes DA, Kaplan JM (1995) Modulation of serotonin-controlled behaviors by Go in *Caenorhabditis elegans*. Science 267: 1648–1651.
+56. Horvitz HR, Chalfie M, Trent C, Sulston JE, Evans PD (1982) Serotonin and octopamine in the nematode *Caenorhabditis elegans*. Science 216: 1012–1014.
+57. Schafer WR, Kenyon CJ (1995) A calcium-channel homologue required for adaptation to dopamine and serotonin in *Caenorhabditis elegans*. Nature 375: 73–78.
+58. Chase DL, Pepper JS, Koelle MR (2004) Mechanism of extrasynaptic dopamine signaling in *Caenorhabditis elegans*. Nat Neurosci 7: 1096–1103.
+59. Harris GP, Hapiak VM, Wragg RT, Miller SB, Hughes LJ, Hobson RJ, Steven R, Bamber B, Komuniecki RW (2009) Three distinct amine receptors operating at different levels within the locomotory circuit are each essential for the serotonergic modulation of chemosensation in *Caenorhabditis elegans*. J Neurosci 29: 1446–1456.
+60. Ringstad N, Abe N, Horvitz HR (2009) Ligand-gated chloride channels are receptors for biogenic amines in *C. elegans*. Science 325: 96–100.
+61. Hille B (1992) G protein-coupled mechanisms and nervous signaling. Neuron 9: 187–195.
+62. Bendesky A, Tsunozaki M, Rockman MV, Kruglyak L, Bargmann CI (2011) Catecholamine receptor polymorphisms affect decision-making in *C. elegans*. Nature 472: 313–318.
+63. Bargmann CI (2012) Beyond the connectome: How neuromodulators shape neural circuits. Bioessays 34(6): 458–465.
+64. Guo ZV, Hart AC, Ramanathan S (2009) Optical interrogation of neural circuits in *Caenorhabditis elegans*. Nat Methods 6: 891–896.
+65. Kawano T, Po MD, Gao S, Leung G, Ryu WS, Zhen M (2011) An imbalancing act: gap junctions reduce the backward motor circuit activity to bias *C. elegans* for forward locomotion. Neuron 72: 572–586.
+66. Schoëne H (1984) Spatial orientation: the spatial control of behavior in animals and man. Princeton, NJ: Princeton University Press. xviii, 347 p.
+67. Lockery SR (2011) The computational worm: spatial orientation and its neuronal basis in *C. elegans*. Curr Opin Neurobiol 21: 782–790.
+68. Lima SQ, Miesenbock G (2005) Remote control of behavior through genetically targeted photostimulation of neurons. Cell 121: 141–152.
+69. Douglass AD, Kraves S, Deisseroth K, Schier AF, Engert F (2008) Escape behavior elicited by single, channelrhodopsin-2-evoked spikes in zebrafish somatosensory neurons. Curr Biol 18: 1133–1137.
+70. Kravitz AV, Freeze BS, Parker PR, Kay K, Thwin MT, Deisseroth K, Kreitzer AC (2010) Regulation of parkinsonian motor behaviours by optogenetic control of basal ganglia circuitry. Nature 466: 622–626.
+71. Brenner S (1974) The Genetics of *Caenorhabditis elegans*. Genetics 77: 71–94.
+72. Eastman C, Horvitz HR, Jin Y (1999) Coordinated transcriptional regulation of the *unc-25* glutamic acid decarboxylase and the *unc-47* GABA vesicular transporter by the *Caenorhabditis elegans* UNC-30 homeodomain protein. J Neurosci 19: 6225–6234.
+73. Hallam S, Singer E, Waring D, Jin Y (2000) The *C. elegans* NeuroD homolog *cnd-1* functions in multiple aspects of motor neuron fate specification. Development 127: 4239–4252.
+74. Bargmann CI, Avery L (1995) Laser killing of cells in *Caenorhabditis elegans*. Methods Cell Biol 48: 225–250.
+75. Ramot D, Johnson BE, Berry TLJ, Carnell L, Goodman MB (2008) The Parallel Worm Tracker: a platform for measuring average speed and drug-induced paralysis in nematodes. PLoS One 3: e2208. doi: 10.1371/journal.pone.0002208
