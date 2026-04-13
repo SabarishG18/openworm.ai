@@ -110,24 +110,25 @@ class OpenWormAssistant(object):
 
             Valid categories (in order of priority):
 
-            - question: The query is a GENERAL request for information about
-              C. elegans biology, neuroscience, anatomy, or general knowledge
-              that does NOT mention a specific gene, protein, neuron, or
-              phenotype by name.
+            - question: The query is a request for information — either general
+              C. elegans biology/neuroscience, OR about a specific neuron or
+              anatomical structure (e.g. AWB, AVAL, pharynx). Neuron and
+              anatomy queries should use the research corpus, not WormBase
+              (whose neuron endpoints are unreliable).
             - task: The user is asking you to perform an action OR is asking
-              about a SPECIFIC named entity. This includes:
+              about a SPECIFIC gene, protein, or phenotype. This includes:
               * Run a simulation (Hodgkin-Huxley, etc.)
-              * Look up or query a gene, protein, neuron, or phenotype
-              * Any query mentioning a specific gene name (e.g. eat-4, unc-17,
-                cat-4, daf-2), protein, neuron name (e.g. AVAL, AVAR), or
-                WBGene/WBPhenotype ID
+              * Look up or query a gene or protein by name (e.g. eat-4,
+                unc-17, cat-4, daf-2) or WBGene ID
+              * Look up a phenotype by name or WBPhenotype ID
               * Search a database (WormBase, etc.)
               * Any computational action
 
-            IMPORTANT: If the query mentions a specific gene, protein, neuron,
-            or phenotype by name, classify it as "task" even if it is phrased
-            as a question. These should be looked up on WormBase for accurate,
-            up-to-date information.
+            IMPORTANT: If the query mentions a specific gene or protein name,
+            classify it as "task" — these should be looked up on WormBase.
+            But queries about specific NEURONS or ANATOMY (e.g. AWB, AVAL,
+            pharyngeal neurons) should be classified as "question" so they
+            are answered from the research corpus.
 
             Rules:
 
@@ -146,6 +147,9 @@ class OpenWormAssistant(object):
             - "What is the capital of France?": {{"query_type": "question"}}
             - "What are we talking about?": {{"query_type": "question"}}
             - "Tell me about C. elegans development": {{"query_type": "question"}}
+            - "Tell me about AWB interneurons": {{"query_type": "question"}}
+            - "What does AVAL do?": {{"query_type": "question"}}
+            - "Describe the ASE sensory neurons": {{"query_type": "question"}}
             - "Run an HH simulation with 10nA current": {{"query_type": "task"}}
             - "Look up eat-4 on WormBase": {{"query_type": "task"}}
             - "What does unc-17 encode?": {{"query_type": "task"}}
@@ -155,7 +159,6 @@ class OpenWormAssistant(object):
             - "What happens when we vary current injection?": {{"query_type": "task"}}
             - "Search WormBase for dopamine receptors": {{"query_type": "task"}}
             - "What is daf-2?": {{"query_type": "task"}}
-            - "What does AVAL do?": {{"query_type": "task"}}
             - "What are the functions of mec-4?": {{"query_type": "task"}}
             """)
 
