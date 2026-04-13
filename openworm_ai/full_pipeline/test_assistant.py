@@ -46,17 +46,14 @@ async def test():
     tests = [
         ("Question (RAG only)", "How many neurons does C. elegans have?"),
         ("Database (RAG + WormBase)", "Look up eat-4 on WormBase"),
-        (
-            "Simulation (RAG + HH)",
-            "Run a Hodgkin-Huxley simulation with 0.1nA current injection",
-        ),
+        ("Simulation (RAG + HH)", "Run a Hodgkin-Huxley simulation with 0.1nA current injection"),
     ]
 
     for label, query in tests:
-        print(f"\n{'=' * 70}")
+        print(f"\n{'='*70}")
         print(f"=== TEST: {label} ===")
         print(f"QUERY: {query}")
-        print(f"{'=' * 70}")
+        print(f"{'='*70}")
         try:
             result = await assistant.run_graph_invoke(query)
             print(f"\nRESULT:\n{result}")
@@ -64,7 +61,7 @@ async def test():
             print(f"\nERROR: {e}")
             traceback.print_exc()
 
-    print(f"\n{'=' * 70}")
+    print(f"\n{'='*70}")
     print("All tests complete.")
 
 
