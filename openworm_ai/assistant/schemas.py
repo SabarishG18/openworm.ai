@@ -39,3 +39,8 @@ class AssistantState(TypedDict, total=False):
     message_for_user: str
     # Retrieved corpus references: {query: [(Document, score), ...]}
     reference_material: Dict[str, List[Tuple]]
+    # Base64-encoded plot image from tool execution (e.g. HH voltage trace)
+    plot_base64: str
+    # Voltage trace data for client-side rendering (fallback when sandbox
+    # matplotlib is unavailable). Dict with keys: t_ms, v_mv (lists of floats)
+    plot_data: dict

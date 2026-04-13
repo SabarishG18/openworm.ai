@@ -110,11 +110,24 @@ class OpenWormAssistant(object):
 
             Valid categories (in order of priority):
 
-            - question: The query is a request for information about C. elegans
-              biology, neuroscience, anatomy, or general knowledge.
-            - task: The user is asking you to perform an action — run a simulation,
-              look up a gene/protein/neuron on WormBase, query a database, or
-              perform any computational action.
+            - question: The query is a GENERAL request for information about
+              C. elegans biology, neuroscience, anatomy, or general knowledge
+              that does NOT mention a specific gene, protein, neuron, or
+              phenotype by name.
+            - task: The user is asking you to perform an action OR is asking
+              about a SPECIFIC named entity. This includes:
+              * Run a simulation (Hodgkin-Huxley, etc.)
+              * Look up or query a gene, protein, neuron, or phenotype
+              * Any query mentioning a specific gene name (e.g. eat-4, unc-17,
+                cat-4, daf-2), protein, neuron name (e.g. AVAL, AVAR), or
+                WBGene/WBPhenotype ID
+              * Search a database (WormBase, etc.)
+              * Any computational action
+
+            IMPORTANT: If the query mentions a specific gene, protein, neuron,
+            or phenotype by name, classify it as "task" even if it is phrased
+            as a question. These should be looked up on WormBase for accurate,
+            up-to-date information.
 
             Rules:
 
@@ -130,14 +143,20 @@ class OpenWormAssistant(object):
             - "How many neurons does C. elegans have?": {{"query_type": "question"}}
             - "What genes are involved in locomotion?": {{"query_type": "question"}}
             - "Describe the pharyngeal nervous system": {{"query_type": "question"}}
+            - "What is the capital of France?": {{"query_type": "question"}}
+            - "What are we talking about?": {{"query_type": "question"}}
+            - "Tell me about C. elegans development": {{"query_type": "question"}}
             - "Run an HH simulation with 10nA current": {{"query_type": "task"}}
             - "Look up eat-4 on WormBase": {{"query_type": "task"}}
             - "What does unc-17 encode?": {{"query_type": "task"}}
+            - "What neurotransmitter does eat-4 transport?": {{"query_type": "task"}}
+            - "Tell me about the cat-4 gene": {{"query_type": "task"}}
             - "What phenotypes are associated with unc-13?": {{"query_type": "task"}}
             - "What happens when we vary current injection?": {{"query_type": "task"}}
             - "Search WormBase for dopamine receptors": {{"query_type": "task"}}
-            - "What is the capital of France?": {{"query_type": "question"}}
-            - "What are we talking about?": {{"query_type": "question"}}
+            - "What is daf-2?": {{"query_type": "task"}}
+            - "What does AVAL do?": {{"query_type": "task"}}
+            - "What are the functions of mec-4?": {{"query_type": "task"}}
             """)
 
         system_prompt += add_memory_to_prompt(
@@ -320,6 +339,48 @@ class OpenWormAssistant(object):
                         "error": str(e),
                     })
 
+        # Extract plot data before stripping from LLM context.
+        # We capture both the base64 matplotlib image (if sandbox generated
+        # one) and the raw voltage trace arrays for client-side rendering.
+        extracted_plot_base64 = ""
+        extracted_plot_data = {}
+        for r in results:
+            if "output" not in r:
+                continue
+            try:
+                _parsed = json.loads(r["output"])
+                # Handle stdout as JSON string or dict
+                _stdout_raw = _parsed.get("stdout", "{}") if isinstance(_parsed, dict) else "{}"
+                if isinstance(_stdout_raw, str):
+                    _stdout = json.loads(_stdout_raw)
+                elif isinstance(_stdout_raw, dict):
+                    _stdout = _stdout_raw
+                else:
+                    continue
+
+                if isinstance(_stdout, dict):
+                    pb64 = _stdout.get("plot_base64", "")
+                    if pb64:
+                        extracted_plot_base64 = pb64
+                    trace = _stdout.get("voltage_trace", {})
+                    if isinstance(trace, dict):
+                        t_ms = trace.get("t_ms", [])
+                        v_mv = trace.get("v_mv", [])
+                        if t_ms and v_mv:
+                            extracted_plot_data = {"t_ms": t_ms, "v_mv": v_mv}
+                    if extracted_plot_base64 or extracted_plot_data:
+                        break
+
+                # Fallback: output IS the stdout directly (no wrapper)
+                if not extracted_plot_data and isinstance(_parsed, dict):
+                    trace = _parsed.get("voltage_trace", {})
+                    if isinstance(trace, dict) and trace.get("t_ms") and trace.get("v_mv"):
+                        extracted_plot_data = {"t_ms": trace["t_ms"], "v_mv": trace["v_mv"]}
+                        break
+
+            except (json.JSONDecodeError, AttributeError, TypeError):
+                pass
+
         # Strip large binary fields (base64 images, full traces) before
         # sending to LLM — they blow up the token count
         for r in results:
@@ -351,8 +412,10 @@ class OpenWormAssistant(object):
                 "- Use specific numbers from the results.\n"
                 "- If multiple calls were made, compare and summarise.\n"
                 "- Use formal but accessible scientific language.\n"
-                "- If a tool returned an error, explain what went wrong and suggest\n"
-                "  the user try again later.\n"
+                "- If a tool returned an error (e.g. HTTP 500), explain what went wrong\n"
+                "  and suggest the user try rephrasing as a general question (e.g.\n"
+                "  'Tell me about AWB neurons' instead of a database lookup) so the\n"
+                "  answer can come from the research corpus instead.\n"
                 "- IMPORTANT: ONLY report information that appears in the tool results.\n"
                 "  Do NOT fill in missing information from your own knowledge. If the\n"
                 "  tool failed or returned incomplete data, say so — do not guess.\n"
@@ -367,7 +430,12 @@ class OpenWormAssistant(object):
             interpret_messages, config={"configurable": {"temperature": 0.3}}
         )
 
-        return {"message_for_user": interpretation.content}
+        result = {"message_for_user": interpretation.content}
+        if extracted_plot_base64:
+            result["plot_base64"] = extracted_plot_base64
+        if extracted_plot_data:
+            result["plot_data"] = extracted_plot_data
+        return result
 
     def _setup_chat_model(self):
         """Set up the LLM chat model"""

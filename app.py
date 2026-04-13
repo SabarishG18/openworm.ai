@@ -4,6 +4,7 @@ Calls the RAG pipeline directly using openworm's vector store and metadata.
 """
 
 import asyncio
+import base64
 import os
 import re
 import sys
@@ -217,6 +218,10 @@ with st.sidebar:
     )
     CHAT_MODEL = AVAILABLE_MODELS[selected_model_key]
 
+    if st.button("🔄 Reload assistant", help="Clear cached assistant and reload. Use after code changes."):
+        st.cache_resource.clear()
+        st.rerun()
+
     allow_fallback = st.toggle(
         "Allow parametric fallback",
         value=True,
@@ -263,6 +268,24 @@ with tab_chat:
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
+            # Display stored plot collapsed for past messages
+            if msg.get("plot_base64") or msg.get("plot_data"):
+                with st.expander("📈 Voltage trace", expanded=False):
+                    if msg.get("plot_base64"):
+                        st.image(
+                            base64.b64decode(msg["plot_base64"]),
+                            caption="Hodgkin-Huxley simulation voltage trace",
+                            use_container_width=True,
+                        )
+                    elif msg.get("plot_data"):
+                        _pd = msg["plot_data"]
+                        if _pd.get("t_ms") and _pd.get("v_mv"):
+                            import pandas as pd
+                            _df = pd.DataFrame({
+                                "Time (ms)": _pd["t_ms"],
+                                "Voltage (mV)": _pd["v_mv"],
+                            })
+                            st.line_chart(_df, x="Time (ms)", y="Voltage (mV)")
             if msg.get("refs") and show_refs:
                 with st.expander(f"📚 Retrieved sources ({len(msg['refs'])})"):
                     render_refs(msg["refs"])
@@ -285,18 +308,34 @@ with tab_chat:
         assistant = get_assistant(CHAT_MODEL)
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
+                # Build message history from Streamlit session for
+                # conversation context (classifier uses this to resolve
+                # pronouns like "it" and follow-up queries)
+                from langchain_core.messages import AIMessage, HumanMessage
+                history = []
+                for msg in st.session_state.messages[:-1]:  # exclude current
+                    if msg["role"] == "user":
+                        history.append(HumanMessage(content=msg["content"]))
+                    else:
+                        history.append(AIMessage(content=msg["content"]))
+
                 final_state = _run_async(
-                    assistant.run_graph_invoke_state({"query": prompt})
+                    assistant.run_graph_invoke_state({
+                        "query": prompt,
+                        "messages": history,
+                    })
                 )
 
             answer = final_state.get("message_for_user", "I was unable to answer.")
             ref_material = final_state.get("reference_material", {})
             query_domain = final_state.get("query_domain", "undefined")
             query_type = final_state.get("query_type", None)
+            plot_b64 = final_state.get("plot_base64", "")
+            plot_data = final_state.get("plot_data", {})
 
             # Determine source tag based on routing
             has_retrieval = bool(ref_material) and query_domain != "undefined"
-            is_tool = hasattr(query_type, "query_type") and query_type.query_type == "task"
+            is_tool = query_type == "task"
 
             if is_tool:
                 source_tag = "🔧 Answer from MCP tool"
@@ -316,6 +355,24 @@ with tab_chat:
             answer_body, llm_refs_text = split_answer_and_llm_refs(answer)
 
             st.markdown(answer_body)
+
+            # Display HH voltage trace if the tool produced one.
+            # Prefer sandbox-generated matplotlib image; fall back to
+            # Streamlit native chart from the raw trace arrays.
+            if plot_b64:
+                st.image(
+                    base64.b64decode(plot_b64),
+                    caption="Hodgkin-Huxley simulation voltage trace",
+                    use_container_width=True,
+                )
+            elif plot_data and plot_data.get("t_ms") and plot_data.get("v_mv"):
+                import pandas as pd
+                df = pd.DataFrame({
+                    "Time (ms)": plot_data["t_ms"],
+                    "Voltage (mV)": plot_data["v_mv"],
+                })
+                st.line_chart(df, x="Time (ms)", y="Voltage (mV)")
+
             st.caption(source_tag)
 
             refs = extract_references(ref_material) if has_retrieval else []
@@ -336,23 +393,28 @@ with tab_chat:
                     st.json(
                         {
                             "query_domain": query_domain,
+                            "query_type": query_type,
                             "has_retrieval": has_retrieval,
                             "num_refs": len(refs),
+                            "has_plot": bool(plot_b64 or plot_data),
                             "eval": str(
                                 final_state.get("text_response_eval", "N/A")
                             ),
                         }
                     )
 
-            st.session_state.messages.append(
-                {
-                    "role": "assistant",
-                    "content": answer_body,
-                    "refs": refs,
-                    "llm_refs": llm_refs_text,
-                    "source_tag": source_tag,
-                }
-            )
+            msg_entry = {
+                "role": "assistant",
+                "content": answer_body,
+                "refs": refs,
+                "llm_refs": llm_refs_text,
+                "source_tag": source_tag,
+            }
+            if plot_b64:
+                msg_entry["plot_base64"] = plot_b64
+            if plot_data:
+                msg_entry["plot_data"] = plot_data
+            st.session_state.messages.append(msg_entry)
 
 # ======================== TAB 2: MCP TOOLS ========================
 with tab_tools:
