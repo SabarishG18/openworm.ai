@@ -10,9 +10,8 @@ Copyright 2025 Ankur Sinha
 Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 """
 
-import json
 import logging
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 import requests
 

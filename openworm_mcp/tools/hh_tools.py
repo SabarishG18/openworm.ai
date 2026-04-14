@@ -10,7 +10,6 @@ This pure-Python/scipy implementation does NOT require the NEURON simulator.
 Originally from neuroml-ai: openworm_mcp/tools/hh_tools.py
 """
 
-import json
 from dataclasses import asdict
 from textwrap import dedent
 from typing import Any, Dict
