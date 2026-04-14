@@ -12,7 +12,9 @@ __pycache__
 venv/
 /openworm_ai/quiz/samples/GPT4o_10questions_celegans.json
 /openworm_ai/quiz/samples/Ollama_phi3_latest_10questions_celegans.json
-/store
+# Keep store/embed_* for Streamlit Cloud deploy (vector store needed at runtime)
+/store/*
+!/store/embed_BAAI_bge-large-en-v1.5/
 /openworm_ai/corpus/wormatlas/ignore
 /openworm_ai/quiz/samples/GPT4o_10questions_general.json
 /openworm_ai/quiz/samples/GPT4o_10questions_science.json

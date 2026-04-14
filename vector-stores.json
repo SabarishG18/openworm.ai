@@ -6,7 +6,7 @@
             "vector_stores": [
                 {
                     "name": "openworm-corpus",
-                    "path": "/Users/sabarishganesh/Desktop/openworm.ai/store/embed_BAAI_bge-large-en-v1.5"
+                    "path": "store/embed_BAAI_bge-large-en-v1.5"
                 }
             ]
         }
