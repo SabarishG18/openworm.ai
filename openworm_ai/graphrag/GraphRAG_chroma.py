@@ -353,7 +353,7 @@ def generate_vector_store_config(output_path: str = "vector-stores.json"):
         embedding_model_name = "huggingface:BAAI/bge-large-en-v1.5:auto"
 
     config = {
-        "embedding_model": "huggingface:BAAI/bge-large-en-v1.5",
+        "embedding_model": str(embedding_model_name),
         "domains": {
             "corpus_and_wormatlas": {
                 # CRITICAL: This description determines when RAG is triggered
