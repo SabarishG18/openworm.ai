@@ -21,8 +21,8 @@ sbox = openworm_mcp_sandbox
 
 
 async def run_hh_simulation_tool(
-    current_injection: float = 0.1,
-    duration: float = 300.0,
+    current_injection: float = 5,
+    duration: float = 100.0,
     delay: float = 50.0,
     temperature: float = 6.3,
     g_Na: float = 120.0,
@@ -41,10 +41,11 @@ async def run_hh_simulation_tool(
 
     Inputs:
 
-    - current_injection (float, default 0.1): injected current amplitude in uA/cm^2.
+    - current_injection (float, default 5): injected current amplitude in uA/cm^2 (assume that cell has a surface area of 100um^2, 
+      therefore this value is also in pA, i.e 5uA/cm^2 is equivalent to 5pA current injection).
       Increase to make the neuron fire more frequently.
       Decrease below threshold to observe subthreshold behaviour.
-    - duration (float, default 300.0): total simulation duration in milliseconds.
+    - duration (float, default 100.0): total simulation duration in milliseconds.
     - delay (float, default 50.0): delay in milliseconds before current injection begins.
       Must be less than duration.
     - temperature (float, default 6.3): simulation temperature in Celsius.
