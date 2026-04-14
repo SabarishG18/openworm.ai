@@ -1,0 +1,31 @@
+# Core app
+streamlit>=1.30
+python-dotenv
+
+# LangChain / LangGraph
+langchain>=1.0
+langchain-core
+langchain-huggingface
+langchain-chroma
+langgraph
+
+# MCP (in-process tool server)
+fastmcp>=3.0
+
+# Vector store
+chromadb
+
+# HH simulation sandbox
+scipy
+numpy
+matplotlib
+
+# WormBase tools
+requests
+
+# Data display
+pandas
+
+# Shared packages from neuroml-ai repo
+gen_rag @ git+https://github.com/SabarishG18/neuroml-ai.git@main#subdirectory=rag_pkg
+neuroml_ai_utils @ git+https://github.com/SabarishG18/neuroml-ai.git@main#subdirectory=utils_pkg
