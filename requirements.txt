@@ -14,6 +14,7 @@ fastmcp>=3.0
 
 # Vector store
 chromadb
+protobuf>=4.21
 
 # HH simulation sandbox
 scipy
