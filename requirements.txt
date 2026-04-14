@@ -27,5 +27,5 @@ requests
 pandas
 
 # Shared packages from neuroml-ai repo
-gen_rag @ git+https://github.com/SabarishG18/neuroml-ai.git@main#subdirectory=rag_pkg
-neuroml_ai_utils @ git+https://github.com/SabarishG18/neuroml-ai.git@main#subdirectory=utils_pkg
+gen_rag @ git+https://github.com/SabarishG18/neuroml-ai.git@streamlit-deploy#subdirectory=rag_pkg
+neuroml_ai_utils @ git+https://github.com/SabarishG18/neuroml-ai.git@streamlit-deploy#subdirectory=utils_pkg
