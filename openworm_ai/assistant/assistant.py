@@ -41,8 +41,16 @@ from neuroml_ai_utils.logging import (
 
 from .schemas import AssistantState, QueryTypeSchema
 
-# Default MCP server URL (openworm_mcp server)
-DEFAULT_MCP_URL = "http://localhost:8543/mcp"
+
+def _create_mcp_server():
+    """Create the in-process MCP server with all OpenWorm tools registered."""
+    from fastmcp import FastMCP
+    from openworm_mcp.tools import hh_tools, wormbase_tools
+    from openworm_mcp.utils import register_tools
+
+    mcp = FastMCP("openworm_MCP", instructions="OpenWorm assistant tools")
+    register_tools(mcp, [hh_tools, wormbase_tools])
+    return mcp
 
 
 class OpenWormAssistant(object):
@@ -52,14 +60,15 @@ class OpenWormAssistant(object):
         self,
         vs_config_file: str,
         chat_model: str,
-        mcp_url: str = DEFAULT_MCP_URL,
+        mcp_server=None,
         logging_level: int = logging.DEBUG,
     ):
         self.chat_model = chat_model
         self.model = None
 
         self.vs_config_file = vs_config_file
-        self.mcp_url = mcp_url
+        # Use in-process MCP server if none provided
+        self.mcp_server = mcp_server or _create_mcp_server()
 
         self.checkpointer = InMemorySaver()
 
@@ -229,14 +238,14 @@ class OpenWormAssistant(object):
 
         # Fetch available tools from the MCP server
         try:
-            async with Client(self.mcp_url) as client:
+            async with Client(self.mcp_server) as client:
                 mcp_tools = await client.list_tools()
         except Exception as e:
             self.logger.error(f"Could not connect to MCP server: {e}")
             return {
                 "message_for_user": (
-                    f"Could not connect to tool server at {self.mcp_url}. "
-                    "Make sure the MCP server is running."
+                    f"Could not initialise tool server: {e}. "
+                    "Check that openworm_mcp is installed correctly."
                 )
             }
 
@@ -250,30 +259,31 @@ class OpenWormAssistant(object):
             # Truncate description to first 200 chars
             desc = t.description[:200] if t.description else ""
             tool_descriptions.append(
-                f"- **{t.name}**: {desc}\n"
-                f"  Parameters: {json.dumps(params_brief)}"
+                f"- **{t.name}**: {desc}\n  Parameters: {json.dumps(params_brief)}"
             )
         tools_text = "\n\n".join(tool_descriptions)
 
         # Use raw messages to avoid LangChain escaping JSON braces in
         # tool descriptions as template variables
         plan_messages = [
-            SystemMessage(content=(
-                "You are a C. elegans research assistant with access to computational tools.\n"
-                "Use the tools below to answer the user's request.\n\n"
-                "# Available tools:\n\n"
-                f"{tools_text}\n\n"
-                "# Instructions:\n\n"
-                "- Pick the most appropriate tool for the user's request.\n"
-                "- ONLY include parameters that the user explicitly mentioned.\n"
-                "  Omit all other parameters — the tool has correct domain-specific\n"
-                "  defaults that should not be overridden.\n"
-                "- If the user asks an open-ended question (e.g. 'what happens when\n"
-                "  we vary X'), plan a set of calls to explore the parameter space.\n"
-                '- Respond ONLY with a JSON object: {"tool": "<name>", "params": {...}, "reasoning": "..."}\n'
-                '- For MULTIPLE calls, respond with a JSON array of such objects.\n'
-                "- If no tool is appropriate, say so in plain text.\n"
-            )),
+            SystemMessage(
+                content=(
+                    "You are a C. elegans research assistant with access to computational tools.\n"
+                    "Use the tools below to answer the user's request.\n\n"
+                    "# Available tools:\n\n"
+                    f"{tools_text}\n\n"
+                    "# Instructions:\n\n"
+                    "- Pick the most appropriate tool for the user's request.\n"
+                    "- ONLY include parameters that the user explicitly mentioned.\n"
+                    "  Omit all other parameters — the tool has correct domain-specific\n"
+                    "  defaults that should not be overridden.\n"
+                    "- If the user asks an open-ended question (e.g. 'what happens when\n"
+                    "  we vary X'), plan a set of calls to explore the parameter space.\n"
+                    '- Respond ONLY with a JSON object: {"tool": "<name>", "params": {...}, "reasoning": "..."}\n'
+                    "- For MULTIPLE calls, respond with a JSON array of such objects.\n"
+                    "- If no tool is appropriate, say so in plain text.\n"
+                )
+            ),
             HumanMessage(content=f"User request: {state['query']}"),
         ]
 
@@ -312,14 +322,12 @@ class OpenWormAssistant(object):
 
         # Step 2: Execute each tool call
         results = []
-        async with Client(self.mcp_url) as client:
+        async with Client(self.mcp_server) as client:
             for call in calls:
                 tool_name = call.get("tool", "")
                 params = call.get("params", {})
                 reasoning = call.get("reasoning", "")
-                self.logger.info(
-                    f"Calling tool: {tool_name} with params: {params}"
-                )
+                self.logger.info(f"Calling tool: {tool_name} with params: {params}")
                 try:
                     result = await client.call_tool(tool_name, params)
                     result_texts = []
@@ -327,20 +335,24 @@ class OpenWormAssistant(object):
                         result_texts.append(
                             block.text if hasattr(block, "text") else str(block)
                         )
-                    results.append({
-                        "tool": tool_name,
-                        "params": params,
-                        "reasoning": reasoning,
-                        "output": "\n".join(result_texts),
-                    })
+                    results.append(
+                        {
+                            "tool": tool_name,
+                            "params": params,
+                            "reasoning": reasoning,
+                            "output": "\n".join(result_texts),
+                        }
+                    )
                 except Exception as e:
                     self.logger.error(f"Tool call failed: {e}")
-                    results.append({
-                        "tool": tool_name,
-                        "params": params,
-                        "reasoning": reasoning,
-                        "error": str(e),
-                    })
+                    results.append(
+                        {
+                            "tool": tool_name,
+                            "params": params,
+                            "reasoning": reasoning,
+                            "error": str(e),
+                        }
+                    )
 
         # Extract plot data before stripping from LLM context.
         # We capture both the base64 matplotlib image (if sandbox generated
@@ -353,7 +365,9 @@ class OpenWormAssistant(object):
             try:
                 _parsed = json.loads(r["output"])
                 # Handle stdout as JSON string or dict
-                _stdout_raw = _parsed.get("stdout", "{}") if isinstance(_parsed, dict) else "{}"
+                _stdout_raw = (
+                    _parsed.get("stdout", "{}") if isinstance(_parsed, dict) else "{}"
+                )
                 if isinstance(_stdout_raw, str):
                     _stdout = json.loads(_stdout_raw)
                 elif isinstance(_stdout_raw, dict):
@@ -377,8 +391,15 @@ class OpenWormAssistant(object):
                 # Fallback: output IS the stdout directly (no wrapper)
                 if not extracted_plot_data and isinstance(_parsed, dict):
                     trace = _parsed.get("voltage_trace", {})
-                    if isinstance(trace, dict) and trace.get("t_ms") and trace.get("v_mv"):
-                        extracted_plot_data = {"t_ms": trace["t_ms"], "v_mv": trace["v_mv"]}
+                    if (
+                        isinstance(trace, dict)
+                        and trace.get("t_ms")
+                        and trace.get("v_mv")
+                    ):
+                        extracted_plot_data = {
+                            "t_ms": trace["t_ms"],
+                            "v_mv": trace["v_mv"],
+                        }
                         break
 
             except (json.JSONDecodeError, AttributeError, TypeError):
@@ -390,7 +411,11 @@ class OpenWormAssistant(object):
             if "output" in r:
                 try:
                     parsed = json.loads(r["output"])
-                    stdout = json.loads(parsed.get("stdout", "{}")) if isinstance(parsed.get("stdout"), str) else parsed.get("stdout", {})
+                    stdout = (
+                        json.loads(parsed.get("stdout", "{}"))
+                        if isinstance(parsed.get("stdout"), str)
+                        else parsed.get("stdout", {})
+                    )
                     # Remove base64 images and truncate large traces
                     for key in list(stdout.keys()):
                         if "base64" in key or "plot" in key.lower():
@@ -399,34 +424,47 @@ class OpenWormAssistant(object):
                             trace = stdout[key]
                             if isinstance(trace, dict):
                                 for tk in trace:
-                                    if isinstance(trace[tk], list) and len(trace[tk]) > 20:
-                                        trace[tk] = trace[tk][:10] + ["..."] + trace[tk][-10:]
-                    parsed["stdout"] = json.dumps(stdout) if isinstance(parsed.get("stdout"), str) else stdout
+                                    if (
+                                        isinstance(trace[tk], list)
+                                        and len(trace[tk]) > 20
+                                    ):
+                                        trace[tk] = (
+                                            trace[tk][:10] + ["..."] + trace[tk][-10:]
+                                        )
+                    parsed["stdout"] = (
+                        json.dumps(stdout)
+                        if isinstance(parsed.get("stdout"), str)
+                        else stdout
+                    )
                     r["output"] = json.dumps(parsed)
                 except (json.JSONDecodeError, AttributeError, TypeError):
                     pass  # leave non-JSON outputs as-is
 
         # Step 3: LLM interprets results for the user
         interpret_messages = [
-            SystemMessage(content=(
-                "You are a C. elegans research assistant. The user asked a question "
-                "and tools were called to answer it. Interpret the tool results into "
-                "a clear, helpful answer.\n\n"
-                "- Use specific numbers from the results.\n"
-                "- If multiple calls were made, compare and summarise.\n"
-                "- Use formal but accessible scientific language.\n"
-                "- If a tool returned an error (e.g. HTTP 500), explain what went wrong\n"
-                "  and suggest the user try rephrasing as a general question (e.g.\n"
-                "  'Tell me about AWB neurons' instead of a database lookup) so the\n"
-                "  answer can come from the research corpus instead.\n"
-                "- IMPORTANT: ONLY report information that appears in the tool results.\n"
-                "  Do NOT fill in missing information from your own knowledge. If the\n"
-                "  tool failed or returned incomplete data, say so — do not guess.\n"
-            )),
-            HumanMessage(content=(
-                f"Original request: {state['query']}\n\n"
-                f"Tool results:\n{json.dumps(results, indent=2)}"
-            )),
+            SystemMessage(
+                content=(
+                    "You are a C. elegans research assistant. The user asked a question "
+                    "and tools were called to answer it. Interpret the tool results into "
+                    "a clear, helpful answer.\n\n"
+                    "- Use specific numbers from the results.\n"
+                    "- If multiple calls were made, compare and summarise.\n"
+                    "- Use formal but accessible scientific language.\n"
+                    "- If a tool returned an error (e.g. HTTP 500), explain what went wrong\n"
+                    "  and suggest the user try rephrasing as a general question (e.g.\n"
+                    "  'Tell me about AWB neurons' instead of a database lookup) so the\n"
+                    "  answer can come from the research corpus instead.\n"
+                    "- IMPORTANT: ONLY report information that appears in the tool results.\n"
+                    "  Do NOT fill in missing information from your own knowledge. If the\n"
+                    "  tool failed or returned incomplete data, say so — do not guess.\n"
+                )
+            ),
+            HumanMessage(
+                content=(
+                    f"Original request: {state['query']}\n\n"
+                    f"Tool results:\n{json.dumps(results, indent=2)}"
+                )
+            ),
         ]
 
         interpretation = self.model.invoke(

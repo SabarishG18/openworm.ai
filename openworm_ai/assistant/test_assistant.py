@@ -3,7 +3,6 @@ classifier routing and tool execution."""
 
 import asyncio
 import os
-import sys
 import traceback
 from pathlib import Path
 
