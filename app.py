@@ -7,7 +7,6 @@ import asyncio
 import base64
 import os
 import re
-import sys
 from pathlib import Path
 
 import streamlit as st
@@ -167,10 +166,8 @@ def _run_async(coro):
 
 
 # ---------------------------------------------------------------------------
-# MCP client helper
+# MCP / assistant helpers
 # ---------------------------------------------------------------------------
-MCP_URL = os.getenv("MCP_SERVER_URL", "http://localhost:8543/mcp")
-
 
 @st.cache_resource(show_spinner="Loading OpenWorm assistant...")
 def get_assistant(chat_model: str):
@@ -179,18 +176,25 @@ def get_assistant(chat_model: str):
     assistant = OpenWormAssistant(
         vs_config_file=VS_CONFIG,
         chat_model=chat_model,
-        mcp_url=MCP_URL,
     )
     _run_async(assistant.setup())
     return assistant
 
 
+def _get_mcp_server():
+    """Return the in-process MCP server (shared with the assistant)."""
+    from openworm_ai.assistant.assistant import _create_mcp_server
+    return _create_mcp_server()
+
+
 def call_mcp_tool(tool_name: str, params: dict):
-    """Call an MCP tool and return the parsed result."""
+    """Call an MCP tool via the in-process server."""
     from fastmcp import Client
 
+    server = _get_mcp_server()
+
     async def _call():
-        async with Client(MCP_URL) as client:
+        async with Client(server) as client:
             result = await client.call_tool(tool_name, params)
             texts = []
             for block in result.content:
@@ -328,13 +332,12 @@ with tab_chat:
 
             answer = final_state.get("message_for_user", "I was unable to answer.")
             ref_material = final_state.get("reference_material", {})
-            query_domain = final_state.get("query_domain", "undefined")
             query_type = final_state.get("query_type", None)
             plot_b64 = final_state.get("plot_base64", "")
             plot_data = final_state.get("plot_data", {})
 
             # Determine source tag based on routing
-            has_retrieval = bool(ref_material) and query_domain != "undefined"
+            has_retrieval = bool(ref_material)
             is_tool = query_type == "task"
 
             if is_tool:
@@ -418,8 +421,7 @@ with tab_chat:
 
 # ======================== TAB 2: MCP TOOLS ========================
 with tab_tools:
-    st.markdown("**Test MCP tools directly** — requires MCP server running on "
-                f"`{MCP_URL}`")
+    st.markdown("**Test MCP tools directly** — runs in-process, no separate server needed.")
 
     tool_choice = st.selectbox(
         "Tool",
