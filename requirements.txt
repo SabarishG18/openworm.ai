@@ -13,8 +13,9 @@ langgraph
 fastmcp>=3.0
 
 # Vector store
-chromadb
-protobuf>=4.21
+chromadb>=1.0
+protobuf>=4.25,<6
+grpcio>=1.60
 
 # HH simulation sandbox
 scipy
