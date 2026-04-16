@@ -96,7 +96,12 @@ def extract_references(reference_material: dict) -> list[dict]:
     groups: dict[tuple, dict] = {}
     for _query, doc_score_pairs in reference_material.items():
         for doc, score in doc_score_pairs:
-            source = doc.metadata.get("source document", "")
+            # doc may be a LangChain Document object or a plain dict (serialised over HTTP)
+            if isinstance(doc, dict):
+                metadata = doc.get("metadata", {})
+            else:
+                metadata = doc.metadata
+            source = metadata.get("source document", "")
             source_type, doc_name, detail, url = parse_source_document(source)
             key = (doc_name, url or "")
             if key not in groups:
