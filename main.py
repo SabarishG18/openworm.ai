@@ -20,7 +20,6 @@ load_dotenv(Path(__file__).resolve().parent / ".env")
 # ---------------------------------------------------------------------------
 REPO_ROOT = Path(__file__).resolve().parent
 VS_CONFIG = os.getenv("GEN_RAG_VS_CONFIG", str(REPO_ROOT / "vector-stores.json"))
-MCP_URL = os.getenv("MCP_SERVER_URL", "http://localhost:8543/mcp")
 
 app = FastAPI(title="OpenWorm.ai Backend")
 
@@ -52,19 +51,26 @@ def get_assistant(chat_model: str):
         assistant = OpenWormAssistant(
             vs_config_file=VS_CONFIG,
             chat_model=chat_model,
-            mcp_url=MCP_URL,
         )
         _run_async(assistant.setup())
         _ASSISTANTS[chat_model] = assistant
     return _ASSISTANTS[chat_model]
 
 
+def _get_mcp_server():
+    """Return the in-process MCP server."""
+    from openworm_ai.assistant.assistant import _create_mcp_server
+    return _create_mcp_server()
+
+
 def call_mcp_tool(tool_name: str, params: dict):
-    """Call an MCP tool and return the parsed result."""
+    """Call an MCP tool via the in-process server."""
     from fastmcp import Client
 
+    server = _get_mcp_server()
+
     async def _call():
-        async with Client(MCP_URL) as client:
+        async with Client(server) as client:
             result = await client.call_tool(tool_name, params)
             texts = []
             for block in result.content:
@@ -101,7 +107,6 @@ def health():
     return {
         "status": "ok",
         "vector_store_config": VS_CONFIG,
-        "mcp_url": MCP_URL,
     }
 
 

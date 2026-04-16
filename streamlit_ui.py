@@ -272,12 +272,11 @@ with tab_chat:
 
             answer = final_state.get("message_for_user", "I was unable to answer.")
             ref_material = final_state.get("reference_material", {})
-            query_domain = final_state.get("query_domain", "undefined")
             query_type = final_state.get("query_type", None)
             plot_b64 = final_state.get("plot_base64", "")
             plot_data = final_state.get("plot_data", {})
 
-            has_retrieval = bool(ref_material) and query_domain != "undefined"
+            has_retrieval = bool(ref_material)
             is_tool = query_type == "task"
 
             if is_tool:
