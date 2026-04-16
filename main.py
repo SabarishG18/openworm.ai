@@ -31,16 +31,13 @@ _ASSISTANTS: dict[str, Any] = {}
 # Helpers
 # ---------------------------------------------------------------------------
 def _run_async(coro):
-    """Run an async coroutine from sync code."""
-    try:
-        loop = asyncio.get_event_loop()
-        if loop.is_running():
-            import concurrent.futures
-            with concurrent.futures.ThreadPoolExecutor() as pool:
-                return pool.submit(asyncio.run, coro).result()
-        return loop.run_until_complete(coro)
-    except RuntimeError:
-        return asyncio.run(coro)
+    """Run an async coroutine from sync code.
+
+    FastAPI runs sync endpoints in a threadpool via AnyIO, so there is no
+    current event loop on the worker thread.  Always use asyncio.run() which
+    creates a fresh loop for the coroutine.
+    """
+    return asyncio.run(coro)
 
 
 def get_assistant(chat_model: str):
