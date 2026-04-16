@@ -3,7 +3,6 @@ OpenWorm.ai FastAPI backend
 Wraps the RAG pipeline and MCP tool calls behind HTTP endpoints.
 """
 
-import asyncio
 import os
 from pathlib import Path
 from typing import Any
@@ -12,7 +11,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-# Load .env from repo root
+# Load .env from repo root (local dev only — secrets injected via env in prod)
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
 # ---------------------------------------------------------------------------
@@ -30,17 +29,7 @@ _ASSISTANTS: dict[str, Any] = {}
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-def _run_async(coro):
-    """Run an async coroutine from sync code.
-
-    FastAPI runs sync endpoints in a threadpool via AnyIO, so there is no
-    current event loop on the worker thread.  Always use asyncio.run() which
-    creates a fresh loop for the coroutine.
-    """
-    return asyncio.run(coro)
-
-
-def get_assistant(chat_model: str):
+async def get_assistant(chat_model: str):
     """Create or reuse an OpenWorm assistant for the given model."""
     from openworm_ai.assistant import OpenWormAssistant
 
@@ -49,7 +38,7 @@ def get_assistant(chat_model: str):
             vs_config_file=VS_CONFIG,
             chat_model=chat_model,
         )
-        _run_async(assistant.setup())
+        await assistant.setup()
         _ASSISTANTS[chat_model] = assistant
     return _ASSISTANTS[chat_model]
 
@@ -60,21 +49,17 @@ def _get_mcp_server():
     return _create_mcp_server()
 
 
-def call_mcp_tool(tool_name: str, params: dict):
+async def call_mcp_tool(tool_name: str, params: dict):
     """Call an MCP tool via the in-process server."""
     from fastmcp import Client
 
     server = _get_mcp_server()
-
-    async def _call():
-        async with Client(server) as client:
-            result = await client.call_tool(tool_name, params)
-            texts = []
-            for block in result.content:
-                texts.append(block.text if hasattr(block, "text") else str(block))
-            return "\n".join(texts)
-
-    return _run_async(_call())
+    async with Client(server) as client:
+        result = await client.call_tool(tool_name, params)
+        texts = []
+        for block in result.content:
+            texts.append(block.text if hasattr(block, "text") else str(block))
+        return "\n".join(texts)
 
 
 # ---------------------------------------------------------------------------
@@ -108,11 +93,11 @@ def health():
 
 
 @app.post("/chat")
-def chat(req: ChatRequest):
+async def chat(req: ChatRequest):
     """Run the OpenWorm assistant graph and return final state."""
     from langchain_core.messages import AIMessage, HumanMessage
 
-    assistant = get_assistant(req.chat_model)
+    assistant = await get_assistant(req.chat_model)
 
     history = []
     for msg in req.messages:
@@ -121,20 +106,18 @@ def chat(req: ChatRequest):
         else:
             history.append(AIMessage(content=msg.content))
 
-    final_state = _run_async(
-        assistant.run_graph_invoke_state(
-            {
-                "query": req.query,
-                "messages": history,
-            }
-        )
+    final_state = await assistant.run_graph_invoke_state(
+        {
+            "query": req.query,
+            "messages": history,
+        }
     )
 
     return final_state
 
 
 @app.post("/tool/run")
-def run_tool(req: MCPToolRequest):
+async def run_tool(req: MCPToolRequest):
     """Run an MCP tool and return its raw text output."""
-    output = call_mcp_tool(req.tool_name, req.params)
+    output = await call_mcp_tool(req.tool_name, req.params)
     return {"output": output}
