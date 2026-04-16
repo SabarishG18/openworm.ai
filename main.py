@@ -14,6 +14,13 @@ from pydantic import BaseModel
 # Load .env from repo root (local dev only — secrets injected via env in prod)
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
+# Ensure both HF token env vars are populated — HF Spaces injects
+# HUGGINGFACEHUB_API_TOKEN but some libraries only read HF_TOKEN
+if not os.getenv("HF_TOKEN") and os.getenv("HUGGINGFACEHUB_API_TOKEN"):
+    os.environ["HF_TOKEN"] = os.environ["HUGGINGFACEHUB_API_TOKEN"]
+if not os.getenv("HUGGINGFACEHUB_API_TOKEN") and os.getenv("HF_TOKEN"):
+    os.environ["HUGGINGFACEHUB_API_TOKEN"] = os.environ["HF_TOKEN"]
+
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
