@@ -114,10 +114,11 @@ def extract_references(reference_material: dict) -> list[dict]:
                 }
             g = groups[key]
             g["best_score"] = max(g["best_score"], score)
+            page_content = doc.get("page_content", "") if isinstance(doc, dict) else doc.page_content
             preview = (
-                doc.page_content[:200] + "..."
-                if len(doc.page_content) > 200
-                else doc.page_content
+                page_content[:200] + "..."
+                if len(page_content) > 200
+                else page_content
             )
             g["chunks"].append(
                 {"detail": detail, "score": round(score, 3), "preview": preview}
