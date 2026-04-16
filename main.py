@@ -25,6 +25,14 @@ app = FastAPI(title="OpenWorm.ai Backend")
 # Simple in-memory assistant cache by model name
 _ASSISTANTS: dict[str, Any] = {}
 
+# Startup diagnostic — confirm token is available
+import logging as _logging
+_log = _logging.getLogger("startup")
+_hf = os.getenv("HF_TOKEN", "")
+_hf2 = os.getenv("HUGGINGFACEHUB_API_TOKEN", "")
+_log.warning(f"[startup] HF_TOKEN present: {bool(_hf)}, length: {len(_hf)}")
+_log.warning(f"[startup] HUGGINGFACEHUB_API_TOKEN present: {bool(_hf2)}, length: {len(_hf2)}")
+
 
 # ---------------------------------------------------------------------------
 # Helpers
