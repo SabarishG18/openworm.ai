@@ -209,7 +209,7 @@ with st.sidebar:
 
     allow_fallback = st.toggle(
         "Allow parametric fallback",
-        value=True,
+        value=False,
         help="When ON, questions outside the corpus are answered from the "
         "model's training data. When OFF, only retrieval-backed answers "
         "are returned.",

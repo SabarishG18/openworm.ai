@@ -93,6 +93,9 @@ class OpenWormAssistant(object):
         stderr_handler.setFormatter(logger_formatter_other)
         self.logger.addHandler(stderr_handler)
 
+    # Maximum orchestrator loops before forcing a final answer
+    MAX_LOOPS = 3
+
     # -- NML_Assistant: returns QueryTypeSchema()
     # -- Here: returns "undefined" string (TypedDict state stores strings)
     def _init_rag_state_node(self, state: AssistantState) -> dict:
@@ -101,6 +104,8 @@ class OpenWormAssistant(object):
             "query_type": "undefined",
             "message_for_user": "",
             "reference_material": {},
+            "gathered_evidence": [],
+            "loop_count": 0,
         }
 
     def _classify_query_node(self, state: AssistantState) -> dict:
@@ -249,17 +254,23 @@ class OpenWormAssistant(object):
                 )
             }
 
-        # Build tool descriptions for the LLM — keep concise to stay
-        # within HF token limits
+        # Build tool descriptions for the LLM — include enum values so
+        # the LLM picks valid options instead of hallucinating
         tool_descriptions = []
         for t in mcp_tools:
-            # Only include the properties dict, not the full schema
             props = t.inputSchema.get("properties", {}) if t.inputSchema else {}
-            params_brief = {k: v.get("type", "?") for k, v in props.items()}
-            # Truncate description to first 200 chars
+            params_detail = {}
+            for k, v in props.items():
+                ptype = v.get("type", "?")
+                if "enum" in v:
+                    params_detail[k] = f"{ptype} (one of: {v['enum']})"
+                elif "description" in v:
+                    params_detail[k] = f"{ptype} — {v['description'][:100]}"
+                else:
+                    params_detail[k] = ptype
             desc = t.description[:200] if t.description else ""
             tool_descriptions.append(
-                f"- **{t.name}**: {desc}\n  Parameters: {json.dumps(params_brief)}"
+                f"- **{t.name}**: {desc}\n  Parameters: {json.dumps(params_detail)}"
             )
         tools_text = "\n\n".join(tool_descriptions)
 
@@ -277,6 +288,13 @@ class OpenWormAssistant(object):
                     "- ONLY include parameters that the user explicitly mentioned.\n"
                     "  Omit all other parameters — the tool has correct domain-specific\n"
                     "  defaults that should not be overridden.\n"
+                    "- IMPORTANT: For gene lookups, use the common gene NAME (e.g.\n"
+                    "  'eat-4', 'unc-17', 'daf-2') — NOT a WBGene ID. The tool\n"
+                    "  resolves names to IDs automatically. Do NOT invent WBGene IDs.\n"
+                    "- For phenotype lookups, use a descriptive term (e.g.\n"
+                    "  'uncoordinated', 'paralysed') — NOT a WBPhenotype ID.\n"
+                    "- For neuron lookups, use the standard neuron name (e.g.\n"
+                    "  'ADAL', 'AWC', 'AVAL') — these are always short uppercase codes.\n"
                     "- If the user asks an open-ended question (e.g. 'what happens when\n"
                     "  we vary X'), plan a set of calls to explore the parameter space.\n"
                     '- Respond ONLY with a JSON object: {"tool": "<name>", "params": {...}, "reasoning": "..."}\n'
@@ -316,9 +334,16 @@ class OpenWormAssistant(object):
             else:
                 calls = [{"tool": "", "params": {}, "reasoning": str(parsed)}]
         except json.JSONDecodeError:
-            # LLM didn't return valid JSON — return its response directly
+            # LLM didn't return valid JSON — return a clean failure signal
+            # so the orchestrator can fall back to RAG rather than leaking
+            # raw JSON plan text to the user
             self.logger.warning(f"Could not parse tool plan as JSON: {plan_text}")
-            return {"message_for_user": plan_text}
+            return {
+                "message_for_user": (
+                    "[TOOL_FAILED] Could not parse tool plan. "
+                    "Falling back to research corpus."
+                )
+            }
 
         # Step 2: Execute each tool call
         results = []
@@ -440,7 +465,28 @@ class OpenWormAssistant(object):
                 except (json.JSONDecodeError, AttributeError, TypeError):
                     pass  # leave non-JSON outputs as-is
 
-        # Step 3: LLM interprets results for the user
+        # Truncate oversized tool outputs to avoid blowing the context window.
+        # WormBase can return huge JSON — cap each result to ~4000 chars.
+        MAX_OUTPUT_CHARS = 4000
+        for r in results:
+            if "output" in r and len(r["output"]) > MAX_OUTPUT_CHARS:
+                r["output"] = r["output"][:MAX_OUTPUT_CHARS] + "\n... [truncated]"
+
+        # Step 3: LLM interprets results for the user — but ONLY if at least
+        # one tool call succeeded.  If every call failed, return a bare failure
+        # signal so the orchestrator can route to RAG instead of letting the
+        # LLM pad the answer with parametric knowledge.
+        all_failed = all("error" in r for r in results)
+        if all_failed:
+            errors = "; ".join(r.get("error", "unknown error") for r in results)
+            self.logger.info(f"All tool calls failed ({errors}), skipping LLM interpretation")
+            return {
+                "message_for_user": (
+                    f"[TOOL_FAILED] All tool calls failed: {errors}. "
+                    "Falling back to research corpus."
+                )
+            }
+
         interpret_messages = [
             SystemMessage(
                 content=(
@@ -450,13 +496,11 @@ class OpenWormAssistant(object):
                     "- Use specific numbers from the results.\n"
                     "- If multiple calls were made, compare and summarise.\n"
                     "- Use formal but accessible scientific language.\n"
-                    "- If a tool returned an error (e.g. HTTP 500), explain what went wrong\n"
-                    "  and suggest the user try rephrasing as a general question (e.g.\n"
-                    "  'Tell me about AWB neurons' instead of a database lookup) so the\n"
-                    "  answer can come from the research corpus instead.\n"
-                    "- IMPORTANT: ONLY report information that appears in the tool results.\n"
-                    "  Do NOT fill in missing information from your own knowledge. If the\n"
-                    "  tool failed or returned incomplete data, say so — do not guess.\n"
+                    "- STRICT RULE: ONLY report information that appears in the tool results.\n"
+                    "  Do NOT fill in missing information from your training knowledge.\n"
+                    "  If a tool returned an error or incomplete data, say exactly that —\n"
+                    "  do NOT guess, infer, or supplement with general knowledge.\n"
+                    "- If a partial result is available, report only the confirmed facts.\n"
                 )
             ),
             HumanMessage(
@@ -468,7 +512,7 @@ class OpenWormAssistant(object):
         ]
 
         interpretation = self.model.invoke(
-            interpret_messages, config={"configurable": {"temperature": 0.3}}
+            interpret_messages, config={"configurable": {"temperature": 0.1}}
         )
 
         result = {"message_for_user": interpretation.content}
@@ -477,6 +521,153 @@ class OpenWormAssistant(object):
         if extracted_plot_data:
             result["plot_data"] = extracted_plot_data
         return result
+
+    def _collect_evidence_node(self, state: AssistantState) -> dict:
+        """Capture the latest RAG or tool output into gathered_evidence."""
+        evidence = list(state.get("gathered_evidence", []))
+        loop_count = state.get("loop_count", 0) + 1
+
+        # Grab whatever the previous node produced
+        msg = state.get("message_for_user", "")
+        if msg:
+            evidence.append(msg)
+
+        # Also capture RAG reference material summaries
+        refs = state.get("reference_material", {})
+        if refs:
+            for query_key, doc_list in refs.items():
+                for doc, score in doc_list[:3]:  # top 3 per query
+                    snippet = doc.page_content[:300] if hasattr(doc, "page_content") else str(doc)[:300]
+                    evidence.append(f"[RAG hit, score={score:.2f}]: {snippet}")
+
+        return {
+            "gathered_evidence": evidence,
+            "loop_count": loop_count,
+        }
+
+    def _decide_next_node(self, state: AssistantState) -> str:
+        """Orchestrator: decide whether to loop back for more info or finish.
+
+        Returns one of: "done", "need_rag", "need_tool"
+        """
+        loop_count = state.get("loop_count", 0)
+        evidence = state.get("gathered_evidence", [])
+
+        # Hard cap on loops
+        if loop_count >= self.MAX_LOOPS:
+            self.logger.info(f"Orchestrator: max loops ({self.MAX_LOOPS}) reached, finishing")
+            return "done"
+
+        # If no evidence yet (shouldn't happen), just finish
+        if not evidence:
+            return "done"
+
+        # Ask the LLM whether we have enough
+        assert self.model
+        evidence_text = "\n\n".join(evidence[-5:])  # last 5 pieces
+
+        decide_messages = [
+            SystemMessage(
+                content=dedent("""\
+                    You are an orchestrator for a C. elegans research assistant.
+                    The user asked a question and some information has been gathered.
+                    Decide if more information is needed.
+
+                    You have two information sources:
+                    - RAG: searches a corpus of C. elegans research papers, neuron data,
+                      and WormAtlas anatomy. Good for biological context, neuron properties,
+                      circuit descriptions, and paper-backed facts.
+                    - TOOL: calls live APIs (WormBase gene/phenotype lookup, Hodgkin-Huxley
+                      simulation). Good for specific gene functions, protein data,
+                      expression patterns, and computational simulations.
+
+                    Rules:
+                    - If the gathered evidence already answers the user's question
+                      adequately, respond with exactly: DONE
+                    - If the evidence is from a tool but would benefit from biological
+                      context or paper-backed information, respond with exactly: NEED_RAG
+                    - If the evidence is from RAG but mentions specific genes or proteins
+                      that could be verified/enriched via WormBase, or if a simulation
+                      would help, respond with exactly: NEED_TOOL
+                    - Do NOT loop just to gather marginally more info — only loop if
+                      there is a clear gap.
+                    - If a tool call FAILED (error, HTTP 500, timeout), do NOT retry
+                      the same tool. Instead try NEED_RAG to get information from the
+                      research corpus, or respond DONE if enough info is available.
+                    - Respond with ONLY one of: DONE, NEED_RAG, NEED_TOOL
+                    """)
+            ),
+            HumanMessage(
+                content=(
+                    f"User query: {state['query']}\n\n"
+                    f"Evidence gathered so far (loop {loop_count}/{self.MAX_LOOPS}):\n"
+                    f"{evidence_text}"
+                )
+            ),
+        ]
+
+        response = self.model.invoke(
+            decide_messages, config={"configurable": {"temperature": 0.1}}
+        )
+        decision = response.content.strip().upper()
+        self.logger.info(f"Orchestrator decision (loop {loop_count}): {decision}")
+
+        # Prevent looping on the same source type consecutively
+        last_type = state.get("query_type", "")
+        if "NEED_RAG" in decision:
+            return "need_rag"
+        elif "NEED_TOOL" in decision:
+            # If we just came from a tool and it failed, fall back to RAG
+            if last_type == "task" and any("error" in e.lower() or "http 500" in e.lower() for e in evidence[-2:]):
+                self.logger.info("Orchestrator: tool failed last time, falling back to RAG")
+                return "need_rag"
+            return "need_tool"
+        else:
+            return "done"
+
+    def _synthesise_node(self, state: AssistantState) -> dict:
+        """Final synthesis: combine all gathered evidence into one answer."""
+        evidence = state.get("gathered_evidence", [])
+
+        # If only one loop happened, the message_for_user is already fine
+        if len(evidence) <= 1:
+            return {}
+
+        # Multiple sources — ask LLM to synthesise
+        assert self.model
+        evidence_text = "\n\n---\n\n".join(evidence)
+
+        synth_messages = [
+            SystemMessage(
+                content=dedent("""\
+                    You are a C. elegans research assistant. Multiple information
+                    sources were consulted to answer the user's question. Synthesise
+                    the evidence below into a single, coherent answer.
+
+                    - Integrate information from both the research corpus and live
+                      database lookups where available.
+                    - Use specific numbers and facts from the evidence.
+                    - Note where sources agree or provide complementary information.
+                    - Use formal but accessible scientific language.
+                    - STRICT RULE: ONLY use information from the evidence provided.
+                      Do NOT add facts, context, or detail from your training knowledge.
+                      If the evidence does not cover something, do not mention it.
+                    - Ignore any evidence entries that start with [TOOL_FAILED] —
+                      these indicate a failed lookup and should not be reported to the user.
+                    """)
+            ),
+            HumanMessage(
+                content=(
+                    f"User query: {state['query']}\n\n"
+                    f"Gathered evidence:\n{evidence_text}"
+                )
+            ),
+        ]
+
+        response = self.model.invoke(
+            synth_messages, config={"configurable": {"temperature": 0.3}}
+        )
+        return {"message_for_user": response.content}
 
     def _setup_chat_model(self):
         """Set up the LLM chat model"""
@@ -499,6 +690,8 @@ class OpenWormAssistant(object):
         self._rag_node_graph = await self._rag_node.get_graph()
         self.workflow.add_node("rag_graph", self._rag_node_graph)
         self.workflow.add_node("tool_graph", self._tool_node)
+        self.workflow.add_node("collect_evidence", self._collect_evidence_node)
+        self.workflow.add_node("synthesise", self._synthesise_node)
 
         self.workflow.add_edge(START, "init_state")
         self.workflow.add_edge("init_state", "classify_query")
@@ -512,7 +705,22 @@ class OpenWormAssistant(object):
                 "task": "tool_graph",
             },
         )
-        self.workflow.add_edge("tool_graph", END)
+
+        # After RAG or tool, collect evidence then decide
+        self.workflow.add_edge("tool_graph", "collect_evidence")
+        self.workflow.add_edge("rag_graph", "collect_evidence")
+        # Orchestrator routing: after collecting evidence, decide what to do next
+        self.workflow.add_conditional_edges(
+            "collect_evidence",
+            self._decide_next_node,
+            {
+                "done": "synthesise",
+                "need_rag": "rag_graph",
+                "need_tool": "tool_graph",
+            },
+        )
+
+        self.workflow.add_edge("synthesise", END)
 
         self.graph = self.workflow.compile(checkpointer=self.checkpointer)
         if not os.environ.get("RUNNING_IN_DOCKER", 0):
