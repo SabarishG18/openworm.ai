@@ -1,19 +1,22 @@
 """
-OpenWorm Assistant — mirrors NML_Assistant structure from neuroml-ai
-but with C. elegans classifier prompt and MCP tool-use node replacing
-the code stub.
+OpenWorm Assistant — extends the NML_Assistant structure from neuroml-ai
+with C. elegans-specific classification, MCP tool use, and an orchestrator
+loop that can combine tool and RAG evidence before synthesising a final answer.
 
 Based on: neuroml_ai/neuroml_ai/assistant.py (Ankur Sinha, 2025)
 
 Differences from NML_Assistant:
-  - AssistantState is a TypedDict (not BaseModel) for Streamlit compat
-    → state access uses state["key"] / state.get("key") instead of
-      state.attribute
+  - AssistantState is a TypedDict (LangGraph idiomatic state type)
+    → state access uses state["key"] / state.get("key")
   - query_type stored as a plain string in state (not QueryTypeSchema)
     → QueryTypeSchema is still used for LLM structured output, but only
       the .query_type string is written to state
   - _tool_node replaces the _code_node stub with MCP tool execution
+    via FastMCP; records successful tool names in tools_used
   - Classifier prompt is C. elegans / OpenWorm specific
+  - Orchestrator loop: collect_evidence → decide_next → synthesise
+    allows the agent to combine results from multiple RAG and tool calls
+    before returning a final answer (max MAX_LOOPS iterations)
 """
 
 import json
@@ -96,8 +99,6 @@ class OpenWormAssistant(object):
     # Maximum orchestrator loops before forcing a final answer
     MAX_LOOPS = 3
 
-    # -- NML_Assistant: returns QueryTypeSchema()
-    # -- Here: returns "undefined" string (TypedDict state stores strings)
     def _init_rag_state_node(self, state: AssistantState) -> dict:
         """Initialise, reset state before next iteration"""
         return {
@@ -106,6 +107,7 @@ class OpenWormAssistant(object):
             "reference_material": {},
             "gathered_evidence": [],
             "loop_count": 0,
+            "tools_used": [],
         }
 
     def _classify_query_node(self, state: AssistantState) -> dict:
@@ -113,8 +115,6 @@ class OpenWormAssistant(object):
         assert self.model
         self.logger.debug(f"{state =}")
 
-        # -- NML_Assistant: state.messages / state.query (BaseModel attrs)
-        # -- Here: state.get() / state["key"] (TypedDict is a dict)
         messages = state.get("messages", [])
         messages.append(HumanMessage(content=state["query"]))
 
@@ -214,8 +214,6 @@ class OpenWormAssistant(object):
                     query_type_result = QueryTypeSchema(query_type="undefined")
 
         self.logger.debug(f"{query_type_result =}")
-        # -- NML_Assistant: returns full QueryTypeSchema object
-        # -- Here: extract the string — TypedDict state stores strings
         return {
             "query_type": query_type_result.query_type,
             "messages": messages,
@@ -224,8 +222,6 @@ class OpenWormAssistant(object):
     def _route_query_node(self, state: AssistantState) -> str:
         """Route the query depending on LLM's result"""
         self.logger.debug(f"{state =}")
-        # -- NML_Assistant: state.query_type.query_type (nested BaseModel)
-        # -- Here: state["query_type"] is already the string
         query_type = state["query_type"]
 
         return query_type
@@ -515,7 +511,12 @@ class OpenWormAssistant(object):
             interpret_messages, config={"configurable": {"temperature": 0.1}}
         )
 
-        result = {"message_for_user": interpretation.content}
+        # Accumulate successful tool names across orchestrator loops
+        prev_tools = list(state.get("tools_used", []))
+        successful_tools = [r["tool"] for r in results if "error" not in r]
+
+        result = {"message_for_user": interpretation.content,
+                  "tools_used": prev_tools + successful_tools}
         if extracted_plot_base64:
             result["plot_base64"] = extracted_plot_base64
         if extracted_plot_data:
@@ -629,8 +630,9 @@ class OpenWormAssistant(object):
         """Final synthesis: combine all gathered evidence into one answer."""
         evidence = state.get("gathered_evidence", [])
 
-        # If only one loop happened, the message_for_user is already fine
-        if len(evidence) <= 1:
+        # If only one loop happened the last message_for_user is already
+        # a complete answer — no need to call the LLM again to merge sources
+        if state.get("loop_count", 0) <= 1:
             return {}
 
         # Multiple sources — ask LLM to synthesise
