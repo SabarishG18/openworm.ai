@@ -282,11 +282,30 @@ with tab_chat:
             plot_b64 = final_state.get("plot_base64", "")
             plot_data = final_state.get("plot_data", {})
 
+            TOOL_DISPLAY = {
+                "query_wormbase_gene_tool":   "🧬 WormBase Gene",
+                "query_wormbase_neuron_tool": "🧠 WormBase Neuron",
+                "search_wormbase_tool":       "🔍 WormBase Search",
+                "run_hh_simulation_tool":     "⚡ HH Simulation",
+            }
+
             has_retrieval = bool(ref_material)
             is_tool = query_type == "task"
+            gathered_evidence = final_state.get("gathered_evidence", [])
+            loop_count = final_state.get("loop_count", 0)
+            tools_used = final_state.get("tools_used", [])
+            tool_failed = any("[TOOL_FAILED]" in e for e in gathered_evidence)
+            tool_labels = [TOOL_DISPLAY.get(t, f"🔧 {t}") for t in tools_used]
 
-            if is_tool:
-                source_tag = "🔧 Answer from MCP tool"
+            if tool_labels and has_retrieval:
+                parts = tool_labels + ["📚 Corpus"]
+                source_tag = "Sources: " + " + ".join(parts)
+            elif tool_labels and tool_failed and has_retrieval:
+                source_tag = "📚 Answer from corpus retrieval (live database unavailable)"
+            elif tool_labels:
+                source_tag = "Sources: " + " + ".join(tool_labels)
+            elif is_tool and tool_failed and has_retrieval:
+                source_tag = "📚 Answer from corpus retrieval (live database unavailable)"
             elif has_retrieval:
                 source_tag = "📚 Answer from corpus retrieval"
             else:
@@ -337,8 +356,10 @@ with tab_chat:
                 with st.expander("Debug"):
                     st.json(
                         {
-                            "query_domain": query_domain,
                             "query_type": query_type,
+                            "loop_count": loop_count,
+                            "tools_used": tools_used,
+                            "tool_failed": tool_failed,
                             "has_retrieval": has_retrieval,
                             "num_refs": len(refs),
                             "has_plot": bool(plot_b64 or plot_data),
@@ -379,8 +400,39 @@ with tab_tools:
             hh_current = st.number_input("Current injection (µA/cm²)", value=10.0, step=0.5)
             hh_duration = st.number_input("Duration (ms)", value=100.0, step=10.0)
         with col2:
-            hh_delay = st.number_input("Delay before injection (ms)", value=5.0, step=5.0)
+            hh_delay = st.number_input("Delay before injection (ms)", value=50.0, step=5.0)
             hh_temp = st.number_input("Temperature (°C)", value=6.3, step=1.0)
+
+        with st.expander("Channel parameters (advanced)"):
+            st.caption("Default values match the original Hodgkin & Huxley (1952) squid giant axon.")
+            col3, col4, col5 = st.columns(3)
+            with col3:
+                hh_gNa = st.number_input(
+                    "g_Na — max Na⁺ conductance (mS/cm²)", value=120.0, step=10.0,
+                    help="Reduces AP amplitude and firing rate. Set to 0 to simulate TTX (full Na⁺ block) — no APs fire."
+                )
+                hh_gK  = st.number_input(
+                    "g_K — max K⁺ conductance (mS/cm²)", value=36.0, step=5.0,
+                    help="Slows repolarisation. Set to 0 to simulate TEA (K⁺ block) — APs broaden and membrane fails to repolarise."
+                )
+            with col4:
+                hh_ENa = st.number_input(
+                    "E_Na — Na⁺ reversal potential (mV)", value=50.0, step=5.0,
+                    help="Shifts the AP peak voltage. Lowering reduces the driving force for Na⁺ influx and decreases AP height."
+                )
+                hh_EK  = st.number_input(
+                    "E_K — K⁺ reversal potential (mV)", value=-77.0, step=5.0,
+                    help="Shifts the resting potential and repolarisation target. Raise toward 0 to simulate high extracellular K⁺ — depolarises resting membrane."
+                )
+            with col5:
+                hh_gL  = st.number_input(
+                    "g_L — leak conductance (mS/cm²)", value=0.3, step=0.1,
+                    help="Sets passive membrane conductance. Increasing raises the current threshold needed to fire."
+                )
+                hh_EL  = st.number_input(
+                    "E_L — leak reversal potential (mV)", value=-54.387, step=1.0,
+                    help="Sets the resting membrane potential alongside E_K. Shifting it alters the baseline voltage."
+                )
 
         if st.button("Run simulation", key="hh_run"):
             with st.spinner("Running HH simulation..."):
@@ -390,6 +442,12 @@ with tab_tools:
                         "duration": hh_duration,
                         "delay": hh_delay,
                         "temperature": hh_temp,
+                        "g_Na": hh_gNa,
+                        "g_K": hh_gK,
+                        "E_Na": hh_ENa,
+                        "E_K": hh_EK,
+                        "g_L": hh_gL,
+                        "E_L": hh_EL,
                     })
                     data = json.loads(raw)
                     returncode = data.get("returncode", -1)
