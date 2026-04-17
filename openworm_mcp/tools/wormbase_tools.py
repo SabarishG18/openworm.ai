@@ -11,7 +11,7 @@ Author: Ankur Sinha <sanjay DOT ankur AT gmail DOT com>
 """
 
 import logging
-from typing import Any, Dict
+from typing import Any, Dict, Literal
 
 import requests
 
@@ -87,7 +87,7 @@ def _resolve_gene_id(gene_id: str) -> str:
 
 async def query_wormbase_gene_tool(
     gene_id: str,
-    field: str = "overview",
+    field: Literal["overview", "phenotype", "expression", "function", "genetics", "homology", "interactions", "references"] = "overview",
 ) -> Dict[str, Any]:
     """Query the WormBase REST API for information about a C. elegans gene.
 
@@ -152,7 +152,7 @@ async def query_wormbase_gene_tool(
 
 async def query_wormbase_neuron_tool(
     neuron_name: str,
-    field: str = "overview",
+    field: Literal["overview", "anatomy_function", "expressed_in", "innervates", "references"] = "overview",
 ) -> Dict[str, Any]:
     """Query the WormBase REST API for information about a specific C. elegans neuron.
 
@@ -239,7 +239,7 @@ async def query_wormbase_phenotype_tool(
 
 async def search_wormbase_tool(
     query: str,
-    entity_type: str = "gene",
+    entity_type: Literal["gene", "anatomy", "phenotype", "protein", "variation"] = "gene",
     limit: int = 5,
 ) -> Dict[str, Any]:
     """Search WormBase for C. elegans genes, neurons, or other biological entities by name or keyword.
