@@ -21,7 +21,7 @@ sbox = openworm_mcp_sandbox
 
 
 async def run_hh_simulation_tool(
-    current_injection: float = 5,
+    current_injection: float = 10,
     duration: float = 100.0,
     delay: float = 50.0,
     temperature: float = 6.3,
@@ -41,10 +41,11 @@ async def run_hh_simulation_tool(
 
     Inputs:
 
-    - current_injection (float, default 5): injected current amplitude in uA/cm^2 (assume that cell has a surface area of 100um^2, 
-      therefore this value is also in pA, i.e 5uA/cm^2 is equivalent to 5pA current injection).
+    - current_injection (float, default 10): injected current amplitude in uA/cm^2.
+      Current density is used so the model is size-independent (standard HH convention).
+      Threshold for action potential initiation is ~6.2 uA/cm^2 at 6.3C.
       Increase to make the neuron fire more frequently.
-      Decrease below threshold to observe subthreshold behaviour.
+      Decrease below ~6 uA/cm^2 to observe subthreshold behaviour.
     - duration (float, default 100.0): total simulation duration in milliseconds.
     - delay (float, default 50.0): delay in milliseconds before current injection begins.
       Must be less than duration.
@@ -82,8 +83,9 @@ async def run_hh_simulation_tool(
     Examples:
 
     - Default simulation: run_hh_simulation_tool()
-    - Strong stimulation: run_hh_simulation_tool(current_injection=0.5)
-    - Subthreshold (no firing expected): run_hh_simulation_tool(current_injection=0.01)
+    - Strong stimulation: run_hh_simulation_tool(current_injection=20)
+    - Near threshold: run_hh_simulation_tool(current_injection=7)
+    - Subthreshold (no firing expected): run_hh_simulation_tool(current_injection=3)
     - Long simulation: run_hh_simulation_tool(duration=1000.0)
     - Temperature effect: call twice with temperature=6.3 and temperature=25.0
     - Sodium channel block (TTX): run_hh_simulation_tool(g_Na=0.0, current_injection=10.0)
@@ -195,13 +197,13 @@ try:
     ax.set_ylabel('Membrane Potential (mV)')
     ax.set_title(
         f'Hodgkin-Huxley Simulation  |  '
-        f'I = {current_injection} uA/cm^2, '
+        f'I = {current_injection} \u03bcA/cm\u00b2, '
         f'{{crossings}} APs, '
         f'{{round(firing_rate, 1)}} Hz'
     )
     ax.axhline(y=0, color='grey', linestyle='--', linewidth=0.5, alpha=0.5)
     ax.axvspan({delay}, {duration}, alpha=0.06, color='orange',
-               label=f'Stimulus ({current_injection} uA/cm^2)')
+               label=f'Stimulus ({current_injection} \u03bcA/cm\u00b2)')
     ax.legend(loc='upper right', fontsize=8)
     ax.set_xlim(0, {duration})
     fig.tight_layout()
