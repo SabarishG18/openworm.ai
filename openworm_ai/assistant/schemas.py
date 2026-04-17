@@ -1,20 +1,12 @@
 """
 State and routing schemas for the OpenWorm assistant.
 
-AssistantState uses TypedDict (not Pydantic BaseModel) because LangGraph
-recommends TypedDict for graph state when running inside Streamlit.
-Streamlit re-executes the script on every interaction, re-importing all
-modules and creating fresh class definitions.  @st.cache_resource keeps
-the compiled graph from a previous run, so Pydantic's strict class-identity
-checks reject structurally-identical objects from the reloaded module.
-TypedDict has no runtime validation, so no class-identity mismatch.
+AssistantState uses TypedDict — the idiomatic LangGraph state type.
+State access uses state["key"] / state.get("key", default).
 
-See: https://github.com/streamlit/streamlit/issues/6765
-     https://github.com/langchain-ai/langgraph/issues/5733
-
-QueryTypeSchema remains a Pydantic BaseModel because it is only used
-transiently inside the classifier node (for LLM structured output parsing)
-and its .query_type string is what gets stored in state.
+QueryTypeSchema is a Pydantic BaseModel because it is only used
+transiently inside the classifier node (for LLM structured output
+parsing) and its .query_type string is what gets stored in state.
 """
 
 from langchain_core.messages import AnyMessage
@@ -44,3 +36,9 @@ class AssistantState(TypedDict, total=False):
     # Voltage trace data for client-side rendering (fallback when sandbox
     # matplotlib is unavailable). Dict with keys: t_ms, v_mv (lists of floats)
     plot_data: dict
+    # Orchestrator: accumulated evidence from previous RAG/tool steps
+    gathered_evidence: List[str]
+    # Orchestrator: number of loops completed (prevents infinite cycling)
+    loop_count: int
+    # Orchestrator: names of MCP tools successfully called this query
+    tools_used: List[str]
