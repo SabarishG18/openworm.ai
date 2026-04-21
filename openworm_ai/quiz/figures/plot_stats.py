@@ -15,40 +15,45 @@ import glob
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from collections import defaultdict
+from pathlib import Path
 
-# Publication-quality style (Nature/Science aesthetic)
-plt.rcParams.update({
+mpl.rcParams.update({
     "font.family": "sans-serif",
-    "font.sans-serif": ["Helvetica", "Arial", "DejaVu Sans"],
+    "font.sans-serif": ["Helvetica Neue", "Helvetica", "Arial", "DejaVu Sans"],
     "font.size": 10,
-    "axes.titlesize": 12,
+    "axes.titlesize": 13,
+    "axes.titleweight": "bold",
     "axes.labelsize": 11,
     "xtick.labelsize": 9,
     "ytick.labelsize": 9,
-    "legend.fontsize": 8,
-    "legend.framealpha": 0.9,
-    "legend.edgecolor": "0.8",
-    "figure.dpi": 300,
-    "savefig.dpi": 300,
-    "savefig.bbox": "tight",
+    "legend.fontsize": 9,
+    "legend.title_fontsize": 9,
     "axes.spines.top": False,
     "axes.spines.right": False,
     "axes.linewidth": 0.8,
     "xtick.major.width": 0.8,
     "ytick.major.width": 0.8,
-    "xtick.major.size": 4,
-    "ytick.major.size": 4,
+    "xtick.major.size": 3,
+    "ytick.major.size": 3,
+    "xtick.direction": "out",
+    "ytick.direction": "out",
     "axes.grid": False,
-    "grid.alpha": 0.3,
-    "grid.linewidth": 0.5,
+    "figure.dpi": 150,
+    "savefig.dpi": 300,
+    "savefig.bbox": "tight",
+    "savefig.pad_inches": 0.1,
+    "legend.framealpha": 0.9,
+    "legend.edgecolor": "0.85",
+    "legend.borderpad": 0.5,
 })
 
 # ── Config ──────────────────────────────────────────────────────────────
 SCORE_DIR = "openworm_ai/quiz/scores/rag_full_logprob"
-OUT_DIR = "openworm_ai/quiz/figures"
+OUT_DIR = "openworm_ai/quiz/figures/final"
 
 BROKEN_MODELS = {
     "huggingface:deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
@@ -76,13 +81,13 @@ MODEL_PARAMS_B = {
 }
 
 COLOURS = {
-    "corpus": "#2166ac",     # academic blue
-    "general": "#d6604d",    # muted red-orange
-    "positive": "#4daf4a",   # muted green
-    "negative": "#e41a1c",   # clear red
-    "ci_band": "#d1e5f0",
-    "ci_band_gen": "#fddbc7",
-    "literature": "#7570b3", # muted purple for published benchmarks
+    "corpus":    "#1565C0",   # dark blue (RAG-SUFFICIENT colour)
+    "general":   "#C62828",   # dark red
+    "positive":  "#2E7D32",   # dark green
+    "negative":  "#C62828",   # dark red
+    "ci_band":   "#BBDEFB",   # light blue
+    "ci_band_gen": "#FFCDD2", # light red
+    "literature": "#6A1E99",  # purple
 }
 
 
@@ -122,6 +127,7 @@ def load_data():
 def forest_plot(summary, detailed):
     """Per-model RAG delta with bootstrap 95% CIs, corpus vs general side-by-side."""
     fig, axes = plt.subplots(1, 2, figsize=(14, 7), sharey=True)
+    fig.patch.set_facecolor("white")
 
     for ax, cat, colour, ci_colour, label in [
         (axes[0], "C. elegans (Corpus)", COLOURS["corpus"], COLOURS["ci_band"], "Corpus Questions"),
@@ -193,7 +199,7 @@ def forest_plot(summary, detailed):
     fig.suptitle("Per-Model RAG Impact with 95% Bootstrap CIs",
                  fontsize=14, fontweight="bold", y=0.98)
     plt.tight_layout(rect=[0, 0, 1, 0.95])
-    plt.savefig(f"{OUT_DIR}/forest_plot.png", dpi=200, bbox_inches="tight")
+    plt.savefig(f"{OUT_DIR}/forest_plot.png")
     plt.close()
     print(f"  Saved {OUT_DIR}/forest_plot.png")
 
@@ -223,7 +229,7 @@ def mcnemar_mosaic(detailed):
         categories = ["Both\nCorrect", "RAG\nFixed", "RAG\nBroke", "Both\nWrong"]
         counts = [a, c, b, d]
         pcts = [x / total * 100 for x in counts]
-        bar_colours = ["#92c5de", "#2166ac", "#d6604d", "#d9d9d9"]
+        bar_colours = ["#90CAF9", "#1565C0", "#C62828", "#B0BEC5"]
 
         bars = ax.bar(categories, pcts, color=bar_colours, edgecolor="white", width=0.7)
         for bar, count, pct in zip(bars, counts, pcts):
@@ -249,7 +255,7 @@ def mcnemar_mosaic(detailed):
     fig.suptitle("McNemar's Test: RAG Fixed vs Broke (Paired Question Outcomes)",
                  fontsize=13, fontweight="bold", y=1.02)
     plt.tight_layout()
-    plt.savefig(f"{OUT_DIR}/mcnemar_mosaic.png", dpi=200, bbox_inches="tight")
+    plt.savefig(f"{OUT_DIR}/mcnemar_mosaic.png")
     plt.close()
     print(f"  Saved {OUT_DIR}/mcnemar_mosaic.png")
 
@@ -293,10 +299,9 @@ def bootstrap_distributions(detailed):
         ax.axvline(ci_lo, color=colour, linewidth=1, linestyle="--", alpha=0.7)
         ax.axvline(ci_hi, color=colour, linewidth=1, linestyle="--", alpha=0.7)
 
-        # Label the observed delta
-        ax.text(observed, ax.get_ylim()[1] * 0.85 if cat == "C. elegans (Corpus)" else ax.get_ylim()[1] * 0.7,
-                f"  {observed:+.1f}pp\n  95% CI: [{ci_lo:+.1f}, {ci_hi:+.1f}]",
-                color=colour, fontsize=9, fontweight="bold")
+        # Label the observed delta (stored for annotation after y-limits are set)
+        ax._observed_labels = getattr(ax, "_observed_labels", [])
+        ax._observed_labels.append((observed, ci_lo, ci_hi, colour, cat))
 
     ax.axvline(0, color="black", linewidth=1, linestyle="-", alpha=0.5)
     ax.set_xlabel("RAG Accuracy Delta (pp)", fontsize=12)
@@ -304,15 +309,22 @@ def bootstrap_distributions(detailed):
     ax.set_title("Bootstrap Distribution of RAG Improvement\n(10,000 resamples)",
                  fontsize=13, fontweight="bold")
     ax.legend(fontsize=11)
-    ax.grid(axis="y", alpha=0.3)
+    ax.grid(axis="y", alpha=0.2, linewidth=0.5, color='0.7')
 
-    # Annotation
+    # Annotations after legend so y-limits are stable
+    ylim_top = ax.get_ylim()[1]
+    for observed, ci_lo, ci_hi, colour, cat in getattr(ax, "_observed_labels", []):
+        frac = 0.85 if cat == "C. elegans (Corpus)" else 0.7
+        ax.text(observed, ylim_top * frac,
+                f"  {observed:+.1f}pp\n  95% CI: [{ci_lo:+.1f}, {ci_hi:+.1f}]",
+                color=colour, fontsize=9, fontweight="bold")
+
     ax.annotate("Zero line\n(no effect)", xy=(0, 0), xytext=(2, ax.get_ylim()[1] * 0.5),
                 fontsize=9, color="gray", ha="left",
                 arrowprops=dict(arrowstyle="->", color="gray", lw=1))
 
     plt.tight_layout()
-    plt.savefig(f"{OUT_DIR}/bootstrap_distributions.png", dpi=200, bbox_inches="tight")
+    plt.savefig(f"{OUT_DIR}/bootstrap_distributions.png")
     plt.close()
     print(f"  Saved {OUT_DIR}/bootstrap_distributions.png")
 
@@ -372,18 +384,19 @@ def effect_size_comparison(summary):
     ax.grid(axis="y", alpha=0.3)
 
     # Legend
-    ours_patch = mpatches.Patch(color=COLOURS["corpus"], alpha=0.8, label="Our results")
-    lit_patch = mpatches.Patch(color=COLOURS["literature"], alpha=0.8, label="Published benchmarks (est.)")
+    ours_patch = mpatches.Patch(color=COLOURS["corpus"], label="Our results")
+    lit_patch = mpatches.Patch(color=COLOURS["literature"], label="Published benchmarks (est.)")
     ax.legend(handles=[ours_patch, lit_patch], fontsize=10)
 
     plt.tight_layout()
-    plt.savefig(f"{OUT_DIR}/effect_size_comparison.png", dpi=200, bbox_inches="tight")
+    plt.savefig(f"{OUT_DIR}/effect_size_comparison.png")
     plt.close()
     print(f"  Saved {OUT_DIR}/effect_size_comparison.png")
 
 
 # ── Main ─────────────────────────────────────────────────────────────────
 def main():
+    Path(OUT_DIR).mkdir(parents=True, exist_ok=True)
     print("Loading data...")
     summary, detailed = load_data()
     print(f"  {len(summary)} summary entries, {len(detailed)} detailed entries")

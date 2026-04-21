@@ -2,7 +2,38 @@ import json
 import os
 import sys
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import pandas as pd
+
+mpl.rcParams.update({
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Helvetica Neue", "Helvetica", "Arial", "DejaVu Sans"],
+    "font.size": 10,
+    "axes.titlesize": 13,
+    "axes.titleweight": "bold",
+    "axes.labelsize": 11,
+    "xtick.labelsize": 9,
+    "ytick.labelsize": 9,
+    "legend.fontsize": 9,
+    "legend.title_fontsize": 9,
+    "axes.spines.top": False,
+    "axes.spines.right": False,
+    "axes.linewidth": 0.8,
+    "xtick.major.width": 0.8,
+    "ytick.major.width": 0.8,
+    "xtick.major.size": 3,
+    "ytick.major.size": 3,
+    "xtick.direction": "out",
+    "ytick.direction": "out",
+    "axes.grid": False,
+    "figure.dpi": 150,
+    "savefig.dpi": 300,
+    "savefig.bbox": "tight",
+    "savefig.pad_inches": 0.1,
+    "legend.framealpha": 0.9,
+    "legend.edgecolor": "0.85",
+    "legend.borderpad": 0.5,
+})
 
 # ruff: noqa: F401
 from openworm_ai.utils.llms import (
@@ -126,7 +157,7 @@ for category, file_path in file_paths.items():
             s=100,
             color=color,
             label=distributor,
-            edgecolor="black",
+            edgecolors="white",
         )
 
     # Add model labels to each point
@@ -148,7 +179,7 @@ for category, file_path in file_paths.items():
     plt.xlabel("Model Parameters (B)")
     plt.ylabel("Accuracy (%)")
     plt.ylim(0, 110)  # Ensure consistent scale
-    plt.grid(True, which="both", linestyle="--", linewidth=0.5)
+    plt.grid(True, alpha=0.2, linewidth=0.5, color='0.7')
 
     # Save figure
     plt.legend()

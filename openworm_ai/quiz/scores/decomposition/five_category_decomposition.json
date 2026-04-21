@@ -1,0 +1,1030 @@
+{
+  "description": "Five-category decomposition of RAG evaluation results",
+  "categories": {
+    "RAG-SUFFICIENT": "Pretrained wrong -> RAG-informed correct (RAG rescued)",
+    "LLM-KNOWLEDGE": "Both correct (model already knew)",
+    "RAG-DEGRADED": "Pretrained correct -> RAG-informed wrong (RAG hurt)",
+    "ALL-FAILED": "Both wrong (neither approach works)"
+  },
+  "grand_total": {
+    "RAG-SUFFICIENT": 407,
+    "LLM-KNOWLEDGE": 4488,
+    "RAG-DEGRADED": 198,
+    "ALL-FAILED": 507
+  },
+  "by_category": {
+    "General Knowledge": {
+      "RAG-SUFFICIENT": 0,
+      "LLM-KNOWLEDGE": 1294,
+      "RAG-DEGRADED": 0,
+      "ALL-FAILED": 106
+    },
+    "Science": {
+      "RAG-SUFFICIENT": 0,
+      "LLM-KNOWLEDGE": 1357,
+      "RAG-DEGRADED": 0,
+      "ALL-FAILED": 43
+    },
+    "C. elegans": {
+      "RAG-SUFFICIENT": 142,
+      "LLM-KNOWLEDGE": 894,
+      "RAG-DEGRADED": 129,
+      "ALL-FAILED": 235
+    },
+    "C. elegans (Corpus)": {
+      "RAG-SUFFICIENT": 265,
+      "LLM-KNOWLEDGE": 943,
+      "RAG-DEGRADED": 69,
+      "ALL-FAILED": 123
+    }
+  },
+  "by_model_size": [
+    {
+      "llm": "Llama-3.2-1B",
+      "params_b": 1,
+      "rag_sufficient_pct": 14.5,
+      "llm_knowledge_pct": 49.8,
+      "rag_degraded_pct": 6.8,
+      "all_failed_pct": 29.0
+    },
+    {
+      "llm": "Qwen2.5-7B",
+      "params_b": 7,
+      "rag_sufficient_pct": 7.5,
+      "llm_knowledge_pct": 79.5,
+      "rag_degraded_pct": 3.0,
+      "all_failed_pct": 10.0
+    },
+    {
+      "llm": "Mistral-7B-v0.2",
+      "params_b": 7,
+      "rag_sufficient_pct": 11.8,
+      "llm_knowledge_pct": 69.5,
+      "rag_degraded_pct": 3.8,
+      "all_failed_pct": 15.0
+    },
+    {
+      "llm": "Llama-3.1-8B",
+      "params_b": 8,
+      "rag_sufficient_pct": 7.2,
+      "llm_knowledge_pct": 80.2,
+      "rag_degraded_pct": 4.0,
+      "all_failed_pct": 8.5
+    },
+    {
+      "llm": "gemma-2-9b",
+      "params_b": 9,
+      "rag_sufficient_pct": 7.0,
+      "llm_knowledge_pct": 82.0,
+      "rag_degraded_pct": 3.8,
+      "all_failed_pct": 7.2
+    },
+    {
+      "llm": "Qwen2.5-14B",
+      "params_b": 14,
+      "rag_sufficient_pct": 5.8,
+      "llm_knowledge_pct": 84.2,
+      "rag_degraded_pct": 4.0,
+      "all_failed_pct": 6.0
+    },
+    {
+      "llm": "gemma-3-27b",
+      "params_b": 27,
+      "rag_sufficient_pct": 7.0,
+      "llm_knowledge_pct": 82.2,
+      "rag_degraded_pct": 3.8,
+      "all_failed_pct": 7.0
+    },
+    {
+      "llm": "Qwen2.5-32B",
+      "params_b": 32,
+      "rag_sufficient_pct": 5.0,
+      "llm_knowledge_pct": 87.5,
+      "rag_degraded_pct": 2.0,
+      "all_failed_pct": 5.5
+    },
+    {
+      "llm": "aya-expanse-32b",
+      "params_b": 32,
+      "rag_sufficient_pct": 7.8,
+      "llm_knowledge_pct": 81.8,
+      "rag_degraded_pct": 2.2,
+      "all_failed_pct": 8.2
+    },
+    {
+      "llm": "Qwen3-32B",
+      "params_b": 32,
+      "rag_sufficient_pct": 6.8,
+      "llm_knowledge_pct": 82.5,
+      "rag_degraded_pct": 3.5,
+      "all_failed_pct": 7.2
+    },
+    {
+      "llm": "Llama-3.3-70B",
+      "params_b": 70,
+      "rag_sufficient_pct": 6.0,
+      "llm_knowledge_pct": 85.8,
+      "rag_degraded_pct": 3.0,
+      "all_failed_pct": 5.2
+    },
+    {
+      "llm": "Qwen2.5-72B",
+      "params_b": 72,
+      "rag_sufficient_pct": 4.2,
+      "llm_knowledge_pct": 87.0,
+      "rag_degraded_pct": 3.5,
+      "all_failed_pct": 5.2
+    },
+    {
+      "llm": "Mixtral-8x22B-v0.1",
+      "params_b": 141,
+      "rag_sufficient_pct": 7.0,
+      "llm_knowledge_pct": 83.2,
+      "rag_degraded_pct": 3.0,
+      "all_failed_pct": 6.8
+    },
+    {
+      "llm": "DeepSeek-R1",
+      "params_b": 671,
+      "rag_sufficient_pct": 4.2,
+      "llm_knowledge_pct": 86.8,
+      "rag_degraded_pct": 3.2,
+      "all_failed_pct": 5.8
+    }
+  ],
+  "size_vs_degraded_correlation": {
+    "spearman_rho": -0.577,
+    "p_value": 0.0309,
+    "interpretation": "Smaller models are MORE prone to RAG degradation"
+  },
+  "by_model_category": {
+    "huggingface:meta-llama/Llama-3.2-1B-Instruct": {
+      "General Knowledge": {
+        "counts": {
+          "ALL-FAILED": 28,
+          "LLM-KNOWLEDGE": 72,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 72.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 28.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "ALL-FAILED": 24,
+          "LLM-KNOWLEDGE": 76,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 76.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 24.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 24,
+          "RAG-SUFFICIENT": 23,
+          "RAG-DEGRADED": 16,
+          "ALL-FAILED": 37
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 23.0,
+          "LLM-KNOWLEDGE": 24.0,
+          "RAG-DEGRADED": 16.0,
+          "ALL-FAILED": 37.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "RAG-SUFFICIENT": 35,
+          "LLM-KNOWLEDGE": 27,
+          "RAG-DEGRADED": 11,
+          "ALL-FAILED": 27
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 35.0,
+          "LLM-KNOWLEDGE": 27.0,
+          "RAG-DEGRADED": 11.0,
+          "ALL-FAILED": 27.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:Qwen/Qwen2.5-7B-Instruct": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 90,
+          "ALL-FAILED": 10,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 90.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 10.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 99,
+          "ALL-FAILED": 1,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 99.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 1.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 62,
+          "ALL-FAILED": 22,
+          "RAG-SUFFICIENT": 9,
+          "RAG-DEGRADED": 7
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 9.0,
+          "LLM-KNOWLEDGE": 62.0,
+          "RAG-DEGRADED": 7.0,
+          "ALL-FAILED": 22.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 67,
+          "ALL-FAILED": 7,
+          "RAG-SUFFICIENT": 21,
+          "RAG-DEGRADED": 5
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 21.0,
+          "LLM-KNOWLEDGE": 67.0,
+          "RAG-DEGRADED": 5.0,
+          "ALL-FAILED": 7.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:mistralai/Mistral-7B-Instruct-v0.2": {
+      "General Knowledge": {
+        "counts": {
+          "ALL-FAILED": 15,
+          "LLM-KNOWLEDGE": 85,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 85.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 15.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 91,
+          "ALL-FAILED": 9,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 91.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 9.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "RAG-SUFFICIENT": 12,
+          "LLM-KNOWLEDGE": 53,
+          "ALL-FAILED": 23,
+          "RAG-DEGRADED": 12
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 12.0,
+          "LLM-KNOWLEDGE": 53.0,
+          "RAG-DEGRADED": 12.0,
+          "ALL-FAILED": 23.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "RAG-SUFFICIENT": 35,
+          "LLM-KNOWLEDGE": 49,
+          "ALL-FAILED": 13,
+          "RAG-DEGRADED": 3
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 35.0,
+          "LLM-KNOWLEDGE": 49.0,
+          "RAG-DEGRADED": 3.0,
+          "ALL-FAILED": 13.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:meta-llama/Llama-3.1-8B-Instruct": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 93,
+          "ALL-FAILED": 7,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 93.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 7.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 99,
+          "ALL-FAILED": 1,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 99.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 1.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 59,
+          "ALL-FAILED": 20,
+          "RAG-DEGRADED": 8,
+          "RAG-SUFFICIENT": 13
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 13.0,
+          "LLM-KNOWLEDGE": 59.0,
+          "RAG-DEGRADED": 8.0,
+          "ALL-FAILED": 20.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 70,
+          "RAG-DEGRADED": 8,
+          "RAG-SUFFICIENT": 16,
+          "ALL-FAILED": 6
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 16.0,
+          "LLM-KNOWLEDGE": 70.0,
+          "RAG-DEGRADED": 8.0,
+          "ALL-FAILED": 6.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:google/gemma-2-9b-it": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 95,
+          "ALL-FAILED": 5,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 95.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 5.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 99,
+          "ALL-FAILED": 1,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 99.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 1.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 66,
+          "RAG-SUFFICIENT": 8,
+          "RAG-DEGRADED": 9,
+          "ALL-FAILED": 17
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 8.0,
+          "LLM-KNOWLEDGE": 66.0,
+          "RAG-DEGRADED": 9.0,
+          "ALL-FAILED": 17.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 68,
+          "RAG-DEGRADED": 6,
+          "RAG-SUFFICIENT": 20,
+          "ALL-FAILED": 6
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 20.0,
+          "LLM-KNOWLEDGE": 68.0,
+          "RAG-DEGRADED": 6.0,
+          "ALL-FAILED": 6.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:Qwen/Qwen2.5-14B-Instruct": {
+      "General Knowledge": {
+        "counts": {
+          "ALL-FAILED": 4,
+          "LLM-KNOWLEDGE": 96,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 96.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 4.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 100,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0,
+          "ALL-FAILED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 100.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 0.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 67,
+          "RAG-SUFFICIENT": 9,
+          "ALL-FAILED": 14,
+          "RAG-DEGRADED": 10
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 9.0,
+          "LLM-KNOWLEDGE": 67.0,
+          "RAG-DEGRADED": 10.0,
+          "ALL-FAILED": 14.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 74,
+          "RAG-DEGRADED": 6,
+          "RAG-SUFFICIENT": 14,
+          "ALL-FAILED": 6
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 14.0,
+          "LLM-KNOWLEDGE": 74.0,
+          "RAG-DEGRADED": 6.0,
+          "ALL-FAILED": 6.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:google/gemma-3-27b-it": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 98,
+          "ALL-FAILED": 2,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 98.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 2.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 99,
+          "ALL-FAILED": 1,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 99.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 1.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 60,
+          "RAG-SUFFICIENT": 11,
+          "RAG-DEGRADED": 11,
+          "ALL-FAILED": 18
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 11.0,
+          "LLM-KNOWLEDGE": 60.0,
+          "RAG-DEGRADED": 11.0,
+          "ALL-FAILED": 18.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 72,
+          "ALL-FAILED": 7,
+          "RAG-SUFFICIENT": 17,
+          "RAG-DEGRADED": 4
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 17.0,
+          "LLM-KNOWLEDGE": 72.0,
+          "RAG-DEGRADED": 4.0,
+          "ALL-FAILED": 7.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:Qwen/Qwen2.5-32B-Instruct": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 96,
+          "ALL-FAILED": 4,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 96.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 4.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 99,
+          "ALL-FAILED": 1,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 99.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 1.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 75,
+          "ALL-FAILED": 13,
+          "RAG-DEGRADED": 6,
+          "RAG-SUFFICIENT": 6
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 6.0,
+          "LLM-KNOWLEDGE": 75.0,
+          "RAG-DEGRADED": 6.0,
+          "ALL-FAILED": 13.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 80,
+          "RAG-SUFFICIENT": 14,
+          "ALL-FAILED": 4,
+          "RAG-DEGRADED": 2
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 14.0,
+          "LLM-KNOWLEDGE": 80.0,
+          "RAG-DEGRADED": 2.0,
+          "ALL-FAILED": 4.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:CohereLabs/aya-expanse-32b": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 93,
+          "ALL-FAILED": 7,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 93.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 7.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 97,
+          "ALL-FAILED": 3,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 97.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 3.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 69,
+          "RAG-SUFFICIENT": 10,
+          "RAG-DEGRADED": 6,
+          "ALL-FAILED": 15
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 10.0,
+          "LLM-KNOWLEDGE": 69.0,
+          "RAG-DEGRADED": 6.0,
+          "ALL-FAILED": 15.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 68,
+          "RAG-SUFFICIENT": 21,
+          "RAG-DEGRADED": 3,
+          "ALL-FAILED": 8
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 21.0,
+          "LLM-KNOWLEDGE": 68.0,
+          "RAG-DEGRADED": 3.0,
+          "ALL-FAILED": 8.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:Qwen/Qwen3-32B": {
+      "General Knowledge": {
+        "counts": {
+          "ALL-FAILED": 8,
+          "LLM-KNOWLEDGE": 92,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 92.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 8.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 100,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0,
+          "ALL-FAILED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 100.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 0.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 68,
+          "RAG-SUFFICIENT": 10,
+          "RAG-DEGRADED": 9,
+          "ALL-FAILED": 13
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 10.0,
+          "LLM-KNOWLEDGE": 68.0,
+          "RAG-DEGRADED": 9.0,
+          "ALL-FAILED": 13.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 70,
+          "ALL-FAILED": 8,
+          "RAG-SUFFICIENT": 17,
+          "RAG-DEGRADED": 5
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 17.0,
+          "LLM-KNOWLEDGE": 70.0,
+          "RAG-DEGRADED": 5.0,
+          "ALL-FAILED": 8.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:Qwen/Qwen2.5-72B-Instruct": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 96,
+          "ALL-FAILED": 4,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 96.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 4.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 75,
+          "ALL-FAILED": 11,
+          "RAG-DEGRADED": 9,
+          "RAG-SUFFICIENT": 5
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 5.0,
+          "LLM-KNOWLEDGE": 75.0,
+          "RAG-DEGRADED": 9.0,
+          "ALL-FAILED": 11.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 77,
+          "RAG-DEGRADED": 5,
+          "RAG-SUFFICIENT": 12,
+          "ALL-FAILED": 6
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 12.0,
+          "LLM-KNOWLEDGE": 77.0,
+          "RAG-DEGRADED": 5.0,
+          "ALL-FAILED": 6.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 100,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0,
+          "ALL-FAILED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 100.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 0.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:meta-llama/Llama-3.3-70B-Instruct": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 97,
+          "ALL-FAILED": 3,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 97.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 3.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "RAG-SUFFICIENT": 12,
+          "LLM-KNOWLEDGE": 68,
+          "RAG-DEGRADED": 8,
+          "ALL-FAILED": 12
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 12.0,
+          "LLM-KNOWLEDGE": 68.0,
+          "RAG-DEGRADED": 8.0,
+          "ALL-FAILED": 12.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 78,
+          "ALL-FAILED": 6,
+          "RAG-SUFFICIENT": 12,
+          "RAG-DEGRADED": 4
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 12.0,
+          "LLM-KNOWLEDGE": 78.0,
+          "RAG-DEGRADED": 4.0,
+          "ALL-FAILED": 6.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 100,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0,
+          "ALL-FAILED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 100.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 0.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:mistralai/Mixtral-8x22B-Instruct-v0.1": {
+      "General Knowledge": {
+        "counts": {
+          "LLM-KNOWLEDGE": 97,
+          "ALL-FAILED": 3,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 97.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 3.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 70,
+          "RAG-SUFFICIENT": 10,
+          "RAG-DEGRADED": 9,
+          "ALL-FAILED": 11
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 10.0,
+          "LLM-KNOWLEDGE": 70.0,
+          "RAG-DEGRADED": 9.0,
+          "ALL-FAILED": 11.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 67,
+          "ALL-FAILED": 12,
+          "RAG-SUFFICIENT": 18,
+          "RAG-DEGRADED": 3
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 18.0,
+          "LLM-KNOWLEDGE": 67.0,
+          "RAG-DEGRADED": 3.0,
+          "ALL-FAILED": 12.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 99,
+          "ALL-FAILED": 1,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 99.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 1.0
+        },
+        "total": 100
+      }
+    },
+    "huggingface:deepseek-ai/DeepSeek-R1": {
+      "General Knowledge": {
+        "counts": {
+          "ALL-FAILED": 6,
+          "LLM-KNOWLEDGE": 94,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 94.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 6.0
+        },
+        "total": 100
+      },
+      "C. elegans": {
+        "counts": {
+          "LLM-KNOWLEDGE": 78,
+          "RAG-DEGRADED": 9,
+          "ALL-FAILED": 9,
+          "RAG-SUFFICIENT": 4
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 4.0,
+          "LLM-KNOWLEDGE": 78.0,
+          "RAG-DEGRADED": 9.0,
+          "ALL-FAILED": 9.0
+        },
+        "total": 100
+      },
+      "C. elegans (Corpus)": {
+        "counts": {
+          "LLM-KNOWLEDGE": 76,
+          "RAG-DEGRADED": 4,
+          "RAG-SUFFICIENT": 13,
+          "ALL-FAILED": 7
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 13.0,
+          "LLM-KNOWLEDGE": 76.0,
+          "RAG-DEGRADED": 4.0,
+          "ALL-FAILED": 7.0
+        },
+        "total": 100
+      },
+      "Science": {
+        "counts": {
+          "LLM-KNOWLEDGE": 99,
+          "ALL-FAILED": 1,
+          "RAG-SUFFICIENT": 0,
+          "RAG-DEGRADED": 0
+        },
+        "pcts": {
+          "RAG-SUFFICIENT": 0.0,
+          "LLM-KNOWLEDGE": 99.0,
+          "RAG-DEGRADED": 0.0,
+          "ALL-FAILED": 1.0
+        },
+        "total": 100
+      }
+    }
+  }
+}

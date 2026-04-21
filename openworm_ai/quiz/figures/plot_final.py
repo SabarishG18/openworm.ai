@@ -12,6 +12,7 @@ from collections import defaultdict
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import matplotlib.ticker as mtick
 import numpy as np
 
@@ -75,38 +76,47 @@ COMPANY_LABELS = {
     "#39594D": "Cohere (Aya)", "#7F39FB": "DeepSeek",
 }
 
-# Publication-quality style (Nature/Science aesthetic)
-plt.rcParams.update({
+mpl.rcParams.update({
+    # Font
     "font.family": "sans-serif",
-    "font.sans-serif": ["Helvetica", "Arial", "DejaVu Sans"],
+    "font.sans-serif": ["Helvetica Neue", "Helvetica", "Arial", "DejaVu Sans"],
     "font.size": 10,
-    "axes.titlesize": 12,
+    "axes.titlesize": 13,
+    "axes.titleweight": "bold",
     "axes.labelsize": 11,
     "xtick.labelsize": 9,
     "ytick.labelsize": 9,
-    "legend.fontsize": 8,
-    "legend.framealpha": 0.9,
-    "legend.edgecolor": "0.8",
-    "figure.dpi": 300,
-    "savefig.dpi": 300,
-    "savefig.bbox": "tight",
+    "legend.fontsize": 9,
+    "legend.title_fontsize": 9,
+    # Spines
     "axes.spines.top": False,
     "axes.spines.right": False,
     "axes.linewidth": 0.8,
+    # Ticks
     "xtick.major.width": 0.8,
     "ytick.major.width": 0.8,
-    "xtick.major.size": 4,
-    "ytick.major.size": 4,
+    "xtick.major.size": 3,
+    "ytick.major.size": 3,
+    "xtick.direction": "out",
+    "ytick.direction": "out",
+    # Grid
     "axes.grid": False,
-    "grid.alpha": 0.3,
-    "grid.linewidth": 0.5,
+    # Figure
+    "figure.dpi": 150,
+    "savefig.dpi": 300,
+    "savefig.bbox": "tight",
+    "savefig.pad_inches": 0.1,
+    # Legend
+    "legend.framealpha": 0.9,
+    "legend.edgecolor": "0.85",
+    "legend.borderpad": 0.5,
 })
 
 MODE_COLORS = {
-    "Pretrained": "#4878CF",
-    "RAG Only": "#66c2a5",
-    "Hybrid": "#fc8d62",
-    "RAG-Informed": "#8da0cb",
+    "Pretrained":    "#455A64",   # blue-grey
+    "RAG Only":      "#2E7D32",   # dark green
+    "Hybrid":        "#E65100",   # dark orange
+    "RAG-Informed":  "#1565C0",   # dark blue
 }
 
 
@@ -175,7 +185,7 @@ def plot_4mode_bars(results, output_dir, category):
     x = np.arange(len(llms))
     width = 0.19
 
-    fig, ax = plt.subplots(figsize=(14, 5.5))
+    fig, ax = plt.subplots(figsize=(16, 6))
     ax.bar(x - 1.5*width, pre, width, label="Pretrained", color=MODE_COLORS["Pretrained"], alpha=0.85)
     ax.bar(x - 0.5*width, rag, width, label="RAG Only", color=MODE_COLORS["RAG Only"], alpha=0.85)
     ax.bar(x + 0.5*width, hyb, width, label="Hybrid", color=MODE_COLORS["Hybrid"], alpha=0.85)
@@ -185,9 +195,8 @@ def plot_4mode_bars(results, output_dir, category):
     ax.set_title(f"4-Mode RAG Evaluation — {category}")
     ax.set_xticks(x)
     ax.set_xticklabels(llms, rotation=40, ha="right")
-    ax.legend(loc="lower left")
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.18), ncol=4)
     ax.set_ylim(0, 105)
-    ax.grid(axis="y", alpha=0.3)
 
     # Add delta annotations on top of informed bars for corpus
     if "Corpus" in category:
@@ -197,10 +206,10 @@ def plot_4mode_bars(results, output_dir, category):
                 ax.text(x[i] + 1.5*width, inf_val + 1, f"+{delta:.0f}",
                        ha="center", va="bottom", fontsize=7, fontweight="bold", color="#2E7D32")
 
-    plt.tight_layout()
+    plt.subplots_adjust(bottom=0.25)
     safe = category.lower().replace(" ", "_").replace("(", "").replace(")", "")
     path = output_dir / f"bars_{safe}.png"
-    plt.savefig(path, dpi=200, bbox_inches="tight")
+    plt.savefig(path)
     plt.close()
     print(f"  Saved: {path}")
 
@@ -224,98 +233,181 @@ def plot_rag_delta_corpus(results, output_dir):
     inf_scores = [r.get("Informed Accuracy (%)", 0) for r, _ in items]
 
     fig, ax = plt.subplots(figsize=(10, 6))
-    colors = ["#D65F5F" if d < 0 else "#4CAF50" for d in deltas]
+    colors = ["#C62828" if d < 0 else "#2E7D32" for d in deltas]
     bars = ax.barh(llms, deltas, color=colors, alpha=0.85, height=0.7)
     ax.axvline(x=0, color="black", linewidth=0.8)
 
     for i, (d, pre, inf_val) in enumerate(zip(deltas, pre_scores, inf_scores)):
-        label = f"+{d:.0f}pp ({pre:.0f}%→{inf_val:.0f}%)"
+        label = f"+{d:.0f}pp ({pre:.0f}% -> {inf_val:.0f}%)"
         ax.text(d + (0.5 if d >= 0 else -0.5), i, label,
                 va="center", ha="left" if d >= 0 else "right",
                 fontsize=8, fontweight="bold")
 
     ax.set_xlabel("Accuracy Change (pp): RAG-Informed vs Pretrained")
     ax.set_title("RAG Impact on C. elegans Corpus Questions")
-    ax.grid(axis="x", alpha=0.3)
+    ax.grid(axis="x", alpha=0.2, linewidth=0.5, color='0.7')
 
     plt.tight_layout()
     path = output_dir / "rag_delta_corpus.png"
-    plt.savefig(path, dpi=200, bbox_inches="tight")
+    plt.savefig(path)
     plt.close()
     print(f"  Saved: {path}")
 
 
 # ═══════════════════════════════════════════════════════════════════════
-# Figure 3: Scaling law scatter — accuracy vs params
+# Figure 3: Scaling law — RAG delta vs model size + ceiling effect
 # ═══════════════════════════════════════════════════════════════════════
 
-def plot_scaling_scatter(results, output_dir, category=None):
-    """Scatter: accuracy vs model size, colored by mode, with trend lines."""
-    if category:
-        data = [r for r in results if r.get("Quiz Category") == category]
-        title_suffix = f" — {category}"
-    else:
-        # Average across categories
-        by_llm = defaultdict(lambda: {"pre": [], "rag": [], "hyb": [], "inf": []})
-        for r in results:
-            llm = r["LLM"]
-            by_llm[llm]["pre"].append(r.get("Pretrained Accuracy (%)", 0))
-            by_llm[llm]["rag"].append(r.get("RAG Accuracy Overall (%)", 0))
-            by_llm[llm]["hyb"].append(r.get("Hybrid Accuracy (%)", 0))
-            by_llm[llm]["inf"].append(r.get("Informed Accuracy (%)", 0))
-        data = [{"LLM": llm, "Pretrained Accuracy (%)": np.mean(d["pre"]),
-                 "RAG Accuracy Overall (%)": np.mean(d["rag"]),
-                 "Hybrid Accuracy (%)": np.mean(d["hyb"]),
-                 "Informed Accuracy (%)": np.mean(d["inf"])}
-                for llm, d in by_llm.items()]
-        title_suffix = " (All Categories)"
+def plot_scaling_law(results, output_dir, category="C. elegans (Corpus)"):
+    """Two-panel figure:
+      Left  — RAG delta (pp) vs model params (log scale). Does larger = less benefit?
+      Right — RAG delta vs pretrained accuracy. Ceiling effect: already-good models gain less.
+    Points coloured by model family, sized by params, with trend lines + 95% CI bands.
+    """
+    subset = [r for r in results if r.get("Quiz Category") == category]
+    if not subset:
+        return
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    # Build (params, pretrained, delta, name, color) per model
+    points = []
+    for r in subset:
+        p = _params(r["LLM"])
+        if p is None:
+            continue
+        pre   = r.get("Pretrained Accuracy (%)", 0)
+        inf   = r.get("Informed Accuracy (%)", 0)
+        delta = inf - pre
+        name  = _short(r["LLM"])
+        color = COMPANY_COLORS.get(name, "#888888")
+        points.append((p, pre, delta, name, color))
 
-    modes = [
-        ("Pretrained Accuracy (%)", "Pretrained", "#4878CF", "o"),
-        ("Informed Accuracy (%)", "RAG-Informed", "#FFB347", "^"),
+    if not points:
+        return
+
+    points.sort(key=lambda x: x[0])  # sort by params
+    params_arr = np.array([p[0] for p in points])
+    pre_arr    = np.array([p[1] for p in points])
+    delta_arr  = np.array([p[2] for p in points])
+    names      = [p[3] for p in points]
+    colors     = [p[4] for p in points]
+
+    # Marker size proportional to log(params) for visual weight
+    sizes = [max(60, 18 * np.log10(p)) for p in params_arr]
+
+    # ── Bootstrap trend + 95% CI ──────────────────────────────────────
+    def trend_and_ci(xs_log, ys, n_boot=2000, x_range=None):
+        z = np.polyfit(xs_log, ys, 1)
+        poly = np.poly1d(z)
+        x_fit = x_range if x_range is not None else np.linspace(xs_log.min(), xs_log.max(), 100)
+        rng = np.random.default_rng(42)
+        boot_lines = []
+        for _ in range(n_boot):
+            idx = rng.choice(len(xs_log), size=len(xs_log), replace=True)
+            zb = np.polyfit(xs_log[idx], ys[idx], 1)
+            boot_lines.append(np.poly1d(zb)(x_fit))
+        boot_arr = np.array(boot_lines)
+        return poly, x_fit, np.percentile(boot_arr, 2.5, axis=0), np.percentile(boot_arr, 97.5, axis=0)
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
+
+    # ── Panel 1: delta vs params ──────────────────────────────────────
+    log_params = np.log10(params_arr)
+    poly1, x_fit1, ci_lo1, ci_hi1 = trend_and_ci(log_params, delta_arr)
+
+    ax1.axhline(0, color="0.4", linewidth=1, linestyle="--", zorder=1)
+    ax1.axhspan(0, delta_arr.max() + 5, alpha=0.04, color="#2E7D32", zorder=0)
+    ax1.axhspan(delta_arr.min() - 2, 0, alpha=0.04, color="#C62828", zorder=0)
+
+    # CI band + trend
+    ax1.fill_between(10**x_fit1, ci_lo1, ci_hi1, alpha=0.15, color="#1565C0", zorder=2)
+    ax1.plot(10**x_fit1, poly1(x_fit1), color="#1565C0", linewidth=2,
+             linestyle="-", zorder=3, label="Trend (log-linear)")
+
+    ax1.scatter(params_arr, delta_arr, c=colors, s=sizes, zorder=5,
+                edgecolors="white", linewidth=0.8)
+
+    # Label each point — alternate above/below to reduce overlap
+    for i, (xi, yi, name) in enumerate(zip(params_arr, delta_arr, names)):
+        va = "bottom" if i % 2 == 0 else "top"
+        dy = 3 if va == "bottom" else -3
+        ax1.annotate(name, (xi, yi), textcoords="offset points",
+                     xytext=(0, dy), ha="center", va=va,
+                     fontsize=7, color="0.25")
+
+    ax1.set_xscale("log")
+    ax1.set_xlabel("Model Parameters (Billions)")
+    ax1.set_ylabel("RAG-Informed vs Pretrained (pp)")
+    ax1.set_title("RAG Benefit vs Model Scale\n(C. elegans Corpus questions)")
+    ax1.legend(fontsize=8, loc="upper right")
+    ax1.set_xlim(0.7, 1000)
+    ax1.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(
+        lambda x, _: f"{int(x)}B" if x >= 1 else f"{x:.1f}B"
+    ))
+
+    # Spearman rho annotation
+    from scipy.stats import spearmanr
+    rho, pval = spearmanr(log_params, delta_arr)
+    sig = "***" if pval < 0.001 else ("**" if pval < 0.01 else ("*" if pval < 0.05 else "ns"))
+    ax1.text(0.03, 0.04, f"Spearman rho = {rho:.2f}  {sig}",
+             transform=ax1.transAxes, fontsize=8, color="0.35",
+             va="bottom", ha="left",
+             bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
+                       edgecolor="0.8", alpha=0.9))
+
+    # ── Panel 2: delta vs pretrained accuracy (ceiling effect) ────────
+    poly2, x_fit2, ci_lo2, ci_hi2 = trend_and_ci(pre_arr, delta_arr,
+                                                   x_range=np.linspace(pre_arr.min(), pre_arr.max(), 100))
+
+    ax2.axhline(0, color="0.4", linewidth=1, linestyle="--", zorder=1)
+    ax2.axhspan(0, delta_arr.max() + 5, alpha=0.04, color="#2E7D32", zorder=0)
+    ax2.axhspan(delta_arr.min() - 2, 0, alpha=0.04, color="#C62828", zorder=0)
+
+    ax2.fill_between(x_fit2, ci_lo2, ci_hi2, alpha=0.15, color="#E65100", zorder=2)
+    ax2.plot(x_fit2, poly2(x_fit2), color="#E65100", linewidth=2,
+             linestyle="-", zorder=3, label="Trend (linear)")
+
+    ax2.scatter(pre_arr, delta_arr, c=colors, s=sizes, zorder=5,
+                edgecolors="white", linewidth=0.8)
+
+    for i, (xi, yi, name) in enumerate(zip(pre_arr, delta_arr, names)):
+        va = "bottom" if i % 2 == 0 else "top"
+        dy = 3 if va == "bottom" else -3
+        ax2.annotate(name, (xi, yi), textcoords="offset points",
+                     xytext=(0, dy), ha="center", va=va,
+                     fontsize=7, color="0.25")
+
+    ax2.set_xlabel("Pretrained Accuracy (%)")
+    ax2.set_ylabel("RAG Delta (pp)")
+    ax2.set_title("Ceiling Effect: RAG Benefit\nvs Baseline Model Accuracy")
+    ax2.legend(fontsize=8, loc="upper right")
+
+    rho2, pval2 = spearmanr(pre_arr, delta_arr)
+    sig2 = "***" if pval2 < 0.001 else ("**" if pval2 < 0.01 else ("*" if pval2 < 0.05 else "ns"))
+    ax2.text(0.03, 0.04, f"Spearman rho = {rho2:.2f}  {sig2}",
+             transform=ax2.transAxes, fontsize=8, color="0.35",
+             va="bottom", ha="left",
+             bbox=dict(boxstyle="round,pad=0.3", facecolor="white",
+                       edgecolor="0.8", alpha=0.9))
+
+    # ── Shared company colour legend ──────────────────────────────────
+    seen = {}
+    for name, color in zip(names, colors):
+        company = COMPANY_LABELS.get(color, color)
+        if company not in seen:
+            seen[company] = color
+    legend_handles = [
+        matplotlib.patches.Patch(facecolor=c, label=label, edgecolor="white")
+        for label, c in seen.items()
     ]
-
-    for key, label, color, marker in modes:
-        xs, ys, names = [], [], []
-        for r in data:
-            p = _params(r["LLM"])
-            if p is None:
-                continue
-            xs.append(p)
-            ys.append(r.get(key, 0))
-            names.append(_short(r["LLM"]))
-
-        ax.scatter(xs, ys, c=color, marker=marker, s=80, alpha=0.85,
-                  label=label, zorder=5, edgecolors="white", linewidth=0.5)
-
-        # Trend line
-        if len(xs) >= 3:
-            log_x = np.log10(xs)
-            z = np.polyfit(log_x, ys, 1)
-            p = np.poly1d(z)
-            x_trend = np.linspace(min(log_x), max(log_x), 100)
-            ax.plot(10**x_trend, p(x_trend), color=color, alpha=0.4,
-                   linestyle="--", linewidth=2)
-
-        # Label points
-        for xi, yi, name in zip(xs, ys, names):
-            ax.annotate(name, (xi, yi), textcoords="offset points",
-                       xytext=(5, 5), fontsize=7, alpha=0.7)
-
-    ax.set_xscale("log")
-    ax.set_xlabel("Model Parameters (Billions)")
-    ax.set_ylabel("Accuracy (%)")
-    ax.set_title(f"Scaling Law: Pretrained vs RAG-Informed{title_suffix}")
-    ax.legend(fontsize=11, loc="lower right")
-    ax.grid(True, alpha=0.3)
-    ax.set_ylim(0, 105)
+    fig.legend(handles=legend_handles, title="Model family",
+               loc="lower center", ncol=len(seen),
+               bbox_to_anchor=(0.5, -0.04), fontsize=8,
+               title_fontsize=8, framealpha=0.9)
 
     plt.tight_layout()
-    safe = category.lower().replace(" ", "_").replace("(", "").replace(")", "") if category else "all"
-    path = output_dir / f"scaling_scatter_{safe}.png"
-    plt.savefig(path, dpi=200, bbox_inches="tight")
+    plt.subplots_adjust(bottom=0.14)
+    path = output_dir / "scaling_law.png"
+    plt.savefig(path)
     plt.close()
     print(f"  Saved: {path}")
 
@@ -324,18 +416,82 @@ def plot_scaling_scatter(results, output_dir, category=None):
 # Figure 4: Domain gap — accuracy vs category (line plot, clean)
 # ═══════════════════════════════════════════════════════════════════════
 
+REPRESENTATIVE_MODELS = [
+    "huggingface:meta-llama/Llama-3.2-1B-Instruct",
+    "huggingface:Qwen/Qwen2.5-7B-Instruct",
+    "huggingface:Qwen/Qwen2.5-14B-Instruct",
+    "huggingface:Qwen/Qwen2.5-32B-Instruct",
+    "huggingface:meta-llama/Llama-3.3-70B-Instruct",
+    "huggingface:deepseek-ai/DeepSeek-R1",
+]
+
+
+# Sequential palette for representative plot: light -> dark = small -> large
+SIZE_PALETTE = ["#B3CDE3", "#6BAED6", "#2171B5", "#08519C", "#74C476", "#006D2C"]
+
+
+def _plot_domain_gap_inner(complete, sorted_llms, output_dir, filename, title,
+                           figsize=(10, 6), use_size_palette=False):
+    """Shared rendering logic for domain gap plots."""
+    cat_order = ["General Knowledge", "Science", "C. elegans", "C. elegans (Corpus)"]
+    cat_labels = ["General\nKnowledge", "Science", "C. elegans\n(General)", "C. elegans\n(Corpus)"]
+
+    fig, ax = plt.subplots(figsize=figsize)
+
+    for i, llm in enumerate(sorted_llms):
+        name = _short(llm)
+        if use_size_palette:
+            color = SIZE_PALETTE[i % len(SIZE_PALETTE)]
+            lw, alpha = 2.8, 0.95
+        else:
+            color = COMPANY_COLORS.get(name, "#888888")
+            params = _params(llm)
+            lw = 2.5 if params and params >= 32 else 1.8
+            alpha = 0.95 if params and params >= 32 else 0.75
+
+        scores = [complete[llm][c] for c in cat_order]
+        params = _params(llm)
+        label = f"{name}  ({params}B)" if params else name
+
+        ax.plot(cat_labels, scores, "o-", label=label,
+                color=color, linewidth=lw, alpha=alpha, markersize=8)
+
+        # Score label at the corpus endpoint
+        ax.annotate(f"{scores[-1]:.0f}%", xy=(3, scores[-1]),
+                    xytext=(8, 0), textcoords="offset points",
+                    va="center", ha="left", fontsize=8.5,
+                    color=color, fontweight="bold")
+
+    ax.set_ylabel("Pretrained Accuracy (%)")
+    ax.set_title(title)
+    ax.set_ylim(0, 105)
+    ax.set_xlim(-0.2, 3.7)
+    ax.grid(axis="y", alpha=0.2, linewidth=0.5, color="0.7")
+    ax.legend(bbox_to_anchor=(1.02, 1), loc="upper left", fontsize=8.5,
+              title="Model  (params)", title_fontsize=8.5)
+
+    # Shade the specialist zone
+    ax.axvspan(1.5, 3.7, alpha=0.04, color="#1565C0", zorder=0)
+    ax.text(2.5, 2, "C. elegans specialist domain", ha="center", va="bottom",
+            fontsize=8, color="#1565C0", alpha=0.55, style="italic")
+
+    plt.tight_layout()
+    path = output_dir / filename
+    plt.savefig(path)
+    plt.close()
+    print(f"  Saved: {path}")
+
+
 def plot_domain_gap(results, output_dir):
-    """Line plot: each model's accuracy dropping from General → C. elegans."""
+    """Two domain gap figures: all models (full) + 6 representative models (clean)."""
     cat_order = ["General Knowledge", "Science", "C. elegans", "C. elegans (Corpus)"]
 
-    # Build per-model, per-category pretrained scores
     by_llm = defaultdict(dict)
     for r in results:
         cat = r.get("Quiz Category", "")
         if cat in cat_order:
             by_llm[r["LLM"]][cat] = r.get("Pretrained Accuracy (%)", 0)
 
-    # Only include models with all 4 categories
     complete = {llm: cats for llm, cats in by_llm.items()
                 if all(c in cats for c in cat_order)}
 
@@ -343,33 +499,27 @@ def plot_domain_gap(results, output_dir):
         print("  Not enough complete models for domain gap plot")
         return
 
-    # Sort by General Knowledge score (top performers first)
-    sorted_llms = sorted(complete.keys(),
+    sorted_all = sorted(complete.keys(),
                         key=lambda l: complete[l]["General Knowledge"], reverse=True)
 
-    fig, ax = plt.subplots(figsize=(10, 6))
+    # Full version — all models
+    _plot_domain_gap_inner(
+        complete, sorted_all, output_dir,
+        filename="domain_gap_all.png",
+        title="The Domain Gap: All Models Across Knowledge Domains",
+        figsize=(12, 6),
+    )
 
-    for llm in sorted_llms:
-        name = _short(llm)
-        color = COMPANY_COLORS.get(name, "#888888")
-        scores = [complete[llm][c] for c in cat_order]
-        params = _params(llm)
-        lw = 2.5 if params and params >= 32 else 1.5
-        alpha = 0.9 if params and params >= 32 else 0.6
-        ax.plot(cat_order, scores, "o-", label=f"{name} ({params}B)" if params else name,
-               color=color, linewidth=lw, alpha=alpha, markersize=6)
-
-    ax.set_ylabel("Pretrained Accuracy (%)")
-    ax.set_title("The Domain Gap: LLM Performance Across Knowledge Domains")
-    ax.set_ylim(0, 105)
-    ax.grid(axis="y", alpha=0.3)
-    ax.legend(bbox_to_anchor=(1.02, 1), loc="upper left", fontsize=8)
-
-    plt.tight_layout()
-    path = output_dir / "domain_gap.png"
-    plt.savefig(path, dpi=200, bbox_inches="tight")
-    plt.close()
-    print(f"  Saved: {path}")
+    # Representative version — 6 models, sequential size palette (light->dark = small->large)
+    rep_llms = [llm for llm in REPRESENTATIVE_MODELS if llm in complete]
+    rep_sorted = sorted(rep_llms, key=lambda l: _params(l) or 0)
+    _plot_domain_gap_inner(
+        complete, rep_sorted, output_dir,
+        filename="domain_gap_representative.png",
+        title="The Domain Gap: Representative Models (1B - 671B)",
+        figsize=(10, 6),
+        use_size_palette=True,
+    )
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -379,8 +529,8 @@ def plot_domain_gap(results, output_dir):
 def plot_error_breakdown(results, output_dir):
     """Side-by-side stacked bar: pretrained vs informed error types."""
     error_types = ["correct", "wrong_answer", "format_error", "parse_failure", "no_response"]
-    colors = {"correct": "#4CAF50", "wrong_answer": "#E53935", "format_error": "#FFB347",
-              "parse_failure": "#9B59B6", "no_response": "#95A5A6"}
+    colors = {"correct": "#2E7D32", "wrong_answer": "#C62828", "format_error": "#E65100",
+              "parse_failure": "#6A1E99", "no_response": "#757575"}
 
     # Aggregate per LLM across all categories
     llm_errors = defaultdict(lambda: {"pretrained": defaultdict(int), "informed": defaultdict(int)})
@@ -412,12 +562,12 @@ def plot_error_breakdown(results, output_dir):
         ax.set_title(title, fontsize=13)
         ax.set_xlabel("Question Count")
         ax.legend(fontsize=8, loc="lower right")
-        ax.grid(axis="x", alpha=0.3)
+        ax.grid(axis="x", alpha=0.2, linewidth=0.5, color='0.7')
 
     fig.suptitle("Error Type Breakdown: Pretrained vs RAG-Informed", fontsize=14, y=1.01)
     plt.tight_layout()
     path = output_dir / "error_breakdown.png"
-    plt.savefig(path, dpi=200, bbox_inches="tight")
+    plt.savefig(path)
     plt.close()
     print(f"  Saved: {path}")
 
@@ -456,25 +606,26 @@ def plot_calibration(detailed_results, output_dir):
 
     fig, ax1 = plt.subplots(figsize=(8, 5))
 
-    ax1.plot(bin_centers, bin_accs, "o-", color="#4878CF", linewidth=2.5,
+    ax1.plot(bin_centers, bin_accs, "o-", color=MODE_COLORS["RAG-Informed"], linewidth=2.5,
             markersize=10, label="RAG Accuracy", zorder=5)
 
     ax1.set_xlabel("Retrieval Similarity Score")
-    ax1.set_ylabel("RAG Accuracy (%)", color="#4878CF")
+    ax1.set_ylabel("RAG Accuracy (%)", color=MODE_COLORS["RAG-Informed"])
     ax1.set_title("Retrieval Quality vs RAG Accuracy")
-    ax1.set_ylim(40, 100)
+    ax1.set_ylim(0, 100)
 
     ax2 = ax1.twinx()
     ax2.bar(bin_centers, bin_counts, width=0.04, alpha=0.2, color="gray", label="N questions")
     ax2.set_ylabel("Questions in Bin", color="gray")
+    ax2.spines["top"].set_visible(False)
 
     ax1.legend(loc="upper left")
     ax2.legend(loc="upper right")
-    ax1.grid(True, alpha=0.3)
+    ax1.grid(True, alpha=0.2, linewidth=0.5, color='0.7')
 
     plt.tight_layout()
     path = output_dir / "calibration.png"
-    plt.savefig(path, dpi=200, bbox_inches="tight")
+    plt.savefig(path)
     plt.close()
     print(f"  Saved: {path}")
 
@@ -527,12 +678,12 @@ def plot_pretrained_vs_informed_scatter(results, output_dir, category=None):
     ax.set_ylim(0, 105)
     ax.set_aspect("equal")
     ax.legend(loc="lower right", fontsize=9)
-    ax.grid(True, alpha=0.3)
+    ax.grid(True, alpha=0.2, linewidth=0.5, color='0.7')
 
     plt.tight_layout()
     safe = category.lower().replace(" ", "_").replace("(", "").replace(")", "") if category else "all"
     path = output_dir / f"scatter_pre_vs_inf_{safe}.png"
-    plt.savefig(path, dpi=200, bbox_inches="tight")
+    plt.savefig(path)
     plt.close()
     print(f"  Saved: {path}")
 
@@ -561,11 +712,10 @@ def main():
     # 2. RAG delta — corpus only
     plot_rag_delta_corpus(results, output_dir)
 
-    # 3. Scaling scatter — corpus and all
-    plot_scaling_scatter(results, output_dir, "C. elegans (Corpus)")
-    plot_scaling_scatter(results, output_dir)
+    # 3. Scaling law — RAG delta vs params + ceiling effect
+    plot_scaling_law(results, output_dir, category="C. elegans (Corpus)")
 
-    # 4. Domain gap
+    # 4. Domain gap — full (all models) + representative (6 models)
     plot_domain_gap(results, output_dir)
 
     # 5. Error breakdown
